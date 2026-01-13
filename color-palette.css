@@ -2,6 +2,7 @@
 ╔═══════════════════════════════════════════════════════════════════════╗
 ║              🎨 COLOR PALETTE - สำนักงานเกษตรอำเภอพุทธมณฑล              ║
 ║                    Phutthamonthon DOAE Website                        ║
+║              🌿 Theme: Green, White, Orange (Agriculture)             ║
 ╚═══════════════════════════════════════════════════════════════════════╝
 */
 
@@ -10,27 +11,35 @@
     /*     PRIMARY COLORS        */
     /* ========================= */
 
-    --color-dark-blue: #1a3a5c;
-    /* น้ำเงินเข้ม - ใช้สำหรับ: พื้นหลัง Footer, หัวข้อหลัก */
-    --color-medium-blue: #2d5a87;
-    /* น้ำเงินกลาง - ใช้สำหรับ: ปุ่ม, ไอคอน, Gradient */
-    --color-light-blue: #4a7ab0;
-    /* น้ำเงินอ่อน - ใช้สำหรับ: Hover, Accent, ลิงก์ */
-    --color-accent-blue: #3B6EA5;
-    /* น้ำเงิน Accent - ใช้สำหรับ: เส้นขอบ, Border */
+    --color-dark-green: #1b5e20;
+    /* เขียวเข้ม - ใช้สำหรับ: พื้นหลัง Footer, หัวข้อหลัก */
+    --color-medium-green: #2e7d32;
+    /* เขียวกลาง - ใช้สำหรับ: ปุ่ม, ไอคอน, Gradient */
+    --color-light-green: #43a047;
+    /* เขียวอ่อน - ใช้สำหรับ: Hover, Accent, ลิงก์ */
+    --color-accent-green: #388e3c;
+    /* เขียว Accent - ใช้สำหรับ: เส้นขอบ, Border */
+
+    /* Orange Accent */
+    --color-orange: #f57c00;
+    /* ส้มหลัก - ใช้สำหรับ: ปุ่มเน้น, Badge, CTA */
+    --color-orange-light: #ff9800;
+    /* ส้มอ่อน - ใช้สำหรับ: Hover */
+    --color-orange-dark: #e65100;
+    /* ส้มเข้ม - ใช้สำหรับ: Active state */
 
 
     /* ========================= */
     /*     TEXT COLORS           */
     /* ========================= */
 
-    --color-text-dark: #1a3a5c;
+    --color-text-dark: #1b5e20;
     /* ข้อความหลัก (หัวข้อ) */
-    --color-text-medium: #5A7A9A;
+    --color-text-medium: #2e7d32;
     /* ข้อความรอง */
-    --color-text-light: #6a8ab0;
+    --color-text-light: #558b2f;
     /* ข้อความอ่อน */
-    --color-text-muted: #7A8A9A;
+    --color-text-muted: #689f38;
     /* ข้อความจาง */
 
 
@@ -38,31 +47,35 @@
     /*     BACKGROUND COLORS     */
     /* ========================= */
 
-    --color-bg-light: #f8fafc;
-    /* พื้นหลังอ่อน */
-    --color-bg-blue-tint: #e8f0f8;
-    /* พื้นหลังฟ้าอ่อน */
+    --color-bg-light: #f1f8e9;
+    /* พื้นหลังอ่อน (เขียวอ่อนมาก) */
+    --color-bg-green-tint: #e8f5e9;
+    /* พื้นหลังเขียวอ่อน */
     --color-bg-white: #ffffff;
     /* ขาว */
+    --color-bg-cream: #fffde7;
+    /* ครีมอ่อน (เข้ากับส้ม) */
 
 
     /* ========================= */
     /*     GRADIENT PRESETS      */
     /* ========================= */
 
-    --gradient-primary: linear-gradient(135deg, #1a3a5c, #2d5a87, #4a7ab0);
-    --gradient-header: linear-gradient(90deg, #1a3a5c, #2d5a87, #4a7ab0, #2d5a87, #1a3a5c);
-    --gradient-bg: linear-gradient(135deg, #f0f7ff 0%, #d4e8ff 50%, #e8f2ff 100%);
-    --gradient-button: linear-gradient(135deg, #2d5a87, #4a7ab0);
+    --gradient-primary: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047);
+    --gradient-header: linear-gradient(90deg, #1b5e20, #2e7d32, #43a047, #2e7d32, #1b5e20);
+    --gradient-bg: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #f1f8e9 100%);
+    --gradient-button: linear-gradient(135deg, #2e7d32, #43a047);
+    --gradient-orange: linear-gradient(135deg, #f57c00, #ff9800);
 
 
     /* ========================= */
     /*     SHADOW PRESETS        */
     /* ========================= */
 
-    --shadow-card: 0 10px 40px rgba(45, 90, 135, 0.1);
-    --shadow-button: 0 5px 15px rgba(45, 90, 135, 0.3);
-    --shadow-hover: 0 8px 20px rgba(45, 90, 135, 0.4);
+    --shadow-card: 0 10px 40px rgba(27, 94, 32, 0.12);
+    --shadow-button: 0 5px 15px rgba(46, 125, 50, 0.3);
+    --shadow-hover: 0 8px 20px rgba(46, 125, 50, 0.4);
+    --shadow-orange: 0 5px 15px rgba(245, 124, 0, 0.3);
 }
 
 
@@ -73,24 +86,38 @@
 
 COLOR HEX CODES (Copy & Paste):
 ────────────────────────────────
-Dark Blue:   #1a3a5c
-Medium Blue: #2d5a87
-Light Blue:  #4a7ab0
-Accent Blue: #3B6EA5
+🌿 GREEN PALETTE:
+Dark Green:   #1b5e20
+Medium Green: #2e7d32
+Light Green:  #43a047
+Accent Green: #388e3c
+
+🧡 ORANGE PALETTE:
+Dark Orange:  #e65100
+Orange:       #f57c00
+Light Orange: #ff9800
+
+⬜ NEUTRAL:
+White:        #ffffff
+Cream:        #fffde7
+Light BG:     #f1f8e9
+Green Tint:   #e8f5e9
 
 USAGE EXAMPLES:
 ────────────────────────────────
-Header Background:    #1a3a5c หรือ gradient
-Button:               #2d5a87 → #4a7ab0 (gradient)
-Link Hover:           #4a7ab0
-Border/Accent:        #3B6EA5
-Card Shadow:          rgba(45,90,135,0.1)
+Header Background:    #1b5e20 หรือ gradient
+Button Primary:       #2e7d32 → #43a047 (gradient)
+Button CTA/Accent:    #f57c00 → #ff9800 (gradient)
+Link Hover:           #43a047
+Border/Accent:        #388e3c
+Card Shadow:          rgba(27,94,32,0.12)
 
 RGB VALUES:
 ────────────────────────────────
-#1a3a5c = rgb(26, 58, 92)
-#2d5a87 = rgb(45, 90, 135)
-#4a7ab0 = rgb(74, 122, 176)
-#3B6EA5 = rgb(59, 110, 165)
+#1b5e20 = rgb(27, 94, 32)
+#2e7d32 = rgb(46, 125, 50)
+#43a047 = rgb(67, 160, 71)
+#f57c00 = rgb(245, 124, 0)
+#ff9800 = rgb(255, 152, 0)
 
 */

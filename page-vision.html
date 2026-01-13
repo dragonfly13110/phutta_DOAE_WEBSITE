@@ -1,0 +1,408 @@
+<!-- 🎯 VISION & MISSION PAGE - สำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- Theme: Green, White, Orange (Agriculture) -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+    .vision-section * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Prompt', sans-serif;
+    }
+
+    .vision-section {
+        background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+        padding: 60px 20px;
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+    }
+
+    .vision-section::before {
+        content: '';
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(46, 125, 50, 0.1) 0%, transparent 70%);
+        top: -200px;
+        right: -200px;
+        border-radius: 50%;
+    }
+
+    .vision-section::after {
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(245, 124, 0, 0.08) 0%, transparent 70%);
+        bottom: -100px;
+        left: -100px;
+        border-radius: 50%;
+    }
+
+    .vision-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+
+    .page-title {
+        text-align: center;
+        margin-bottom: 50px;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .page-title h2 {
+        font-size: 40px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+    }
+
+    .page-title p {
+        color: #558b2f;
+        font-size: 18px;
+    }
+
+    /* Vision Card - Hero Style */
+    .vision-card {
+        background: linear-gradient(135deg, #1b5e20, #2e7d32);
+        border-radius: 24px;
+        padding: 50px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(27, 94, 32, 0.3);
+        animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .vision-card::before {
+        content: '';
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        top: -100px;
+        right: -100px;
+        border-radius: 50%;
+    }
+
+    .vision-card::after {
+        content: '';
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(245, 124, 0, 0.15) 0%, transparent 70%);
+        bottom: -50px;
+        left: 10%;
+        border-radius: 50%;
+    }
+
+    .vision-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #f57c00, #ff9800);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px;
+        box-shadow: 0 10px 30px rgba(245, 124, 0, 0.4);
+        position: relative;
+        z-index: 1;
+    }
+
+    .vision-icon svg {
+        width: 40px;
+        height: 40px;
+        fill: white;
+    }
+
+    .vision-label {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .vision-text {
+        color: white;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+    }
+
+    .vision-text span {
+        display: block;
+    }
+
+    /* Motto Card */
+    .motto-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(27, 94, 32, 0.12);
+        animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        border-left: 5px solid #f57c00;
+        position: relative;
+    }
+
+    .motto-card::before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        font-size: 80px;
+        color: #e8f5e9;
+        font-family: Georgia, serif;
+        line-height: 1;
+    }
+
+    .motto-label {
+        display: inline-block;
+        background: linear-gradient(135deg, #f57c00, #ff9800);
+        color: white;
+        padding: 8px 24px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+    }
+
+    .motto-text {
+        color: #1b5e20;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.8;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Mission Card */
+    .mission-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(27, 94, 32, 0.12);
+        animation: fadeInUp 0.8s ease-out 0.6s backwards;
+    }
+
+    .mission-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .mission-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #2e7d32, #43a047);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 20px rgba(46, 125, 50, 0.3);
+    }
+
+    .mission-icon svg {
+        width: 30px;
+        height: 30px;
+        fill: white;
+    }
+
+    .mission-title {
+        color: #1b5e20;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .mission-list {
+        list-style: none;
+    }
+
+    .mission-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 25px;
+        background: linear-gradient(135deg, #f9fbe7 0%, #f1f8e9 100%);
+        border-radius: 16px;
+        margin-bottom: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        border-left: 4px solid #43a047;
+    }
+
+    .mission-item:hover {
+        transform: translateX(10px);
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.15);
+        border-left-color: #f57c00;
+    }
+
+    .mission-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .mission-number {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, #43a047, #66bb6a);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        flex-shrink: 0;
+        box-shadow: 0 4px 15px rgba(67, 160, 71, 0.3);
+    }
+
+    .mission-item:hover .mission-number {
+        background: linear-gradient(135deg, #f57c00, #ff9800);
+    }
+
+    .mission-content {
+        flex: 1;
+    }
+
+    .mission-content p {
+        color: #2e7d32;
+        font-size: 18px;
+        line-height: 1.7;
+        font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .page-title h2 {
+            font-size: 32px;
+        }
+
+        .vision-card {
+            padding: 30px;
+        }
+
+        .vision-text {
+            font-size: 24px;
+        }
+
+        .motto-text {
+            font-size: 20px;
+        }
+
+        .mission-item {
+            padding: 20px;
+        }
+
+        .mission-content p {
+            font-size: 16px;
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<div class="vision-section">
+    <div class="vision-container">
+        <!-- Page Title -->
+        <div class="page-title">
+            <h2>🎯 วิสัยทัศน์ & พันธกิจ</h2>
+            <p>สำนักงานเกษตรอำเภอพุทธมณฑล</p>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="vision-card">
+            <div class="vision-icon">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                </svg>
+            </div>
+            <p class="vision-label">วิสัยทัศน์ / Vision</p>
+            <h3 class="vision-text">
+                <span>"เกษตรกรมีความเข้มแข็ง มีคุณภาพชีวิตที่ดี</span>
+                <span>และมีรายได้เพิ่มขึ้น"</span>
+            </h3>
+        </div>
+
+        <!-- Motto Card -->
+        <div class="motto-card">
+            <span class="motto-label">✨ คำขวัญ</span>
+            <p class="motto-text">
+                "ส่งเสริมการเกษตรอย่างสร้างสรรค์<br>
+                ก้าวทันสถานการณ์ ปฏิบัติงานด้วยความภาคภูมิ"
+            </p>
+        </div>
+
+        <!-- Mission Card -->
+        <div class="mission-card">
+            <div class="mission-header">
+                <div class="mission-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                    </svg>
+                </div>
+                <h3 class="mission-title">พันธกิจ</h3>
+            </div>
+
+            <ul class="mission-list">
+                <li class="mission-item">
+                    <div class="mission-number">1</div>
+                    <div class="mission-content">
+                        <p>ส่งเสริมและพัฒนาเกษตรกรให้มีความเข้มแข็งและสามารถพึ่งตนเองได้</p>
+                    </div>
+                </li>
+
+                <li class="mission-item">
+                    <div class="mission-number">2</div>
+                    <div class="mission-content">
+                        <p>ส่งเสริมและพัฒนาเกษตรกรให้มีขีดความสามารถในการผลิตและจัดการสินค้าเกษตร
+                            โดยยึดหลักตลาดนำการผลิต</p>
+                    </div>
+                </li>
+
+                <li class="mission-item">
+                    <div class="mission-number">3</div>
+                    <div class="mission-content">
+                        <p>ให้บริการทางการเกษตรและผลิตปัจจัยทางการเกษตรเพื่อสนับสนุนและจำหน่ายแก่เกษตรกรและหน่วยงานที่เกี่ยวข้อง
+                        </p>
+                    </div>
+                </li>
+
+                <li class="mission-item">
+                    <div class="mission-number">4</div>
+                    <div class="mission-content">
+                        <p>ศึกษา วิจัย และพัฒนางานด้านการส่งเสริมการเกษตร และบูรณาการการทำงานกับทุกภาคส่วน</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

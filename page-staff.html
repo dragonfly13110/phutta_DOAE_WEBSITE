@@ -1,0 +1,367 @@
+<!-- 👥 STAFF PAGE - สำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- Theme: Green, White, Orange (Agriculture) -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+    .staff-section * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Prompt', sans-serif;
+    }
+
+    .staff-section {
+        background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+        padding: 60px 20px;
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+    }
+
+    .staff-section::before {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(46, 125, 50, 0.1) 0%, transparent 70%);
+        top: -150px;
+        right: -150px;
+        border-radius: 50%;
+    }
+
+    .staff-section::after {
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(245, 124, 0, 0.08) 0%, transparent 70%);
+        bottom: -100px;
+        left: -100px;
+        border-radius: 50%;
+    }
+
+    .staff-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+
+    .staff-title {
+        text-align: center;
+        margin-bottom: 50px;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .staff-title h2 {
+        font-size: 36px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+    }
+
+    .staff-title p {
+        color: #558b2f;
+        font-size: 20px;
+    }
+
+    /* Director Card - Featured */
+    .director-card {
+        background: linear-gradient(135deg, #1b5e20, #2e7d32);
+        border-radius: 24px;
+        padding: 40px;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        box-shadow: 0 20px 60px rgba(27, 94, 32, 0.3);
+        animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .director-card::before {
+        content: '';
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        top: -100px;
+        right: -100px;
+        border-radius: 50%;
+    }
+
+    .director-card::after {
+        content: '';
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle, rgba(245, 124, 0, 0.2) 0%, transparent 70%);
+        bottom: -50px;
+        left: 20%;
+        border-radius: 50%;
+    }
+
+    .director-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 5px solid rgba(255, 255, 255, 0.3);
+        overflow: hidden;
+        flex-shrink: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, #43a047, #66bb6a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .director-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .director-photo svg {
+        width: 80px;
+        height: 80px;
+        fill: rgba(255, 255, 255, 0.5);
+    }
+
+    .director-info {
+        flex: 1;
+        color: white;
+        position: relative;
+        z-index: 1;
+    }
+
+    .director-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #f57c00, #ff9800);
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 15px rgba(245, 124, 0, 0.4);
+    }
+
+    .director-name {
+        font-size: 34px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .director-position {
+        font-size: 22px;
+        opacity: 0.95;
+        margin-bottom: 15px;
+    }
+
+    .director-desc {
+        font-size: 17px;
+        opacity: 0.9;
+        line-height: 1.7;
+    }
+
+    /* Staff Grid */
+    .staff-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .staff-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(27, 94, 32, 0.12);
+        transition: transform 0.3s, box-shadow 0.3s;
+        animation: fadeInUp 0.8s ease-out backwards;
+        border-top: 4px solid #43a047;
+    }
+
+    .staff-card:nth-child(1) {
+        animation-delay: 0.3s;
+    }
+
+    .staff-card:nth-child(2) {
+        animation-delay: 0.4s;
+    }
+
+    .staff-card:nth-child(3) {
+        animation-delay: 0.5s;
+    }
+
+    .staff-card:nth-child(4) {
+        animation-delay: 0.6s;
+    }
+
+    .staff-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(27, 94, 32, 0.2);
+        border-top-color: #f57c00;
+    }
+
+    .staff-photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        overflow: hidden;
+        border: 4px solid #e8f5e9;
+        box-shadow: 0 5px 20px rgba(46, 125, 50, 0.15);
+        background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .staff-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .staff-photo svg {
+        width: 50px;
+        height: 50px;
+        fill: #43a047;
+    }
+
+    .staff-name {
+        font-size: 24px;
+        font-weight: 600;
+        color: #1b5e20;
+        margin-bottom: 12px;
+    }
+
+    .staff-position {
+        font-size: 17px;
+        color: #2e7d32;
+        line-height: 1.6;
+        padding: 12px 20px;
+        background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+        border-radius: 12px;
+        display: inline-block;
+        font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .director-card {
+            flex-direction: column;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .director-photo {
+            width: 140px;
+            height: 140px;
+        }
+
+        .director-name {
+            font-size: 24px;
+        }
+
+        .staff-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<div class="staff-section">
+    <div class="staff-container">
+        <!-- Title -->
+        <div class="staff-title">
+            <h2>👥 บุคลากรของเรา</h2>
+            <p>ทีมงานสำนักงานเกษตรอำเภอพุทธมณฑล พร้อมให้บริการ</p>
+        </div>
+
+        <!-- Director Card -->
+        <div class="director-card">
+            <div class="director-photo">
+                <!-- Replace with actual photo -->
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+            </div>
+            <div class="director-info">
+                <span class="director-badge">👑 หัวหน้าสำนักงาน</span>
+                <h3 class="director-name">นางสายสุนี ผลศรัทธา</h3>
+                <p class="director-position">เกษตรอำเภอพุทธมณฑล</p>
+                <p class="director-desc">ผู้นำทีมงานสำนักงานเกษตรอำเภอพุทธมณฑล
+                    ดูแลและส่งเสริมการเกษตรในพื้นที่อำเภอพุทธมณฑล จังหวัดนครปฐม</p>
+            </div>
+        </div>
+
+        <!-- Staff Grid -->
+        <div class="staff-grid">
+            <!-- Staff 1 -->
+            <div class="staff-card">
+                <div class="staff-photo">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+                <h3 class="staff-name">นางสาวศิรประภา สุวรรณมณี</h3>
+                <span class="staff-position">นักวิชาการส่งเสริมการเกษตร<br>ชำนาญการ</span>
+            </div>
+
+            <!-- Staff 2 -->
+            <div class="staff-card">
+                <div class="staff-photo">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+                <h3 class="staff-name">นางสาววาสนา ไชยฤกษ์</h3>
+                <span class="staff-position">นักวิชาการส่งเสริมการเกษตร<br>ปฏิบัติการ</span>
+            </div>
+
+            <!-- Staff 3 -->
+            <div class="staff-card">
+                <div class="staff-photo">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+                <h3 class="staff-name">นายอภิสิทธิ์ ไชยชาติ</h3>
+                <span class="staff-position">นักวิชาการส่งเสริมการเกษตร<br>ชำนาญการ</span>
+            </div>
+
+            <!-- Staff 4 -->
+            <div class="staff-card">
+                <div class="staff-photo">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+                <h3 class="staff-name">นายตรีศร ทรัพย์บริบูรณ์</h3>
+                <span class="staff-position">นักวิชาการส่งเสริมการเกษตร</span>
+            </div>
+        </div>
+    </div>
+</div>
