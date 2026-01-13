@@ -1,0 +1,549 @@
+[
+    {
+        "name": "core/group",
+        "attributes": {
+            "style": {
+                "color": {
+                    "background": "#2E7D32"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "10px",
+                        "bottom": "10px"
+                    }
+                }
+            },
+            "layout": {
+                "type": "constrained"
+            }
+        },
+        "innerBlocks": [
+            {
+                "name": "core/paragraph",
+                "attributes": {
+                    "content": "ยินดีต้อนรับสู่เว็บไซต์สำนักงานเกษตรอำเภอพุทธมณฑล",
+                    "align": "center",
+                    "style": {
+                        "color": {
+                            "text": "#ffffff"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "name": "core/group",
+        "attributes": {
+            "style": {
+                "color": {
+                    "background": "#ffffff"
+                },
+                "border": {
+                    "bottom": {
+                        "color": "#F9A825",
+                        "width": "4px",
+                        "style": "solid"
+                    }
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "30px",
+                        "bottom": "30px"
+                    }
+                }
+            },
+            "layout": {
+                "type": "constrained"
+            }
+        },
+        "innerBlocks": [
+            {
+                "name": "core/heading",
+                "attributes": {
+                    "content": "สำนักงานเกษตรอำเภอพุทธมณฑล",
+                    "textAlign": "center",
+                    "level": 1,
+                    "style": {
+                        "color": {
+                            "text": "#2E7D32"
+                        },
+                        "typography": {
+                            "fontSize": "36px",
+                            "fontWeight": "700"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "core/paragraph",
+                "attributes": {
+                    "content": "Phutthamonthon District Agricultural Office",
+                    "align": "center",
+                    "style": {
+                        "color": {
+                            "text": "#666666"
+                        },
+                        "typography": {
+                            "fontSize": "18px"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "name": "core/group",
+        "attributes": {
+            "style": {
+                "color": {
+                    "background": "#f9f9f9"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "40px",
+                        "bottom": "40px",
+                        "left": "30px",
+                        "right": "30px"
+                    }
+                }
+            },
+            "layout": {
+                "type": "constrained"
+            }
+        },
+        "innerBlocks": [
+            {
+                "name": "core/heading",
+                "attributes": {
+                    "content": "โครงสร้างองค์กร",
+                    "level": 2,
+                    "style": {
+                        "color": {
+                            "text": "#2E7D32"
+                        },
+                        "border": {
+                            "left": {
+                                "color": "#F9A825",
+                                "width": "5px",
+                                "style": "solid"
+                            }
+                        },
+                        "spacing": {
+                            "padding": {
+                                "left": "15px"
+                            }
+                        },
+                        "typography": {
+                            "fontSize": "28px"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "core/paragraph",
+                "attributes": {
+                    "content": "แผนผังโครงสร้างการบริหารงานสำนักงานเกษตรอำเภอพุทธมณฑล",
+                    "align": "center",
+                    "style": {
+                        "color": {
+                            "text": "#666666"
+                        },
+                        "spacing": {
+                            "margin": {
+                                "bottom": "30px"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "name": "core/group",
+                "attributes": {
+                    "style": {
+                        "border": {
+                            "width": "2px",
+                            "color": "#2E7D32",
+                            "radius": "8px"
+                        },
+                        "spacing": {
+                            "padding": {
+                                "top": "20px",
+                                "bottom": "20px",
+                                "left": "20px",
+                                "right": "20px"
+                            }
+                        },
+                        "color": {
+                            "background": "#ffffff"
+                        }
+                    },
+                    "layout": {
+                        "type": "constrained",
+                        "contentSize": "300px"
+                    }
+                },
+                "innerBlocks": [
+                    {
+                        "name": "core/heading",
+                        "attributes": {
+                            "content": "เกษตรอำเภอ",
+                            "textAlign": "center",
+                            "level": 3,
+                            "style": {
+                                "color": {
+                                    "text": "#2E7D32"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "core/paragraph",
+                        "attributes": {
+                            "content": "หัวหน้าสำนักงาน",
+                            "align": "center",
+                            "style": {
+                                "color": {
+                                    "text": "#666666"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "core/columns",
+                "attributes": {
+                    "style": {
+                        "spacing": {
+                            "margin": {
+                                "top": "40px"
+                            }
+                        }
+                    }
+                },
+                "innerBlocks": [
+                    {
+                        "name": "core/column",
+                        "innerBlocks": [
+                            {
+                                "name": "core/group",
+                                "attributes": {
+                                    "style": {
+                                        "border": {
+                                            "width": "2px",
+                                            "color": "#2E7D32",
+                                            "radius": "8px"
+                                        },
+                                        "spacing": {
+                                            "padding": {
+                                                "top": "15px",
+                                                "bottom": "15px",
+                                                "left": "15px",
+                                                "right": "15px"
+                                            }
+                                        },
+                                        "color": {
+                                            "background": "#ffffff"
+                                        }
+                                    }
+                                },
+                                "innerBlocks": [
+                                    {
+                                        "name": "core/heading",
+                                        "attributes": {
+                                            "content": "เจ้าหน้าที่บริหารงานทั่วไป",
+                                            "textAlign": "center",
+                                            "level": 4,
+                                            "style": {
+                                                "color": {
+                                                    "text": "#2E7D32"
+                                                },
+                                                "typography": {
+                                                    "fontSize": "16px"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "core/paragraph",
+                                        "attributes": {
+                                            "content": "รับผิดชอบงานธุรการและการเงิน",
+                                            "align": "center",
+                                            "style": {
+                                                "color": {
+                                                    "text": "#666666"
+                                                },
+                                                "typography": {
+                                                    "fontSize": "14px"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "core/column",
+                        "innerBlocks": [
+                            {
+                                "name": "core/group",
+                                "attributes": {
+                                    "style": {
+                                        "border": {
+                                            "width": "2px",
+                                            "color": "#2E7D32",
+                                            "radius": "8px"
+                                        },
+                                        "spacing": {
+                                            "padding": {
+                                                "top": "15px",
+                                                "bottom": "15px",
+                                                "left": "15px",
+                                                "right": "15px"
+                                            }
+                                        },
+                                        "color": {
+                                            "background": "#ffffff"
+                                        }
+                                    }
+                                },
+                                "innerBlocks": [
+                                    {
+                                        "name": "core/heading",
+                                        "attributes": {
+                                            "content": "นักวิชาการส่งเสริมการเกษตร",
+                                            "textAlign": "center",
+                                            "level": 4,
+                                            "style": {
+                                                "color": {
+                                                    "text": "#2E7D32"
+                                                },
+                                                "typography": {
+                                                    "fontSize": "16px"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "core/paragraph",
+                                        "attributes": {
+                                            "content": "รับผิดชอบตำบลศาลายา",
+                                            "align": "center",
+                                            "style": {
+                                                "color": {
+                                                    "text": "#666666"
+                                                },
+                                                "typography": {
+                                                    "fontSize": "14px"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "core/column",
+                        "innerBlocks": [
+                            {
+                                "name": "core/group",
+                                "attributes": {
+                                    "style": {
+                                        "border": {
+                                            "width": "2px",
+                                            "color": "#2E7D32",
+                                            "radius": "8px"
+                                        },
+                                        "spacing": {
+                                            "padding": {
+                                                "top": "15px",
+                                                "bottom": "15px",
+                                                "left": "15px",
+                                                "right": "15px"
+                                            }
+                                        },
+                                        "color": {
+                                            "background": "#ffffff"
+                                        }
+                                    }
+                                },
+                                "innerBlocks": [
+                                    {
+                                        "name": "core/heading",
+                                        "attributes": {
+                                            "content": "นักวิชาการส่งเสริมการเกษตร",
+                                            "textAlign": "center",
+                                            "level": 4,
+                                            "style": {
+                                                "color": {
+                                                    "text": "#2E7D32"
+                                                },
+                                                "typography": {
+                                                    "fontSize": "16px"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "core/paragraph",
+                                        "attributes": {
+                                            "content": "รับผิดชอบตำบลคลองโยง",
+                                            "align": "center",
+                                            "style": {
+                                                "color": {
+                                                    "text": "#666666"
+                                                },
+                                                "typography": {
+                                                    "fontSize": "14px"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "core/column",
+                        "innerBlocks": [
+                            {
+                                "name": "core/group",
+                                "attributes": {
+                                    "style": {
+                                        "border": {
+                                            "width": "2px",
+                                            "color": "#2E7D32",
+                                            "radius": "8px"
+                                        },
+                                        "spacing": {
+                                            "padding": {
+                                                "top": "15px",
+                                                "bottom": "15px",
+                                                "left": "15px",
+                                                "right": "15px"
+                                            }
+                                        },
+                                        "color": {
+                                            "background": "#ffffff"
+                                        }
+                                    }
+                                },
+                                "innerBlocks": [
+                                    {
+                                        "name": "core/heading",
+                                        "attributes": {
+                                            "content": "นักวิชาการส่งเสริมการเกษตร",
+                                            "textAlign": "center",
+                                            "level": 4,
+                                            "style": {
+                                                "color": {
+                                                    "text": "#2E7D32"
+                                                },
+                                                "typography": {
+                                                    "fontSize": "16px"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "core/paragraph",
+                                        "attributes": {
+                                            "content": "รับผิดชอบตำบลมหาสวัสดิ์",
+                                            "align": "center",
+                                            "style": {
+                                                "color": {
+                                                    "text": "#666666"
+                                                },
+                                                "typography": {
+                                                    "fontSize": "14px"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "core/group",
+        "attributes": {
+            "style": {
+                "color": {
+                    "background": "#ffffff"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "30px",
+                        "bottom": "30px",
+                        "left": "30px",
+                        "right": "30px"
+                    }
+                },
+                "border": {
+                    "top": {
+                        "color": "#e0e0e0",
+                        "width": "1px",
+                        "style": "solid"
+                    }
+                }
+            }
+        },
+        "innerBlocks": [
+            {
+                "name": "core/heading",
+                "attributes": {
+                    "content": "บทบาทหน้าที่หลัก",
+                    "level": 3,
+                    "style": {
+                        "color": {
+                            "text": "#333333"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "core/list",
+                "attributes": {
+                    "style": {
+                        "color": {
+                            "text": "#444444"
+                        }
+                    }
+                },
+                "innerBlocks": [
+                    {
+                        "name": "core/list-item",
+                        "attributes": {
+                            "content": "ส่งเสริมและพัฒนาเกษตรกร องค์กรเกษตรกร และวิสาหกิจชุมชน"
+                        }
+                    },
+                    {
+                        "name": "core/list-item",
+                        "attributes": {
+                            "content": "ส่งเสริมและพัฒนาการผลิตสินค้าเกษตร และผลิตภัณฑ์แปรรูป"
+                        }
+                    },
+                    {
+                        "name": "core/list-item",
+                        "attributes": {
+                            "content": "ถ่ายทอดความรู้และเทคโนโลยีการเกษตร"
+                        }
+                    },
+                    {
+                        "name": "core/list-item",
+                        "attributes": {
+                            "content": "ให้บริการทางการเกษตรและประสานงานความช่วยเหลือแก่เกษตรกร"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

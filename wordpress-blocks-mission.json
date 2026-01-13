@@ -1,0 +1,478 @@
+[
+    {
+        "name": "core/group",
+        "attributes": {
+            "style": {
+                "color": {
+                    "background": "#2E7D32"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "10px",
+                        "bottom": "10px"
+                    }
+                }
+            },
+            "layout": {
+                "type": "constrained"
+            }
+        },
+        "innerBlocks": [
+            {
+                "name": "core/paragraph",
+                "attributes": {
+                    "content": "ยินดีต้อนรับสู่เว็บไซต์สำนักงานเกษตรอำเภอพุทธมณฑล",
+                    "align": "center",
+                    "style": {
+                        "color": {
+                            "text": "#ffffff"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "name": "core/group",
+        "attributes": {
+            "style": {
+                "color": {
+                    "background": "#ffffff"
+                },
+                "border": {
+                    "bottom": {
+                        "color": "#F9A825",
+                        "width": "4px",
+                        "style": "solid"
+                    }
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "30px",
+                        "bottom": "30px"
+                    }
+                }
+            },
+            "layout": {
+                "type": "constrained"
+            }
+        },
+        "innerBlocks": [
+            {
+                "name": "core/heading",
+                "attributes": {
+                    "content": "สำนักงานเกษตรอำเภอพุทธมณฑล",
+                    "textAlign": "center",
+                    "level": 1,
+                    "style": {
+                        "color": {
+                            "text": "#2E7D32"
+                        },
+                        "typography": {
+                            "fontSize": "36px",
+                            "fontWeight": "700"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "core/paragraph",
+                "attributes": {
+                    "content": "Phutthamonthon District Agricultural Office",
+                    "align": "center",
+                    "style": {
+                        "color": {
+                            "text": "#666666"
+                        },
+                        "typography": {
+                            "fontSize": "18px"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "name": "core/group",
+        "attributes": {
+            "style": {
+                "color": {
+                    "background": "#f9f9f9"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "40px",
+                        "bottom": "40px",
+                        "left": "30px",
+                        "right": "30px"
+                    }
+                }
+            },
+            "layout": {
+                "type": "constrained"
+            }
+        },
+        "innerBlocks": [
+            {
+                "name": "core/heading",
+                "attributes": {
+                    "content": "วิสัยทัศน์และพันธกิจ",
+                    "level": 2,
+                    "style": {
+                        "color": {
+                            "text": "#2E7D32"
+                        },
+                        "border": {
+                            "left": {
+                                "color": "#F9A825",
+                                "width": "5px",
+                                "style": "solid"
+                            }
+                        },
+                        "spacing": {
+                            "padding": {
+                                "left": "15px"
+                            }
+                        },
+                        "typography": {
+                            "fontSize": "28px"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "core/group",
+                "attributes": {
+                    "style": {
+                        "color": {
+                            "background": "#e8f5e9"
+                        },
+                        "spacing": {
+                            "padding": {
+                                "top": "30px",
+                                "bottom": "30px",
+                                "left": "30px",
+                                "right": "30px"
+                            },
+                            "margin": {
+                                "top": "30px"
+                            }
+                        },
+                        "border": {
+                            "left": {
+                                "color": "#2E7D32",
+                                "width": "5px",
+                                "style": "solid"
+                            },
+                            "radius": "8px"
+                        }
+                    }
+                },
+                "innerBlocks": [
+                    {
+                        "name": "core/heading",
+                        "attributes": {
+                            "content": "วิสัยทัศน์ (Vision)",
+                            "level": 3,
+                            "style": {
+                                "color": {
+                                    "text": "#2E7D32"
+                                },
+                                "typography": {
+                                    "fontSize": "24px"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "core/paragraph",
+                        "attributes": {
+                            "content": "\"เกษตรกรมีความเข้มแข็ง มีคุณภาพชีวิตที่ดี และสินค้าเกษตรมีคุณภาพมาตรฐานสากล\"",
+                            "style": {
+                                "typography": {
+                                    "fontSize": "20px",
+                                    "fontWeight": "500"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "core/columns",
+                "attributes": {
+                    "style": {
+                        "spacing": {
+                            "margin": {
+                                "top": "30px"
+                            }
+                        }
+                    }
+                },
+                "innerBlocks": [
+                    {
+                        "name": "core/column",
+                        "innerBlocks": [
+                            {
+                                "name": "core/group",
+                                "attributes": {
+                                    "style": {
+                                        "color": {
+                                            "background": "#ffffff"
+                                        },
+                                        "spacing": {
+                                            "padding": {
+                                                "top": "25px",
+                                                "bottom": "25px",
+                                                "left": "25px",
+                                                "right": "25px"
+                                            }
+                                        },
+                                        "border": {
+                                            "radius": "8px"
+                                        }
+                                    }
+                                },
+                                "innerBlocks": [
+                                    {
+                                        "name": "core/heading",
+                                        "attributes": {
+                                            "content": "พันธกิจ (Mission)",
+                                            "level": 3,
+                                            "style": {
+                                                "color": {
+                                                    "text": "#F9A825"
+                                                },
+                                                "border": {
+                                                    "bottom": {
+                                                        "color": "#eeeeee",
+                                                        "width": "2px",
+                                                        "style": "solid"
+                                                    }
+                                                },
+                                                "spacing": {
+                                                    "padding": {
+                                                        "bottom": "10px"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "core/list",
+                                        "innerBlocks": [
+                                            {
+                                                "name": "core/list-item",
+                                                "attributes": {
+                                                    "content": "ส่งเสริมและพัฒนาศักยภาพเกษตรกร องค์กรเกษตรกร และวิสาหกิจชุมชนให้เข้มแข็ง"
+                                                }
+                                            },
+                                            {
+                                                "name": "core/list-item",
+                                                "attributes": {
+                                                    "content": "ส่งเสริมการผลิตสินค้าเกษตรให้มีคุณภาพ ปลอดภัย และได้มาตรฐาน"
+                                                }
+                                            },
+                                            {
+                                                "name": "core/list-item",
+                                                "attributes": {
+                                                    "content": "ส่งเสริมการเพิ่มมูลค่าสินค้าเกษตร และการบริหารจัดการสินค้าเกษตรแบบครบวงจร"
+                                                }
+                                            },
+                                            {
+                                                "name": "core/list-item",
+                                                "attributes": {
+                                                    "content": "อนุรักษ์ ฟื้นฟู และใช้ประโยชน์ทรัพยากรการเกษตรอย่างยั่งยืน"
+                                                }
+                                            },
+                                            {
+                                                "name": "core/list-item",
+                                                "attributes": {
+                                                    "content": "ให้บริการทางการเกษตรและช่วยเหลือเกษตรกรที่ประสบภัยพิบัติ"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "core/column",
+                        "innerBlocks": [
+                            {
+                                "name": "core/group",
+                                "attributes": {
+                                    "style": {
+                                        "color": {
+                                            "background": "#ffffff"
+                                        },
+                                        "spacing": {
+                                            "padding": {
+                                                "top": "25px",
+                                                "bottom": "25px",
+                                                "left": "25px",
+                                                "right": "25px"
+                                            }
+                                        },
+                                        "border": {
+                                            "radius": "8px"
+                                        }
+                                    }
+                                },
+                                "innerBlocks": [
+                                    {
+                                        "name": "core/heading",
+                                        "attributes": {
+                                            "content": "ยุทธศาสตร์ (Strategy)",
+                                            "level": 3,
+                                            "style": {
+                                                "color": {
+                                                    "text": "#F9A825"
+                                                },
+                                                "border": {
+                                                    "bottom": {
+                                                        "color": "#eeeeee",
+                                                        "width": "2px",
+                                                        "style": "solid"
+                                                    }
+                                                },
+                                                "spacing": {
+                                                    "padding": {
+                                                        "bottom": "10px"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "core/list",
+                                        "attributes": {
+                                            "ordered": true
+                                        },
+                                        "innerBlocks": [
+                                            {
+                                                "name": "core/list-item",
+                                                "attributes": {
+                                                    "content": "สร้างความเข้มแข็งแก่เกษตรกรและองค์กรเกษตรกร"
+                                                }
+                                            },
+                                            {
+                                                "name": "core/list-item",
+                                                "attributes": {
+                                                    "content": "เพิ่มประสิทธิภาพการผลิตและยกระดับคุณภาพสินค้าเกษตร"
+                                                }
+                                            },
+                                            {
+                                                "name": "core/list-item",
+                                                "attributes": {
+                                                    "content": "ส่งเสริมเศรษฐกิจฐานรากด้วยนวัตกรรมและเทคโนโลยี"
+                                                }
+                                            },
+                                            {
+                                                "name": "core/list-item",
+                                                "attributes": {
+                                                    "content": "บริหารจัดการทรัพยากรการเกษตรอย่างยั่งยืน"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "core/heading",
+                "attributes": {
+                    "content": "ค่านิยมองค์กร",
+                    "level": 2,
+                    "style": {
+                        "color": {
+                            "text": "#2E7D32"
+                        },
+                        "border": {
+                            "left": {
+                                "color": "#F9A825",
+                                "width": "5px",
+                                "style": "solid"
+                            }
+                        },
+                        "spacing": {
+                            "padding": {
+                                "left": "15px"
+                            },
+                            "margin": {
+                                "top": "40px"
+                            }
+                        },
+                        "typography": {
+                            "fontSize": "28px"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "core/group",
+                "attributes": {
+                    "style": {
+                        "color": {
+                            "background": "#fff3e0"
+                        },
+                        "spacing": {
+                            "padding": {
+                                "top": "30px",
+                                "bottom": "30px",
+                                "left": "30px",
+                                "right": "30px"
+                            },
+                            "margin": {
+                                "top": "20px"
+                            }
+                        },
+                        "border": {
+                            "radius": "8px"
+                        }
+                    },
+                    "layout": {
+                        "type": "constrained"
+                    }
+                },
+                "innerBlocks": [
+                    {
+                        "name": "core/heading",
+                        "attributes": {
+                            "content": "\"SERVICE\"",
+                            "textAlign": "center",
+                            "level": 1,
+                            "style": {
+                                "color": {
+                                    "text": "#F9A825"
+                                },
+                                "typography": {
+                                    "letterSpacing": "5px",
+                                    "fontWeight": "700"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "core/paragraph",
+                        "attributes": {
+                            "content": "จิตบริการ มุ่งผลสัมฤทธิ์ ยึดหลักคุณธรรม",
+                            "align": "center",
+                            "style": {
+                                "spacing": {
+                                    "margin": {
+                                        "top": "15px"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

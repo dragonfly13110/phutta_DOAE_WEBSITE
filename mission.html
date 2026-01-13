@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วิสัยทัศน์/พันธกิจ - สำนักงานเกษตรอำเภอพุทธมณฑล</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #F9A825;
+            --text-color: #333333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 4px solid var(--secondary-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .banner {
+            padding: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(to right, #ffffff, #f1f8e9);
+        }
+
+        .banner-content {
+            text-align: center;
+        }
+
+        .banner h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .banner p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: var(--secondary-color);
+            color: #000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background-color: var(--white);
+            min-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1.5rem 0;
+            font-size: 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .footer-section h3 {
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="nav-container">
+            <span>ยินดีต้อนรับสู่เว็บไซต์สำนักงานเกษตรอำเภอพุทธมณฑล</span>
+        </div>
+    </div>
+
+    <!-- Header Banner -->
+    <header>
+        <div class="banner">
+            <div class="banner-content">
+                <h1>สำนักงานเกษตรอำเภอพุทธมณฑล</h1>
+                <p>Phutthamonthon District Agricultural Office</p>
+                <p style="font-size: 0.9rem; margin-top: 5px;">จังหวัดนครปฐม</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="structure.html">โครงสร้างองค์กร</a></li>
+                <li><a href="mission.html" class="active">วิสัยทัศน์/พันธกิจ</a></li>
+                <li><a href="#">ข้อมูลสารสนเทศ</a></li>
+                <li><a href="#">ติดต่อเรา</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" style="padding: 2rem;">
+
+        <h2 class="section-title">วิสัยทัศน์และพันธกิจ</h2>
+
+        <div
+            style="background-color: #e8f5e9; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; border-left: 5px solid var(--primary-color);">
+            <h3 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.5rem;">วิสัยทัศน์ (Vision)</h3>
+            <p style="font-size: 1.2rem; font-weight: 500;">
+                "เกษตรกรมีความเข้มแข็ง มีคุณภาพชีวิตที่ดี และสินค้าเกษตรมีคุณภาพมาตรฐานสากล"
+            </p>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 2rem;">
+            <div class="card" style="padding: 1.5rem; border: none; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h3
+                    style="color: var(--secondary-color); margin-bottom: 1rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
+                    พันธกิจ (Mission)
+                </h3>
+                <ul style="list-style-type: disc; padding-left: 1.5rem; line-height: 1.8;">
+                    <li>ส่งเสริมและพัฒนาศักยภาพเกษตรกร องค์กรเกษตรกร และวิสาหกิจชุมชนให้เข้มแข็ง</li>
+                    <li>ส่งเสริมการผลิตสินค้าเกษตรให้มีคุณภาพ ปลอดภัย และได้มาตรฐาน</li>
+                    <li>ส่งเสริมการเพิ่มมูลค่าสินค้าเกษตร และการบริหารจัดการสินค้าเกษตรแบบครบวงจร</li>
+                    <li>อนุรักษ์ ฟื้นฟู และใช้ประโยชน์ทรัพยากรการเกษตรอย่างยั่งยืน</li>
+                    <li>ให้บริการทางการเกษตรและช่วยเหลือเกษตรกรที่ประสบภัยพิบัติ</li>
+                </ul>
+            </div>
+
+            <div class="card" style="padding: 1.5rem; border: none; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h3
+                    style="color: var(--secondary-color); margin-bottom: 1rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
+                    ยุทธศาสตร์ (Strategy)
+                </h3>
+                <ol style="padding-left: 1.5rem; line-height: 1.8;">
+                    <li>สร้างความเข้มแข็งแก่เกษตรกรและองค์กรเกษตรกร</li>
+                    <li>เพิ่มประสิทธิภาพการผลิตและยกระดับคุณภาพสินค้าเกษตร</li>
+                    <li>ส่งเสริมเศรษฐกิจฐานรากด้วยนวัตกรรมและเทคโนโลยี</li>
+                    <li>บริหารจัดการทรัพยากรการเกษตรอย่างยั่งยืน</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2 class="section-title">ค่านิยมองค์กร</h2>
+        <div style="text-align: center; padding: 2rem; background-color: #fff3e0; border-radius: 8px;">
+            <h1 style="color: var(--secondary-color); letter-spacing: 5px; font-weight: 700;">"SERVICE"</h1>
+            <p style="margin-top: 1rem;">จิตบริการ มุ่งผลสัมฤทธิ์ ยึดหลักคุณธรรม</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ติดต่อเรา</h3>
+                <p><strong>สำนักงานเกษตรอำเภอพุทธมณฑล</strong></p>
+                <p>ที่อยู่: ... ต.ศาลายา อ.พุทธมณฑล จ.นครปฐม 73170</p>
+                <p>โทรศัพท์: 0-2xxx-xxxx</p>
+                <p>อีเมล: phutthamonthon.kaset@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>แผนที่</h3>
+                <div
+                    style="background: #555; height: 150px; display: flex; align-items: center; justify-content: center; color: #aaa;">
+                    Google Map Area
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #444; margin-top: 2rem;">
+            &copy; 2024 สำนักงานเกษตรอำเภอพุทธมณฑล. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>
