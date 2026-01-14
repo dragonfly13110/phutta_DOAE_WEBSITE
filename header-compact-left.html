@@ -1,0 +1,113 @@
+<!-- 📰 COMPACT HEADER - LEFT SIDE (Logo + Site Name) -->
+<!-- ใช้คู่กับ header-compact-right.html -->
+<!-- วางใน Column ฝั่งซ้าย -->
+
+<style>
+    .compact-left * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif;
+    }
+
+    .compact-left {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        background: white;
+        padding: 8px 15px;
+    }
+
+    .compact-logo-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: #1b5e20;
+        padding: 8px 0;
+    }
+
+    .compact-logos {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .compact-logo {
+        width: 45px;
+        height: 45px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+        transition: transform 0.3s;
+    }
+
+    .compact-logo-group:hover .compact-logo {
+        transform: scale(1.1);
+    }
+
+    .compact-logo-divider {
+        width: 2px;
+        height: 35px;
+        background: linear-gradient(180deg, transparent, #43a047, transparent);
+    }
+
+    .compact-site-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .compact-site-name {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        color: #1b5e20;
+    }
+
+    .compact-site-name-en {
+        font-size: 11px;
+        font-weight: 400;
+        color: #43a047;
+    }
+
+    @media (max-width: 768px) {
+        .compact-site-name {
+            font-size: 14px;
+        }
+
+        .compact-site-name-en {
+            font-size: 9px;
+        }
+
+        .compact-logo {
+            width: 35px;
+            height: 35px;
+        }
+
+        .compact-logo-divider {
+            height: 28px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .compact-site-info {
+            display: none;
+        }
+    }
+</style>
+
+<div class="compact-left">
+    <a href="https://nakhonpathom.doae.go.th/phutthamonthon/" class="compact-logo-group">
+        <div class="compact-logos">
+            <img src="https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/LOGO_DOAE_PNG-0.png"
+                alt="กรมส่งเสริมการเกษตร" class="compact-logo">
+            <div class="compact-logo-divider"></div>
+            <img src="https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/LOGO-DOAE.png"
+                alt="โลโก้กรมฯ" class="compact-logo">
+        </div>
+        <div class="compact-site-info">
+            <span class="compact-site-name">สนง.เกษตรอำเภอพุทธมณฑล</span>
+            <span class="compact-site-name-en">Phutthamonthon District Agricultural Office</span>
+        </div>
+    </a>
+</div>

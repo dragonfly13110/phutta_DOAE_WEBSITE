@@ -1,0 +1,303 @@
+<!-- 📰 COMPACT HEADER - RIGHT SIDE (Navigation) -->
+<!-- ใช้คู่กับ header-compact-left.html -->
+<!-- วางใน Column ฝั่งขวา -->
+
+<style>
+    .compact-right * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif;
+    }
+
+    .compact-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100%;
+        background: white;
+        padding: 8px 15px;
+    }
+
+    .compact-nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 3px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .compact-nav-item {
+        position: relative;
+    }
+
+    .compact-nav-link {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 8px 12px;
+        color: #1b5e20;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .compact-nav-link:hover {
+        background: #e8f5e9;
+    }
+
+    .compact-nav-link.active {
+        background: #c8e6c9;
+    }
+
+    .compact-nav-link svg {
+        width: 16px;
+        height: 16px;
+        fill: #43a047;
+        opacity: 0.9;
+    }
+
+    /* Dropdown */
+    .compact-has-dropdown>.compact-nav-link::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid #43a047;
+        margin-left: 3px;
+        transition: transform 0.3s;
+    }
+
+    .compact-has-dropdown:hover>.compact-nav-link::after {
+        transform: rotate(180deg);
+    }
+
+    .compact-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        min-width: 180px;
+        background: white;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        list-style: none;
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    .compact-has-dropdown:hover .compact-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .compact-dropdown-item a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        color: #2e7d32;
+        text-decoration: none;
+        font-size: 13px;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+    }
+
+    .compact-dropdown-item a:hover {
+        background: #f1f8e9;
+        border-left-color: #f57c00;
+        color: #1b5e20;
+        padding-left: 18px;
+    }
+
+    .compact-dropdown-item a svg {
+        width: 14px;
+        height: 14px;
+        fill: #43a047;
+    }
+
+    .compact-dropdown-item a:hover svg {
+        fill: #f57c00;
+    }
+
+    /* CTA Button */
+    .compact-nav-cta {
+        background: linear-gradient(135deg, #f57c00, #ff9800) !important;
+        border-radius: 18px;
+        margin-left: 5px;
+        box-shadow: 0 3px 10px rgba(245, 124, 0, 0.3);
+    }
+
+    .compact-nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(245, 124, 0, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .compact-nav-link {
+            padding: 6px 8px;
+            font-size: 12px;
+        }
+
+        .compact-nav-link svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .compact-nav-link span {
+            display: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .compact-nav-menu {
+            gap: 2px;
+        }
+
+        .compact-nav-link {
+            padding: 6px;
+        }
+
+        .compact-has-dropdown>.compact-nav-link::after {
+            display: none;
+        }
+    }
+</style>
+
+<div class="compact-right">
+    <ul class="compact-nav-menu">
+        <li class="compact-nav-item">
+            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/" class="compact-nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+                <span>หน้าแรก</span>
+            </a>
+        </li>
+
+        <li class="compact-nav-item compact-has-dropdown" onclick="void(0)">
+            <a href="#" class="compact-nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                </svg>
+                <span>เกี่ยวกับเรา</span>
+            </a>
+            <ul class="compact-dropdown">
+                <li class="compact-dropdown-item">
+                    <a href="https://nakhonpathom.doae.go.th/phutthamonthon/vision/">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z" />
+                        </svg>
+                        วิสัยทัศน์ & พันธกิจ
+                    </a>
+                </li>
+                <li class="compact-dropdown-item">
+                    <a href="https://nakhonpathom.doae.go.th/phutthamonthon/staff/">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3z" />
+                        </svg>
+                        บุคลากร
+                    </a>
+                </li>
+                <li class="compact-dropdown-item">
+                    <a href="https://nakhonpathom.doae.go.th/phutthamonthon/structure/">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
+                        </svg>
+                        โครงสร้างองค์กร
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="compact-nav-item compact-has-dropdown" onclick="void(0)">
+            <a href="#" class="compact-nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
+                </svg>
+                <span>ข้อมูล</span>
+            </a>
+            <ul class="compact-dropdown">
+                <li class="compact-dropdown-item">
+                    <a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-information/">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                        ข้อมูลเกษตรกร
+                    </a>
+                </li>
+                <li class="compact-dropdown-item">
+                    <a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-groups/">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zM8 13c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                        </svg>
+                        กลุ่มเกษตรกร
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="compact-nav-item compact-has-dropdown" onclick="void(0)">
+            <a href="#" class="compact-nav-link active">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                </svg>
+                <span>ข่าวสาร</span>
+            </a>
+            <ul class="compact-dropdown">
+                <li class="compact-dropdown-item">
+                    <a href="https://nakhonpathom.doae.go.th/phutthamonthon/public-relations/">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                        </svg>
+                        ข่าวประชาสัมพันธ์
+                    </a>
+                </li>
+                <li class="compact-dropdown-item">
+                    <a href="https://nakhonpathom.doae.go.th/phutthamonthon/activities/">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z" />
+                        </svg>
+                        กิจกรรม
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="compact-nav-item">
+            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/knowledge/" class="compact-nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3z" />
+                </svg>
+                <span>ความรู้</span>
+            </a>
+        </li>
+
+        <li class="compact-nav-item">
+            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/contact/" class="compact-nav-link compact-nav-cta">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <span>ติดต่อ</span>
+            </a>
+        </li>
+    </ul>
+</div>
