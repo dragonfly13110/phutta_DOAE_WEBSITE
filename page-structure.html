@@ -1,0 +1,405 @@
+<!-- 🏢 STRUCTURE PAGE - สำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- Theme: Green, White, Orange (Agriculture) -->
+
+<style>
+    .structure-section * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif;
+    }
+
+    .structure-section {
+        background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+        padding: 60px 20px;
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+    }
+
+    .structure-section::before {
+        content: '';
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(46, 125, 50, 0.05) 0%, transparent 70%);
+        top: -200px;
+        right: -200px;
+        border-radius: 50%;
+    }
+
+    .structure-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Page Title */
+    .page-title {
+        text-align: center;
+        margin-bottom: 50px;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .page-title h2 {
+        font-size: 40px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+    }
+
+    .page-title p {
+        color: #558b2f;
+        font-size: 18px;
+    }
+
+    /* Content Card */
+    .content-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 40px rgba(27, 94, 32, 0.12);
+        animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+        border-bottom: 2px solid #e8f5e9;
+        padding-bottom: 15px;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #2e7d32, #43a047);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+    }
+
+    .card-icon svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .card-title {
+        color: #1b5e20;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .text-content {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.8;
+        text-align: justify;
+    }
+
+    /* Lists */
+    .custom-list {
+        list-style: none;
+        margin-top: 15px;
+    }
+
+    .custom-list li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+        color: #2e7d32;
+    }
+
+    .custom-list li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #f57c00;
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    /* Structure Grid */
+    .structure-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .structure-column h4 {
+        color: #f57c00;
+        font-size: 18px;
+        margin-bottom: 15px;
+        border-left: 4px solid #f57c00;
+        padding-left: 10px;
+    }
+
+    .sub-list {
+        list-style: none;
+        padding-left: 10px;
+    }
+
+    .sub-list li {
+        font-size: 15px;
+        margin-bottom: 8px;
+        color: #555;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .sub-list li::before {
+        content: '▹';
+        color: #43a047;
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    /* Image Gallery */
+    .chart-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .chart-img {
+        max-width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .chart-caption {
+        color: #666;
+        font-size: 14px;
+        margin-top: -10px;
+        margin-bottom: 30px;
+    }
+
+    /* Stats Box */
+    .stats-box {
+        background: linear-gradient(135deg, #2e7d32, #1b5e20);
+        border-radius: 15px;
+        padding: 30px;
+        color: white;
+        margin-top: 20px;
+    }
+
+    .stats-header {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 10px;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .stat-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .stat-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ff9800;
+        margin-bottom: 5px;
+    }
+
+    .stat-label {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+        .structure-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<div class="structure-section">
+    <div class="structure-container">
+        <!-- Page Title -->
+        <div class="page-title">
+            <h2>🏢 โครงสร้างองค์กร</h2>
+            <p>ภารกิจ อำนาจหน้าที่ และการแบ่งส่วนราชการ</p>
+        </div>
+
+        <!-- Mission & Authority -->
+        <div class="content-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                    </svg>
+                </div>
+                <h3 class="card-title">ภารกิจตามกฎหมาย</h3>
+            </div>
+            <div class="text-content">
+                <p>กฎกระทรวงแบ่งส่วนราชการลดส่งเสริมการเกษตร กระทรวงเกษตรและสหกรณ์ พ.ศ. 2557
+                    ได้กำหนดภารกิจให้กรมส่งเสริมการเกษตรมีภารกิจเกี่ยวกับการส่งเสริมและพัฒนาการเกษตรกร ครอบครัวเกษตรกร
+                    องค์กรเกษตรกร และวิสาหกิจชุมชน การส่งเสริมและพัฒนาเพิ่มศักยภาพการผลิต การแปรรูปการเพิ่มมูลค่า
+                    การพัฒนาคุณภาพสินค้าเกษตรและผลิตภัณฑ์ โดยการศึกษา วิจัย พัฒนา
+                    กำหนดมาตรการและแนวทางในการส่งเสริมการเกษตร ตลอดจนการถ่ายทอดเทคโนโลยีการเกษตร
+                    และการให้บริการทางการเกษตร เพื่อให้เกษตรกรมีอาชีพ และรายได้ที่มั่นคง
+                    มีคุณภาพชีวิตที่ดีและพึ่งพาตนเองได้อย่างยั่งยืน</p>
+            </div>
+
+            <div class="card-header" style="margin-top: 40px;">
+                <div class="card-icon" style="background: linear-gradient(135deg, #f57c00, #ff9800);">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+                    </svg>
+                </div>
+                <h3 class="card-title">อำนาจหน้าที่</h3>
+            </div>
+            <ul class="custom-list">
+                <li>ดำเนินการตามกฎหมายว่าด้วยการส่งเสริมวิสาหกิจชุมชน และกฎหมายอื่นที่เกี่ยวข้อง</li>
+                <li>ส่งเสริมและพัฒนาเกษตรกร ครอบครัวเกษตรกร องค์กรเกษตรกร และวิสาหกิจชุนชน</li>
+                <li>ส่งเสริมและพัฒนาการผลิตและการจัดการสินค้าเกษตร</li>
+                <li>ฝึกอาชีพ ถ่ายทอดเทคโนโลยี และให้บริการทางการเกษตร</li>
+                <li>ศึกษา วิจัย และพัฒนางานด้านการส่งเสริมการเกษตร</li>
+                <li>ปฏิบัติการอื่นใดตามที่กฎหมายกำหนดให้เป็นอำนาจหน้าที่ของกรม หรือตามที่รัฐมนตรีหรือคณะรัฐมนตรีมอบหมาย
+                </li>
+            </ul>
+        </div>
+
+        <!-- Organization Structure Text -->
+        <div class="content-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z" />
+                    </svg>
+                </div>
+                <h3 class="card-title">การแบ่งส่วนราชการ (พ.ศ. 2557 – ปัจจุบัน)</h3>
+            </div>
+
+            <div class="structure-grid">
+                <div class="structure-column">
+                    <h4>ก. ราชการบริหารส่วนกลาง</h4>
+                    <ul class="sub-list">
+                        <li>(1) กลุ่มพัฒนาระบบบริหาร</li>
+                        <li>(2) กลุ่มตรวจสอบภายใน</li>
+                        <li>(3) กองการเจ้าหน้าที่</li>
+                        <li>(4) กองคลัง</li>
+                        <li>(5) กองส่งเสริมโครงการพระราชดำริ การจัดการพื้นที่และวิศวกรรมเกษตร</li>
+                        <li>(6) กองวิจัยและพัฒนางานส่งเสริมการเกษตร</li>
+                        <li>(7) กองแผนงาน</li>
+                        <li>(8) ศูนย์เทคโนโลยีสารสนเทศและการสื่อสาร</li>
+                        <li>(9) สำนักงานเลขานุการกรม</li>
+                        <li>(10) สำนักพัฒนาการถ่ายทอดเทคโนโลยี</li>
+                        <li>(11) กองส่งเสริมการอารักขาพืชและจัดการดินปุ๋ย</li>
+                        <li>(12) กองพัฒนาเกษตรกร</li>
+                        <li>(13) สำนักส่งเสริมและจัดการสินค้าเกษตร</li>
+                        <li>(14) กองส่งเสริมวิสาหกิจชุมชน</li>
+                        <li>(15) กองขยายพันธุ์พืช</li>
+                        <li>(16) สำนักงานเกษตรพื้นที่กรุงเทพมหานคร</li>
+                        <li>(17)-(22) สำนักงานส่งเสริมและพัฒนาการเกษตรที่ 1-6</li>
+                    </ul>
+                </div>
+
+                <div class="structure-column">
+                    <h4>ข. ราชการบริหารส่วนภูมิภาค</h4>
+                    <ul class="sub-list">
+                        <li>(1) สำนักงานเกษตรจังหวัด (76 จังหวัด)</li>
+                        <li>(2) สำนักงานเกษตรอำเภอ (878 อำเภอ)</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">ค. ศูนย์ปฏิบัติการ (50 ศูนย์)</h4>
+                    <ul class="sub-list">
+                        <li>ศูนย์ส่งเสริมและพัฒนาอาชีพการเกษตร (36 ศูนย์)</li>
+                        <li>ศูนย์ส่งเสริมเทคโนโลยีการเกษตร (14 ศูนย์)
+                            <ul style="padding-left: 20px; font-size: 13px; color: #777; list-style: circle;">
+                                <li>ด้านแมลงเศรษฐกิจ (2)</li>
+                                <li>ด้านอารักขาพืช (9)</li>
+                                <li>ด้านวิศวกรรมเกษตร (2)</li>
+                                <li>เยาวชนเกษตร (1)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Manpower Stats -->
+            <div class="stats-box">
+                <div class="stats-header">📊 กรอบอัตรากำลัง (ณ 1 เมษายน 2568)</div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">8,852</div>
+                        <div class="stat-label">ข้าราชการ</div>
+                        <div style="font-size: 12px; margin-top: 5px; opacity: 0.8;">(ส่วนกลาง 1,158 / ภูมิภาค 7,694)
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">215</div>
+                        <div class="stat-label">ลูกจ้างประจำ</div>
+                    </div>
+                    <div class="stat-item" style="grid-column: span 2;">
+                        <div class="stat-value">2,764</div>
+                        <div class="stat-label">พนักงานราชการ</div>
+                        <div style="font-size: 12px; margin-top: 5px; opacity: 0.8;">(จัดสรรงบจ้างแล้ว 2,229)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Images -->
+        <div class="content-card">
+            <div class="card-header">
+                <div class="card-icon" style="background: linear-gradient(135deg, #1565c0, #1976d2);">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM8 15c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm6 1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm6-6c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z" />
+                    </svg>
+                </div>
+                <h3 class="card-title">แผนผังโครงสร้าง</h3>
+            </div>
+
+            <div class="chart-container">
+                <img src="https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/โครงสร้างกรมส่งเสริมการเกษตรตามกฏกระทรว.jpg"
+                    alt="โครงสร้างตามกฎกระทรวง" class="chart-img">
+                <p class="chart-caption">โครงสร้างกรมส่งเสริมการเกษตรตามกฎกระทรวง</p>
+
+                <img src="https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/โครงสร้างกรมส่งเสริมการเกษตรที่ใช้ในปัจ.jpg"
+                    alt="โครงสร้างปัจจุบัน" class="chart-img">
+                <p class="chart-caption">โครงสร้างกรมส่งเสริมการเกษตรที่ใช้ในปัจจุบัน</p>
+            </div>
+        </div>
+    </div>
+</div>
