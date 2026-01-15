@@ -62,9 +62,10 @@
     }
 
     .footer-content {
-        max-width: 1200px;
+        max-width: 100%;
+        width: 100%;
         margin: 0 auto;
-        padding: 60px 20px 40px;
+        padding: 60px 40px 40px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 40px;
@@ -233,6 +234,89 @@
         width: 16px;
         height: 16px;
         fill: #f57c00;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+            padding: 40px 20px 30px;
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+        }
+
+        .footer-section p {
+            font-size: 13px;
+        }
+
+        .footer-links a {
+            justify-content: center;
+        }
+
+        .footer-links a:hover {
+            transform: none;
+        }
+
+        .footer-social {
+            justify-content: center;
+        }
+
+        .related-links a {
+            justify-content: center;
+        }
+
+        .footer-bottom {
+            padding: 20px 15px;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .visitor-counter {
+            font-size: 12px;
+            padding: 6px 12px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer-content {
+            padding: 30px 15px 25px;
+            gap: 25px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .related-links a {
+            padding: 6px 10px;
+            font-size: 13px;
+        }
+
+        .footer-bottom p {
+            font-size: 11px;
+        }
     }
 </style>
 

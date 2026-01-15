@@ -28,8 +28,10 @@
     }
 
     .contact-container {
-        max-width: 1200px;
+        max-width: 100%;
+        width: 100%;
         margin: 0 auto;
+        padding: 0 40px;
         position: relative;
         z-index: 10;
     }
@@ -216,6 +218,116 @@
         to {
             opacity: 1;
             transform: translateY(0);
+        }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .contact-section {
+            padding: 40px 15px;
+        }
+
+        .contact-title h2 {
+            font-size: 28px;
+        }
+
+        .contact-title p {
+            font-size: 14px;
+        }
+
+        .contact-title {
+            margin-bottom: 30px;
+        }
+
+        .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .contact-info-card {
+            padding: 25px 20px;
+        }
+
+        .contact-item {
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 18px;
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+        }
+
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .contact-details h3 {
+            font-size: 16px;
+        }
+
+        .contact-details p {
+            font-size: 14px;
+        }
+
+        .map-header {
+            padding: 15px 20px;
+        }
+
+        .map-header h3 {
+            font-size: 18px;
+        }
+
+        .map-container {
+            min-height: 300px;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .contact-section {
+            padding: 30px 12px;
+        }
+
+        .contact-title h2 {
+            font-size: 24px;
+        }
+
+        .contact-info-card {
+            padding: 20px 15px;
+        }
+
+        .contact-item {
+            flex-direction: column;
+            text-align: center;
+            gap: 12px;
+        }
+
+        .contact-icon {
+            margin: 0 auto;
+        }
+
+        .contact-details {
+            text-align: center;
+        }
+
+        .map-container {
+            min-height: 250px;
         }
     }
 </style>
