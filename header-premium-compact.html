@@ -1,0 +1,256 @@
+<!-- 🔥 PREMIUM HEADER (COMPACT) - สำนักงานเกษตรอำเภอพุทธมณฑล 🔥 -->
+<!-- Theme: Green, White, Orange (Agriculture) -->
+<!-- แบบประหยัดพื้นที่: จัดเรียงแนวนอน (Horizontal Layout) -->
+
+<style>
+    .agri-header-wrapper-compact * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif;
+    }
+
+    /* Top welcome bar */
+    .agri-top-bar-compact {
+        background: linear-gradient(90deg, #1b5e20, #2e7d32, #43a047, #2e7d32, #1b5e20);
+        background-size: 400% 400%;
+        animation: gradientShift 8s ease infinite;
+        color: white;
+        text-align: center;
+        padding: 6px 15px;
+        position: relative;
+        overflow: hidden;
+        font-size: 12px;
+    }
+
+    .top-bar-content-compact {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .top-bar-dept {
+        font-weight: 500;
+    }
+
+    .top-bar-dept-en {
+        font-weight: 300;
+        opacity: 0.9;
+    }
+
+    @keyframes gradientShift {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Main header Compact */
+    .agri-main-header-compact {
+        background: url('https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/Gemini_Generated_Image_rjos0srjos0srjos.png');
+        background-size: cover;
+        background-position: center 30%;
+        padding: 15px 20px;
+        position: relative;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-bottom: 4px solid #f57c00;
+    }
+
+    .agri-header-content-compact {
+        position: relative;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 15px 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 20px;
+    }
+
+    /* Left Side: Logos + Titles */
+    .header-left-group {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .agri-logo-container-compact {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .agri-logo-img-compact {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+        transition: transform 0.3s;
+    }
+
+    .agri-logo-img-compact:hover {
+        transform: scale(1.1);
+    }
+
+    .agri-logo-link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: inherit;
+        transition: opacity 0.3s;
+    }
+
+    .agri-logo-link:hover {
+        opacity: 0.9;
+    }
+
+    .logo-divider-compact {
+        width: 2px;
+        height: 50px;
+        background: #e0e0e0;
+    }
+
+    .agri-text-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .agri-main-title-compact {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.2;
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 2px;
+    }
+
+    .agri-subtitle-compact {
+        color: #388e3c;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .agri-province-compact {
+        color: #558b2f;
+        font-size: 13px;
+        font-weight: 300;
+        margin-top: 2px;
+        display: none;
+        /* Hide on compact to save noise, show if needed */
+    }
+
+    /* Right Side: Decorative or Province */
+    .header-right-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .province-badge {
+        background: linear-gradient(135deg, #f57c00, #ff9800);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 3px 10px rgba(245, 124, 0, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .agri-header-content-compact {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .header-left-group {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .agri-main-title-compact {
+            font-size: 22px;
+        }
+
+        .header-right-group {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .agri-logo-img-compact {
+            width: 55px;
+            height: 55px;
+        }
+
+        .agri-main-title-compact {
+            font-size: 18px;
+        }
+
+        .agri-subtitle-compact {
+            font-size: 12px;
+        }
+    }
+</style>
+
+<div class="agri-header-wrapper-compact">
+    <!-- Top Bar -->
+    <div class="agri-top-bar-compact">
+        <div class="top-bar-content-compact">
+            <span class="top-bar-dept">🌾 กรมส่งเสริมการเกษตร</span>
+            <span class="top-bar-sep">|</span>
+            <span class="top-bar-dept-en">Department of Agricultural Extension 🌾</span>
+        </div>
+    </div>
+
+    <!-- Main Header Compact -->
+    <div class="agri-main-header-compact">
+        <div class="agri-header-content-compact">
+            <!-- Left Side -->
+            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/" class="header-left-group agri-logo-link">
+                <!-- Logos -->
+                <div class="agri-logo-container-compact">
+                    <img src="https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/LOGO_DOAE_PNG-0.png"
+                        alt="กรมส่งเสริมการเกษตร" class="agri-logo-img-compact">
+                    <div class="logo-divider-compact"></div>
+                    <img src="https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/LOGO-DOAE.png"
+                        alt="โลโก้กรมฯ" class="agri-logo-img-compact">
+                </div>
+
+                <!-- Text -->
+                <div class="agri-text-group">
+                    <h1 class="agri-main-title-compact">สำนักงานเกษตรอำเภอพุทธมณฑล</h1>
+                    <p class="agri-subtitle-compact">Phutthamonthon District Agricultural Office</p>
+                </div>
+            </a>
+
+            <!-- Right Side (Optional for wider screens) -->
+            <div class="header-right-group">
+                <span class="province-badge">📍 จังหวัดนครปฐม</span>
+            </div>
+        </div>
+    </div>
+</div>
