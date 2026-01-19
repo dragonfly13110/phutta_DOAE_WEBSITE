@@ -1,0 +1,1482 @@
+<!-- 🏞️ LAND USE SECTION - สรุปสถานการณ์การใช้ที่ดิน อำเภอพุทธมณฑล -->
+<!-- Theme: Green, White, Orange (Agriculture) -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+    .land-use-section * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif;
+    }
+
+    .land-use-section {
+        background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 50%, #f1f8e9 100%);
+        padding: 60px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .land-use-section::before {
+        content: '';
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(46, 125, 50, 0.05) 0%, transparent 70%);
+        top: -200px;
+        right: -150px;
+        border-radius: 50%;
+    }
+
+    .land-use-section::after {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(245, 124, 0, 0.04) 0%, transparent 70%);
+        bottom: -150px;
+        left: -100px;
+        border-radius: 50%;
+    }
+
+    .lu-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Main Title */
+    .lu-main-title {
+        text-align: center;
+        margin-bottom: 50px;
+        animation: luFadeInUp 0.8s ease-out;
+    }
+
+    .lu-main-title h1 {
+        font-size: 42px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .lu-main-title p {
+        color: #558b2f;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    /* Total Area Hero Card */
+    .lu-hero-card {
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c);
+        border-radius: 24px;
+        padding: 40px 50px;
+        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        box-shadow: 0 15px 50px rgba(27, 94, 32, 0.25);
+        animation: luFadeInUp 0.8s ease-out 0.1s backwards;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .lu-hero-card::before {
+        content: '';
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        top: -100px;
+        right: -50px;
+        border-radius: 50%;
+    }
+
+    .lu-hero-icon {
+        font-size: 72px;
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+    }
+
+    .lu-hero-content {
+        text-align: left;
+    }
+
+    .lu-hero-label {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 5px;
+    }
+
+    .lu-hero-number {
+        font-size: 64px;
+        font-weight: 700;
+        color: white;
+        line-height: 1;
+        text-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .lu-hero-unit {
+        font-size: 28px;
+        color: rgba(255, 255, 255, 0.9);
+        margin-left: 10px;
+    }
+
+    /* ======================= */
+    /* CHARTS SECTION - NEW */
+    /* ======================= */
+    .lu-charts-section {
+        margin-bottom: 50px;
+        animation: luFadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    .lu-charts-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 30px;
+    }
+
+    .lu-chart-card {
+        background: white;
+        border-radius: 24px;
+        padding: 30px;
+        box-shadow: 0 10px 40px rgba(27, 94, 32, 0.12);
+    }
+
+    .lu-chart-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1b5e20;
+        text-align: center;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Donut Chart - Pure CSS */
+    .lu-donut-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .lu-donut-wrapper {
+        position: relative;
+        width: 280px;
+        height: 280px;
+    }
+
+    .lu-donut {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: conic-gradient(#f57c00 0deg 155.16deg,
+                /* พื้นที่นา 43.10% */
+                #ff9800 155.16deg 296.57deg,
+                /* ชุมชน 39.28% */
+                #66bb6a 296.57deg 319.68deg,
+                /* พืชสวน 6.42% */
+                #42a5f5 319.68deg 337.10deg,
+                /* เบ็ดเตล็ด 4.84% */
+                #ab47bc 337.10deg 345.63deg,
+                /* พืชน้ำ 2.37% */
+                #26a69a 345.63deg 351.36deg,
+                /* ไม้ผล 1.59% */
+                #8d6e63 351.36deg 356.18deg,
+                /* ไม้ยืนต้น 1.34% */
+                #78909c 356.18deg 360deg
+                /* เพาะเลี้ยงสัตว์น้ำ 1.01% */
+            );
+        position: relative;
+        animation: luDonutSpin 1.5s ease-out;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes luDonutSpin {
+        from {
+            transform: rotate(-90deg);
+            opacity: 0;
+        }
+
+        to {
+            transform: rotate(0);
+            opacity: 1;
+        }
+    }
+
+    .lu-donut::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: 150px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .lu-donut-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 10;
+    }
+
+    .lu-donut-center-value {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1b5e20;
+    }
+
+    .lu-donut-center-label {
+        font-size: 12px;
+        color: #689f38;
+    }
+
+    /* Donut Legend */
+    .lu-donut-legend {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .lu-legend-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        color: #333;
+        padding: 6px 12px;
+        border-radius: 8px;
+        transition: all 0.2s;
+        cursor: default;
+    }
+
+    .lu-legend-item:hover {
+        background: #f5f5f5;
+        transform: translateX(5px);
+    }
+
+    .lu-legend-color {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        flex-shrink: 0;
+    }
+
+    .lu-legend-text {
+        flex: 1;
+    }
+
+    .lu-legend-percent {
+        font-weight: 600;
+        color: #1b5e20;
+    }
+
+    /* Bar Chart - Pure CSS */
+    .lu-bar-chart {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .lu-bar-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .lu-bar-label {
+        width: 200px;
+        font-size: 14px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .lu-bar-label-icon {
+        font-size: 20px;
+    }
+
+    .lu-bar-track {
+        flex: 1;
+        height: 35px;
+        background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .lu-bar-fill {
+        height: 100%;
+        border-radius: 20px;
+        animation: luBarGrow 1s ease-out backwards;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .lu-bar-fill::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+    }
+
+    .lu-bar-fill.bar-1 {
+        background: linear-gradient(90deg, #e65100, #f57c00);
+        animation-delay: 0.1s;
+    }
+
+    .lu-bar-fill.bar-2 {
+        background: linear-gradient(90deg, #f57c00, #ff9800);
+        animation-delay: 0.2s;
+    }
+
+    .lu-bar-fill.bar-3 {
+        background: linear-gradient(90deg, #43a047, #66bb6a);
+        animation-delay: 0.3s;
+    }
+
+    .lu-bar-fill.bar-4 {
+        background: linear-gradient(90deg, #1976d2, #42a5f5);
+        animation-delay: 0.4s;
+    }
+
+    .lu-bar-fill.bar-5 {
+        background: linear-gradient(90deg, #7b1fa2, #ab47bc);
+        animation-delay: 0.5s;
+    }
+
+    .lu-bar-fill.bar-6 {
+        background: linear-gradient(90deg, #00796b, #26a69a);
+        animation-delay: 0.6s;
+    }
+
+    .lu-bar-fill.bar-7 {
+        background: linear-gradient(90deg, #5d4037, #8d6e63);
+        animation-delay: 0.7s;
+    }
+
+    .lu-bar-fill.bar-8 {
+        background: linear-gradient(90deg, #455a64, #78909c);
+        animation-delay: 0.8s;
+    }
+
+    @keyframes luBarGrow {
+        from {
+            width: 0 !important;
+        }
+    }
+
+    .lu-bar-value {
+        min-width: 70px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #1b5e20;
+        text-align: right;
+        flex-shrink: 0;
+    }
+
+    .lu-bar-value {
+        min-width: 80px;
+        text-align: right;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1b5e20;
+    }
+
+    /* Section Header */
+    .lu-section-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        animation: luFadeInUp 0.8s ease-out;
+    }
+
+    .lu-section-icon {
+        width: 55px;
+        height: 55px;
+        background: linear-gradient(135deg, #2e7d32, #43a047);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+    }
+
+    .lu-section-title {
+        font-size: 28px;
+        font-weight: 600;
+        color: #1b5e20;
+    }
+
+    /* Land Use Cards Grid */
+    .lu-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        margin-bottom: 50px;
+    }
+
+    .lu-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(27, 94, 32, 0.1);
+        transition: all 0.3s ease;
+        animation: luFadeInUp 0.8s ease-out backwards;
+    }
+
+    .lu-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(27, 94, 32, 0.18);
+    }
+
+    .lu-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .lu-card:nth-child(2) {
+        animation-delay: 0.15s;
+    }
+
+    .lu-card:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+
+    .lu-card:nth-child(4) {
+        animation-delay: 0.25s;
+    }
+
+    .lu-card:nth-child(5) {
+        animation-delay: 0.3s;
+    }
+
+    .lu-card:nth-child(6) {
+        animation-delay: 0.35s;
+    }
+
+    .lu-card:nth-child(7) {
+        animation-delay: 0.4s;
+    }
+
+    .lu-card:nth-child(8) {
+        animation-delay: 0.45s;
+    }
+
+    .lu-card-header {
+        padding: 20px 25px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        position: relative;
+    }
+
+    .lu-card-rank {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, #2e7d32, #43a047);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+    }
+
+    .lu-card-rank.top {
+        background: linear-gradient(135deg, #f57c00, #ff9800);
+        box-shadow: 0 4px 12px rgba(245, 124, 0, 0.3);
+    }
+
+    .lu-card-title-group {
+        flex: 1;
+    }
+
+    .lu-card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #1b5e20;
+        margin-bottom: 3px;
+    }
+
+    .lu-card-subtitle {
+        font-size: 13px;
+        color: #689f38;
+        font-weight: 400;
+    }
+
+    .lu-card-icon {
+        font-size: 36px;
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0.9;
+    }
+
+    .lu-card-body {
+        padding: 0 25px 25px;
+    }
+
+    .lu-card-stats {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+    }
+
+    .lu-stat-item {
+        flex: 1;
+        background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .lu-stat-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1b5e20;
+        line-height: 1.2;
+    }
+
+    .lu-stat-unit {
+        font-size: 14px;
+        color: #43a047;
+    }
+
+    .lu-stat-label {
+        font-size: 13px;
+        color: #689f38;
+        margin-top: 5px;
+    }
+
+    .lu-card-note {
+        background: rgba(255, 243, 224, 0.8);
+        border-left: 3px solid #f57c00;
+        padding: 12px 15px;
+        border-radius: 0 10px 10px 0;
+        font-size: 14px;
+        color: #e65100;
+    }
+
+    .lu-card-note-icon {
+        margin-right: 8px;
+    }
+
+    /* Progress Bar Visual */
+    .lu-progress-container {
+        margin-top: 15px;
+    }
+
+    .lu-progress-bar {
+        height: 12px;
+        background: #e8f5e9;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .lu-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #43a047, #66bb6a);
+        border-radius: 10px;
+        transition: width 1s ease-out;
+    }
+
+    .lu-progress-fill.highlight {
+        background: linear-gradient(90deg, #f57c00, #ff9800);
+    }
+
+    /* Zoning Section */
+    .lu-zoning-section {
+        margin-top: 20px;
+        animation: luFadeInUp 0.8s ease-out 0.5s backwards;
+    }
+
+    .lu-zoning-card {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(27, 94, 32, 0.12);
+    }
+
+    .lu-zoning-header {
+        background: linear-gradient(135deg, #f57c00, #ff9800);
+        padding: 25px 30px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .lu-zoning-header-icon {
+        font-size: 36px;
+    }
+
+    .lu-zoning-header-text h3 {
+        color: white;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .lu-zoning-header-text p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        margin-top: 3px;
+    }
+
+    .lu-zoning-body {
+        padding: 30px;
+    }
+
+    .lu-zoning-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    /* Zoning Donut Chart */
+    .lu-zoning-donut-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .lu-zoning-donut {
+        position: relative;
+        width: 220px;
+        height: 220px;
+    }
+
+    .lu-zoning-donut-chart {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: conic-gradient(#43a047 0deg 151.2deg,
+                /* S1 42% */
+                #fbc02d 151.2deg 284.4deg,
+                /* S2 37% */
+                #e57373 284.4deg 360deg
+                /* N 23% */
+            );
+        position: relative;
+        animation: luDonutSpin 1.5s ease-out 0.5s backwards;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .lu-zoning-donut-chart::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120px;
+        height: 120px;
+        background: white;
+        border-radius: 50%;
+    }
+
+    .lu-zoning-donut-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 10;
+    }
+
+    .lu-zoning-donut-center span {
+        display: block;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .lu-zoning-donut-center strong {
+        display: block;
+        font-size: 18px;
+        color: #1b5e20;
+    }
+
+    .lu-zoning-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .lu-zoning-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        border-radius: 16px;
+        transition: transform 0.3s;
+    }
+
+    .lu-zoning-item:hover {
+        transform: scale(1.02);
+    }
+
+    .lu-zoning-item.s1 {
+        background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        border-left: 4px solid #43a047;
+    }
+
+    .lu-zoning-item.s2 {
+        background: linear-gradient(135deg, #fff8e1, #ffecb3);
+        border-left: 4px solid #f9a825;
+    }
+
+    .lu-zoning-item.n {
+        background: linear-gradient(135deg, #ffebee, #ffcdd2);
+        border-left: 4px solid #e57373;
+    }
+
+    .lu-zoning-icon {
+        font-size: 32px;
+    }
+
+    .lu-zoning-info {
+        flex: 1;
+    }
+
+    .lu-zoning-label {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 3px;
+    }
+
+    .lu-zoning-item.s1 .lu-zoning-label {
+        color: #2e7d32;
+    }
+
+    .lu-zoning-item.s2 .lu-zoning-label {
+        color: #f57f17;
+    }
+
+    .lu-zoning-item.n .lu-zoning-label {
+        color: #c62828;
+    }
+
+    .lu-zoning-sub {
+        font-size: 12px;
+        color: #777;
+    }
+
+    .lu-zoning-stats {
+        text-align: right;
+    }
+
+    .lu-zoning-value {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .lu-zoning-item.s1 .lu-zoning-value {
+        color: #1b5e20;
+    }
+
+    .lu-zoning-item.s2 .lu-zoning-value {
+        color: #e65100;
+    }
+
+    .lu-zoning-item.n .lu-zoning-value {
+        color: #b71c1c;
+    }
+
+    .lu-zoning-unit {
+        font-size: 12px;
+        color: #777;
+    }
+
+    .lu-zoning-percent {
+        display: inline-block;
+        margin-top: 5px;
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .lu-zoning-item.s1 .lu-zoning-percent {
+        background: rgba(46, 125, 50, 0.15);
+        color: #2e7d32;
+    }
+
+    .lu-zoning-item.s2 .lu-zoning-percent {
+        background: rgba(245, 127, 23, 0.15);
+        color: #f57f17;
+    }
+
+    .lu-zoning-item.n .lu-zoning-percent {
+        background: rgba(198, 40, 40, 0.15);
+        color: #c62828;
+    }
+
+    /* Data Note */
+    .lu-note {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 12px;
+        font-size: 14px;
+        color: #689f38;
+    }
+
+    /* Animations */
+    @keyframes luFadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .lu-charts-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .lu-cards-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .lu-zoning-content {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .land-use-section {
+            padding: 40px 15px;
+        }
+
+        .lu-main-title h1 {
+            font-size: 28px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lu-hero-card {
+            flex-direction: column;
+            padding: 30px 25px;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .lu-hero-content {
+            text-align: center;
+        }
+
+        .lu-hero-icon {
+            font-size: 56px;
+        }
+
+        .lu-hero-number {
+            font-size: 48px;
+        }
+
+        .lu-hero-unit {
+            font-size: 22px;
+            display: block;
+            margin-left: 0;
+            margin-top: 5px;
+        }
+
+        .lu-section-title {
+            font-size: 22px;
+        }
+
+        .lu-donut-container {
+            flex-direction: column;
+        }
+
+        .lu-bar-item {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 8px;
+        }
+
+        .lu-bar-label {
+            width: 100%;
+        }
+
+        .lu-bar-value {
+            text-align: left;
+            margin-top: 5px;
+        }
+
+        .lu-card-stats {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .lu-card-icon {
+            display: none;
+        }
+
+        .lu-zoning-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .lu-hero-number {
+            font-size: 40px;
+        }
+
+        .lu-donut-wrapper {
+            width: 220px;
+            height: 220px;
+        }
+
+        .lu-donut::before {
+            width: 110px;
+            height: 110px;
+        }
+
+        .lu-card-header {
+            padding: 15px 18px;
+        }
+
+        .lu-card-body {
+            padding: 0 18px 20px;
+        }
+
+        .lu-zoning-value {
+            font-size: 20px;
+        }
+    }
+</style>
+
+<div class="land-use-section">
+    <div class="lu-container">
+        <!-- Main Title -->
+        <div class="lu-main-title">
+            <h1>🏞️ สรุปสถานการณ์การใช้ที่ดิน 🏞️</h1>
+            <p>อำเภอพุทธมณฑล จังหวัดนครปฐม | ข้อมูลปี 2568</p>
+        </div>
+
+        <!-- Hero Card - Total Area -->
+        <div class="lu-hero-card">
+            <div class="lu-hero-icon">📏</div>
+            <div class="lu-hero-content">
+                <div class="lu-hero-label">ขนาดพื้นที่ทั้งหมดของอำเภอ</div>
+                <span class="lu-hero-number">41,897</span>
+                <span class="lu-hero-unit">ไร่</span>
+            </div>
+        </div>
+
+        <!-- ========================= -->
+        <!-- CHARTS SECTION - NEW -->
+        <!-- ========================= -->
+        <div class="lu-charts-section">
+            <div class="lu-charts-grid">
+                <!-- Donut Chart -->
+                <div class="lu-chart-card">
+                    <div class="lu-chart-title">
+                        <span>🥧</span> สัดส่วนการใช้ประโยชน์ที่ดิน
+                    </div>
+                    <div class="lu-donut-container">
+                        <div class="lu-donut-wrapper">
+                            <div class="lu-donut"></div>
+                            <div class="lu-donut-center">
+                                <div class="lu-donut-center-value">100%</div>
+                                <div class="lu-donut-center-label">41,897 ไร่</div>
+                            </div>
+                        </div>
+                        <div class="lu-donut-legend">
+                            <div class="lu-legend-item">
+                                <div class="lu-legend-color" style="background: #f57c00;"></div>
+                                <span class="lu-legend-text">🌾 พื้นที่นา</span>
+                                <span class="lu-legend-percent">43.10%</span>
+                            </div>
+                            <div class="lu-legend-item">
+                                <div class="lu-legend-color" style="background: #ff9800;"></div>
+                                <span class="lu-legend-text">🏘️ ชุมชน</span>
+                                <span class="lu-legend-percent">39.28%</span>
+                            </div>
+                            <div class="lu-legend-item">
+                                <div class="lu-legend-color" style="background: #66bb6a;"></div>
+                                <span class="lu-legend-text">🥬 พืชสวน</span>
+                                <span class="lu-legend-percent">6.42%</span>
+                            </div>
+                            <div class="lu-legend-item">
+                                <div class="lu-legend-color" style="background: #42a5f5;"></div>
+                                <span class="lu-legend-text">💧 เบ็ดเตล็ด/น้ำ</span>
+                                <span class="lu-legend-percent">4.84%</span>
+                            </div>
+                            <div class="lu-legend-item">
+                                <div class="lu-legend-color" style="background: #ab47bc;"></div>
+                                <span class="lu-legend-text">🪷 พืชน้ำ</span>
+                                <span class="lu-legend-percent">2.37%</span>
+                            </div>
+                            <div class="lu-legend-item">
+                                <div class="lu-legend-color" style="background: #26a69a;"></div>
+                                <span class="lu-legend-text">🍊 ไม้ผล</span>
+                                <span class="lu-legend-percent">1.59%</span>
+                            </div>
+                            <div class="lu-legend-item">
+                                <div class="lu-legend-color" style="background: #8d6e63;"></div>
+                                <span class="lu-legend-text">🌳 ไม้ยืนต้น</span>
+                                <span class="lu-legend-percent">1.34%</span>
+                            </div>
+                            <div class="lu-legend-item">
+                                <div class="lu-legend-color" style="background: #78909c;"></div>
+                                <span class="lu-legend-text">🐟 สัตว์น้ำ</span>
+                                <span class="lu-legend-percent">1.01%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bar Chart -->
+                <div class="lu-chart-card">
+                    <div class="lu-chart-title">
+                        <span>📊</span> เปรียบเทียบเนื้อที่การใช้ประโยชน์ (ไร่)
+                    </div>
+                    <div class="lu-bar-chart">
+                        <div class="lu-bar-item">
+                            <div class="lu-bar-label">
+                                <span class="lu-bar-label-icon">🌾</span> พื้นที่นา
+                            </div>
+                            <div class="lu-bar-track">
+                                <div class="lu-bar-fill bar-1" style="width: 100%;"></div>
+                            </div>
+                            <span class="lu-bar-value">18,059</span>
+                        </div>
+                        <div class="lu-bar-item">
+                            <div class="lu-bar-label">
+                                <span class="lu-bar-label-icon">🏘️</span> ชุมชน/สิ่งปลูกสร้าง
+                            </div>
+                            <div class="lu-bar-track">
+                                <div class="lu-bar-fill bar-2" style="width: 91.1%;"></div>
+                            </div>
+                            <span class="lu-bar-value">16,459</span>
+                        </div>
+                        <div class="lu-bar-item">
+                            <div class="lu-bar-label">
+                                <span class="lu-bar-label-icon">🥬</span> พืชสวน
+                            </div>
+                            <div class="lu-bar-track">
+                                <div class="lu-bar-fill bar-3" style="width: 14.9%;"></div>
+                            </div>
+                            <span class="lu-bar-value">2,692</span>
+                        </div>
+                        <div class="lu-bar-item">
+                            <div class="lu-bar-label">
+                                <span class="lu-bar-label-icon">💧</span> เบ็ดเตล็ด/น้ำ
+                            </div>
+                            <div class="lu-bar-track">
+                                <div class="lu-bar-fill bar-4" style="width: 11.3%;"></div>
+                            </div>
+                            <span class="lu-bar-value">2,034</span>
+                        </div>
+                        <div class="lu-bar-item">
+                            <div class="lu-bar-label">
+                                <span class="lu-bar-label-icon">🪷</span> พืชน้ำ
+                            </div>
+                            <div class="lu-bar-track">
+                                <div class="lu-bar-fill bar-5" style="width: 5.5%;"></div>
+                            </div>
+                            <span class="lu-bar-value">997</span>
+                        </div>
+                        <div class="lu-bar-item">
+                            <div class="lu-bar-label">
+                                <span class="lu-bar-label-icon">🍊</span> ไม้ผล
+                            </div>
+                            <div class="lu-bar-track">
+                                <div class="lu-bar-fill bar-6" style="width: 3.7%;"></div>
+                            </div>
+                            <span class="lu-bar-value">669</span>
+                        </div>
+                        <div class="lu-bar-item">
+                            <div class="lu-bar-label">
+                                <span class="lu-bar-label-icon">🌳</span> ไม้ยืนต้น
+                            </div>
+                            <div class="lu-bar-track">
+                                <div class="lu-bar-fill bar-7" style="width: 3.1%;"></div>
+                            </div>
+                            <span class="lu-bar-value">562</span>
+                        </div>
+                        <div class="lu-bar-item">
+                            <div class="lu-bar-label">
+                                <span class="lu-bar-label-icon">🐟</span> เพาะเลี้ยงสัตว์น้ำ
+                            </div>
+                            <div class="lu-bar-track">
+                                <div class="lu-bar-fill bar-8" style="width: 2.4%;"></div>
+                            </div>
+                            <span class="lu-bar-value">425</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Header -->
+        <div class="lu-section-header">
+            <div class="lu-section-icon">📋</div>
+            <h2 class="lu-section-title">รายละเอียดการใช้ประโยชน์ที่ดินแต่ละประเภท</h2>
+        </div>
+
+        <!-- Land Use Cards -->
+        <div class="lu-cards-grid">
+            <!-- 1. พื้นที่นา -->
+            <div class="lu-card">
+                <div class="lu-card-header">
+                    <div class="lu-card-rank top">1</div>
+                    <div class="lu-card-title-group">
+                        <div class="lu-card-title">พื้นที่นา</div>
+                        <div class="lu-card-subtitle">Paddy Field</div>
+                    </div>
+                    <div class="lu-card-icon">🌾</div>
+                </div>
+                <div class="lu-card-body">
+                    <div class="lu-card-stats">
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">18,059 <span class="lu-stat-unit">ไร่</span></div>
+                            <div class="lu-stat-label">เนื้อที่</div>
+                        </div>
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">43.10<span class="lu-stat-unit">%</span></div>
+                            <div class="lu-stat-label">สัดส่วน</div>
+                        </div>
+                    </div>
+                    <div class="lu-progress-container">
+                        <div class="lu-progress-bar">
+                            <div class="lu-progress-fill highlight" style="width: 43.10%;"></div>
+                        </div>
+                    </div>
+                    <div class="lu-card-note" style="margin-top: 15px;">
+                        <span class="lu-card-note-icon">⭐</span>
+                        เป็นการใช้ที่ดินสัดส่วนมากที่สุดในอำเภอ
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. พื้นที่ชุมชน -->
+            <div class="lu-card">
+                <div class="lu-card-header">
+                    <div class="lu-card-rank top">2</div>
+                    <div class="lu-card-title-group">
+                        <div class="lu-card-title">พื้นที่ชุมชนและสิ่งปลูกสร้าง</div>
+                        <div class="lu-card-subtitle">Community & Built-up Area</div>
+                    </div>
+                    <div class="lu-card-icon">🏘️</div>
+                </div>
+                <div class="lu-card-body">
+                    <div class="lu-card-stats">
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">16,459 <span class="lu-stat-unit">ไร่</span></div>
+                            <div class="lu-stat-label">เนื้อที่</div>
+                        </div>
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">39.28<span class="lu-stat-unit">%</span></div>
+                            <div class="lu-stat-label">สัดส่วน</div>
+                        </div>
+                    </div>
+                    <div class="lu-progress-container">
+                        <div class="lu-progress-bar">
+                            <div class="lu-progress-fill highlight" style="width: 39.28%;"></div>
+                        </div>
+                    </div>
+                    <div class="lu-card-note" style="margin-top: 15px;">
+                        <span class="lu-card-note-icon">🏗️</span>
+                        รองรับการขยายตัวของเมืองและที่อยู่อาศัย
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. พื้นที่พืชสวน -->
+            <div class="lu-card">
+                <div class="lu-card-header">
+                    <div class="lu-card-rank">3</div>
+                    <div class="lu-card-title-group">
+                        <div class="lu-card-title">พื้นที่พืชสวน</div>
+                        <div class="lu-card-subtitle">Horticulture</div>
+                    </div>
+                    <div class="lu-card-icon">🥬</div>
+                </div>
+                <div class="lu-card-body">
+                    <div class="lu-card-stats">
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">2,692 <span class="lu-stat-unit">ไร่</span></div>
+                            <div class="lu-stat-label">เนื้อที่</div>
+                        </div>
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">6.42<span class="lu-stat-unit">%</span></div>
+                            <div class="lu-stat-label">สัดส่วน</div>
+                        </div>
+                    </div>
+                    <div class="lu-progress-container">
+                        <div class="lu-progress-bar">
+                            <div class="lu-progress-fill" style="width: 6.42%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. พื้นที่เบ็ดเตล็ด -->
+            <div class="lu-card">
+                <div class="lu-card-header">
+                    <div class="lu-card-rank">4</div>
+                    <div class="lu-card-title-group">
+                        <div class="lu-card-title">พื้นที่เบ็ดเตล็ด, พื้นที่ลุ่ม และพื้นที่น้ำ</div>
+                        <div class="lu-card-subtitle">Miscellaneous / Water Bodies</div>
+                    </div>
+                    <div class="lu-card-icon">💧</div>
+                </div>
+                <div class="lu-card-body">
+                    <div class="lu-card-stats">
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">2,034 <span class="lu-stat-unit">ไร่</span></div>
+                            <div class="lu-stat-label">เนื้อที่</div>
+                        </div>
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">4.84<span class="lu-stat-unit">%</span></div>
+                            <div class="lu-stat-label">สัดส่วน</div>
+                        </div>
+                    </div>
+                    <div class="lu-progress-container">
+                        <div class="lu-progress-bar">
+                            <div class="lu-progress-fill" style="width: 4.84%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. พื้นที่พืชน้ำ -->
+            <div class="lu-card">
+                <div class="lu-card-header">
+                    <div class="lu-card-rank">5</div>
+                    <div class="lu-card-title-group">
+                        <div class="lu-card-title">พื้นที่พืชน้ำ</div>
+                        <div class="lu-card-subtitle">Aquatic Plants</div>
+                    </div>
+                    <div class="lu-card-icon">🪷</div>
+                </div>
+                <div class="lu-card-body">
+                    <div class="lu-card-stats">
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">997 <span class="lu-stat-unit">ไร่</span></div>
+                            <div class="lu-stat-label">เนื้อที่</div>
+                        </div>
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">2.37<span class="lu-stat-unit">%</span></div>
+                            <div class="lu-stat-label">สัดส่วน</div>
+                        </div>
+                    </div>
+                    <div class="lu-progress-container">
+                        <div class="lu-progress-bar">
+                            <div class="lu-progress-fill" style="width: 2.37%;"></div>
+                        </div>
+                    </div>
+                    <div class="lu-card-note" style="margin-top: 15px;">
+                        <span class="lu-card-note-icon">🌿</span>
+                        พืชหลัก: นาบัว, ผักกระเฉด, ผักบุ้งน้ำ
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. พื้นที่ไม้ผล -->
+            <div class="lu-card">
+                <div class="lu-card-header">
+                    <div class="lu-card-rank">6</div>
+                    <div class="lu-card-title-group">
+                        <div class="lu-card-title">พื้นที่ไม้ผล</div>
+                        <div class="lu-card-subtitle">Orchards</div>
+                    </div>
+                    <div class="lu-card-icon">🍊</div>
+                </div>
+                <div class="lu-card-body">
+                    <div class="lu-card-stats">
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">669 <span class="lu-stat-unit">ไร่</span></div>
+                            <div class="lu-stat-label">เนื้อที่</div>
+                        </div>
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">1.59<span class="lu-stat-unit">%</span></div>
+                            <div class="lu-stat-label">สัดส่วน</div>
+                        </div>
+                    </div>
+                    <div class="lu-progress-container">
+                        <div class="lu-progress-bar">
+                            <div class="lu-progress-fill" style="width: 1.59%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. พื้นที่ไม้ยืนต้น -->
+            <div class="lu-card">
+                <div class="lu-card-header">
+                    <div class="lu-card-rank">7</div>
+                    <div class="lu-card-title-group">
+                        <div class="lu-card-title">พื้นที่ไม้ยืนต้น</div>
+                        <div class="lu-card-subtitle">Perennials</div>
+                    </div>
+                    <div class="lu-card-icon">🌳</div>
+                </div>
+                <div class="lu-card-body">
+                    <div class="lu-card-stats">
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">562 <span class="lu-stat-unit">ไร่</span></div>
+                            <div class="lu-stat-label">เนื้อที่</div>
+                        </div>
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">1.34<span class="lu-stat-unit">%</span></div>
+                            <div class="lu-stat-label">สัดส่วน</div>
+                        </div>
+                    </div>
+                    <div class="lu-progress-container">
+                        <div class="lu-progress-bar">
+                            <div class="lu-progress-fill" style="width: 1.34%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. พื้นที่เพาะเลี้ยงสัตว์น้ำ -->
+            <div class="lu-card">
+                <div class="lu-card-header">
+                    <div class="lu-card-rank">8</div>
+                    <div class="lu-card-title-group">
+                        <div class="lu-card-title">พื้นที่เพาะเลี้ยงสัตว์น้ำ</div>
+                        <div class="lu-card-subtitle">Aquaculture</div>
+                    </div>
+                    <div class="lu-card-icon">🐟</div>
+                </div>
+                <div class="lu-card-body">
+                    <div class="lu-card-stats">
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">425 <span class="lu-stat-unit">ไร่</span></div>
+                            <div class="lu-stat-label">เนื้อที่</div>
+                        </div>
+                        <div class="lu-stat-item">
+                            <div class="lu-stat-value">1.01<span class="lu-stat-unit">%</span></div>
+                            <div class="lu-stat-label">สัดส่วน</div>
+                        </div>
+                    </div>
+                    <div class="lu-progress-container">
+                        <div class="lu-progress-bar">
+                            <div class="lu-progress-fill" style="width: 1.01%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zoning Section -->
+        <div class="lu-zoning-section">
+            <div class="lu-zoning-card">
+                <div class="lu-zoning-header">
+                    <span class="lu-zoning-header-icon">🌾</span>
+                    <div class="lu-zoning-header-text">
+                        <h3>ศักยภาพพื้นที่สำหรับปลูกข้าว (Zoning)</h3>
+                        <p>เนื่องจากพื้นที่นาเป็นการใช้ที่ดินหลัก (43%) จึงวิเคราะห์ความเหมาะสมของดินดังนี้</p>
+                    </div>
+                </div>
+                <div class="lu-zoning-body">
+                    <div class="lu-zoning-content">
+                        <!-- Zoning Donut Chart -->
+                        <div class="lu-zoning-donut-wrapper">
+                            <div class="lu-zoning-donut">
+                                <div class="lu-zoning-donut-chart"></div>
+                                <div class="lu-zoning-donut-center">
+                                    <span>รวมพื้นที่</span>
+                                    <strong>42,896 ไร่</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Zoning Items -->
+                        <div class="lu-zoning-grid">
+                            <!-- S1 - เหมาะสมมาก -->
+                            <div class="lu-zoning-item s1">
+                                <div class="lu-zoning-icon">✅</div>
+                                <div class="lu-zoning-info">
+                                    <div class="lu-zoning-label">เหมาะสมมาก</div>
+                                    <div class="lu-zoning-sub">S1 - Highly Suitable</div>
+                                </div>
+                                <div class="lu-zoning-stats">
+                                    <div class="lu-zoning-value">17,767</div>
+                                    <div class="lu-zoning-unit">ไร่</div>
+                                    <div class="lu-zoning-percent">42%</div>
+                                </div>
+                            </div>
+
+                            <!-- S2 - เหมาะสมปานกลาง -->
+                            <div class="lu-zoning-item s2">
+                                <div class="lu-zoning-icon">⚠️</div>
+                                <div class="lu-zoning-info">
+                                    <div class="lu-zoning-label">เหมาะสมปานกลาง</div>
+                                    <div class="lu-zoning-sub">S2 - Moderately Suitable</div>
+                                </div>
+                                <div class="lu-zoning-stats">
+                                    <div class="lu-zoning-value">15,620</div>
+                                    <div class="lu-zoning-unit">ไร่</div>
+                                    <div class="lu-zoning-percent">37%</div>
+                                </div>
+                            </div>
+
+                            <!-- N - ไม่เหมาะสม -->
+                            <div class="lu-zoning-item n">
+                                <div class="lu-zoning-icon">❌</div>
+                                <div class="lu-zoning-info">
+                                    <div class="lu-zoning-label">ไม่เหมาะสม</div>
+                                    <div class="lu-zoning-sub">N - Not Suitable</div>
+                                </div>
+                                <div class="lu-zoning-stats">
+                                    <div class="lu-zoning-value">9,509</div>
+                                    <div class="lu-zoning-unit">ไร่</div>
+                                    <div class="lu-zoning-percent">23%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Source Note -->
+        <div class="lu-note">
+            📊 ข้อมูลจากแผนพัฒนาการเกษตรอำเภอพุทธมณฑล ประจำปี 2568
+        </div>
+    </div>
+</div>
