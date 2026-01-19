@@ -1,0 +1,637 @@
+<!-- 💧 WATER RESOURCE SECTION - ข้อมูลแหล่งน้ำและระบบชลประทาน อำเภอพุทธมณฑล -->
+<!-- Theme: Blue, Water, Irrigation -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+    .water-section * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif;
+    }
+
+    .water-section {
+        background: linear-gradient(135deg, #e1f5fe 0%, #f0fbfd 50%, #e1f5fe 100%);
+        padding: 60px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .water-section::before {
+        content: '';
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(2, 119, 189, 0.05) 0%, transparent 70%);
+        top: -200px;
+        right: -150px;
+        border-radius: 50%;
+    }
+
+    .water-section::after {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(0, 172, 193, 0.04) 0%, transparent 70%);
+        bottom: -150px;
+        left: -100px;
+        border-radius: 50%;
+    }
+
+    .water-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Main Title */
+    .water-main-title {
+        text-align: center;
+        margin-bottom: 50px;
+        animation: waterFadeInUp 0.8s ease-out;
+    }
+
+    .water-main-title h1 {
+        font-size: 42px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #01579b, #0277bd, #0288d1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .water-main-title p {
+        color: #0277bd;
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    /* River Hero Card */
+    .water-hero-card {
+        background: linear-gradient(135deg, #0277bd, #0288d1, #039be5);
+        border-radius: 24px;
+        padding: 40px 50px;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        box-shadow: 0 15px 50px rgba(2, 119, 189, 0.25);
+        animation: waterFadeInUp 0.8s ease-out 0.1s backwards;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .water-hero-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        background-size: 100px 20px;
+        animation: waveRiver 10s linear infinite;
+        opacity: 0.3;
+    }
+
+    @keyframes waveRiver {
+        from {
+            background-position: 0 0;
+        }
+
+        to {
+            background-position: 100px 0;
+        }
+    }
+
+    .water-hero-icon {
+        font-size: 80px;
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+    }
+
+    .water-hero-content {
+        flex: 1;
+        position: relative;
+        z-index: 2;
+    }
+
+    .water-hero-label {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .water-hero-title {
+        font-size: 48px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 15px;
+        line-height: 1.2;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .water-hero-desc {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 18px;
+        line-height: 1.7;
+        max-width: 800px;
+    }
+
+    .water-river-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .water-river-tag {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 20px;
+        color: white;
+        font-size: 15px;
+        backdrop-filter: blur(5px);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Grid Layouts */
+    .water-grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    /* Card Styles */
+    .water-card {
+        background: white;
+        border-radius: 24px;
+        padding: 30px;
+        box-shadow: 0 10px 40px rgba(2, 119, 189, 0.08);
+        transition: all 0.3s;
+        animation: waterFadeInUp 0.8s ease-out backwards;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .water-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(2, 119, 189, 0.15);
+    }
+
+    .water-card-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 25px;
+        font-size: 22px;
+        font-weight: 600;
+        color: #01579b;
+    }
+
+    .water-card-icon-box {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: #0277bd;
+    }
+
+    /* Canals Section */
+    .canal-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .canal-item {
+        background: #f1f8e9;
+        /* Light green tint for mix */
+        padding: 15px 20px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: transform 0.2s;
+        border-left: 4px solid #43a047;
+    }
+
+    .canal-item:hover {
+        transform: translateX(5px);
+        background: #dcedc8;
+    }
+
+    .canal-item.blue-theme {
+        background: #e1f5fe;
+        border-left: 4px solid #0288d1;
+    }
+
+    .canal-item.blue-theme:hover {
+        background: #b3e5fc;
+    }
+
+    .canal-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #37474f;
+    }
+
+    .canal-badge {
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-left: auto;
+        color: #555;
+    }
+
+    .canal-minor-text {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px dashed #cfd8dc;
+        font-size: 15px;
+        color: #546e7a;
+    }
+
+    /* Irrigation Section */
+    .irrigation-highlight {
+        text-align: center;
+        margin-bottom: 25px;
+        padding: 20px;
+        background: linear-gradient(135deg, #0288d1, #039be5);
+        border-radius: 16px;
+        color: white;
+    }
+
+    .irrigation-stat {
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    .irrigation-stat-label {
+        font-size: 16px;
+        opacity: 0.9;
+    }
+
+    .irrigation-projects {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-card {
+        background: #fafafa;
+        padding: 15px 20px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border: 1px solid #eee;
+    }
+
+    .project-icon {
+        font-size: 24px;
+    }
+
+    .project-info h4 {
+        font-size: 16px;
+        color: #0277bd;
+        margin-bottom: 2px;
+    }
+
+    .project-info p {
+        font-size: 13px;
+        color: #666;
+    }
+
+    /* Groundwater Section */
+    .gw-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .gw-stat-item {
+        position: relative;
+        padding: 0 10px;
+    }
+
+    .gw-stat-item::after {
+        content: '';
+        position: absolute;
+        right: -20px;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: #e0e0e0;
+    }
+
+    .gw-stat-item:last-child::after {
+        display: none;
+    }
+
+    .gw-value {
+        font-size: 36px;
+        font-weight: 700;
+        color: #0277bd;
+        line-height: 1;
+        margin-bottom: 5px;
+    }
+
+    .gw-label {
+        font-size: 15px;
+        color: #546e7a;
+        font-weight: 500;
+    }
+
+    .gw-sub {
+        font-size: 13px;
+        color: #90a4ae;
+    }
+
+    .gw-total {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 16px;
+        color: #01579b;
+        background: #e1f5fe;
+        padding: 10px;
+        border-radius: 12px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    /* Surface Water Simple Stats */
+    .surface-stats-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .surface-stat-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .surface-stat-row:last-child {
+        border-bottom: none;
+    }
+
+    .surface-stat-name {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        color: #455a64;
+    }
+
+    .surface-stat-count {
+        font-size: 20px;
+        font-weight: 700;
+        color: #37474f;
+    }
+
+    .surface-stat-count.zero {
+        color: #b0bec5;
+        font-weight: 400;
+    }
+
+    /* Animations */
+    @keyframes waterFadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .water-grid-2 {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .water-section {
+            padding: 40px 15px;
+        }
+
+        .water-main-title h1 {
+            font-size: 32px;
+            flex-direction: column;
+        }
+
+        .water-hero-card {
+            flex-direction: column;
+            text-align: center;
+            padding: 30px 20px;
+            gap: 25px;
+        }
+
+        .water-hero-icon {
+            font-size: 60px;
+        }
+
+        .water-hero-title {
+            font-size: 36px;
+        }
+
+        .water-river-tags {
+            justify-content: center;
+        }
+
+        .canal-list {
+            grid-template-columns: 1fr;
+        }
+
+        .gw-stats {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .gw-stat-item::after {
+            display: none;
+        }
+    }
+</style>
+
+<div class="water-section">
+    <div class="water-container">
+        <!-- Main Title -->
+        <div class="water-main-title">
+            <h1>💧 ข้อมูลแหล่งน้ำและชลประทาน 💧</h1>
+            <p>อำเภอพุทธมณฑล จังหวัดนครปฐม | หัวใจสำคัญของการเกษตรและการคมนาคม</p>
+        </div>
+
+        <!-- River Hero Card -->
+        <div class="water-hero-card">
+            <div class="water-hero-icon">🌊</div>
+            <div class="water-hero-content">
+                <div class="water-hero-label">แม่น้ำสายหลัก (Main River)</div>
+                <h2 class="water-hero-title">แม่น้ำท่าจีน<br><span
+                        style="font-size: 0.6em; opacity: 0.8;">(แม่น้ำนครชัยศรี)</span></h2>
+                <p class="water-hero-desc">
+                    แม่น้ำสายสำคัญที่เป็นเส้นเลือดใหญ่ของอำเภอ เชื่อมโยงรับน้ำจากแม่น้ำเจ้าพระยาและแม่น้ำแม่กลอง
+                    มีบทบาทสำคัญในการดำรงชีวิตและการเกษตรของประชาชน
+                </p>
+                <div class="water-river-tags">
+                    <span class="water-river-tag">🚰 การอุปโภคบริโภค</span>
+                    <span class="water-river-tag">🌾 การเกษตร</span>
+                    <span class="water-river-tag">🛶 การคมนาคม</span>
+                    <span class="water-river-tag">🛡️ ช่วยดันน้ำเค็ม</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid: Canals & Irrigation -->
+        <div class="water-grid-2">
+            <!-- Canals -->
+            <div class="water-card" style="animation-delay: 0.2s;">
+                <div class="water-card-title">
+                    <div class="water-card-icon-box">แคล</div>
+                    <h3>ระบบคลอง (Canals)</h3>
+                </div>
+                <div class="canal-list">
+                    <div class="canal-item blue-theme">
+                        <span>1️⃣</span> <span class="canal-name">คลองมหาสวัสดิ์</span>
+                    </div>
+                    <div class="canal-item blue-theme">
+                        <span>2️⃣</span> <span class="canal-name">คลองโยง</span>
+                    </div>
+                    <div class="canal-item blue-theme">
+                        <span>3️⃣</span> <span class="canal-name">คลองนราภิรมย์</span>
+                    </div>
+                    <div class="canal-item blue-theme">
+                        <span>4️⃣</span> <span class="canal-name">คลองทวีวัฒนา</span>
+                    </div>
+                </div>
+                <div class="canal-minor-text">
+                    <strong>* นอกจากนี้ยังมี "คลองซอย" กระจายทั่วพื้นที่</strong> เช่น คลองตาหลี, คลองตาเป่ง,
+                    คลองปฏิรูป, คลองชัยขันธ์, คลองตาซุย ฯลฯ ช่วยกระจายน้ำเข้าสู่พื้นที่การเกษตร
+                </div>
+            </div>
+
+            <!-- Irrigation -->
+            <div class="water-card" style="animation-delay: 0.3s;">
+                <div class="water-card-title">
+                    <div class="water-card-icon-box">🛠️</div>
+                    <h3>เขตพื้นที่ชลประทาน</h3>
+                </div>
+                <!-- Highlight Box -->
+                <div class="irrigation-highlight">
+                    <div class="irrigation-stat">~100%</div>
+                    <div class="irrigation-stat-label">ของพื้นที่เกษตรกรรม<br>อยู่ในเขตชลประทาน</div>
+                </div>
+                <div class="irrigation-projects">
+                    <div class="project-card">
+                        <span class="project-icon">🏗️</span>
+                        <div class="project-info">
+                            <h4>โครงการส่งน้ำและบำรุงรักษาพระพิมล</h4>
+                            <p>ดูแลบริหารจัดการน้ำในพื้นที่ตอนบน</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <span class="project-icon">🏗️</span>
+                        <div class="project-info">
+                            <h4>โครงการส่งน้ำและบำรุงรักษาภาษีเจริญ</h4>
+                            <p>ดูแลบริหารจัดการน้ำในพื้นที่ตอนล่าง</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid: Groundwater & Surface Stats -->
+        <div class="water-grid-2">
+            <!-- Groundwater -->
+            <div class="water-card" style="animation-delay: 0.4s;">
+                <div class="water-card-title">
+                    <div class="water-card-icon-box">🕳️</div>
+                    <h3>แหล่งน้ำใต้ดิน (บาดาล)</h3>
+                </div>
+                <div class="gw-total">
+                    รวมทั้งสิ้น <strong>11 บ่อ</strong>
+                </div>
+                <div class="gw-stats">
+                    <div class="gw-stat-item">
+                        <div class="gw-value">6</div>
+                        <div class="gw-label">ต.ศาลายา</div>
+                        <div class="gw-sub">บ่อ</div>
+                    </div>
+                    <div class="gw-stat-item">
+                        <div class="gw-value">4</div>
+                        <div class="gw-label">ต.คลองโยง</div>
+                        <div class="gw-sub">บ่อ</div>
+                    </div>
+                    <div class="gw-stat-item">
+                        <div class="gw-value">1</div>
+                        <div class="gw-label">ต.มหาสวัสดิ์</div>
+                        <div class="gw-sub">บ่อ</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Surface Water -->
+            <div class="water-card" style="animation-delay: 0.5s;">
+                <div class="water-card-title">
+                    <div class="water-card-icon-box">🏞️</div>
+                    <h3>แหล่งน้ำผิวดินอื่นๆ</h3>
+                    <span style="font-size: 14px; color: #78909c; margin-left: auto;">(เพื่อการเกษตร)</span>
+                </div>
+                <div class="surface-stats-list">
+                    <div class="surface-stat-row">
+                        <div class="surface-stat-name">
+                            <span style="color: #0288d1;">🔹</span> โครงการชลประทานขนาดกลาง
+                        </div>
+                        <div class="surface-stat-count">2 <span style="font-size: 14px; font-weight:400;">แห่ง</span>
+                        </div>
+                    </div>
+                    <div class="surface-stat-row">
+                        <div class="surface-stat-name">
+                            <span style="color: #b0bec5;">🔸</span> โครงการชลประทานขนาดเล็ก
+                        </div>
+                        <div class="surface-stat-count zero">-</div>
+                    </div>
+                    <div class="surface-stat-row">
+                        <div class="surface-stat-name">
+                            <span style="color: #b0bec5;">🔸</span> โครงการชลประทานขนาดใหญ่
+                        </div>
+                        <div class="surface-stat-count zero">-</div>
+                    </div>
+                    <div class="surface-stat-row">
+                        <div class="surface-stat-name">
+                            <span style="color: #b0bec5;">🔸</span> แหล่งน้ำจากกรมพัฒนาที่ดิน
+                        </div>
+                        <div class="surface-stat-count zero">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1073 @@
+<!-- 🌱 SOIL RESOURCE SECTION - ข้อมูลทรัพยากรดิน อำเภอพุทธมณฑล -->
+<!-- Theme: Earth Tones - Brown, Green, Orange -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+    .soil-section * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif;
+    }
+
+    .soil-section {
+        background: linear-gradient(135deg, #f5f0e6 0%, #e8e0d0 50%, #f5f0e6 100%);
+        padding: 60px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .soil-section::before {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(139, 90, 43, 0.06) 0%, transparent 70%);
+        top: -150px;
+        right: -100px;
+        border-radius: 50%;
+    }
+
+    .soil-section::after {
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(76, 175, 80, 0.05) 0%, transparent 70%);
+        bottom: -100px;
+        left: -80px;
+        border-radius: 50%;
+    }
+
+    .soil-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Main Title */
+    .soil-main-title {
+        text-align: center;
+        margin-bottom: 50px;
+        animation: soilFadeInUp 0.8s ease-out;
+    }
+
+    .soil-main-title h1 {
+        font-size: 42px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #5d4037, #795548, #8d6e63);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .soil-main-title p {
+        color: #795548;
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    /* Overview Hero Card */
+    .soil-hero {
+        background: linear-gradient(135deg, #5d4037, #6d4c41, #795548);
+        border-radius: 24px;
+        padding: 35px 40px;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        box-shadow: 0 15px 50px rgba(93, 64, 55, 0.25);
+        animation: soilFadeInUp 0.8s ease-out 0.1s backwards;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .soil-hero::before {
+        content: '';
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+        top: -100px;
+        right: -50px;
+        border-radius: 50%;
+    }
+
+    .soil-hero-icon {
+        font-size: 64px;
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+    }
+
+    .soil-hero-content {
+        flex: 1;
+    }
+
+    .soil-hero-content h2 {
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .soil-hero-content p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .soil-hero-stats {
+        display: flex;
+        gap: 25px;
+    }
+
+    .soil-hero-stat {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 15px 25px;
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+    }
+
+    .soil-hero-stat-value {
+        font-size: 28px;
+        font-weight: 700;
+        color: white;
+    }
+
+    .soil-hero-stat-label {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 3px;
+    }
+
+    /* Soil Chart Section */
+    .soil-chart-section {
+        background: white;
+        border-radius: 24px;
+        padding: 35px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 40px rgba(93, 64, 55, 0.1);
+        animation: soilFadeInUp 0.8s ease-out 0.15s backwards;
+    }
+
+    .soil-chart-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: #5d4037;
+        text-align: center;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .soil-chart-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+    /* Pie Chart */
+    .soil-pie-wrapper {
+        position: relative;
+        width: 280px;
+        height: 280px;
+    }
+
+    .soil-pie {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: conic-gradient(#8d6e63 0deg 324deg,
+                /* กลุ่มชุดดินที่ 2 - 90% */
+                #4caf50 324deg 360deg
+                /* กลุ่มชุดดินที่ 3 - 10% */
+            );
+        position: relative;
+        animation: soilPieSpin 1.5s ease-out;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes soilPieSpin {
+        from {
+            transform: rotate(-90deg);
+            opacity: 0;
+        }
+
+        to {
+            transform: rotate(0);
+            opacity: 1;
+        }
+    }
+
+    .soil-pie::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 140px;
+        height: 140px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .soil-pie-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 10;
+    }
+
+    .soil-pie-center-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #5d4037;
+    }
+
+    .soil-pie-center-label {
+        font-size: 12px;
+        color: #795548;
+    }
+
+    .soil-chart-legend {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .soil-legend-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 20px;
+        background: linear-gradient(135deg, #fafafa, #f5f5f5);
+        border-radius: 12px;
+        transition: all 0.3s;
+    }
+
+    .soil-legend-item:hover {
+        transform: translateX(8px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .soil-legend-color {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .soil-legend-info h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 3px;
+    }
+
+    .soil-legend-info p {
+        font-size: 15px;
+        color: #666;
+    }
+
+    .soil-legend-info .area {
+        font-weight: 700;
+        color: #5d4037;
+    }
+
+    /* Soil Group Cards */
+    .soil-groups {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .soil-group-card {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(93, 64, 55, 0.12);
+        animation: soilFadeInUp 0.8s ease-out backwards;
+    }
+
+    .soil-group-card:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+
+    .soil-group-card:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+
+    .soil-group-header {
+        padding: 25px 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+    }
+
+    .soil-group-card:nth-child(1) .soil-group-header {
+        background: linear-gradient(135deg, #8d6e63, #a1887f);
+    }
+
+    .soil-group-card:nth-child(2) .soil-group-header {
+        background: linear-gradient(135deg, #4caf50, #66bb6a);
+    }
+
+    .soil-group-number {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: 700;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .soil-group-header-info h3 {
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .soil-group-header-info p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+    }
+
+    .soil-group-area {
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: right;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 12px 20px;
+        border-radius: 12px;
+    }
+
+    .soil-group-area-value {
+        font-size: 22px;
+        font-weight: 700;
+        color: white;
+    }
+
+    .soil-group-area-label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .soil-group-body {
+        padding: 30px;
+    }
+
+    /* Info Grid */
+    .soil-info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        margin-bottom: 25px;
+    }
+
+    .soil-info-card {
+        background: linear-gradient(135deg, #fafafa, #f5f5f5);
+        border-radius: 16px;
+        padding: 20px;
+        border-left: 4px solid;
+    }
+
+    .soil-info-card.feature {
+        border-color: #2196f3;
+    }
+
+    .soil-info-card.usage {
+        border-color: #4caf50;
+    }
+
+    .soil-info-card.problem {
+        border-color: #ff9800;
+    }
+
+    .soil-info-card.solution {
+        border-color: #9c27b0;
+    }
+
+    .soil-info-card-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .soil-info-card-icon {
+        font-size: 24px;
+    }
+
+    .soil-info-card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .soil-info-card-content {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.8;
+    }
+
+    .soil-info-card-content ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .soil-info-card-content li {
+        padding: 6px 0;
+        padding-left: 20px;
+        position: relative;
+    }
+
+    .soil-info-card-content li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #795548;
+        font-weight: bold;
+    }
+
+    /* Soil Names Section */
+    .soil-names {
+        background: linear-gradient(135deg, #fff8e1, #fff3e0);
+        border-radius: 16px;
+        padding: 20px 25px;
+        margin-top: 20px;
+    }
+
+    .soil-names-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #e65100;
+        margin-bottom: 12px;
+    }
+
+    .soil-names-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .soil-name-tag {
+        background: white;
+        padding: 10px 18px;
+        border-radius: 20px;
+        font-size: 15px;
+        color: #795548;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: all 0.2s;
+    }
+
+    .soil-name-tag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Management Details */
+    .soil-management {
+        margin-top: 25px;
+    }
+
+    .soil-management-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #5d4037;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .soil-management-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .soil-management-card {
+        background: white;
+        border-radius: 16px;
+        padding: 25px;
+        border: 2px solid #e0e0e0;
+        transition: all 0.3s;
+    }
+
+    .soil-management-card:hover {
+        border-color: #8d6e63;
+        box-shadow: 0 8px 25px rgba(93, 64, 55, 0.12);
+    }
+
+    .soil-management-card-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+
+    .soil-management-card-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+    }
+
+    .soil-management-card.rice .soil-management-card-icon {
+        background: linear-gradient(135deg, #fff8e1, #ffe082);
+    }
+
+    .soil-management-card.fruit .soil-management-card-icon {
+        background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
+    }
+
+    .soil-management-card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .soil-management-card-content {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.9;
+    }
+
+    .soil-management-card-content strong {
+        color: #5d4037;
+    }
+
+    /* Summary Section */
+    .soil-summary {
+        background: linear-gradient(135deg, #5d4037, #6d4c41);
+        border-radius: 24px;
+        padding: 35px 40px;
+        margin-top: 40px;
+        animation: soilFadeInUp 0.8s ease-out 0.4s backwards;
+    }
+
+    .soil-summary-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .soil-summary-header h3 {
+        font-size: 22px;
+        font-weight: 600;
+        color: white;
+    }
+
+    .soil-summary-icon {
+        font-size: 32px;
+    }
+
+    .soil-summary-content {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 17px;
+        line-height: 1.9;
+    }
+
+    .soil-summary-highlight {
+        display: inline-block;
+        background: rgba(255, 193, 7, 0.25);
+        padding: 3px 12px;
+        border-radius: 6px;
+        color: #ffc107;
+        font-weight: 600;
+    }
+
+    /* Data Note */
+    .soil-note {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 12px;
+        font-size: 15px;
+        color: #795548;
+    }
+
+    /* Animations */
+    @keyframes soilFadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .soil-info-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .soil-management-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .soil-group-area {
+            position: static;
+            transform: none;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .soil-group-header {
+            flex-wrap: wrap;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .soil-section {
+            padding: 40px 15px;
+        }
+
+        .soil-main-title h1 {
+            font-size: 28px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .soil-hero {
+            flex-direction: column;
+            text-align: center;
+            padding: 30px 25px;
+        }
+
+        .soil-hero-stats {
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .soil-hero-stat {
+            width: 100%;
+        }
+
+        .soil-chart-container {
+            flex-direction: column;
+        }
+
+        .soil-pie-wrapper {
+            width: 220px;
+            height: 220px;
+        }
+
+        .soil-pie::before {
+            width: 100px;
+            height: 100px;
+        }
+
+        .soil-group-header {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .soil-summary {
+            padding: 25px 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .soil-main-title h1 {
+            font-size: 24px;
+        }
+
+        .soil-group-body {
+            padding: 20px;
+        }
+
+        .soil-management-card {
+            padding: 18px;
+        }
+    }
+</style>
+
+<div class="soil-section">
+    <div class="soil-container">
+        <!-- Main Title -->
+        <div class="soil-main-title">
+            <h1>🌱 ข้อมูลทรัพยากรดิน 🌱</h1>
+            <p>อำเภอพุทธมณฑล จังหวัดนครปฐม | ข้อมูลจากกรมพัฒนาที่ดิน</p>
+        </div>
+
+        <!-- Hero Overview -->
+        <div class="soil-hero">
+            <div class="soil-hero-icon">🪨</div>
+            <div class="soil-hero-content">
+                <h2>ลักษณะดินโดยรวมของอำเภอ</h2>
+                <p>พื้นที่อำเภอพุทธมณฑลมีลักษณะ<strong>ดินเหนียวลึกมาก</strong> แบ่งออกเป็น 2 กลุ่มชุดดินหลัก
+                    โดยพื้นที่ส่วนใหญ่เป็นกลุ่มชุดดินที่ 2 ซึ่งมีปัญหาเรื่อง<strong>ดินเปรี้ยว/ดินกรด</strong>
+                    ต้องมีการจัดการเรื่องปูนและการปรับปรุงบำรุงดินอย่างเหมาะสม</p>
+            </div>
+            <div class="soil-hero-stats">
+                <div class="soil-hero-stat">
+                    <div class="soil-hero-stat-value">2</div>
+                    <div class="soil-hero-stat-label">กลุ่มชุดดินหลัก</div>
+                </div>
+                <div class="soil-hero-stat">
+                    <div class="soil-hero-stat-value">32,239</div>
+                    <div class="soil-hero-stat-label">ไร่ (รวมพื้นที่)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="soil-chart-section">
+            <div class="soil-chart-title">
+                <span>📊</span> สัดส่วนกลุ่มชุดดินในพื้นที่
+            </div>
+            <div class="soil-chart-container">
+                <div class="soil-pie-wrapper">
+                    <div class="soil-pie"></div>
+                    <div class="soil-pie-center">
+                        <div class="soil-pie-center-value">100%</div>
+                        <div class="soil-pie-center-label">พื้นที่ทั้งหมด</div>
+                    </div>
+                </div>
+                <div class="soil-chart-legend">
+                    <div class="soil-legend-item">
+                        <div class="soil-legend-color" style="background: linear-gradient(135deg, #8d6e63, #a1887f);">
+                            🏷️</div>
+                        <div class="soil-legend-info">
+                            <h4>กลุ่มชุดดินที่ 2</h4>
+                            <p>ดินเหนียวลึกมาก กรดจัดมาก | <span class="area">28,964.80 ไร่</span> (90%)</p>
+                        </div>
+                    </div>
+                    <div class="soil-legend-item">
+                        <div class="soil-legend-color" style="background: linear-gradient(135deg, #4caf50, #66bb6a);">
+                            🏷️</div>
+                        <div class="soil-legend-info">
+                            <h4>กลุ่มชุดดินที่ 3</h4>
+                            <p>ดินเหนียวจากตะกอนน้ำกร่อย กลาง-ด่าง | <span class="area">3,274.43 ไร่</span> (10%)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Soil Groups -->
+        <div class="soil-groups">
+            <!-- Group 2 -->
+            <div class="soil-group-card">
+                <div class="soil-group-header">
+                    <div class="soil-group-number">2</div>
+                    <div class="soil-group-header-info">
+                        <h3>กลุ่มชุดดินที่ 2</h3>
+                        <p>กลุ่มดินเหนียวลึกมาก ปฏิกิริยาดินเป็น<strong>กรดจัดมาก</strong> | พื้นที่ส่วนใหญ่ของอำเภอ</p>
+                    </div>
+                    <div class="soil-group-area">
+                        <div class="soil-group-area-value">28,964.80</div>
+                        <div class="soil-group-area-label">ไร่</div>
+                    </div>
+                </div>
+                <div class="soil-group-body">
+                    <div class="soil-info-grid">
+                        <!-- Feature -->
+                        <div class="soil-info-card feature">
+                            <div class="soil-info-card-header">
+                                <span class="soil-info-card-icon">🧪</span>
+                                <span class="soil-info-card-title">ลักษณะเด่น</span>
+                            </div>
+                            <div class="soil-info-card-content">
+                                <ul>
+                                    <li>ดินเหนียวลึกมาก ปฏิกิริยาดินเป็น<strong>กรดจัดมาก</strong></li>
+                                    <li>การระบายน้ำเลว ความอุดมสมบูรณ์ปานกลาง</li>
+                                    <li>อาจพบจุดประสีเหลืองฟางข้าวของสารประกอบกำมะถันลึกกว่า 100 ซม.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Usage -->
+                        <div class="soil-info-card usage">
+                            <div class="soil-info-card-header">
+                                <span class="soil-info-card-icon">🌾</span>
+                                <span class="soil-info-card-title">การใช้ประโยชน์</span>
+                            </div>
+                            <div class="soil-info-card-content">
+                                <ul>
+                                    <li>ใช้ทำนา</li>
+                                    <li>บางแห่งยกร่องปลูกไม้ยืนต้นและไม้ผล</li>
+                                    <li>นอกฤดูทำนาอาจปลูกพืชไร่ตระกูลถั่ว หรือปล่อยเป็นทุ่งหญ้า</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Problems -->
+                        <div class="soil-info-card problem">
+                            <div class="soil-info-card-header">
+                                <span class="soil-info-card-icon">⚠️</span>
+                                <span class="soil-info-card-title">ปัญหา</span>
+                            </div>
+                            <div class="soil-info-card-content">
+                                <ul>
+                                    <li>ดินเป็นกรดจัดมาก ทำให้เกิดการตรึงธาตุอาหารและปลดปล่อยสารพิษต่อพืช</li>
+                                    <li>โครงสร้างแน่นทึบ ดินแห้งแข็งและแตกระแหง ไถพรวนยาก</li>
+                                    <li>ขาดแคลนน้ำจืด และน้ำท่วมขังในฤดูฝน</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Solution -->
+                        <div class="soil-info-card solution">
+                            <div class="soil-info-card-header">
+                                <span class="soil-info-card-icon">💡</span>
+                                <span class="soil-info-card-title">หลักการจัดการเบื้องต้น</span>
+                            </div>
+                            <div class="soil-info-card-content">
+                                <ul>
+                                    <li>ใช้วัสดุปูน <strong>500 กก./ไร่</strong> หว่านทั่วแปลง</li>
+                                    <li>ไถกลบตอซังหรือพืชปุ๋ยสด (โสน)</li>
+                                    <li>ยกร่องกว้าง 6-8 เมตร มีคันดินกั้นน้ำ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soil Names -->
+                    <div class="soil-names">
+                        <div class="soil-names-title">
+                            <span>📋</span> ชุดดินที่พบในกลุ่มนี้
+                        </div>
+                        <div class="soil-names-list">
+                            <span class="soil-name-tag">ชุดดินอยุธยา (Ay)</span>
+                            <span class="soil-name-tag">ชุดดินบางเขน (Bn)</span>
+                            <span class="soil-name-tag">ชุดดินบางน้ำเปรี้ยว (Bp)</span>
+                            <span class="soil-name-tag">ชุดดินมหาโพธิ (Ma)</span>
+                            <span class="soil-name-tag">ชุดดินท่าขวาง (Tq)</span>
+                        </div>
+                    </div>
+
+                    <!-- Management Details -->
+                    <div class="soil-management">
+                        <div class="soil-management-title">
+                            <span>🛠️</span> แนวทางการจัดการดินโดยละเอียด
+                        </div>
+                        <div class="soil-management-grid">
+                            <div class="soil-management-card rice">
+                                <div class="soil-management-card-header">
+                                    <div class="soil-management-card-icon">🌾</div>
+                                    <div class="soil-management-card-title">สำหรับปลูกข้าว</div>
+                                </div>
+                                <div class="soil-management-card-content">
+                                    • ไถพรวนขณะที่ดินมีความชื้นเหมาะสม<br>
+                                    • ลดความเป็นกรดด้วย<strong>วัสดุปูน 500 กก./ไร่</strong> หว่านทั่วแปลง<br>
+                                    • ไถกลบตอซัง ปล่อยไว้ 3-4 สัปดาห์<br>
+                                    • หรือไถกลบพืชปุ๋ยสด (หว่านโสน 4-6 กก./ไร่ ไถกลบเมื่ออายุ 50-70 วัน)<br>
+                                    • ใช้ปุ๋ยเคมีสูตร <strong>16-20-0</strong> ใส่ปุ๋ยแต่งหน้าหลังปักดำ 35-40 วัน<br>
+                                    • พัฒนาแหล่งน้ำไว้ใช้ในช่วงที่ข้าวขาดน้ำ
+                                </div>
+                            </div>
+                            <div class="soil-management-card fruit">
+                                <div class="soil-management-card-header">
+                                    <div class="soil-management-card-icon">🥬</div>
+                                    <div class="soil-management-card-title">สำหรับปลูกพืชผักหรือไม้ผล</div>
+                                </div>
+                                <div class="soil-management-card-content">
+                                    • <strong>ยกร่องกว้าง 6-8 เมตร</strong> คูน้ำกว้าง 1.0-1.5 เมตร ลึก 0.5-1.0 เมตร<br>
+                                    • มีคันดินอัดแน่นล้อมรอบ ก่อนยกร่องควรแยกหน้าดินมาทับ<br>
+                                    • หว่านวัสดุปูน <strong>500 กก./ไร่</strong> บนสันร่องและร่องคูน้ำ<br>
+                                    • ปรับปรุงดินด้วยปุ๋ยหมัก/ปุ๋ยคอก <strong>2-3 ตัน/ไร่</strong><br>
+                                    • ขุดหลุมปลูกขนาด 50x50x50 ซม. ใส่ปุ๋ยหมัก 20-35 กก./หลุม ร่วมกับปูน 5 กก./หลุม<br>
+                                    • ล้างและควบคุมไม่ให้ดินเกิดกรดเพิ่มขึ้น
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group 3 -->
+            <div class="soil-group-card">
+                <div class="soil-group-header">
+                    <div class="soil-group-number">3</div>
+                    <div class="soil-group-header-info">
+                        <h3>กลุ่มชุดดินที่ 3</h3>
+                        <p>กลุ่มดินเหนียวลึกมากจากตะกอนน้ำกร่อย ปฏิกิริยาดินเป็น<strong>กลางถึงด่าง</strong></p>
+                    </div>
+                    <div class="soil-group-area">
+                        <div class="soil-group-area-value">3,274.43</div>
+                        <div class="soil-group-area-label">ไร่</div>
+                    </div>
+                </div>
+                <div class="soil-group-body">
+                    <div class="soil-info-grid">
+                        <!-- Feature -->
+                        <div class="soil-info-card feature">
+                            <div class="soil-info-card-header">
+                                <span class="soil-info-card-icon">🧪</span>
+                                <span class="soil-info-card-title">ลักษณะเด่น</span>
+                            </div>
+                            <div class="soil-info-card-content">
+                                <ul>
+                                    <li>ดินเหนียวลึกมากที่เกิดจาก<strong>ตะกอนน้ำกร่อย</strong></li>
+                                    <li>ปฏิกิริยาดินเป็น<strong>กลางถึงด่าง</strong> การระบายน้ำเลว</li>
+                                    <li>ความอุดมสมบูรณ์ปานกลางถึงสูง</li>
+                                    <li>ไม่พบชั้นดินกรดกำมะถันในความลึก 150 ซม.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Usage -->
+                        <div class="soil-info-card usage">
+                            <div class="soil-info-card-header">
+                                <span class="soil-info-card-icon">🌾</span>
+                                <span class="soil-info-card-title">การใช้ประโยชน์</span>
+                            </div>
+                            <div class="soil-info-card-content">
+                                <ul>
+                                    <li>ใช้ทำนา</li>
+                                    <li>ยกร่องปลูกพืชผักและผลไม้</li>
+                                    <li><strong>ไม่ค่อยมีปัญหาในการใช้ประโยชน์</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Problems -->
+                        <div class="soil-info-card problem">
+                            <div class="soil-info-card-header">
+                                <span class="soil-info-card-icon">⚠️</span>
+                                <span class="soil-info-card-title">ปัญหา</span>
+                            </div>
+                            <div class="soil-info-card-content">
+                                <ul>
+                                    <li>โครงสร้างแน่นทึบ ดินแห้งแข็งและแตกระแหง ไถพรวนยาก</li>
+                                    <li>บางพื้นที่อาจพบชั้นดินเลนที่มีเกลือสะสมในดินล่าง</li>
+                                    <li>พื้นที่ลุ่มต่ำอาจมีปัญหาน้ำท่วมขังในฤดูฝน</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Solution -->
+                        <div class="soil-info-card solution">
+                            <div class="soil-info-card-header">
+                                <span class="soil-info-card-icon">💡</span>
+                                <span class="soil-info-card-title">หลักการจัดการเบื้องต้น</span>
+                            </div>
+                            <div class="soil-info-card-content">
+                                <ul>
+                                    <li>ไถกลบตอซังหรือพืชปุ๋ยสด</li>
+                                    <li>ปรับปรุงดินด้วยปุ๋ยหมัก/ปุ๋ยคอก <strong>1-2 ตัน/ไร่</strong></li>
+                                    <li>พัฒนาแหล่งน้ำและจัดระบบน้ำในแปลง</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soil Names -->
+                    <div class="soil-names">
+                        <div class="soil-names-title">
+                            <span>📋</span> ชุดดินที่พบในกลุ่มนี้
+                        </div>
+                        <div class="soil-names-list">
+                            <span class="soil-name-tag">ชุดดินบางกอก (Bk)</span>
+                            <span class="soil-name-tag">ชุดดินบางเลน (Bl)</span>
+                            <span class="soil-name-tag">ชุดดินบางแพ (Bph)</span>
+                            <span class="soil-name-tag">ชุดดินฉะเชิงเทรา (Cc)</span>
+                            <span class="soil-name-tag">ชุดดินสมุทรปราการ (Sm)</span>
+                        </div>
+                    </div>
+
+                    <!-- Management Details -->
+                    <div class="soil-management">
+                        <div class="soil-management-title">
+                            <span>🛠️</span> แนวทางการจัดการดินโดยละเอียด
+                        </div>
+                        <div class="soil-management-grid">
+                            <div class="soil-management-card rice">
+                                <div class="soil-management-card-header">
+                                    <div class="soil-management-card-icon">🌾</div>
+                                    <div class="soil-management-card-title">สำหรับปลูกข้าว</div>
+                                </div>
+                                <div class="soil-management-card-content">
+                                    • ไถพรวนขณะที่ดินมีความชื้นเหมาะสม<br>
+                                    • ไถกลบตอซัง ปล่อยไว้ 3-4 สัปดาห์<br>
+                                    • หรือไถกลบพืชปุ๋ยสด (หว่านโสน 4-6 กก./ไร่ ไถกลบเมื่ออายุ 50-70 วัน)<br>
+                                    • ใช้ปุ๋ยเคมีสูตร <strong>16-20-0</strong> ใส่ปุ๋ยแต่งหน้าหลังปักดำ 35-40 วัน<br>
+                                    • พัฒนาแหล่งน้ำไว้ใช้ในช่วงที่ข้าวขาดน้ำหรือทำนาครั้งที่ 2<br>
+                                    • หลังเก็บเกี่ยวข้าว ทำร่องแบบเตี้ยปลูกพืชไร่หรือพืชผัก
+                                </div>
+                            </div>
+                            <div class="soil-management-card fruit">
+                                <div class="soil-management-card-header">
+                                    <div class="soil-management-card-icon">🥬</div>
+                                    <div class="soil-management-card-title">สำหรับปลูกพืชผักหรือไม้ผล</div>
+                                </div>
+                                <div class="soil-management-card-content">
+                                    • <strong>ยกร่องกว้าง 6-8 เมตร</strong> คูน้ำกว้าง 1.0-1.5 เมตร ลึก 0.5-1.0 เมตร
+                                    หรือถึงชั้นดินเลน<br>
+                                    • ร่องแปลงปลูกอยู่สูงจากระดับน้ำที่เคยท่วม หรือมีคันดินอัดแน่นล้อมรอบ<br>
+                                    • ปรับปรุงดินด้วยปุ๋ยหมัก/ปุ๋ยคอก <strong>1-2 ตัน/ไร่</strong><br>
+                                    • ขุดหลุมปลูกขนาด 50x50x50 ซม. ใส่ปุ๋ยหมัก 15-25 กก./หลุม<br>
+                                    • พัฒนาแหล่งน้ำและจัดระบบการให้น้ำในแปลง
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="soil-summary">
+            <div class="soil-summary-header">
+                <span class="soil-summary-icon">🗺️</span>
+                <h3>สรุปภาพรวมทรัพยากรดิน อำเภอพุทธมณฑล</h3>
+            </div>
+            <div class="soil-summary-content">
+                พื้นที่ส่วนใหญ่ของอำเภอ (ประมาณ <span class="soil-summary-highlight">90%</span>) เป็น <span
+                    class="soil-summary-highlight">กลุ่มชุดดินที่ 2</span> ซึ่งมีปัญหาเรื่อง <span
+                    class="soil-summary-highlight">ดินเปรี้ยว/ดินกรดจัดมาก</span><br><br>
+                🔑 <strong>คำแนะนำสำคัญ:</strong> เกษตรกรควรใช้วัสดุปูนเพื่อลดความเป็นกรดของดิน
+                รวมถึงปรับปรุงดินด้วยอินทรียวัตถุอย่างสม่ำเสมอ เพื่อเพิ่มความอุดมสมบูรณ์และทำให้พืชเจริญเติบโตได้ดี
+            </div>
+        </div>
+
+        <!-- Data Note -->
+        <div class="soil-note">
+            📊 ข้อมูลจากกรมพัฒนาที่ดิน กระทรวงเกษตรและสหกรณ์ | แผนพัฒนาการเกษตรอำเภอพุทธมณฑล ประจำปี 2568
+        </div>
+    </div>
+</div>
