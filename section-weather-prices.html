@@ -1,0 +1,394 @@
+<!-- 🌤️ WEATHER & CROP PRICES WIDGET - สำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- Theme: Green, White, Orange (Agriculture) -->
+<!-- สำหรับใช้ใน WordPress Custom HTML Block -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+    .agri-info-widget * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .agri-info-widget {
+        font-family: 'Kanit', sans-serif;
+        background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 50%, #fff8e1 100%);
+        padding: 50px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Decorative Background */
+    .agri-info-widget::before {
+        content: '';
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(67, 160, 71, 0.1) 0%, transparent 70%);
+        top: -100px;
+        right: -100px;
+        border-radius: 50%;
+    }
+
+    .agri-info-widget::after {
+        content: '';
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(245, 124, 0, 0.08) 0%, transparent 70%);
+        bottom: -50px;
+        left: -50px;
+        border-radius: 50%;
+    }
+
+    .widget-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Header */
+    .widget-header {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .widget-header h2 {
+        color: #1b5e20;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .widget-header h2 svg {
+        width: 32px;
+        height: 32px;
+        fill: #f57c00;
+    }
+
+    .widget-header p {
+        color: #558b2f;
+        font-size: 15px;
+    }
+
+    /* Cards Grid */
+    .widget-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    @media (max-width: 768px) {
+        .widget-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Card Style */
+    .info-card {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 8px 30px rgba(27, 94, 32, 0.1);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(27, 94, 32, 0.15);
+    }
+
+    .info-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #43a047, #66bb6a);
+    }
+
+    .info-card.orange-accent::before {
+        background: linear-gradient(90deg, #f57c00, #ff9800);
+    }
+
+    /* Card Header */
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e8f5e9;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-icon svg {
+        width: 28px;
+        height: 28px;
+        fill: #2e7d32;
+    }
+
+    .card-icon.orange {
+        background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    }
+
+    .card-icon.orange svg {
+        fill: #e65100;
+    }
+
+    .card-header h3 {
+        color: #1b5e20;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    /* Weather Widget Embed */
+    .weather-embed {
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .weather-embed iframe {
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Price Links */
+    .price-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .price-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px 18px;
+        background: linear-gradient(135deg, #f9fbe7 0%, #f1f8e9 100%);
+        border-radius: 12px;
+        text-decoration: none;
+        color: #33691e;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(139, 195, 74, 0.2);
+    }
+
+    .price-link:hover {
+        background: linear-gradient(135deg, #dcedc8 0%, #c5e1a5 100%);
+        transform: translateX(5px);
+        color: #1b5e20;
+    }
+
+    .price-link svg {
+        width: 22px;
+        height: 22px;
+        fill: #689f38;
+        flex-shrink: 0;
+    }
+
+    .price-link:hover svg {
+        fill: #33691e;
+    }
+
+    .price-link-arrow {
+        margin-left: auto;
+        opacity: 0.5;
+    }
+
+    /* Source Note */
+    .source-note {
+        text-align: center;
+        margin-top: 25px;
+        color: #7cb342;
+        font-size: 12px;
+    }
+
+    .source-note a {
+        color: #558b2f;
+        text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+        .agri-info-widget {
+            padding: 35px 15px;
+        }
+
+        .widget-header h2 {
+            font-size: 22px;
+        }
+
+        .info-card {
+            padding: 20px;
+        }
+
+        .card-header h3 {
+            font-size: 16px;
+        }
+
+        .price-link {
+            padding: 12px 15px;
+            font-size: 13px;
+        }
+    }
+</style>
+
+<section class="agri-info-widget">
+    <div class="widget-container">
+        <!-- Header -->
+        <div class="widget-header">
+            <h2>
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+                </svg>
+                ข้อมูลสำหรับเกษตรกร
+            </h2>
+            <p>สภาพอากาศและราคาสินค้าเกษตรที่เกษตรกรควรรู้</p>
+        </div>
+
+        <!-- Widget Grid -->
+        <div class="widget-grid">
+            <!-- Weather Card -->
+            <div class="info-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z" />
+                        </svg>
+                    </div>
+                    <h3>🌤️ สภาพอากาศ</h3>
+                </div>
+                <div class="price-links">
+                    <a href="https://www.tmd.go.th/province/nakhonpathom" target="_blank" class="price-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4s1.79-4 4-4h.71C7.37 7.69 9.48 6 12 6c3.04 0 5.5 2.46 5.5 5.5v.5H19c1.66 0 3 1.34 3 3s-1.34 3-3 3z" />
+                        </svg>
+                        พยากรณ์อากาศ นครปฐม (กรมอุตุฯ)
+                        <svg class="price-link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.accuweather.com/th/th/nakhon-pathom/318192/weather-forecast/318192"
+                        target="_blank" class="price-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z" />
+                        </svg>
+                        พยากรณ์อากาศ 7 วัน (AccuWeather)
+                        <svg class="price-link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.thaiwater.net/water/drought/map" target="_blank" class="price-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8zm0 18c-3.35 0-6-2.57-6-6.2 0-2.34 1.95-5.44 6-9.14 4.05 3.7 6 6.79 6 9.14 0 3.63-2.65 6.2-6 6.2z" />
+                        </svg>
+                        สถานการณ์น้ำ & ภัยแล้ง (สสนก.)
+                        <svg class="price-link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.thaiwater.net/rain-daily" target="_blank" class="price-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z" />
+                        </svg>
+                        ปริมาณฝนรายวัน
+                        <svg class="price-link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Crop Prices Card -->
+            <div class="info-card orange-accent">
+                <div class="card-header">
+                    <div class="card-icon orange">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+                        </svg>
+                    </div>
+                    <h3>💰 ราคาสินค้าเกษตร</h3>
+                </div>
+                <div class="price-links">
+                    <a href="https://www.oae.go.th/view/1/ราคาสินค้าเกษตร/TH-TH" target="_blank" class="price-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M7 17h2v-7H7v7zm4 0h2V7h-2v10zm4 0h2v-4h-2v4zM5 21h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2zM5 5h14v14H5V5z" />
+                        </svg>
+                        ราคาสินค้าเกษตร (สศก.)
+                        <svg class="price-link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.simummuangmarket.com/" target="_blank" class="price-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        ตลาดสี่มุมเมือง (ราคาขายส่ง)
+                        <svg class="price-link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.talaadthai.com/" target="_blank" class="price-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        ตลาดไท (ราคาขายส่ง)
+                        <svg class="price-link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.baac.or.th/th/content-about.php?content_group_sub=0016" target="_blank"
+                        class="price-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+                        </svg>
+                        สินเชื่อเกษตรกร (ธ.ก.ส.)
+                        <svg class="price-link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Source Note -->
+        <p class="source-note">
+            ข้อมูลสภาพอากาศจาก <a href="https://www.tmd.go.th" target="_blank">กรมอุตุนิยมวิทยา</a> |
+            ข้อมูลราคาจาก <a href="https://www.oae.go.th" target="_blank">สำนักงานเศรษฐกิจการเกษตร</a>
+        </p>
+    </div>
+</section>
