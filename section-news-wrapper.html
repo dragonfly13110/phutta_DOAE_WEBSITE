@@ -168,14 +168,27 @@
     /* Section Label */
     .news-section-label {
         display: flex;
-        align-items: center;
-        gap: 10px;
+        flex-direction: column;
+        gap: 8px;
         color: #2e7d32;
-        font-size: 14px;
-        font-weight: 600;
         padding-bottom: 15px;
         margin-bottom: 20px;
         border-bottom: 1px solid rgba(67, 160, 71, 0.15);
+    }
+
+    .news-section-label .label-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .news-section-label .label-subtitle {
+        font-size: 14px;
+        font-weight: 400;
+        color: #558b2f;
+        margin-left: 30px;
     }
 
     .news-section-label svg {
@@ -428,7 +441,6 @@
                 ข่าวสาร
             </div>
             <h2>ข่าวประชาสัมพันธ์</h2>
-            <p>ติดตามความเคลื่อนไหวและกิจกรรมล่าสุดจากสำนักงานเกษตรอำเภอพุทธมณฑล</p>
         </div>
 
         <!-- Main Card Wrapper -->
@@ -436,11 +448,14 @@
             <div class="news-card-inner">
                 <!-- Section Label -->
                 <div class="news-section-label">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-                    </svg>
-                    ข่าวล่าสุด
+                    <div class="label-title">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+                        </svg>
+                        ข่าวล่าสุด
+                    </div>
+                    <div class="label-subtitle">ติดตามความเคลื่อนไหวและกิจกรรมล่าสุดจากสำนักงานเกษตรอำเภอพุทธมณฑล</div>
                 </div>
 
                 <!-- ============================================ -->
@@ -467,7 +482,7 @@
                                     </div>
                                     <!-- /wp:gutentor/e0 -->
 
-                                    <!-- wp:gutentor/p1 {"gID":"g-news-col1","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"กิจกรรมส่งเสริมการเกษตร","value":5}],"pPostNum":5,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
+                                    <!-- wp:gutentor/p1 {"gID":"g-news-col1","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"กิจกรรมส่งเสริมการเกษตร","value":5}],"pPostNum":4,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
 
                                 </div>
                                 <!-- /wp:gutentor/single-column -->
@@ -485,7 +500,7 @@
                                     </div>
                                     <!-- /wp:gutentor/e0 -->
 
-                                    <!-- wp:gutentor/p1 {"gID":"g-news-col2","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"ประชุม","value":4},{"label":"พิธีการ","value":6}],"pPostNum":5,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
+                                    <!-- wp:gutentor/p1 {"gID":"g-news-col2","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"ประชุม","value":4},{"label":"พิธีการ","value":6}],"pPostNum":4,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
 
                                 </div>
                                 <!-- /wp:gutentor/single-column -->
