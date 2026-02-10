@@ -1,0 +1,667 @@
+<!-- PREMIUM SIDEBAR - สำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- Light Theme | Pure CSS Only | WordPress Compatible -->
+<!-- วางใน Custom HTML block ฝั่ง Sidebar (คอลัมน์ขวา) -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+<style>
+    .sb * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif;
+    }
+
+    .sb {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    /* ═══════════════════════════════
+       SHARED CARD BASE
+       ═══════════════════════════════ */
+    .sb-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(27, 94, 32, 0.06);
+        overflow: hidden;
+        position: relative;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .sb-card:hover {
+        box-shadow: 0 6px 24px rgba(27, 94, 32, 0.1);
+    }
+
+    .sb-card-accent {
+        height: 3px;
+        background: linear-gradient(90deg, #1b5e20, #43a047, #66bb6a);
+    }
+
+    .sb-card-accent.orange {
+        background: linear-gradient(90deg, #e65100, #f57c00, #ffa726);
+    }
+
+    .sb-card-accent.blue {
+        background: linear-gradient(90deg, #0d47a1, #1976d2, #42a5f5);
+    }
+
+    .sb-card-accent.animated {
+        background: linear-gradient(90deg, #1b5e20, #43a047, #ffc107, #ff9800, #ffc107, #43a047, #1b5e20);
+        background-size: 200% 100%;
+        animation: sbAccentSlide 4s linear infinite;
+    }
+
+    @keyframes sbAccentSlide {
+        0% {
+            background-position: 0% 0;
+        }
+
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    .sb-card-body {
+        padding: 18px;
+    }
+
+    .sb-card-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #1b5e20;
+    }
+
+    .sb-card-title::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(46, 125, 50, 0.12), transparent);
+    }
+
+    .sb-emoji {
+        font-size: 16px;
+    }
+
+    /* ═══════════════════════════════
+       1. OFFICE INFO CARD
+       ═══════════════════════════════ */
+    .sb-office-header {
+        background: linear-gradient(135deg, #1b5e20, #2e7d32);
+        padding: 20px 18px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sb-office-header::before {
+        content: '';
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent);
+        top: -40px;
+        right: -40px;
+        border-radius: 50%;
+    }
+
+    .sb-office-logo {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sb-office-logo-emoji {
+        font-size: 28px;
+    }
+
+    .sb-office-name {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+
+    .sb-office-dept {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 11px;
+        font-weight: 300;
+        margin-top: 3px;
+    }
+
+    /* Director mini */
+    .sb-director {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 18px;
+        background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+        border-bottom: 1px solid rgba(46, 125, 50, 0.06);
+    }
+
+    .sb-director-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #43a047, #66bb6a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 2px 8px rgba(67, 160, 71, 0.2);
+    }
+
+    .sb-director-avatar-emoji {
+        font-size: 20px;
+    }
+
+    .sb-director-text {
+        flex: 1;
+    }
+
+    .sb-director-name {
+        color: #1b5e20;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .sb-director-pos {
+        color: #689f38;
+        font-size: 11px;
+        font-weight: 400;
+    }
+
+    /* Staff count badge */
+    .sb-staff-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 18px;
+        text-decoration: none;
+        color: #689f38;
+        font-size: 12px;
+        font-weight: 500;
+        transition: background 0.3s;
+    }
+
+    .sb-staff-link:hover {
+        background: rgba(232, 245, 233, 0.5);
+        color: #1b5e20;
+    }
+
+    .sb-staff-link-arrow {
+        font-size: 14px;
+        transition: transform 0.3s;
+    }
+
+    .sb-staff-link:hover .sb-staff-link-arrow {
+        transform: translateX(3px);
+    }
+
+    /* ═══════════════════════════════
+       2. NAVIGATION LINKS
+       ═══════════════════════════════ */
+    .sb-nav-list {
+        list-style: none;
+    }
+
+    .sb-nav-list li {
+        border-bottom: 1px solid rgba(46, 125, 50, 0.04);
+    }
+
+    .sb-nav-list li:last-child {
+        border-bottom: none;
+    }
+
+    .sb-nav-list a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 12px;
+        text-decoration: none;
+        color: #555;
+        font-size: 13px;
+        font-weight: 400;
+        border-radius: 8px;
+        margin: 2px 0;
+        transition: all 0.25s ease;
+    }
+
+    .sb-nav-list a:hover {
+        background: rgba(76, 175, 80, 0.06);
+        color: #1b5e20;
+        transform: translateX(2px);
+    }
+
+    .sb-nav-emoji {
+        font-size: 14px;
+    }
+
+    /* ═══════════════════════════════
+       3. FARMER RESOURCE LINKS
+       ═══════════════════════════════ */
+    .sb-res-list {
+        list-style: none;
+    }
+
+    .sb-res-item {
+        margin-bottom: 6px;
+    }
+
+    .sb-res-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .sb-res-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 12px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 400;
+        border-radius: 8px;
+        border: 1px solid rgba(46, 125, 50, 0.06);
+        transition: all 0.3s ease;
+    }
+
+    .sb-res-link.weather {
+        color: #0d47a1;
+        background: rgba(227, 242, 253, 0.4);
+        border-color: rgba(13, 71, 161, 0.06);
+    }
+
+    .sb-res-link.weather:hover {
+        background: rgba(187, 222, 251, 0.5);
+        border-color: rgba(13, 71, 161, 0.12);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(13, 71, 161, 0.06);
+    }
+
+    .sb-res-link.price {
+        color: #e65100;
+        background: rgba(255, 243, 224, 0.4);
+        border-color: rgba(230, 81, 0, 0.06);
+    }
+
+    .sb-res-link.price:hover {
+        background: rgba(255, 224, 178, 0.5);
+        border-color: rgba(230, 81, 0, 0.12);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(230, 81, 0, 0.06);
+    }
+
+    .sb-res-emoji {
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    .sb-res-arrow {
+        margin-left: auto;
+        font-size: 11px;
+        opacity: 0.4;
+    }
+
+    /* ═══════════════════════════════
+       4. AGENCY LINKS
+       ═══════════════════════════════ */
+    .sb-agency-list {
+        list-style: none;
+    }
+
+    .sb-agency-list li {
+        margin-bottom: 5px;
+    }
+
+    .sb-agency-list li:last-child {
+        margin-bottom: 0;
+    }
+
+    .sb-agency-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        text-decoration: none;
+        color: #555;
+        font-size: 12px;
+        font-weight: 400;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .sb-agency-link:hover {
+        background: rgba(232, 245, 233, 0.5);
+        color: #1b5e20;
+    }
+
+    .sb-agency-emoji {
+        font-size: 13px;
+    }
+
+    /* ═══════════════════════════════
+       5. SOCIAL FOLLOW CARD
+       ═══════════════════════════════ */
+    .sb-social-row {
+        display: flex;
+        gap: 8px;
+    }
+
+    .sb-social-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px 8px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+        color: #fff;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .sb-social-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .sb-social-btn.fb {
+        background: linear-gradient(135deg, #1877f2, #3b5998);
+        box-shadow: 0 3px 10px rgba(24, 119, 242, 0.2);
+    }
+
+    .sb-social-btn.fb:hover {
+        box-shadow: 0 6px 16px rgba(24, 119, 242, 0.3);
+    }
+
+    .sb-social-btn.line {
+        background: linear-gradient(135deg, #00b900, #00c300);
+        box-shadow: 0 3px 10px rgba(0, 185, 0, 0.2);
+    }
+
+    .sb-social-btn.line:hover {
+        box-shadow: 0 6px 16px rgba(0, 185, 0, 0.3);
+    }
+
+    .sb-social-btn-emoji {
+        font-size: 16px;
+    }
+
+    /* ═══════════════════════════════
+       6. VISION MINI CARD
+       ═══════════════════════════════ */
+    .sb-vision-box {
+        background: linear-gradient(135deg, #1b5e20, #2e7d32);
+        border-radius: 10px;
+        padding: 16px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sb-vision-box::before {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent);
+        top: -30px;
+        right: -30px;
+        border-radius: 50%;
+    }
+
+    .sb-vision-label {
+        display: inline-block;
+        background: linear-gradient(135deg, #f57c00, #ff9800);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 3px 12px;
+        border-radius: 10px;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+    }
+
+    .sb-vision-text {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+    }
+
+    .sb-vision-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 10px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 11px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .sb-vision-link:hover {
+        color: #fff;
+    }
+
+    /* ═══════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════ */
+    @media (max-width: 600px) {
+        .sb-card-body {
+            padding: 14px;
+        }
+
+        .sb-office-header {
+            padding: 16px 14px;
+        }
+    }
+</style>
+
+<aside class="sb">
+
+    <!-- 1. Office Info -->
+    <div class="sb-card">
+        <div class="sb-card-accent animated"></div>
+        <div class="sb-office-header">
+            <div class="sb-office-logo">
+                <span class="sb-office-logo-emoji">🌾</span>
+            </div>
+            <div class="sb-office-name">สำนักงานเกษตร<br>อำเภอพุทธมณฑล</div>
+            <div class="sb-office-dept">กรมส่งเสริมการเกษตร · กระทรวงเกษตรและสหกรณ์</div>
+        </div>
+        <div class="sb-director">
+            <div class="sb-director-avatar">
+                <span class="sb-director-avatar-emoji">👩‍💼</span>
+            </div>
+            <div class="sb-director-text">
+                <div class="sb-director-name">นางสายสุนี ผลศรัทธา</div>
+                <div class="sb-director-pos">เกษตรอำเภอพุทธมณฑล</div>
+            </div>
+        </div>
+        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/staff/" class="sb-staff-link">
+            👥 ดูบุคลากรทั้งหมด (5 คน)
+            <span class="sb-staff-link-arrow">→</span>
+        </a>
+    </div>
+
+    <!-- 2. Vision Mini -->
+    <div class="sb-card">
+        <div class="sb-card-accent"></div>
+        <div class="sb-card-body">
+            <div class="sb-vision-box">
+                <span class="sb-vision-label">✨ วิสัยทัศน์</span>
+                <div class="sb-vision-text">
+                    "เกษตรกรมีความเข้มแข็ง<br>
+                    มีคุณภาพชีวิตที่ดี<br>
+                    และมีรายได้เพิ่มขึ้น"
+                </div>
+                <a href="https://nakhonpathom.doae.go.th/phutthamonthon/vision/" class="sb-vision-link">
+                    ดูวิสัยทัศน์ & พันธกิจ →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Quick Links (จาก nav) -->
+    <div class="sb-card">
+        <div class="sb-card-accent"></div>
+        <div class="sb-card-body">
+            <div class="sb-card-title"><span class="sb-emoji">🔗</span> ลิงก์ด่วน</div>
+            <ul class="sb-nav-list">
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/"><span class="sb-nav-emoji">🏠</span>
+                        หน้าแรก</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/structure/"><span
+                            class="sb-nav-emoji">🏛️</span> โครงสร้างองค์กร</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/public-relations/"><span
+                            class="sb-nav-emoji">📰</span> ข่าวประชาสัมพันธ์</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/activities/"><span
+                            class="sb-nav-emoji">📋</span> กิจกรรม</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/infographic/"><span
+                            class="sb-nav-emoji">📸</span> Infographic</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/agri-knowledge-hub/"><span
+                            class="sb-nav-emoji">📚</span> ศูนย์รวมความรู้เกษตร</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/phutthamonthon-famous/"><span
+                            class="sb-nav-emoji">⭐</span> ของดีพุทธมณฑล</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 4. ข้อมูลพื้นฐาน -->
+    <div class="sb-card">
+        <div class="sb-card-accent"></div>
+        <div class="sb-card-body">
+            <div class="sb-card-title"><span class="sb-emoji">📊</span> ข้อมูลพื้นฐาน</div>
+            <ul class="sb-nav-list">
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-information/"><span
+                            class="sb-nav-emoji">👨‍🌾</span> ข้อมูลเกษตรกร</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/land-use-data/"><span
+                            class="sb-nav-emoji">🗺️</span> ข้อมูลพื้นที่ใช้ประโยชน์</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/soil-information/"><span
+                            class="sb-nav-emoji">🌱</span> ข้อมูลดิน</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/water-sources/"><span
+                            class="sb-nav-emoji">💧</span> ข้อมูลแหล่งน้ำ</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-groups/"><span
+                            class="sb-nav-emoji">🤝</span> กลุ่มเกษตรกร</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 5. สภาพอากาศ & ราคา -->
+    <div class="sb-card">
+        <div class="sb-card-accent blue"></div>
+        <div class="sb-card-body">
+            <div class="sb-card-title"><span class="sb-emoji">🌤️</span> สภาพอากาศ</div>
+            <ul class="sb-res-list">
+                <li class="sb-res-item">
+                    <a href="https://www.tmd.go.th/weather/province/nakhon-pathom" target="_blank"
+                        class="sb-res-link weather">
+                        <span class="sb-res-emoji">☁️</span> พยากรณ์อากาศ นครปฐม
+                        <span class="sb-res-arrow">→</span>
+                    </a>
+                </li>
+                <li class="sb-res-item">
+                    <a href="https://www.accuweather.com/th/th/nakhon-pathom/318192/weather-forecast/318192"
+                        target="_blank" class="sb-res-link weather">
+                        <span class="sb-res-emoji">🌡️</span> พยากรณ์ 7 วัน
+                        <span class="sb-res-arrow">→</span>
+                    </a>
+                </li>
+                <li class="sb-res-item">
+                    <a href="https://www.thaiwater.net/water/drought/map" target="_blank" class="sb-res-link weather">
+                        <span class="sb-res-emoji">💧</span> สถานการณ์น้ำ & ภัยแล้ง
+                        <span class="sb-res-arrow">→</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="sb-card">
+        <div class="sb-card-accent orange"></div>
+        <div class="sb-card-body">
+            <div class="sb-card-title"><span class="sb-emoji">💰</span> ราคาสินค้าเกษตร</div>
+            <ul class="sb-res-list">
+                <li class="sb-res-item">
+                    <a href="https://oae.go.th/home/article/476" target="_blank" class="sb-res-link price">
+                        <span class="sb-res-emoji">📈</span> ราคาสินค้าเกษตร (สศก.)
+                        <span class="sb-res-arrow">→</span>
+                    </a>
+                </li>
+                <li class="sb-res-item">
+                    <a href="https://www.simummuangmarket.com/" target="_blank" class="sb-res-link price">
+                        <span class="sb-res-emoji">🏪</span> ตลาดสี่มุมเมือง
+                        <span class="sb-res-arrow">→</span>
+                    </a>
+                </li>
+                <li class="sb-res-item">
+                    <a href="https://www.talaadthai.com/" target="_blank" class="sb-res-link price">
+                        <span class="sb-res-emoji">🏬</span> ตลาดไท
+                        <span class="sb-res-arrow">→</span>
+                    </a>
+                </li>
+                <li class="sb-res-item">
+                    <a href="https://www.baac.or.th/th/content-about.php?content_group_sub=0016" target="_blank"
+                        class="sb-res-link price">
+                        <span class="sb-res-emoji">🏦</span> สินเชื่อเกษตรกร (ธ.ก.ส.)
+                        <span class="sb-res-arrow">→</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 6. Related Agencies -->
+    <div class="sb-card">
+        <div class="sb-card-accent"></div>
+        <div class="sb-card-body">
+            <div class="sb-card-title"><span class="sb-emoji">🌐</span> หน่วยงานที่เกี่ยวข้อง</div>
+            <ul class="sb-agency-list">
+                <li><a href="https://www.doae.go.th" target="_blank" class="sb-agency-link"><span
+                            class="sb-agency-emoji">🌾</span> กรมส่งเสริมการเกษตร</a></li>
+                <li><a href="https://www.moac.go.th" target="_blank" class="sb-agency-link"><span
+                            class="sb-agency-emoji">🏛️</span> กระทรวงเกษตรและสหกรณ์</a></li>
+                <li><a href="https://www.nakhonpathom.go.th" target="_blank" class="sb-agency-link"><span
+                            class="sb-agency-emoji">📍</span> จังหวัดนครปฐม</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th" target="_blank" class="sb-agency-link"><span
+                            class="sb-agency-emoji">🏢</span> สนง.เกษตรจังหวัดนครปฐม</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 7. Social Follow -->
+    <div class="sb-card">
+        <div class="sb-card-accent"></div>
+        <div class="sb-card-body">
+            <div class="sb-card-title"><span class="sb-emoji">📱</span> ติดตามเรา</div>
+            <div class="sb-social-row">
+                <a class="sb-social-btn fb" title="Facebook">
+                    <span class="sb-social-btn-emoji">📘</span> Facebook
+                </a>
+                <a class="sb-social-btn line" title="Line">
+                    <span class="sb-social-btn-emoji">💚</span> Line
+                </a>
+            </div>
+        </div>
+    </div>
+
+</aside>
+
+<!-- ✅ Pure CSS only - WordPress compatible -->
