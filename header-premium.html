@@ -117,12 +117,174 @@
         z-index: 1;
     }
 
-    /* Particle Canvas Layer */
-    .agri-particles {
+    /* CSS-Only Sparkle Particles */
+    .css-particles {
         position: absolute;
         inset: 0;
         z-index: 2;
         pointer-events: none;
+        overflow: hidden;
+    }
+
+    .css-particle {
+        position: absolute;
+        border-radius: 50%;
+        animation: particleDrift linear infinite;
+    }
+
+    .css-particle::after {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        background: inherit;
+        opacity: 0.3;
+        filter: blur(3px);
+    }
+
+    .css-particle:nth-child(1) {
+        width: 4px;
+        height: 4px;
+        background: rgba(76, 175, 80, 0.4);
+        top: 15%;
+        left: 10%;
+        animation-duration: 18s;
+        animation-delay: 0s;
+    }
+
+    .css-particle:nth-child(2) {
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 193, 7, 0.35);
+        top: 25%;
+        left: 80%;
+        animation-duration: 22s;
+        animation-delay: -3s;
+    }
+
+    .css-particle:nth-child(3) {
+        width: 5px;
+        height: 5px;
+        background: rgba(76, 175, 80, 0.3);
+        top: 60%;
+        left: 25%;
+        animation-duration: 20s;
+        animation-delay: -6s;
+    }
+
+    .css-particle:nth-child(4) {
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 152, 0, 0.35);
+        top: 40%;
+        left: 65%;
+        animation-duration: 16s;
+        animation-delay: -2s;
+    }
+
+    .css-particle:nth-child(5) {
+        width: 4px;
+        height: 4px;
+        background: rgba(139, 195, 74, 0.3);
+        top: 75%;
+        left: 45%;
+        animation-duration: 24s;
+        animation-delay: -8s;
+    }
+
+    .css-particle:nth-child(6) {
+        width: 3px;
+        height: 3px;
+        background: rgba(76, 175, 80, 0.35);
+        top: 10%;
+        left: 50%;
+        animation-duration: 19s;
+        animation-delay: -4s;
+    }
+
+    .css-particle:nth-child(7) {
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 193, 7, 0.25);
+        top: 50%;
+        left: 15%;
+        animation-duration: 21s;
+        animation-delay: -10s;
+    }
+
+    .css-particle:nth-child(8) {
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 152, 0, 0.3);
+        top: 80%;
+        left: 75%;
+        animation-duration: 17s;
+        animation-delay: -5s;
+    }
+
+    .css-particle:nth-child(9) {
+        width: 4px;
+        height: 4px;
+        background: rgba(139, 195, 74, 0.35);
+        top: 30%;
+        left: 35%;
+        animation-duration: 23s;
+        animation-delay: -7s;
+    }
+
+    .css-particle:nth-child(10) {
+        width: 3px;
+        height: 3px;
+        background: rgba(76, 175, 80, 0.3);
+        top: 65%;
+        left: 90%;
+        animation-duration: 15s;
+        animation-delay: -1s;
+    }
+
+    .css-particle:nth-child(11) {
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 193, 7, 0.3);
+        top: 20%;
+        left: 60%;
+        animation-duration: 20s;
+        animation-delay: -9s;
+    }
+
+    .css-particle:nth-child(12) {
+        width: 3px;
+        height: 3px;
+        background: rgba(76, 175, 80, 0.35);
+        top: 85%;
+        left: 30%;
+        animation-duration: 18s;
+        animation-delay: -12s;
+    }
+
+    @keyframes particleDrift {
+        0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        50% {
+            transform: translate(-30px, -40px) scale(1.2);
+            opacity: 0.6;
+        }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(30px, -80px) scale(0.8);
+            opacity: 0;
+        }
     }
 
     /* Floating orbs decoration */
@@ -779,8 +941,21 @@
         <div class="agri-orb agri-orb-2"></div>
         <div class="agri-orb agri-orb-3"></div>
 
-        <!-- Particle Canvas -->
-        <canvas class="agri-particles" id="agriParticles"></canvas>
+        <!-- CSS-only Particles (no JavaScript needed) -->
+        <div class="css-particles">
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+            <div class="css-particle"></div>
+        </div>
 
         <!-- Content Card -->
         <div class="agri-header-content">
@@ -838,89 +1013,4 @@
     </div>
 </div>
 
-<!-- ═══ Particle Animation Script ═══ -->
-<script>
-    (function () {
-        const canvas = document.getElementById('agriParticles');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-
-        function resize() {
-            const parent = canvas.parentElement;
-            canvas.width = parent.offsetWidth;
-            canvas.height = parent.offsetHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
-
-        const particles = [];
-        const PARTICLE_COUNT = 40;
-        const COLORS = ['rgba(76,175,80,', 'rgba(255,193,7,', 'rgba(255,152,0,', 'rgba(139,195,74,'];
-
-        for (let i = 0; i < PARTICLE_COUNT; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 3 + 1,
-                speedX: (Math.random() - 0.5) * 0.4,
-                speedY: (Math.random() - 0.5) * 0.3 - 0.15,
-                color: COLORS[Math.floor(Math.random() * COLORS.length)],
-                alpha: Math.random() * 0.4 + 0.1,
-                alphaDir: Math.random() > 0.5 ? 0.005 : -0.005,
-            });
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach(p => {
-                // Update alpha (twinkle)
-                p.alpha += p.alphaDir;
-                if (p.alpha > 0.5 || p.alpha < 0.05) p.alphaDir *= -1;
-
-                // Move
-                p.x += p.speedX;
-                p.y += p.speedY;
-
-                // Wrap
-                if (p.x < 0) p.x = canvas.width;
-                if (p.x > canvas.width) p.x = 0;
-                if (p.y < 0) p.y = canvas.height;
-                if (p.y > canvas.height) p.y = 0;
-
-                // Draw glow
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
-                ctx.fillStyle = p.color + (p.alpha * 0.3) + ')';
-                ctx.fill();
-
-                // Draw core
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = p.color + p.alpha + ')';
-                ctx.fill();
-            });
-
-            // Draw connection lines between nearby particles
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 120) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = 'rgba(76,175,80,' + (0.06 * (1 - dist / 120)) + ')';
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                }
-            }
-
-            requestAnimationFrame(draw);
-        }
-
-        draw();
-    })();
-</script>
+<!-- ✅ No JavaScript needed - all effects are pure CSS, WordPress compatible -->

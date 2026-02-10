@@ -1,50 +1,114 @@
-<!-- 📰 NEWS WRAPPER BLOCK - สำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- 🔥 ULTRA PREMIUM NEWS SECTION - สำนักงานเกษตรอำเภอพุทธมณฑล 🔥 -->
 <!-- Theme: Green, White, Orange (Agriculture) -->
-<!-- 2 Columns Layout - 5 news each - Thumbnail 3:4 ratio -->
+<!-- 2 Columns Layout - 5 news each - Premium Glassmorphism + Animations -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
-
     .news-wrapper * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
+    /* ═══════════════════════════════════════════════════════
+       MAIN WRAPPER - Animated Background
+       ═══════════════════════════════════════════════════════ */
     .news-wrapper {
         font-family: 'Kanit', sans-serif;
-        background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 50%, #f1f8e9 100%);
-        padding: 60px 20px 80px;
+        background: linear-gradient(135deg, #f0f7e6 0%, #e8f5e9 25%, #f1f8e9 50%, #e0f2f1 75%, #f0f7e6 100%);
+        background-size: 400% 400%;
+        animation: bgShift 15s ease infinite;
+        padding: 70px 20px 80px;
         position: relative;
         overflow: hidden;
     }
 
-    /* Decorative Background Elements */
-    .news-wrapper::before {
-        content: '';
+    @keyframes bgShift {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        25% {
+            background-position: 50% 100%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        75% {
+            background-position: 50% 0%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Decorative floating particles */
+    .news-bg-particle {
         position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .news-bg-particle-1 {
         width: 400px;
         height: 400px;
         background: radial-gradient(circle, rgba(67, 160, 71, 0.08) 0%, transparent 70%);
-        top: -100px;
+        top: -150px;
         left: -100px;
-        border-radius: 50%;
-        animation: floatBg 10s ease-in-out infinite;
+        animation: particleFloat1 12s ease-in-out infinite;
     }
 
-    .news-wrapper::after {
-        content: '';
-        position: absolute;
+    .news-bg-particle-2 {
         width: 300px;
         height: 300px;
-        background: radial-gradient(circle, rgba(245, 124, 0, 0.06) 0%, transparent 70%);
-        bottom: -50px;
-        right: -50px;
-        border-radius: 50%;
-        animation: floatBg 10s ease-in-out infinite reverse;
+        background: radial-gradient(circle, rgba(255, 152, 0, 0.06) 0%, transparent 70%);
+        bottom: -100px;
+        right: -80px;
+        animation: particleFloat2 10s ease-in-out infinite;
     }
 
-    @keyframes floatBg {
+    .news-bg-particle-3 {
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255, 193, 7, 0.07) 0%, transparent 70%);
+        top: 40%;
+        right: 10%;
+        animation: particleFloat3 8s ease-in-out infinite;
+    }
+
+    .news-bg-particle-4 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, rgba(76, 175, 80, 0.06) 0%, transparent 70%);
+        bottom: 20%;
+        left: 5%;
+        animation: particleFloat1 14s ease-in-out infinite reverse;
+    }
+
+    @keyframes particleFloat1 {
+
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1) rotate(0deg);
+        }
+
+        33% {
+            transform: translate(40px, -30px) scale(1.1) rotate(5deg);
+        }
+
+        66% {
+            transform: translate(-20px, 20px) scale(0.95) rotate(-3deg);
+        }
+    }
+
+    @keyframes particleFloat2 {
 
         0%,
         100% {
@@ -52,11 +116,37 @@
         }
 
         50% {
-            transform: translate(30px, -30px) scale(1.1);
+            transform: translate(-30px, -40px) scale(1.15);
         }
     }
 
-    /* Main Container */
+    @keyframes particleFloat3 {
+
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        50% {
+            transform: translate(25px, 30px) scale(1.08);
+        }
+    }
+
+    /* Mesh grid pattern overlay */
+    .news-mesh-overlay {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(67, 160, 71, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(67, 160, 71, 0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CONTAINER
+       ═══════════════════════════════════════════════════════ */
     .news-container {
         max-width: 1400px;
         margin: 0 auto;
@@ -64,116 +154,287 @@
         z-index: 10;
     }
 
-    /* Decorative Header */
+    /* ═══════════════════════════════════════════════════════
+       HEADER - Animated Badge + Gradient Title
+       ═══════════════════════════════════════════════════════ */
     .news-header {
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
     }
 
     .news-header-badge {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        background: linear-gradient(135deg, #1b5e20, #2e7d32);
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c);
+        background-size: 200% 200%;
+        animation: badgeGradient 4s ease infinite;
         color: white;
-        padding: 10px 25px;
+        padding: 10px 28px;
         border-radius: 50px;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 500;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
         text-transform: uppercase;
-        margin-bottom: 20px;
-        box-shadow: 0 5px 20px rgba(27, 94, 32, 0.3);
+        margin-bottom: 22px;
+        box-shadow:
+            0 5px 20px rgba(27, 94, 32, 0.3),
+            0 0 0 4px rgba(46, 125, 50, 0.1);
+        position: relative;
+        overflow: hidden;
     }
 
-    .news-header-badge svg {
-        width: 18px;
-        height: 18px;
-        fill: #ff9800;
+    .news-header-badge::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        animation: shimmerBadge 3s ease-in-out infinite;
+    }
+
+    @keyframes badgeGradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    @keyframes shimmerBadge {
+        0% {
+            left: -100%;
+        }
+
+        100% {
+            left: 200%;
+        }
+    }
+
+    .news-header-badge .badge-emoji {
+        font-size: 16px;
+        animation: emojiPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes emojiPulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.2);
+        }
     }
 
     .news-header h2 {
-        color: #1b5e20;
-        font-size: 36px;
-        font-weight: 700;
+        font-size: 40px;
+        font-weight: 800;
         margin-bottom: 15px;
         position: relative;
         display: inline-block;
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c, #43a047);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: titleGradient 4s ease infinite;
     }
 
     .news-header h2::after {
         content: '';
         position: absolute;
-        bottom: -10px;
+        bottom: -12px;
         left: 50%;
         transform: translateX(-50%);
-        width: 80px;
+        width: 100px;
         height: 4px;
-        background: linear-gradient(90deg, transparent, #f57c00, transparent);
-        border-radius: 2px;
+        background: linear-gradient(90deg, transparent, #f57c00, #ffc107, #f57c00, transparent);
+        border-radius: 4px;
+        animation: lineGlow 2s ease-in-out infinite;
     }
 
-    .news-header p {
+    @keyframes titleGradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    @keyframes lineGlow {
+
+        0%,
+        100% {
+            opacity: 0.6;
+            width: 80px;
+        }
+
+        50% {
+            opacity: 1;
+            width: 120px;
+        }
+    }
+
+    .news-header-subtitle {
         color: #558b2f;
         font-size: 16px;
         font-weight: 400;
-        margin-top: 20px;
+        margin-top: 22px;
+        letter-spacing: 0.5px;
     }
 
-    /* Card Container */
+    /* ═══════════════════════════════════════════════════════
+       CARD WRAPPER - Premium Glassmorphism
+       ═══════════════════════════════════════════════════════ */
     .news-card-wrapper {
-        background: #ffffff;
-        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-radius: 28px;
         padding: 40px;
         box-shadow:
-            0 10px 40px rgba(27, 94, 32, 0.08),
-            0 0 0 1px rgba(67, 160, 71, 0.1);
+            0 20px 60px rgba(27, 94, 32, 0.08),
+            0 8px 25px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.5);
         position: relative;
         overflow: hidden;
+        transition: all 0.5s ease;
     }
 
+    .news-card-wrapper:hover {
+        box-shadow:
+            0 25px 70px rgba(27, 94, 32, 0.12),
+            0 10px 30px rgba(0, 0, 0, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        transform: translateY(-2px);
+    }
+
+    /* Animated corner accents */
     .news-card-wrapper::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(135deg, rgba(245, 124, 0, 0.1) 0%, transparent 70%);
-        border-radius: 24px 0 0 0;
+        top: -2px;
+        left: -2px;
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, rgba(46, 125, 50, 0.15), transparent 70%);
+        border-radius: 28px 0 0 0;
+        pointer-events: none;
     }
 
     .news-card-wrapper::after {
         content: '';
         position: absolute;
-        bottom: 0;
-        right: 0;
+        bottom: -2px;
+        right: -2px;
         width: 150px;
         height: 150px;
-        background: linear-gradient(315deg, rgba(67, 160, 71, 0.08) 0%, transparent 70%);
-        border-radius: 0 0 24px 0;
+        background: linear-gradient(315deg, rgba(255, 152, 0, 0.1), transparent 70%);
+        border-radius: 0 0 28px 0;
+        pointer-events: none;
     }
 
-    /* Inner decorative border */
+    /* Shine sweep on wrapper */
+    .news-card-shine {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+        z-index: 1;
+        pointer-events: none;
+        animation: cardShineSweep 8s ease-in-out infinite 1s;
+    }
+
+    @keyframes cardShineSweep {
+        0% {
+            left: -100%;
+        }
+
+        25% {
+            left: 150%;
+        }
+
+        100% {
+            left: 150%;
+        }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       INNER CARD - Dashed Border + Gradient BG
+       ═══════════════════════════════════════════════════════ */
     .news-card-inner {
         position: relative;
         z-index: 5;
-        padding: 20px;
-        border: 2px dashed rgba(67, 160, 71, 0.2);
-        border-radius: 16px;
-        background: linear-gradient(135deg, #fafffe 0%, #f8fff8 100%);
+        padding: 25px;
+        border: 2px dashed rgba(67, 160, 71, 0.18);
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(248, 255, 248, 0.8) 100%);
         min-height: 300px;
+        transition: border-color 0.3s ease;
     }
 
-    /* Section Label */
+    .news-card-inner:hover {
+        border-color: rgba(67, 160, 71, 0.3);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SECTION LABEL - Premium Style
+       ═══════════════════════════════════════════════════════ */
     .news-section-label {
         display: flex;
         flex-direction: column;
         gap: 8px;
         color: #2e7d32;
-        padding-bottom: 15px;
-        margin-bottom: 20px;
-        border-bottom: 1px solid rgba(67, 160, 71, 0.15);
+        padding-bottom: 18px;
+        margin-bottom: 25px;
+        border-bottom: 2px solid transparent;
+        border-image: linear-gradient(90deg, transparent, rgba(67, 160, 71, 0.25), rgba(255, 152, 0, 0.15), transparent) 1;
+        position: relative;
+    }
+
+    .news-section-label::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #2e7d32, #43a047);
+        border-radius: 3px;
+        animation: labelLine 3s ease-in-out infinite;
+    }
+
+    @keyframes labelLine {
+
+        0%,
+        100% {
+            width: 60px;
+            opacity: 1;
+        }
+
+        50% {
+            width: 100px;
+            opacity: 0.7;
+        }
     }
 
     .news-section-label .label-title {
@@ -184,119 +445,329 @@
         font-weight: 700;
     }
 
+    .news-section-label .label-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    .news-section-label .label-icon.green-icon {
+        background: linear-gradient(135deg, rgba(46, 125, 50, 0.15), rgba(76, 175, 80, 0.1));
+        border: 1px solid rgba(46, 125, 50, 0.2);
+    }
+
     .news-section-label .label-subtitle {
         font-size: 14px;
         font-weight: 400;
-        color: #558b2f;
-        margin-left: 30px;
+        color: #689f38;
+        margin-left: 46px;
+        letter-spacing: 0.3px;
     }
 
-    .news-section-label svg {
-        width: 20px;
-        height: 20px;
-        fill: #f57c00;
+    /* ═══════════════════════════════════════════════════════
+       COLUMN HEADERS - Individual Category Styling
+       ═══════════════════════════════════════════════════════ */
+    .news-col-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 20px;
+        border-radius: 14px;
+        margin-bottom: 18px;
+        font-weight: 700;
+        font-size: 18px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
     }
 
-    /* Content Area */
+    .news-col-header::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        animation: colHeaderShine 5s ease-in-out infinite;
+    }
+
+    @keyframes colHeaderShine {
+        0% {
+            left: -100%;
+        }
+
+        30% {
+            left: 150%;
+        }
+
+        100% {
+            left: 150%;
+        }
+    }
+
+    .news-col-header.col-activities {
+        background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(76, 175, 80, 0.06));
+        color: #1b5e20;
+        border: 1px solid rgba(46, 125, 50, 0.15);
+    }
+
+    .news-col-header.col-meetings {
+        background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 193, 7, 0.06));
+        color: #e65100;
+        border: 1px solid rgba(255, 152, 0, 0.15);
+    }
+
+    .news-col-header:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .col-header-emoji {
+        font-size: 22px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       NEWS CONTENT AREA
+       ═══════════════════════════════════════════════════════ */
     .news-content-area {
         position: relative;
         z-index: 10;
     }
 
-    /* View All Link */
+    /* ═══════════════════════════════════════════════════════
+       VIEW ALL BUTTON - Premium Gradient + Hover Effects
+       ═══════════════════════════════════════════════════════ */
     .news-view-all {
         text-align: center;
-        margin-top: 30px;
+        margin-top: 35px;
     }
 
     .news-view-all a {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
-        background: linear-gradient(135deg, #f57c00, #ff9800);
+        gap: 12px;
+        background: linear-gradient(135deg, #e65100, #f57c00, #ff9800);
+        background-size: 200% 200%;
         color: white;
-        padding: 14px 35px;
+        padding: 14px 38px;
         border-radius: 50px;
         font-size: 15px;
         font-weight: 600;
         text-decoration: none;
-        box-shadow: 0 8px 25px rgba(245, 124, 0, 0.3);
-        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        box-shadow:
+            0 8px 25px rgba(245, 124, 0, 0.3),
+            0 0 0 4px rgba(255, 152, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-view-all a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .news-view-all a:hover::before {
+        left: 150%;
     }
 
     .news-view-all a:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(245, 124, 0, 0.4);
+        transform: translateY(-4px) scale(1.03);
+        box-shadow:
+            0 15px 40px rgba(245, 124, 0, 0.35),
+            0 0 0 6px rgba(255, 152, 0, 0.15);
+        background-position: 100% 50%;
+    }
+
+    .news-view-all a .btn-icon {
+        display: flex;
+        align-items: center;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .news-view-all a:hover .btn-icon {
+        transform: translateX(6px);
     }
 
     .news-view-all a svg {
         width: 18px;
         height: 18px;
         fill: white;
-        transition: transform 0.3s ease;
     }
 
-    .news-view-all a:hover svg {
-        transform: translateX(5px);
-    }
-
-    /* Bottom Decorative Line */
+    /* ═══════════════════════════════════════════════════════
+       BOTTOM DECORATION - Animated
+       ═══════════════════════════════════════════════════════ */
     .news-bottom-decor {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 15px;
+        gap: 18px;
         margin-top: 50px;
     }
 
     .news-decor-line {
         width: 80px;
         height: 2px;
-        background: linear-gradient(90deg, transparent, #c8e6c9, transparent);
+        background: linear-gradient(90deg, transparent, #a5d6a7, #81c784, #a5d6a7, transparent);
+        border-radius: 2px;
+        animation: decorLineExpand 3s ease-in-out infinite;
+    }
+
+    @keyframes decorLineExpand {
+
+        0%,
+        100% {
+            width: 80px;
+            opacity: 0.6;
+        }
+
+        50% {
+            width: 110px;
+            opacity: 1;
+        }
     }
 
     .news-decor-icon {
-        width: 40px;
-        height: 40px;
-        background: linear-gradient(135deg, #2e7d32, #43a047);
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, #2e7d32, #43a047, #66bb6a);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        box-shadow:
+            0 6px 20px rgba(46, 125, 50, 0.3),
+            0 0 0 4px rgba(46, 125, 50, 0.1);
+        animation: decorIconPulse 3s ease-in-out infinite;
+        position: relative;
     }
 
-    .news-decor-icon svg {
-        width: 20px;
-        height: 20px;
-        fill: white;
+    .news-decor-icon::before {
+        content: '';
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        border: 2px solid rgba(46, 125, 50, 0.15);
+        animation: decorRing 3s ease-in-out infinite;
     }
 
-    /* ============================================ */
-    /* GUTENTOR POST BLOCK STYLE OVERRIDES */
-    /* ============================================ */
+    @keyframes decorIconPulse {
 
-    /* ลดขนาดหัวข้อข่าว */
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+    }
+
+    @keyframes decorRing {
+
+        0%,
+        100% {
+            transform: scale(1);
+            opacity: 0.5;
+        }
+
+        50% {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+    }
+
+    .news-decor-icon .decor-emoji {
+        font-size: 20px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CSS-ONLY ENTRANCE ANIMATION (no JavaScript needed)
+       ═══════════════════════════════════════════════════════ */
+    .news-reveal {
+        animation: newsFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .news-reveal-delay-1 {
+        animation-delay: 0.1s;
+    }
+
+    .news-reveal-delay-2 {
+        animation-delay: 0.2s;
+    }
+
+    .news-reveal-delay-3 {
+        animation-delay: 0.3s;
+    }
+
+    .news-reveal-delay-4 {
+        animation-delay: 0.4s;
+    }
+
+    .news-reveal-delay-5 {
+        animation-delay: 0.5s;
+    }
+
+    @keyframes newsFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       GUTENTOR POST BLOCK STYLE OVERRIDES
+       ═══════════════════════════════════════════════════════ */
+
+    /* หัวข้อข่าว */
     .news-content-area .gutentor-post-title,
     .news-content-area .gutentor-post-title a,
     .news-content-area .entry-title,
     .news-content-area .entry-title a {
         font-size: 16px !important;
         font-weight: 600 !important;
-        line-height: 1.4 !important;
+        line-height: 1.5 !important;
+        color: #2e3a28 !important;
+        transition: color 0.3s ease !important;
     }
 
-    /* ขนาดเนื้อหาข่าว */
+    .news-content-area .gutentor-post-title a:hover,
+    .news-content-area .entry-title a:hover {
+        color: #2e7d32 !important;
+    }
+
+    /* เนื้อหาข่าว */
     .news-content-area .gutentor-post-content,
     .news-content-area .gutentor-post-desc,
     .news-content-area .entry-content,
     .news-content-area .entry-summary,
     .news-content-area p {
         font-size: 14px !important;
-        line-height: 1.6 !important;
+        line-height: 1.7 !important;
+        color: #555 !important;
     }
 
-    /* ขยายขนาดรูปภาพ และขอบมน 5px */
+    /* รูปภาพ */
     .news-content-area .gutentor-post-featured-image,
     .news-content-area .gutentor-post-image-box,
     .news-content-area .gutentor-blog-post-image,
@@ -307,22 +778,46 @@
         height: 165px !important;
         min-width: 220px !important;
         object-fit: cover !important;
-        border-radius: 5px !important;
+        border-radius: 10px !important;
+        transition: all 0.4s ease !important;
     }
 
-    /* ปรับ container ของรูป */
+    .news-content-area .gutentor-post-featured-image img:hover,
+    .news-content-area .post-thumbnail img:hover {
+        transform: scale(1.03) !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    /* Container ของรูป */
     .news-content-area .gutentor-post-image-box,
     .news-content-area .gutentor-blog-post-image {
         max-width: 220px !important;
         flex-shrink: 0 !important;
+        overflow: hidden !important;
+        border-radius: 10px !important;
     }
 
-    /* ปรับระยะห่างระหว่างข่าว */
+    /* ระยะห่างระหว่างข่าว */
     .news-content-area .gutentor-post-item,
     .news-content-area .gutentor-blog-post {
-        margin-bottom: 20px !important;
-        padding-bottom: 20px !important;
-        border-bottom: 1px solid rgba(67, 160, 71, 0.1);
+        margin-bottom: 18px !important;
+        padding-bottom: 18px !important;
+        border-bottom: 1px solid rgba(67, 160, 71, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .news-content-area .gutentor-post-item:hover,
+    .news-content-area .gutentor-blog-post:hover {
+        background: rgba(46, 125, 50, 0.03);
+        border-radius: 10px;
+        padding-left: 8px !important;
+    }
+
+    .news-content-area .gutentor-post-item:last-child,
+    .news-content-area .gutentor-blog-post:last-child {
+        border-bottom: none;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     /* Meta info style */
@@ -330,60 +825,62 @@
     .news-content-area .entry-meta {
         font-size: 12px !important;
         color: #689f38 !important;
+        font-weight: 400 !important;
     }
 
-    /* ============================================ */
-
-    /* Responsive Design */
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE DESIGN
+       ═══════════════════════════════════════════════════════ */
     @media (max-width: 1024px) {
         .news-wrapper {
-            padding: 50px 15px 60px;
+            padding: 55px 15px 65px;
         }
 
         .news-card-wrapper {
             padding: 30px;
+            border-radius: 22px;
         }
 
         .news-header h2 {
-            font-size: 30px;
+            font-size: 34px;
         }
     }
 
     @media (max-width: 768px) {
         .news-wrapper {
-            padding: 40px 15px 50px;
+            padding: 40px 12px 50px;
         }
 
         .news-header h2 {
-            font-size: 26px;
+            font-size: 28px;
         }
 
-        .news-header p {
+        .news-header-subtitle {
             font-size: 14px;
         }
 
         .news-card-wrapper {
             padding: 20px;
-            border-radius: 16px;
+            border-radius: 18px;
         }
 
         .news-card-inner {
-            padding: 15px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 14px;
         }
 
         .news-header-badge {
-            font-size: 12px;
+            font-size: 11px;
             padding: 8px 20px;
         }
 
         .news-view-all a {
-            padding: 12px 25px;
+            padding: 12px 28px;
             font-size: 14px;
         }
 
         .news-bottom-decor {
-            margin-top: 30px;
+            margin-top: 35px;
         }
 
         .news-decor-line {
@@ -391,13 +888,38 @@
         }
 
         .news-decor-icon {
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
         }
 
-        .news-decor-icon svg {
-            width: 16px;
-            height: 16px;
+        .news-col-header {
+            font-size: 16px;
+            padding: 10px 16px;
+        }
+
+        .news-section-label .label-title {
+            font-size: 19px;
+        }
+
+        .news-section-label .label-subtitle {
+            margin-left: 0;
+            font-size: 13px;
+        }
+
+        .news-content-area .gutentor-post-featured-image,
+        .news-content-area .gutentor-post-image-box,
+        .news-content-area .gutentor-blog-post-image,
+        .news-content-area .post-thumbnail,
+        .news-content-area .gutentor-post-featured-image img,
+        .news-content-area .post-thumbnail img {
+            width: 160px !important;
+            height: 120px !important;
+            min-width: 160px !important;
+        }
+
+        .news-content-area .gutentor-post-image-box,
+        .news-content-area .gutentor-blog-post-image {
+            max-width: 160px !important;
         }
     }
 
@@ -407,52 +929,65 @@
         }
 
         .news-header h2 {
-            font-size: 22px;
+            font-size: 24px;
         }
 
         .news-card-wrapper {
-            padding: 15px;
+            padding: 14px;
+            border-radius: 14px;
         }
 
         .news-card-inner {
-            padding: 10px;
+            padding: 12px;
+            border-radius: 10px;
         }
 
-        .news-section-label {
-            font-size: 12px;
+        .news-col-header {
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 10px;
+        }
+
+        .news-section-label .label-title {
+            font-size: 17px;
         }
 
         .news-view-all a {
-            padding: 10px 20px;
+            padding: 11px 22px;
             font-size: 13px;
         }
     }
 </style>
 
 <section class="news-wrapper">
+    <!-- Background particles -->
+    <div class="news-bg-particle news-bg-particle-1"></div>
+    <div class="news-bg-particle news-bg-particle-2"></div>
+    <div class="news-bg-particle news-bg-particle-3"></div>
+    <div class="news-bg-particle news-bg-particle-4"></div>
+    <div class="news-mesh-overlay"></div>
+
     <div class="news-container">
-        <!-- Decorative Header -->
-        <div class="news-header">
+        <!-- ═══ Decorative Header ═══ -->
+        <div class="news-header news-reveal">
             <div class="news-header-badge">
-                <svg viewBox="0 0 24 24">
-                    <path
-                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-1 14H5c-.55 0-1-.45-1-1V7l8 5 8-5v10c0 .55-.45 1-1 1z" />
-                </svg>
+                <span class="badge-emoji">📰</span>
                 ข่าวสาร
+                <span class="badge-emoji">✨</span>
             </div>
             <h2>ข่าวประชาสัมพันธ์</h2>
+            <p class="news-header-subtitle">ติดตามความเคลื่อนไหวและกิจกรรมล่าสุดจากสำนักงานเกษตรอำเภอพุทธมณฑล</p>
         </div>
 
-        <!-- Main Card Wrapper -->
-        <div class="news-card-wrapper">
+        <!-- ═══ Main Card Wrapper ═══ -->
+        <div class="news-card-wrapper news-reveal news-reveal-delay-1">
+            <div class="news-card-shine"></div>
+
             <div class="news-card-inner">
                 <!-- Section Label -->
                 <div class="news-section-label">
                     <div class="label-title">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-                        </svg>
+                        <div class="label-icon green-icon">📋</div>
                         ข่าวล่าสุด
                     </div>
                     <div class="label-subtitle">ติดตามความเคลื่อนไหวและกิจกรรมล่าสุดจากสำนักงานเกษตรอำเภอพุทธมณฑล</div>
@@ -473,16 +1008,13 @@
                                 <div id="section-news-col-left"
                                     class="wp-block-gutentor-single-column gutentor-single-column grid-lg-6 grid-md-12 grid-12">
 
-                                    <!-- wp:gutentor/e0 {"gID":"g-col1-title","e0Tag":"h3","e0Align":{"desktop":"text-align-center"},"e0Typography":{"fontType":"google","googleFont":"Kanit","fontWeight":"600"},"e0Margin":{"dBottom":"15"}} -->
-                                    <div id="section-g-col1-title"
-                                        class="wp-block-gutentor-e0 section-g-col1-title gutentor-element gutentor-element-advanced-text text-align-center-desktop">
-                                        <div class="gutentor-text-wrap">
-                                            <h3 class="gutentor-text"><strong>กิจกรรมส่งเสริมการเกษตร</strong></h3>
-                                        </div>
+                                    <!-- Column Header -->
+                                    <div class="news-col-header col-activities">
+                                        <span class="col-header-emoji">🌾</span>
+                                        กิจกรรมส่งเสริมการเกษตร
                                     </div>
-                                    <!-- /wp:gutentor/e0 -->
 
-                                    <!-- wp:gutentor/p1 {"gID":"g-news-col1","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"กิจกรรมส่งเสริมการเกษตร","value":5}],"pPostNum":4,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
+                                    <!-- wp:gutentor/p1 {"gID":"g-news-col1","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"กิจกรรมส่งเสริมการเกษตร","value":5}],"pPostNum":5,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
 
                                 </div>
                                 <!-- /wp:gutentor/single-column -->
@@ -491,16 +1023,13 @@
                                 <div id="section-news-col-right"
                                     class="wp-block-gutentor-single-column gutentor-single-column grid-lg-6 grid-md-12 grid-12">
 
-                                    <!-- wp:gutentor/e0 {"gID":"g-col2-title","e0Tag":"h3","e0Align":{"desktop":"text-align-center"},"e0Typography":{"fontType":"google","googleFont":"Kanit","fontWeight":"600"},"e0Margin":{"dBottom":"15"}} -->
-                                    <div id="section-g-col2-title"
-                                        class="wp-block-gutentor-e0 section-g-col2-title gutentor-element gutentor-element-advanced-text text-align-center-desktop">
-                                        <div class="gutentor-text-wrap">
-                                            <h3 class="gutentor-text"><strong>ประชุม / พิธีการ</strong></h3>
-                                        </div>
+                                    <!-- Column Header -->
+                                    <div class="news-col-header col-meetings">
+                                        <span class="col-header-emoji">🤝</span>
+                                        ประชุม / พิธีการ
                                     </div>
-                                    <!-- /wp:gutentor/e0 -->
 
-                                    <!-- wp:gutentor/p1 {"gID":"g-news-col2","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"ประชุม","value":4},{"label":"พิธีการ","value":6}],"pPostNum":4,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
+                                    <!-- wp:gutentor/p1 {"gID":"g-news-col2","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"ประชุม","value":4},{"label":"พิธีการ","value":6}],"pPostNum":5,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
 
                                 </div>
                                 <!-- /wp:gutentor/single-column -->
@@ -516,26 +1045,28 @@
             </div>
         </div>
 
-        <!-- View All Button -->
-        <div class="news-view-all">
+        <!-- ═══ View All Button ═══ -->
+        <div class="news-view-all news-reveal news-reveal-delay-3">
             <a href="https://nakhonpathom.doae.go.th/phutthamonthon/public-relations/" target="_blank">
                 ดูข่าวทั้งหมด
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                </svg>
+                <span class="btn-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                    </svg>
+                </span>
             </a>
         </div>
 
-        <!-- Bottom Decorative Element -->
-        <div class="news-bottom-decor">
+        <!-- ═══ Bottom Decoration ═══ -->
+        <div class="news-bottom-decor news-reveal news-reveal-delay-4">
             <div class="news-decor-line"></div>
             <div class="news-decor-icon">
-                <svg viewBox="0 0 24 24">
-                    <path
-                        d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm.5-11H11v5l4.25 2.55.75-1.23-3.5-2.08V8z" />
-                </svg>
+                <span class="decor-emoji">🌿</span>
             </div>
             <div class="news-decor-line"></div>
         </div>
     </div>
 </section>
+
+
+<!-- ✅ Pure CSS only - WordPress compatible -->

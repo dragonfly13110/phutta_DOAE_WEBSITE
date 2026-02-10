@@ -1,55 +1,73 @@
-<!-- 🦶 FOOTER - สำนักงานเกษตรอำเภอพุทธมณฑล -->
-<!-- Theme: Green, White, Orange (Agriculture) -->
+<!-- PREMIUM FOOTER - สำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- Light Theme | Pure CSS Only | WordPress Compatible -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
 <style>
-    .agri-footer * {
+    .ft * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: 'Kanit', sans-serif;
     }
 
-    .agri-footer {
-        background: linear-gradient(135deg, #0d2818 0%, #1b5e20 50%, #0d2818 100%);
-        color: #c8e6c9;
+    /* ═════════════════════════════════════════════
+       MAIN FOOTER
+       ═════════════════════════════════════════════ */
+    .ft {
+        background: linear-gradient(180deg, #e8f5e9 0%, #f1f8e9 40%, #ffffff 100%);
         position: relative;
         overflow: hidden;
     }
 
-    /* Decorative wave top */
-    .footer-wave {
-        height: 60px;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%231b5e20' d='M0,0 C480,100 960,0 1440,100 L1440,100 L0,100 Z'/%3E%3C/svg%3E") no-repeat top;
-        background-size: cover;
-        margin-top: -1px;
+    /* Top accent bar */
+    .ft-accent {
+        height: 3px;
+        background: linear-gradient(90deg, #1b5e20, #43a047, #ffc107, #ff9800, #ffc107, #43a047, #1b5e20);
+        background-size: 200% 100%;
+        animation: ftAccent 4s linear infinite;
     }
 
-    /* Floating particles */
-    .agri-footer::before {
-        content: '';
+    @keyframes ftAccent {
+        0% {
+            background-position: 0% 0;
+        }
+
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    /* Floating orbs */
+    .ft-orb {
         position: absolute;
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(circle, rgba(67, 160, 71, 0.1) 0%, transparent 70%);
-        top: 50px;
-        left: -100px;
         border-radius: 50%;
-        animation: floatSlow 8s ease-in-out infinite;
+        filter: blur(50px);
+        pointer-events: none;
+        z-index: 1;
     }
 
-    .agri-footer::after {
-        content: '';
-        position: absolute;
+    .ft-orb-1 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, rgba(76, 175, 80, 0.06), transparent);
+        top: -80px;
+        right: 10%;
+        animation: ftOrbMove 10s ease-in-out infinite;
+    }
+
+    .ft-orb-2 {
         width: 200px;
         height: 200px;
-        background: radial-gradient(circle, rgba(245, 124, 0, 0.08) 0%, transparent 70%);
-        bottom: 50px;
-        right: -50px;
-        border-radius: 50%;
-        animation: floatSlow 8s ease-in-out infinite reverse;
+        background: radial-gradient(circle, rgba(255, 152, 0, 0.04), transparent);
+        bottom: 20px;
+        left: 5%;
+        animation: ftOrbMove 12s ease-in-out infinite reverse;
     }
 
-    @keyframes floatSlow {
+    @keyframes ftOrbMove {
 
         0%,
         100% {
@@ -57,338 +75,390 @@
         }
 
         50% {
-            transform: translate(20px, -20px);
+            transform: translate(15px, -12px);
         }
     }
 
-    .footer-content {
-        max-width: 1400px;
+    /* ═════════════════════════════════════════════
+       CONTENT GRID
+       ═════════════════════════════════════════════ */
+    .ft-content {
+        max-width: 1200px;
         width: 100%;
         margin: 0 auto;
-        padding: 60px 40px 40px;
+        padding: 40px 30px 30px;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
+        grid-template-columns: 1.3fr 1fr 1fr 1fr;
+        gap: 30px;
         position: relative;
         z-index: 10;
     }
 
-    @media (max-width: 768px) {
-        .footer-content {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }
+    /* ═════════════════════════════════════════════
+       ABOUT COLUMN
+       ═════════════════════════════════════════════ */
+    .ft-about {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
     }
 
-    .footer-section h3 {
-        color: #ffffff;
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #43a047;
-        display: inline-block;
-    }
-
-    .footer-section p {
-        line-height: 1.8;
-        font-size: 14px;
-    }
-
-    .footer-section a {
-        color: #a5d6a7;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-
-    .footer-section a:hover {
-        color: #ffffff;
-    }
-
-    /* Quick Links */
-    .footer-links {
-        list-style: none;
-    }
-
-    .footer-links li {
-        margin-bottom: 12px;
-    }
-
-    .footer-links a {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        transition: transform 0.3s, color 0.3s;
-    }
-
-    .footer-links a:hover {
-        transform: translateX(5px);
-        color: #ffffff;
-    }
-
-    .footer-links a::before {
-        content: '▸';
-        color: #f57c00;
-    }
-
-    /* Related Links */
-    .related-links {
-        list-style: none;
-    }
-
-    .related-links li {
-        margin-bottom: 10px;
-    }
-
-    .related-links a {
+    .ft-brand {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 8px 12px;
-        background: rgba(255, 255, 255, 0.05);
+        gap: 12px;
+        margin-bottom: 4px;
+    }
+
+    .ft-logo {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #1b5e20, #43a047);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(27, 94, 32, 0.15);
+        flex-shrink: 0;
+    }
+
+    .ft-logo-emoji {
+        font-size: 24px;
+    }
+
+    .ft-brand-text h3 {
+        color: #1b5e20;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    .ft-brand-text span {
+        color: #689f38;
+        font-size: 11px;
+        font-weight: 400;
+    }
+
+    .ft-desc {
+        color: #666;
+        font-size: 13px;
+        line-height: 1.7;
+        font-weight: 300;
+    }
+
+    /* Social */
+    .ft-social {
+        display: flex;
+        gap: 8px;
+        margin-top: 4px;
+    }
+
+    .ft-soc {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .ft-soc.fb {
+        background: linear-gradient(135deg, #1877f2, #3b5998);
+        box-shadow: 0 2px 8px rgba(24, 119, 242, 0.2);
+    }
+
+    .ft-soc.ln {
+        background: linear-gradient(135deg, #00b900, #00c300);
+        box-shadow: 0 2px 8px rgba(0, 185, 0, 0.2);
+    }
+
+    .ft-soc.yt {
+        background: linear-gradient(135deg, #ff0000, #cc0000);
+        box-shadow: 0 2px 8px rgba(255, 0, 0, 0.2);
+    }
+
+    .ft-soc:hover {
+        transform: translateY(-3px) scale(1.08);
+    }
+
+    .ft-soc-emoji {
+        font-size: 18px;
+        filter: brightness(2);
+    }
+
+    /* ═════════════════════════════════════════════
+       SECTION HEADERS
+       ═════════════════════════════════════════════ */
+    .ft-col h4 {
+        color: #1b5e20;
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .ft-col h4::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(46, 125, 50, 0.15), transparent);
+    }
+
+    .ft-h4-emoji {
+        font-size: 16px;
+    }
+
+    /* ═════════════════════════════════════════════
+       QUICK LINKS
+       ═════════════════════════════════════════════ */
+    .ft-links {
+        list-style: none;
+    }
+
+    .ft-links li {
+        margin-bottom: 6px;
+    }
+
+    .ft-links a {
+        color: #555;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 8px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .ft-links a::before {
+        content: '›';
+        color: #43a047;
+        font-size: 16px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+    }
+
+    .ft-links a:hover {
+        color: #1b5e20;
+        background: rgba(76, 175, 80, 0.06);
+        transform: translateX(3px);
+    }
+
+    .ft-links a:hover::before {
+        color: #ff9800;
+    }
+
+    /* ═════════════════════════════════════════════
+       RELATED LINKS
+       ═════════════════════════════════════════════ */
+    .ft-related {
+        list-style: none;
+    }
+
+    .ft-related li {
+        margin-bottom: 6px;
+    }
+
+    .ft-related a {
+        color: #555;
+        text-decoration: none;
+        font-size: 12.5px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
         border-radius: 8px;
-        transition: background 0.3s;
+        border: 1px solid rgba(46, 125, 50, 0.06);
+        background: rgba(255, 255, 255, 0.5);
+        transition: all 0.3s ease;
     }
 
-    .related-links a:hover {
-        background: rgba(255, 255, 255, 0.1);
+    .ft-related a:hover {
+        background: rgba(232, 245, 233, 0.5);
+        border-color: rgba(46, 125, 50, 0.12);
+        color: #1b5e20;
+        transform: translateY(-1px);
+        box-shadow: 0 3px 10px rgba(27, 94, 32, 0.06);
     }
 
-    .related-links img {
-        width: 24px;
-        height: 24px;
-        border-radius: 4px;
+    .ft-related-emoji {
+        font-size: 15px;
     }
 
-    /* Bottom Bar */
-    .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 25px 20px;
+    /* ═════════════════════════════════════════════
+       BOTTOM BAR
+       ═════════════════════════════════════════════ */
+    .ft-bottom {
+        border-top: 1px solid rgba(46, 125, 50, 0.08);
+        padding: 18px 20px;
         text-align: center;
         position: relative;
         z-index: 10;
     }
 
-    .footer-bottom p {
-        font-size: 14px;
-        color: #a5d6a7;
+    .ft-bottom p {
+        font-size: 12px;
+        color: #888;
+        font-weight: 300;
     }
 
-    .footer-bottom .highlight {
-        color: #f57c00;
+    .ft-bottom .ft-hl {
+        color: #2e7d32;
         font-weight: 500;
     }
 
-    /* Social Icons in Footer */
-    .footer-social {
-        display: flex;
-        gap: 12px;
-        margin-top: 20px;
-    }
-
-    @media (max-width: 768px) {
-        .footer-social {
-            justify-content: center;
+    /* ═════════════════════════════════════════════
+       RESPONSIVE
+       ═════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+        .ft-content {
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            padding: 35px 20px 25px;
         }
     }
 
-    .footer-social a {
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s, transform 0.3s;
-    }
-
-    .footer-social a:hover {
-        background: #43a047;
-        transform: translateY(-3px);
-    }
-
-    .footer-social svg {
-        width: 20px;
-        height: 20px;
-        fill: #c8e6c9;
-    }
-
-    .footer-social a:hover svg {
-        fill: white;
-    }
-
-    /* Visitor Counter Style */
-    .visitor-counter {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.05);
-        padding: 8px 16px;
-        border-radius: 20px;
-        margin-top: 15px;
-        font-size: 13px;
-    }
-
-    .visitor-counter svg {
-        width: 16px;
-        height: 16px;
-        fill: #f57c00;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-        .footer-content {
+    @media (max-width: 600px) {
+        .ft-content {
             grid-template-columns: 1fr;
             text-align: center;
-            padding: 40px 20px 30px;
-            gap: 30px;
+            gap: 20px;
+            padding: 28px 16px 20px;
         }
 
-        .footer-section h3 {
-            font-size: 18px;
-        }
-
-        .footer-section p {
-            font-size: 13px;
-        }
-
-        .footer-links a {
+        .ft-brand {
             justify-content: center;
         }
 
-        .footer-links a:hover {
-            transform: none;
-        }
-
-        .footer-social {
+        .ft-social {
             justify-content: center;
         }
 
-        .related-links a {
+        .ft-col h4 {
             justify-content: center;
         }
 
-        .footer-bottom {
-            padding: 20px 15px;
+        .ft-col h4::after {
+            display: none;
         }
 
-        .footer-bottom p {
-            font-size: 12px;
-            line-height: 1.8;
+        .ft-links a {
+            justify-content: center;
         }
 
-        .visitor-counter {
-            font-size: 12px;
-            padding: 6px 12px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .footer-content {
-            padding: 30px 15px 25px;
-            gap: 25px;
+        .ft-related a {
+            justify-content: center;
         }
 
-        .footer-section h3 {
-            font-size: 16px;
-            margin-bottom: 15px;
+        .ft-bottom {
+            padding: 14px 12px;
         }
 
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-social a {
-            width: 36px;
-            height: 36px;
-        }
-
-        .footer-social svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        .related-links a {
-            padding: 6px 10px;
-            font-size: 13px;
-        }
-
-        .footer-bottom p {
+        .ft-bottom p {
             font-size: 11px;
         }
     }
 </style>
 
-<footer class="agri-footer">
-    <div class="footer-wave"></div>
+<footer class="ft">
+    <!-- Top accent -->
+    <div class="ft-accent"></div>
 
-    <div class="footer-content">
-        <!-- About Section -->
-        <div class="footer-section">
-            <h3>🏛️ เกี่ยวกับเรา</h3>
-            <p>
-                <strong>สำนักงานเกษตรอำเภอพุทธมณฑล</strong><br>
-                กรมส่งเสริมการเกษตร กระทรวงเกษตรและสหกรณ์<br><br>
-                ส่งเสริมและพัฒนาเกษตรกร องค์กรเกษตรกร และวิสาหกิจชุมชนให้เข้มแข็ง
+    <!-- BG decorations -->
+    <div class="ft-orb ft-orb-1"></div>
+    <div class="ft-orb ft-orb-2"></div>
+
+    <div class="ft-content">
+        <!-- About -->
+        <div class="ft-about">
+            <div class="ft-brand">
+                <div class="ft-logo">
+                    <span class="ft-logo-emoji">�</span>
+                </div>
+                <div class="ft-brand-text">
+                    <h3>สำนักงานเกษตร<br>อำเภอพุทธมณฑล</h3>
+                    <span>กรมส่งเสริมการเกษตร</span>
+                </div>
+            </div>
+            <p class="ft-desc">
+                ส่งเสริมและพัฒนาเกษตรกร องค์กรเกษตรกร<br>
+                และวิสาหกิจชุมชนให้เข้มแข็งและยั่งยืน
             </p>
-
-            <!-- Social Icons -->
-            <div class="footer-social">
-                <a href="#" title="Facebook">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
-                    </svg>
+            <div class="ft-social">
+                <a class="ft-soc fb" title="Facebook">
+                    <span class="ft-soc-emoji">📘</span>
                 </a>
-                <a href="#" title="Line">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755z" />
-                    </svg>
+                <a class="ft-soc ln" title="Line">
+                    <span class="ft-soc-emoji">💚</span>
                 </a>
-                <a href="#" title="YouTube">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                    </svg>
+                <a class="ft-soc yt" title="YouTube">
+                    <span class="ft-soc-emoji">📺</span>
                 </a>
             </div>
         </div>
 
-        <!-- Quick Links - ดึงจาก nav menu -->
-        <div class="footer-section">
-            <h3>🔗 ลิงก์ด่วน</h3>
-            <ul class="footer-links">
+        <!-- Quick Links -->
+        <div class="ft-col">
+            <h4><span class="ft-h4-emoji">🔗</span> ลิงก์ด่วน</h4>
+            <ul class="ft-links">
                 <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/">หน้าแรก</a></li>
                 <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/vision/">วิสัยทัศน์ & พันธกิจ</a></li>
                 <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/structure/">โครงสร้างองค์กร</a></li>
                 <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/staff/">บุคลากร</a></li>
                 <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/public-relations/">ข่าวประชาสัมพันธ์</a>
                 </li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/knowledge/">องค์ความรู้</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/activities/">กิจกรรม</a></li>
+            </ul>
+        </div>
+
+        <!-- Data & Knowledge -->
+        <div class="ft-col">
+            <h4><span class="ft-h4-emoji">�</span> ข้อมูล & ความรู้</h4>
+            <ul class="ft-links">
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-information/">ข้อมูลเกษตรกร</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/land-use-data/">ข้อมูลพื้นที่ใช้ประโยชน์</a>
+                </li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/soil-information/">ข้อมูลดิน</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/water-sources/">ข้อมูลแหล่งน้ำ</a></li>
+                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/infographic/">Infographic</a></li>
+                <li><a
+                        href="https://nakhonpathom.doae.go.th/phutthamonthon/agri-knowledge-hub/">ศูนย์รวมความรู้เกษตร</a>
+                </li>
                 <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/phutthamonthon-famous/">ของดีพุทธมณฑล</a>
                 </li>
             </ul>
         </div>
 
         <!-- Related Sites -->
-        <div class="footer-section">
-            <h3>🌐 หน่วยงานที่เกี่ยวข้อง</h3>
-            <ul class="related-links">
-                <li><a href="https://www.doae.go.th" target="_blank">🌾 กรมส่งเสริมการเกษตร</a></li>
-                <li><a href="https://www.moac.go.th" target="_blank">🏛️ กระทรวงเกษตรและสหกรณ์</a></li>
-                <li><a href="https://www.nakhonpathom.go.th" target="_blank">📍 จังหวัดนครปฐม</a></li>
-                <li><a href="#" target="_blank">🏢 อำเภอพุทธมณฑล</a></li>
+        <div class="ft-col">
+            <h4><span class="ft-h4-emoji">🌐</span> หน่วยงาน</h4>
+            <ul class="ft-related">
+                <li><a href="https://www.doae.go.th" target="_blank">
+                        <span class="ft-related-emoji">🌾</span> กรมส่งเสริมการเกษตร
+                    </a></li>
+                <li><a href="https://www.moac.go.th" target="_blank">
+                        <span class="ft-related-emoji">🏛️</span> กระทรวงเกษตรฯ
+                    </a></li>
+                <li><a href="https://www.nakhonpathom.go.th" target="_blank">
+                        <span class="ft-related-emoji">📍</span> จังหวัดนครปฐม
+                    </a></li>
+                <li><a href="https://nakhonpathom.doae.go.th" target="_blank">
+                        <span class="ft-related-emoji">🏢</span> สนง.เกษตรจังหวัดนครปฐม
+                    </a></li>
             </ul>
         </div>
     </div>
 
-    <!-- Bottom Bar -->
-    <div class="footer-bottom">
-        <p>
-            © 2026 <span class="highlight">สำนักงานเกษตรอำเภอพุทธมณฑล</span> |
-            กรมส่งเสริมการเกษตร กระทรวงเกษตรและสหกรณ์
+    <!-- Bottom -->
+    <div class="ft-bottom">
+        <p>© 2026 <span class="ft-hl">สำนักงานเกษตรอำเภอพุทธมณฑล</span> · กรมส่งเสริมการเกษตร · กระทรวงเกษตรและสหกรณ์
         </p>
     </div>
 </footer>

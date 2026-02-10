@@ -1,5 +1,9 @@
-<!-- 📞 CONTACT SECTION - สำนักงานเกษตรอำเภอพุทธมณฑล -->
-<!-- Theme: Green, White, Orange (Agriculture) -->
+<!-- PREMIUM CONTACT SECTION - สำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- Light Theme | Pure CSS Only - No JavaScript | WordPress Compatible -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
 <style>
     .contact-section * {
@@ -9,207 +13,836 @@
         font-family: 'Kanit', sans-serif;
     }
 
+    /* ═════════════════════════════════════════════
+       MAIN SECTION - Light Animated Gradient BG
+       ═════════════════════════════════════════════ */
     .contact-section {
-        background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
-        padding: 40px 20px;
+        background: linear-gradient(135deg, #f0f7e6 0%, #e8f5e9 25%, #f1f8e9 50%, #e0f2f1 75%, #f0f7e6 100%);
+        background-size: 400% 400%;
+        animation: contactBg 15s ease infinite;
+        padding: 60px 20px 70px;
         position: relative;
         overflow: hidden;
     }
 
-    .contact-section::before {
-        content: '';
-        position: absolute;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(46, 125, 50, 0.08) 0%, transparent 70%);
-        top: -100px;
-        right: -100px;
-        border-radius: 50%;
+    @keyframes contactBg {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        25% {
+            background-position: 50% 100%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        75% {
+            background-position: 50% 0%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
     }
 
-    .contact-container {
-        max-width: 1400px;
+    /* Floating orbs */
+    .ct-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(50px);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .ct-orb-1 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(76, 175, 80, 0.08), transparent);
+        top: -120px;
+        right: -80px;
+        animation: ctOrbMove 10s ease-in-out infinite;
+    }
+
+    .ct-orb-2 {
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(circle, rgba(255, 152, 0, 0.06), transparent);
+        bottom: -100px;
+        left: -60px;
+        animation: ctOrbMove 12s ease-in-out infinite reverse;
+    }
+
+    .ct-orb-3 {
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255, 193, 7, 0.05), transparent);
+        top: 45%;
+        left: 55%;
+        animation: ctOrbMove 8s ease-in-out infinite 2s;
+    }
+
+    @keyframes ctOrbMove {
+
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        33% {
+            transform: translate(25px, -20px) scale(1.08);
+        }
+
+        66% {
+            transform: translate(-15px, 12px) scale(0.92);
+        }
+    }
+
+    /* Mesh grid */
+    .ct-mesh {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(46, 125, 50, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(46, 125, 50, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* CSS-only sparkle dots */
+    .ct-sparkles {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .ct-dot {
+        position: absolute;
+        border-radius: 50%;
+        animation: ctDotFloat linear infinite;
+    }
+
+    .ct-dot::after {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 50%;
+        background: inherit;
+        opacity: 0.3;
+        filter: blur(2px);
+    }
+
+    .ct-dot:nth-child(1) {
+        width: 4px;
+        height: 4px;
+        background: rgba(76, 175, 80, 0.2);
+        top: 10%;
+        left: 8%;
+        animation-duration: 18s;
+    }
+
+    .ct-dot:nth-child(2) {
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 193, 7, 0.2);
+        top: 25%;
+        left: 78%;
+        animation-duration: 22s;
+        animation-delay: -3s;
+    }
+
+    .ct-dot:nth-child(3) {
+        width: 5px;
+        height: 5px;
+        background: rgba(76, 175, 80, 0.15);
+        top: 55%;
+        left: 22%;
+        animation-duration: 20s;
+        animation-delay: -6s;
+    }
+
+    .ct-dot:nth-child(4) {
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 152, 0, 0.2);
+        top: 38%;
+        left: 62%;
+        animation-duration: 16s;
+        animation-delay: -2s;
+    }
+
+    .ct-dot:nth-child(5) {
+        width: 4px;
+        height: 4px;
+        background: rgba(139, 195, 74, 0.18);
+        top: 72%;
+        left: 42%;
+        animation-duration: 24s;
+        animation-delay: -8s;
+    }
+
+    .ct-dot:nth-child(6) {
+        width: 3px;
+        height: 3px;
+        background: rgba(76, 175, 80, 0.2);
+        top: 15%;
+        left: 52%;
+        animation-duration: 19s;
+        animation-delay: -4s;
+    }
+
+    .ct-dot:nth-child(7) {
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 193, 7, 0.12);
+        top: 48%;
+        left: 12%;
+        animation-duration: 21s;
+        animation-delay: -10s;
+    }
+
+    .ct-dot:nth-child(8) {
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 152, 0, 0.18);
+        top: 80%;
+        left: 72%;
+        animation-duration: 17s;
+        animation-delay: -5s;
+    }
+
+    @keyframes ctDotFloat {
+        0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        50% {
+            transform: translate(-20px, -30px) scale(1.15);
+            opacity: 0.5;
+        }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(20px, -60px) scale(0.85);
+            opacity: 0;
+        }
+    }
+
+    /* ═════════════════════════════════════════════
+       CONTAINER
+       ═════════════════════════════════════════════ */
+    .ct-container {
+        max-width: 1200px;
         width: 100%;
         margin: 0 auto;
-        padding: 0 40px;
         position: relative;
         z-index: 10;
     }
 
-    .contact-title {
+    /* ═════════════════════════════════════════════
+       TITLE
+       ═════════════════════════════════════════════ */
+    .ct-title {
         text-align: center;
-        margin-bottom: 30px;
-        animation: fadeInUp 0.8s ease-out;
+        margin-bottom: 45px;
+        animation: ctFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    .contact-title h2 {
-        font-size: 36px;
-        font-weight: 700;
-        background: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 10px;
+    .ct-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(46, 125, 50, 0.08);
+        border: 1px solid rgba(46, 125, 50, 0.12);
+        color: #2e7d32;
+        padding: 6px 20px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        position: relative;
+        overflow: hidden;
     }
 
-    .contact-title p {
-        color: #558b2f;
-        font-size: 16px;
+    .ct-badge::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        animation: ctShimmer 4s ease-in-out infinite;
     }
 
-    .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 25px;
-        align-items: stretch;
-    }
+    @keyframes ctShimmer {
+        0% {
+            left: -100%;
+        }
 
-    @media (max-width: 768px) {
-        .contact-grid {
-            grid-template-columns: 1fr;
+        100% {
+            left: 200%;
         }
     }
 
-    /* Contact Info Card */
-    .contact-info-card {
-        background: white;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 40px rgba(27, 94, 32, 0.12);
-        animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    .ct-badge-emoji {
+        font-size: 15px;
+        animation: ctPulse 2s ease-in-out infinite;
     }
 
-    .contact-item {
+    @keyframes ctPulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.2);
+        }
+    }
+
+    .ct-title h2 {
+        font-size: 38px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c, #43a047);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: ctTitleGrad 5s ease infinite;
+        position: relative;
+    }
+
+    .ct-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #ffc107, #ff9800, #ffc107, transparent);
+        border-radius: 3px;
+        animation: ctLineGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes ctTitleGrad {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    @keyframes ctLineGlow {
+
+        0%,
+        100% {
+            width: 70px;
+            opacity: 0.6;
+        }
+
+        50% {
+            width: 110px;
+            opacity: 1;
+        }
+    }
+
+    .ct-title p {
+        color: #558b2f;
+        font-size: 15px;
+        margin-top: 14px;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+    }
+
+    /* ═════════════════════════════════════════════
+       MAIN CARD WRAPPER (like news section)
+       ═════════════════════════════════════════════ */
+    .ct-card-wrapper {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 35px;
+        box-shadow:
+            0 10px 40px rgba(27, 94, 32, 0.08),
+            0 0 0 1px rgba(67, 160, 71, 0.1);
+        position: relative;
+        overflow: hidden;
+        animation: ctFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+    }
+
+    /* Subtle shine sweep */
+    .ct-card-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.03), transparent);
+        animation: ctCardShine 7s ease-in-out infinite 1s;
+    }
+
+    @keyframes ctCardShine {
+        0% {
+            left: -100%;
+        }
+
+        25% {
+            left: 150%;
+        }
+
+        100% {
+            left: 150%;
+        }
+    }
+
+    /* Top accent line */
+    .ct-card-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #1b5e20, #43a047, #ffc107, #ff9800, #ffc107, #43a047, #1b5e20);
+        background-size: 200% 100%;
+        animation: ctAccentLine 4s linear infinite;
+    }
+
+    @keyframes ctAccentLine {
+        0% {
+            background-position: 0% 0;
+        }
+
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    /* ═════════════════════════════════════════════
+       GRID
+       ═════════════════════════════════════════════ */
+    .ct-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: stretch;
+    }
+
+    /* ═════════════════════════════════════════════
+       CONTACT INFO SIDE
+       ═════════════════════════════════════════════ */
+    .ct-info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .ct-item {
         display: flex;
         align-items: flex-start;
-        gap: 15px;
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #e8f5e9;
+        gap: 16px;
+        padding: 16px;
+        border-radius: 16px;
+        border-bottom: 1px solid rgba(46, 125, 50, 0.06);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .contact-item:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
+    .ct-item:last-of-type {
         border-bottom: none;
     }
 
-    .contact-icon {
+    .ct-item:hover {
+        background: rgba(232, 245, 233, 0.6);
+        transform: translateX(5px);
+    }
+
+    /* Icon */
+    .ct-icon {
         width: 50px;
         height: 50px;
-        background: linear-gradient(135deg, #2e7d32, #43a047);
-        border-radius: 12px;
+        border-radius: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
-        box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+        transition: all 0.4s ease;
     }
 
-    .contact-icon svg {
-        width: 24px;
-        height: 24px;
-        fill: white;
+    .ct-icon.ic-loc {
+        background: linear-gradient(135deg, #2e7d32, #43a047);
+        box-shadow: 0 4px 15px rgba(46, 125, 50, 0.25);
     }
 
-    .contact-details h3 {
+    .ct-icon.ic-tel {
+        background: linear-gradient(135deg, #1565c0, #1e88e5);
+        box-shadow: 0 4px 15px rgba(21, 101, 192, 0.25);
+    }
+
+    .ct-icon.ic-mail {
+        background: linear-gradient(135deg, #e65100, #f57c00);
+        box-shadow: 0 4px 15px rgba(230, 81, 0, 0.25);
+    }
+
+    .ct-icon.ic-time {
+        background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+        box-shadow: 0 4px 15px rgba(106, 27, 154, 0.25);
+    }
+
+    .ct-item:hover .ct-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .ct-icon-emoji {
+        font-size: 22px;
+        filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.15));
+    }
+
+    /* Details */
+    .ct-details h3 {
         color: #1b5e20;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 4px;
     }
 
-    .contact-details p {
-        color: #558b2f;
-        font-size: 15px;
-        line-height: 1.6;
+    .ct-details p {
+        color: #555;
+        font-size: 14px;
+        line-height: 1.7;
+        font-weight: 300;
     }
 
-    .contact-details a {
+    .ct-details a {
         color: #2e7d32;
         text-decoration: none;
-        transition: color 0.3s;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
     }
 
-    .contact-details a:hover {
-        color: #f57c00;
+    .ct-details a::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 0;
+        height: 1.5px;
+        background: #ff9800;
+        transition: width 0.3s ease;
     }
 
-    /* Map Card */
-    .map-card {
-        background: white;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 10px 40px rgba(27, 94, 32, 0.12);
-        animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        display: flex;
-        flex-direction: column;
+    .ct-details a:hover {
+        color: #e65100;
     }
 
-    .map-header {
-        background: linear-gradient(135deg, #1b5e20, #2e7d32);
-        padding: 20px 30px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .map-header svg {
-        width: 28px;
-        height: 28px;
-        fill: white;
-    }
-
-    .map-header h3 {
-        color: white;
-        font-size: 20px;
-        font-weight: 600;
-    }
-
-    .map-container {
-        height: 100%;
-        min-height: 350px;
-        background: #e8f5e9;
-    }
-
-    .map-container iframe {
+    .ct-details a:hover::after {
         width: 100%;
-        height: 100%;
-        border: none;
     }
 
-    /* Social Links */
-    .social-links {
+    /* ═════════════════════════════════════════════
+       SOCIAL LINKS
+       ═════════════════════════════════════════════ */
+    .ct-social {
+        margin-top: 8px;
+        padding: 16px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(232, 245, 233, 0.5), rgba(241, 248, 233, 0.5));
+        border: 1px solid rgba(46, 125, 50, 0.08);
+    }
+
+    .ct-social-label {
+        color: #777;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .ct-social-links {
         display: flex;
-        gap: 15px;
-        margin-top: 20px;
+        gap: 12px;
     }
 
-    .social-link {
-        width: 45px;
-        height: 45px;
-        background: linear-gradient(135deg, #2e7d32, #43a047);
+    .ct-soc-btn {
+        width: 44px;
+        height: 44px;
         border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: transform 0.3s, box-shadow 0.3s;
-        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .social-link:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
-        background: linear-gradient(135deg, #f57c00, #ff9800);
+    .ct-soc-btn.fb {
+        background: linear-gradient(135deg, #1877f2, #3b5998);
+        box-shadow: 0 3px 12px rgba(24, 119, 242, 0.25);
     }
 
-    .social-link svg {
-        width: 22px;
-        height: 22px;
-        fill: white;
+    .ct-soc-btn.ln {
+        background: linear-gradient(135deg, #00b900, #00c300);
+        box-shadow: 0 3px 12px rgba(0, 185, 0, 0.25);
     }
 
-    @keyframes fadeInUp {
+    .ct-soc-btn:hover {
+        transform: translateY(-4px) scale(1.08);
+    }
+
+    .ct-soc-btn.fb:hover {
+        box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
+    }
+
+    .ct-soc-btn.ln:hover {
+        box-shadow: 0 8px 25px rgba(0, 185, 0, 0.4);
+    }
+
+    .ct-soc-emoji {
+        font-size: 22px;
+        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+    }
+
+    /* ═════════════════════════════════════════════
+       MAP CARD
+       ═════════════════════════════════════════════ */
+    .ct-map {
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(46, 125, 50, 0.1);
+        box-shadow: 0 4px 20px rgba(27, 94, 32, 0.06);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.4s ease;
+    }
+
+    .ct-map:hover {
+        box-shadow: 0 8px 30px rgba(27, 94, 32, 0.12);
+        transform: translateY(-2px);
+    }
+
+    .ct-map-head {
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047);
+        padding: 16px 22px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .ct-map-icon {
+        width: 38px;
+        height: 38px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .ct-map-icon-emoji {
+        font-size: 18px;
+    }
+
+    .ct-map-head h3 {
+        color: white;
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    .ct-map-head span {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 11px;
+        font-weight: 300;
+    }
+
+    .ct-map-body {
+        flex: 1;
+        min-height: 350px;
+        position: relative;
+    }
+
+    .ct-map-body iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+    }
+
+    .ct-map-glow {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.06);
+        z-index: 2;
+    }
+
+    /* ═════════════════════════════════════════════
+       QUICK ACTION BUTTONS
+       ═════════════════════════════════════════════ */
+    .ct-actions {
+        display: flex;
+        gap: 14px;
+        margin-top: 28px;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: ctFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+    }
+
+    .ct-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 24px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'Kanit', sans-serif;
+        text-decoration: none;
+        letter-spacing: 0.3px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ct-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .ct-btn:hover::before {
+        left: 150%;
+    }
+
+    .ct-btn.btn-call {
+        background: linear-gradient(135deg, #1565c0, #1e88e5);
+        color: white;
+        box-shadow: 0 4px 15px rgba(21, 101, 192, 0.25);
+    }
+
+    .ct-btn.btn-email {
+        background: linear-gradient(135deg, #e65100, #f57c00);
+        color: white;
+        box-shadow: 0 4px 15px rgba(230, 81, 0, 0.25);
+    }
+
+    .ct-btn.btn-dir {
+        background: white;
+        color: #2e7d32;
+        border: 1.5px solid rgba(46, 125, 50, 0.2);
+        box-shadow: 0 4px 15px rgba(27, 94, 32, 0.08);
+    }
+
+    .ct-btn:hover {
+        transform: translateY(-3px) scale(1.03);
+    }
+
+    .ct-btn.btn-call:hover {
+        box-shadow: 0 8px 25px rgba(21, 101, 192, 0.35);
+    }
+
+    .ct-btn.btn-email:hover {
+        box-shadow: 0 8px 25px rgba(230, 81, 0, 0.35);
+    }
+
+    .ct-btn.btn-dir:hover {
+        box-shadow: 0 8px 25px rgba(27, 94, 32, 0.15);
+        background: #f1f8e9;
+    }
+
+    .ct-btn-emoji {
+        font-size: 17px;
+    }
+
+    /* ═════════════════════════════════════════════
+       BOTTOM DECORATION
+       ═════════════════════════════════════════════ */
+    .ct-decor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        margin-top: 40px;
+        animation: ctFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    }
+
+    .ct-decor-line {
+        width: 70px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(46, 125, 50, 0.2), transparent);
+        animation: ctDecorPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes ctDecorPulse {
+
+        0%,
+        100% {
+            width: 70px;
+            opacity: 0.4;
+        }
+
+        50% {
+            width: 100px;
+            opacity: 1;
+        }
+    }
+
+    .ct-decor-dot {
+        width: 7px;
+        height: 7px;
+        background: linear-gradient(135deg, #4caf50, #81c784);
+        border-radius: 50%;
+        box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        animation: ctDotPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes ctDotPulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        50% {
+            transform: scale(1.3);
+            box-shadow: 0 0 16px rgba(76, 175, 80, 0.5);
+        }
+    }
+
+    /* ═════════════════════════════════════════════
+       ENTRANCE ANIMATION (Pure CSS, no JS)
+       ═════════════════════════════════════════════ */
+    @keyframes ctFadeIn {
         from {
             opacity: 0;
             transform: translateY(30px);
@@ -221,219 +854,264 @@
         }
     }
 
-    /* Responsive Styles */
-    @media (max-width: 768px) {
+    /* ═════════════════════════════════════════════
+       RESPONSIVE
+       ═════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
         .contact-section {
-            padding: 30px 15px;
+            padding: 50px 15px 60px;
         }
 
-        .contact-title h2 {
+        .ct-title h2 {
+            font-size: 34px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .contact-section {
+            padding: 35px 12px 45px;
+        }
+
+        .ct-grid {
+            grid-template-columns: 1fr;
+            gap: 22px;
+        }
+
+        .ct-title h2 {
             font-size: 28px;
         }
 
-        .contact-title p {
-            font-size: 14px;
+        .ct-title p {
+            font-size: 13px;
         }
 
-        .contact-title {
-            margin-bottom: 20px;
+        .ct-title {
+            margin-bottom: 30px;
         }
 
-        .contact-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
+        .ct-card-wrapper {
+            padding: 22px 18px;
+            border-radius: 20px;
         }
 
-        .contact-info-card {
-            padding: 25px 20px;
+        .ct-item {
+            padding: 12px;
+            gap: 12px;
         }
 
-        .contact-item {
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 18px;
+        .ct-icon {
+            width: 44px;
+            height: 44px;
         }
 
-        .contact-icon {
-            width: 42px;
-            height: 42px;
+        .ct-icon-emoji {
+            font-size: 19px;
         }
 
-        .contact-icon svg {
-            width: 20px;
-            height: 20px;
+        .ct-details h3 {
+            font-size: 15px;
         }
 
-        .contact-details h3 {
-            font-size: 16px;
+        .ct-details p {
+            font-size: 13px;
         }
 
-        .contact-details p {
-            font-size: 14px;
+        .ct-map-head {
+            padding: 14px 18px;
         }
 
-        .map-header {
-            padding: 15px 20px;
+        .ct-map-head h3 {
+            font-size: 15px;
         }
 
-        .map-header h3 {
-            font-size: 18px;
+        .ct-map-body {
+            min-height: 280px;
         }
 
-        .map-container {
-            min-height: 300px;
-        }
-
-        .social-links {
+        .ct-social-links {
             justify-content: center;
         }
 
-        .social-link {
-            width: 40px;
-            height: 40px;
+        .ct-actions {
+            flex-direction: column;
+            align-items: center;
         }
 
-        .social-link svg {
-            width: 20px;
-            height: 20px;
+        .ct-btn {
+            width: 100%;
+            max-width: 260px;
+            justify-content: center;
         }
     }
 
     @media (max-width: 480px) {
         .contact-section {
-            padding: 30px 12px;
+            padding: 25px 10px 35px;
         }
 
-        .contact-title h2 {
+        .ct-title h2 {
             font-size: 24px;
         }
 
-        .contact-info-card {
-            padding: 20px 15px;
+        .ct-card-wrapper {
+            padding: 16px 12px;
+            border-radius: 16px;
         }
 
-        .contact-item {
+        .ct-item {
             flex-direction: column;
             text-align: center;
-            gap: 12px;
+            gap: 8px;
+            padding: 10px 6px;
         }
 
-        .contact-icon {
+        .ct-icon {
             margin: 0 auto;
         }
 
-        .contact-details {
+        .ct-details {
             text-align: center;
         }
 
-        .map-container {
-            min-height: 250px;
+        .ct-map-body {
+            min-height: 230px;
+        }
+
+        .ct-badge {
+            font-size: 11px;
+            padding: 5px 16px;
         }
     }
 </style>
 
 <div class="contact-section">
-    <div class="contact-container">
+    <!-- Background effects -->
+    <div class="ct-orb ct-orb-1"></div>
+    <div class="ct-orb ct-orb-2"></div>
+    <div class="ct-orb ct-orb-3"></div>
+    <div class="ct-mesh"></div>
+    <div class="ct-sparkles">
+        <div class="ct-dot"></div>
+        <div class="ct-dot"></div>
+        <div class="ct-dot"></div>
+        <div class="ct-dot"></div>
+        <div class="ct-dot"></div>
+        <div class="ct-dot"></div>
+        <div class="ct-dot"></div>
+        <div class="ct-dot"></div>
+    </div>
+
+    <div class="ct-container">
         <!-- Title -->
-        <div class="contact-title">
-            <h2>📞 ติดต่อเรา</h2>
-            <p>สำนักงานเกษตรอำเภอพุทธมณฑล ยินดีให้บริการ</p>
+        <div class="ct-title">
+            <div class="ct-badge">
+                <span class="ct-badge-emoji">📞</span>
+                ติดต่อสอบถาม
+                <span class="ct-badge-emoji">💬</span>
+            </div>
+            <h2>ติดต่อเรา</h2>
+            <p>สำนักงานเกษตรอำเภอพุทธมณฑล ยินดีให้บริการทุกท่านด้วยความเต็มใจ</p>
         </div>
 
-        <div class="contact-grid">
-            <!-- Contact Info -->
-            <div class="contact-info-card">
-                <!-- Address -->
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                        </svg>
+        <!-- Main Card -->
+        <div class="ct-card-wrapper">
+            <div class="ct-grid">
+                <!-- Contact Info -->
+                <div class="ct-info">
+                    <div class="ct-item">
+                        <div class="ct-icon ic-loc">
+                            <span class="ct-icon-emoji">📍</span>
+                        </div>
+                        <div class="ct-details">
+                            <h3>ที่อยู่</h3>
+                            <p>สำนักงานเกษตรอำเภอพุทธมณฑล<br>
+                                219 หมู่ 5 ต.ศาลายา อ.พุทธมณฑล<br>
+                                จ.นครปฐม 73170</p>
+                        </div>
                     </div>
-                    <div class="contact-details">
-                        <h3>ที่อยู่</h3>
-                        <p>สำนักงานเกษตรอำเภอพุทธมณฑล<br>
-                            219 หมู่ 5 ต.ศาลายา อ.พุทธมณฑล<br>
-                            จ.นครปฐม 73170</p>
+
+                    <div class="ct-item">
+                        <div class="ct-icon ic-tel">
+                            <span class="ct-icon-emoji">📱</span>
+                        </div>
+                        <div class="ct-details">
+                            <h3>โทรศัพท์</h3>
+                            <p><a href="tel:0-2441-0837">0-2441-0837</a></p>
+                        </div>
+                    </div>
+
+                    <div class="ct-item">
+                        <div class="ct-icon ic-mail">
+                            <span class="ct-icon-emoji">✉️</span>
+                        </div>
+                        <div class="ct-details">
+                            <h3>อีเมล</h3>
+                            <p><a href="mailto:phutthamonthon@doae.go.th">phutthamonthon@doae.go.th</a></p>
+                        </div>
+                    </div>
+
+                    <div class="ct-item">
+                        <div class="ct-icon ic-time">
+                            <span class="ct-icon-emoji">🕗</span>
+                        </div>
+                        <div class="ct-details">
+                            <h3>เวลาทำการ</h3>
+                            <p>วันจันทร์ - วันศุกร์<br>08.30 - 16.30 น.</p>
+                        </div>
+                    </div>
+
+                    <div class="ct-social">
+                        <div class="ct-social-label">ช่องทางโซเชียล</div>
+                        <div class="ct-social-links">
+                            <a class="ct-soc-btn fb" title="Facebook">
+                                <span class="ct-soc-emoji">📘</span>
+                            </a>
+                            <a class="ct-soc-btn ln" title="Line">
+                                <span class="ct-soc-emoji">💚</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Phone -->
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                        </svg>
+                <!-- Map -->
+                <div class="ct-map">
+                    <div class="ct-map-head">
+                        <div class="ct-map-icon">
+                            <span class="ct-map-icon-emoji">🗺️</span>
+                        </div>
+                        <div>
+                            <h3>แผนที่ตั้งสำนักงาน</h3>
+                            <span>Google Maps • คลิกเพื่อขยาย</span>
+                        </div>
                     </div>
-                    <div class="contact-details">
-                        <h3>โทรศัพท์</h3>
-                        <p><a href="tel:0-2441-0837">0-2441-0837</a></p>
+                    <div class="ct-map-body">
+                        <div class="ct-map-glow"></div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.5!2d100.31799881744385!3d13.802014300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e293f2c3a1c93f%3A0x79cd02f96bae278e!2z4Liq4Liz4LiZ4Lix4LiB4LiH4Liy4LiZ4LmA4LiB4Lip4LiV4Lij4Lit4Liz4LmA4Lig4Lit4Lie4Li44LiX4LiY4Lih4LiT4LiR4Lil!5e0!3m2!1sth!2sth!4v1705149600000!5m2!1sth!2sth"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                </div>
-
-                <!-- Email -->
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                        </svg>
-                    </div>
-                    <div class="contact-details">
-                        <h3>อีเมล</h3>
-                        <p><a href="mailto:phutthamonthon@doae.go.th">phutthamonthon@doae.go.th</a></p>
-                    </div>
-                </div>
-
-                <!-- Working Hours -->
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
-                        </svg>
-                    </div>
-                    <div class="contact-details">
-                        <h3>เวลาทำการ</h3>
-                        <p>วันจันทร์ - วันศุกร์<br>08.30 - 16.30 น.</p>
-                    </div>
-                </div>
-
-                <!-- Social Links -->
-                <div class="social-links">
-                    <a class="social-link" title="Facebook">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
-                        </svg>
-                    </a>
-                    <a class="social-link" title="Line">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
-                        </svg>
-                    </a>
                 </div>
             </div>
+        </div>
 
-            <!-- Map -->
-            <div class="map-card">
-                <div class="map-header">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
-                    </svg>
-                    <h3>แผนที่</h3>
-                </div>
-                <div class="map-container">
-                    <!-- Google Maps Embed - สำนักงานเกษตรอำเภอพุทธมณฑล -->
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.5!2d100.31799881744385!3d13.802014300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e293f2c3a1c93f%3A0x79cd02f96bae278e!2z4Liq4Liz4LiZ4Lix4LiB4LiH4Liy4LiZ4LmA4LiB4Lip4LiV4Lij4Lit4Liz4LmA4Lig4Lit4Lie4Li44LiX4LiY4Lih4LiT4LiR4Lil!5e0!3m2!1sth!2sth!4v1705149600000!5m2!1sth!2sth"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
+        <!-- Action Buttons -->
+        <div class="ct-actions">
+            <a href="tel:0-2441-0837" class="ct-btn btn-call">
+                <span class="ct-btn-emoji">📞</span> โทรหาเรา
+            </a>
+            <a href="mailto:phutthamonthon@doae.go.th" class="ct-btn btn-email">
+                <span class="ct-btn-emoji">✉️</span> ส่งอีเมล
+            </a>
+            <a href="https://maps.app.goo.gl/PvUvZ1z3FQznE4Dz5" target="_blank" class="ct-btn btn-dir">
+                <span class="ct-btn-emoji">📍</span> เปิดแผนที่
+            </a>
+        </div>
+
+        <!-- Bottom Decoration -->
+        <div class="ct-decor">
+            <div class="ct-decor-line"></div>
+            <div class="ct-decor-dot"></div>
+            <div class="ct-decor-line"></div>
         </div>
     </div>
 </div>
