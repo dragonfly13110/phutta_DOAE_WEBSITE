@@ -1,5 +1,9 @@
-<!-- 🔥 PREMIUM HEADER - สำนักงานเกษตรอำเภอพุทธมณฑล 🔥 -->
-<!-- Theme: Green, White, Orange (Agriculture) -->
+<!-- 🔥 ULTRA PREMIUM HEADER - สำนักงานเกษตรอำเภอพุทธมณฑล 🔥 -->
+<!-- Theme: Green, White, Orange (Agriculture) | Premium Glassmorphism + Particles -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
 <style>
     .agri-header-wrapper * {
@@ -9,16 +13,19 @@
         font-family: 'Kanit', sans-serif;
     }
 
-    /* Top welcome bar */
+    /* ═══════════════════════════════════════════════════════
+       TOP BAR - Animated Gradient + Shimmer + Marquee
+       ═══════════════════════════════════════════════════════ */
     .agri-top-bar {
-        background: linear-gradient(90deg, #1b5e20, #2e7d32, #43a047, #2e7d32, #1b5e20);
-        background-size: 400% 400%;
-        animation: gradientShift 8s ease infinite;
+        background: linear-gradient(135deg, #0d3b0e, #1b5e20, #2e7d32, #1b5e20, #0d3b0e);
+        background-size: 300% 300%;
+        animation: gradientFlow 6s ease infinite;
         color: white;
         text-align: center;
-        padding: 10px 20px;
+        padding: 8px 20px;
         position: relative;
         overflow: hidden;
+        border-bottom: 2px solid rgba(255, 193, 7, 0.4);
     }
 
     .agri-top-bar::before {
@@ -26,10 +33,21 @@
         position: absolute;
         top: 0;
         left: -100%;
-        width: 100%;
+        width: 60%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        animation: shimmer 3s infinite;
+        background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.15), rgba(255, 255, 255, 0.2), rgba(255, 215, 0, 0.15), transparent);
+        animation: shimmerGold 4s ease-in-out infinite;
+    }
+
+    .agri-top-bar::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #ffd700, #ff8f00, #ffd700, transparent);
+        animation: glowLine 3s ease infinite;
     }
 
     .top-bar-content {
@@ -38,29 +56,434 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 15px;
         flex-wrap: wrap;
+    }
+
+    .top-bar-icon {
+        font-size: 16px;
+        animation: pulse 2s ease-in-out infinite;
     }
 
     .top-bar-dept {
         font-size: 14px;
-        font-weight: 500;
-        letter-spacing: 1px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     .top-bar-sep {
-        opacity: 0.5;
-        font-weight: 300;
+        opacity: 0.3;
+        font-weight: 100;
+        font-size: 18px;
     }
 
     .top-bar-dept-en {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 300;
-        opacity: 0.9;
-        letter-spacing: 0.5px;
+        opacity: 0.85;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
     }
 
-    @keyframes gradientShift {
+    /* ═══════════════════════════════════════════════════════
+       MAIN HEADER - Background + Particles + Glassmorphism
+       ═══════════════════════════════════════════════════════ */
+    .agri-main-header {
+        background: url('https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/Gemini_Generated_Image_rjos0srjos0srjos.png');
+        background-size: cover;
+        background-position: top center;
+        background-attachment: fixed;
+        padding: 50px 20px 90px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        min-height: 380px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Dark overlay for contrast */
+    .agri-main-header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.1) 0%,
+                rgba(0, 0, 0, 0.05) 40%,
+                rgba(27, 94, 32, 0.15) 100%);
+        z-index: 1;
+    }
+
+    /* Particle Canvas Layer */
+    .agri-particles {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* Floating orbs decoration */
+    .agri-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.12;
+        z-index: 2;
+        animation: orbFloat 8s ease-in-out infinite;
+    }
+
+    .agri-orb-1 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, #4caf50, transparent);
+        top: -120px;
+        left: -80px;
+    }
+
+    .agri-orb-2 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, #ff9800, transparent);
+        bottom: -80px;
+        right: -60px;
+        animation-delay: -4s;
+    }
+
+    .agri-orb-3 {
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, #ffd700, transparent);
+        top: 50%;
+        left: 70%;
+        animation-delay: -2s;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HEADER CONTENT CARD - Premium Glassmorphism
+       ═══════════════════════════════════════════════════════ */
+    .agri-header-content {
+        position: relative;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        padding: 35px 50px 30px;
+        border-radius: 24px;
+        display: inline-block;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            0 2px 10px rgba(46, 125, 50, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        animation: cardEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+        max-width: 700px;
+    }
+
+    /* Glowing border effect on hover */
+    .agri-header-content::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 26px;
+        background: linear-gradient(135deg, rgba(46, 125, 50, 0.3), rgba(255, 193, 7, 0.3), rgba(46, 125, 50, 0.3));
+        background-size: 200% 200%;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        animation: borderGlow 4s ease infinite;
+    }
+
+    .agri-header-content:hover::before {
+        opacity: 1;
+    }
+
+    /* Shine sweep effect */
+    .agri-header-content::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        border-radius: 24px;
+        animation: shineSweep 6s ease-in-out infinite 2s;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       DUAL LOGO - 3D Hover + Glow Ring
+       ═══════════════════════════════════════════════════════ */
+    .agri-logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 18px;
+    }
+
+    .agri-logo-wrapper {
+        position: relative;
+        perspective: 800px;
+    }
+
+    .agri-logo-img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.12));
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        animation: logoEntry 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+    }
+
+    .agri-logo-img.left {
+        animation-delay: 0.3s;
+    }
+
+    .agri-logo-img.right {
+        animation-delay: 0.5s;
+    }
+
+    .agri-logo-wrapper:hover .agri-logo-img {
+        transform: rotateY(10deg) scale(1.15);
+        filter: drop-shadow(0 10px 25px rgba(46, 125, 50, 0.35));
+    }
+
+    /* Glow ring around logo */
+    .agri-logo-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 115px;
+        height: 115px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        background: conic-gradient(from 0deg, transparent, rgba(46, 125, 50, 0.4), transparent, rgba(255, 193, 7, 0.4), transparent) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: ringRotate 6s linear infinite;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .agri-logo-wrapper:hover .agri-logo-ring {
+        opacity: 1;
+    }
+
+    /* Logo divider */
+    .logo-divider {
+        width: 2px;
+        height: 65px;
+        position: relative;
+        overflow: hidden;
+        animation: logoEntry 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+        opacity: 0;
+    }
+
+    .logo-divider::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent, #43a047, #ffc107, #43a047, transparent);
+    }
+
+    .logo-divider::after {
+        content: '';
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+        animation: dividerGlow 2.5s ease-in-out infinite;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       TITLE - Gradient Text + Glow
+       ═══════════════════════════════════════════════════════ */
+    .agri-main-title {
+        font-size: 36px;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 6px;
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c, #43a047);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: logoEntry 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards, titleGradient 4s ease infinite 1.6s;
+        opacity: 0;
+        text-shadow: none;
+        position: relative;
+    }
+
+    .agri-main-title::after {
+        content: 'สำนักงานเกษตรอำเภอพุทธมณฑล';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c, #43a047);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: blur(12px);
+        opacity: 0.3;
+        z-index: -1;
+        animation: titleGradient 4s ease infinite;
+    }
+
+    .agri-subtitle {
+        color: #2e7d32;
+        font-size: 17px;
+        font-weight: 400;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        animation: logoEntry 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+        opacity: 0;
+    }
+
+    .agri-province {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        color: #558b2f;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        animation: logoEntry 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+        opacity: 0;
+    }
+
+    .agri-province .line {
+        width: 50px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #43a047, #ffc107, #43a047, transparent);
+        border-radius: 2px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BADGE STRIP - Quick Info with Icons
+       ═══════════════════════════════════════════════════════ */
+    .agri-badge-strip {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 18px;
+        flex-wrap: wrap;
+        animation: logoEntry 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+        opacity: 0;
+    }
+
+    .agri-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        cursor: default;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .agri-badge::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 30px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .agri-badge:hover {
+        transform: translateY(-2px);
+    }
+
+    .agri-badge.green {
+        background: rgba(46, 125, 50, 0.12);
+        color: #1b5e20;
+        border: 1px solid rgba(46, 125, 50, 0.2);
+    }
+
+    .agri-badge.green:hover {
+        background: rgba(46, 125, 50, 0.2);
+        box-shadow: 0 4px 15px rgba(46, 125, 50, 0.15);
+    }
+
+    .agri-badge.orange {
+        background: rgba(255, 152, 0, 0.12);
+        color: #e65100;
+        border: 1px solid rgba(255, 152, 0, 0.2);
+    }
+
+    .agri-badge.orange:hover {
+        background: rgba(255, 152, 0, 0.2);
+        box-shadow: 0 4px 15px rgba(255, 152, 0, 0.15);
+    }
+
+    .agri-badge.gold {
+        background: rgba(255, 193, 7, 0.12);
+        color: #f57f17;
+        border: 1px solid rgba(255, 193, 7, 0.2);
+    }
+
+    .agri-badge.gold:hover {
+        background: rgba(255, 193, 7, 0.2);
+        box-shadow: 0 4px 15px rgba(255, 193, 7, 0.15);
+    }
+
+    .badge-icon {
+        font-size: 14px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MULTI-LAYER WAVE SEPARATOR
+       ═══════════════════════════════════════════════════════ */
+    .agri-waves {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        z-index: 5;
+    }
+
+    .agri-wave-layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 200%;
+        height: 100%;
+    }
+
+    .agri-wave-layer.wave-1 {
+        opacity: 0.3;
+        animation: waveSlide 8s linear infinite;
+    }
+
+    .agri-wave-layer.wave-2 {
+        opacity: 0.5;
+        animation: waveSlide 6s linear infinite reverse;
+    }
+
+    .agri-wave-layer.wave-3 {
+        opacity: 1;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ALL ANIMATIONS
+       ═══════════════════════════════════════════════════════ */
+    @keyframes gradientFlow {
         0% {
             background-position: 0% 50%;
         }
@@ -74,184 +497,74 @@
         }
     }
 
-    @keyframes shimmer {
+    @keyframes shimmerGold {
         0% {
             left: -100%;
         }
 
         100% {
-            left: 100%;
+            left: 200%;
         }
     }
 
-    /* Main header */
-    .agri-main-header {
-        background: url('https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/Gemini_Generated_Image_rjos0srjos0srjos.png');
-        background-size: cover;
-        background-position: top center;
-        padding: 60px 20px 80px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .agri-main-header::before,
-    .agri-main-header::after {
-        content: '';
-        position: absolute;
-        border-radius: 50%;
-        opacity: 0.15;
-        animation: float 6s ease-in-out infinite;
-    }
-
-    .agri-main-header::before {
-        width: 300px;
-        height: 300px;
-        background: #2e7d32;
-        top: -100px;
-        left: -50px;
-    }
-
-    .agri-main-header::after {
-        width: 200px;
-        height: 200px;
-        background: #f57c00;
-        bottom: -50px;
-        right: -30px;
-        animation-delay: -3s;
-    }
-
-    @keyframes float {
+    @keyframes glowLine {
 
         0%,
         100% {
-            transform: translateY(0) rotate(0deg);
+            opacity: 0.5;
         }
 
         50% {
-            transform: translateY(-20px) rotate(5deg);
+            opacity: 1;
         }
     }
 
-    .agri-header-content {
-        position: relative;
-        z-index: 10;
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        padding: 25px 40px;
-        border-radius: 20px;
-        display: inline-block;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    @keyframes pulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.15);
+        }
     }
 
-    /* Dual Logo Container */
-    .agri-logo-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 12px;
+    @keyframes orbFloat {
+
+        0%,
+        100% {
+            transform: translateY(0) scale(1);
+        }
+
+        33% {
+            transform: translateY(-25px) scale(1.05);
+        }
+
+        66% {
+            transform: translateY(15px) scale(0.95);
+        }
     }
 
-    .agri-logo-wrapper {
-        position: relative;
-    }
-
-    .agri-logo-img {
-        width: 110px;
-        height: 110px;
-        object-fit: contain;
-        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        animation: fadeInUp 0.8s ease-out;
-    }
-
-    .agri-logo-img.left {
-        animation-delay: 0s;
-    }
-
-    .agri-logo-img.right {
-        animation-delay: 0.15s;
-    }
-
-    .agri-logo-wrapper:hover .agri-logo-img {
-        transform: scale(1.12) rotate(5deg);
-        filter: drop-shadow(0 8px 20px rgba(46, 125, 50, 0.3));
-    }
-
-    .agri-logo-wrapper::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.8);
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(46, 125, 50, 0.2), transparent 70%);
-        opacity: 0;
-        transition: all 0.4s ease;
-        z-index: -1;
-    }
-
-    .agri-logo-wrapper:hover::before {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.3);
-    }
-
-    .logo-divider {
-        width: 2px;
-        height: 70px;
-        background: linear-gradient(180deg, transparent, #43a047, transparent);
-        animation: fadeInUp 0.8s ease-out 0.1s backwards;
-    }
-
-    /* Main title */
-    .agri-main-title {
-        font-size: 38px;
-        font-weight: 700;
-        line-height: 1.2;
-        margin-bottom: 5px;
-        animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        background: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
-    }
-
-    .agri-subtitle {
-        color: #388e3c;
-        font-size: 18px;
-        font-weight: 400;
-        letter-spacing: 1.5px;
-        margin-bottom: 6px;
-        animation: fadeInUp 0.8s ease-out 0.3s backwards;
-    }
-
-    .agri-province {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        color: #558b2f;
-        font-size: 15px;
-        font-weight: 300;
-        animation: fadeInUp 0.8s ease-out 0.4s backwards;
-    }
-
-    .agri-province::before,
-    .agri-province::after {
-        content: '';
-        width: 50px;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, #43a047, transparent);
-    }
-
-    @keyframes fadeInUp {
+    @keyframes cardEntrance {
         from {
             opacity: 0;
-            transform: translateY(25px);
+            transform: translateY(40px) scale(0.95);
+            filter: blur(5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+    }
+
+    @keyframes logoEntry {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         to {
@@ -260,75 +573,227 @@
         }
     }
 
-    .agri-wave {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 25px;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23ffffff' d='M0,50 C360,100 720,0 1080,50 C1260,75 1380,75 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") no-repeat bottom;
-        background-size: cover;
+    @keyframes ringRotate {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
     }
 
-    /* Responsive */
+    @keyframes dividerGlow {
+        0% {
+            top: -100%;
+        }
+
+        50% {
+            top: 100%;
+        }
+
+        100% {
+            top: 100%;
+        }
+    }
+
+    @keyframes shineSweep {
+        0% {
+            left: -100%;
+        }
+
+        30% {
+            left: 150%;
+        }
+
+        100% {
+            left: 150%;
+        }
+    }
+
+    @keyframes borderGlow {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    @keyframes titleGradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    @keyframes waveSlide {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes sparkle {
+
+        0%,
+        100% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        50% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE DESIGN
+       ═══════════════════════════════════════════════════════ */
     @media (max-width: 768px) {
+        .agri-main-header {
+            padding: 35px 15px 70px;
+            min-height: 300px;
+        }
+
+        .agri-header-content {
+            padding: 25px 20px 20px;
+            border-radius: 18px;
+        }
+
         .agri-logo-container {
-            gap: 12px;
+            gap: 14px;
         }
 
         .agri-logo-img {
-            width: 75px;
-            height: 75px;
+            width: 70px;
+            height: 70px;
+        }
+
+        .agri-logo-ring {
+            width: 85px;
+            height: 85px;
         }
 
         .logo-divider {
-            height: 50px;
+            height: 45px;
         }
 
         .agri-main-title {
-            font-size: 24px;
+            font-size: 22px;
+        }
+
+        .agri-main-title::after {
+            display: none;
         }
 
         .agri-subtitle {
-            font-size: 14px;
+            font-size: 13px;
+            letter-spacing: 1.5px;
         }
 
-        .agri-province::before,
-        .agri-province::after {
+        .agri-province .line {
             width: 25px;
         }
 
-        .top-bar-dept {
+        .agri-province {
             font-size: 13px;
+        }
+
+        .top-bar-dept {
+            font-size: 12px;
+            letter-spacing: 1px;
         }
 
         .top-bar-dept-en {
             font-size: 10px;
         }
+
+        .agri-badge-strip {
+            gap: 8px;
+        }
+
+        .agri-badge {
+            font-size: 11px;
+            padding: 4px 10px;
+        }
+
+        .agri-waves {
+            height: 35px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .agri-main-title {
+            font-size: 19px;
+        }
+
+        .agri-logo-img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .agri-header-content {
+            padding: 20px 15px 18px;
+        }
+
+        .agri-badge-strip {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 </style>
 
 <div class="agri-header-wrapper">
-    <!-- Top Bar -->
+    <!-- ═══ Top Bar ═══ -->
     <div class="agri-top-bar">
         <div class="top-bar-content">
-            <span class="top-bar-dept">🌾 กรมส่งเสริมการเกษตร</span>
-            <span class="top-bar-sep">|</span>
-            <span class="top-bar-dept-en">Department of Agricultural Extension 🌾</span>
+            <span class="top-bar-icon">🌾</span>
+            <span class="top-bar-dept">กรมส่งเสริมการเกษตร</span>
+            <span class="top-bar-sep">│</span>
+            <span class="top-bar-dept-en">Department of Agricultural Extension</span>
+            <span class="top-bar-icon">🌾</span>
         </div>
     </div>
 
-    <!-- Main Header -->
+    <!-- ═══ Main Header ═══ -->
     <div class="agri-main-header">
+        <!-- Floating orbs -->
+        <div class="agri-orb agri-orb-1"></div>
+        <div class="agri-orb agri-orb-2"></div>
+        <div class="agri-orb agri-orb-3"></div>
+
+        <!-- Particle Canvas -->
+        <canvas class="agri-particles" id="agriParticles"></canvas>
+
+        <!-- Content Card -->
         <div class="agri-header-content">
             <!-- Dual Logos -->
             <div class="agri-logo-container">
                 <div class="agri-logo-wrapper">
+                    <div class="agri-logo-ring"></div>
                     <img src="https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/LOGO_DOAE_PNG-0.png"
                         alt="กรมส่งเสริมการเกษตร" class="agri-logo-img left">
                 </div>
                 <div class="logo-divider"></div>
                 <div class="agri-logo-wrapper">
+                    <div class="agri-logo-ring"></div>
                     <img src="https://nakhonpathom.doae.go.th/phutthamonthon/wp-content/uploads/sites/5/2026/01/LOGO-DOAE.png"
                         alt="โลโก้กรมส่งเสริมการเกษตร" class="agri-logo-img right">
                 </div>
@@ -337,9 +802,125 @@
             <!-- Title -->
             <h1 class="agri-main-title">สำนักงานเกษตรอำเภอพุทธมณฑล</h1>
             <p class="agri-subtitle">Phutthamonthon District Agricultural Office</p>
-            <p class="agri-province">จังหวัดนครปฐม</p>
+            <p class="agri-province">
+                <span class="line"></span>
+                จังหวัดนครปฐม
+                <span class="line"></span>
+            </p>
+
+            <!-- Info Badges -->
+            <div class="agri-badge-strip">
+                <span class="agri-badge green">
+                    <span class="badge-icon">🌱</span> ส่งเสริมการเกษตร
+                </span>
+                <span class="agri-badge orange">
+                    <span class="badge-icon">🧑‍🌾</span> บริการเกษตรกร
+                </span>
+                <span class="agri-badge gold">
+                    <span class="badge-icon">📋</span> ข้อมูลการเกษตร
+                </span>
+            </div>
         </div>
 
-        <div class="agri-wave"></div>
+        <!-- Multi-layer waves -->
+        <div class="agri-waves">
+            <svg class="agri-wave-layer wave-1" viewBox="0 0 2880 60" preserveAspectRatio="none">
+                <path fill="#2e7d32" d="M0,30 C480,60 960,0 1440,30 C1920,60 2400,0 2880,30 L2880,60 L0,60 Z" />
+            </svg>
+            <svg class="agri-wave-layer wave-2" viewBox="0 0 2880 60" preserveAspectRatio="none">
+                <path fill="#43a047"
+                    d="M0,35 C360,55 720,15 1080,35 C1440,55 1800,15 2160,35 C2520,55 2880,15 2880,35 L2880,60 L0,60 Z" />
+            </svg>
+            <svg class="agri-wave-layer wave-3" viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path fill="#ffffff" d="M0,40 C240,55 480,20 720,40 C960,55 1200,25 1440,40 L1440,60 L0,60 Z" />
+            </svg>
+        </div>
     </div>
 </div>
+
+<!-- ═══ Particle Animation Script ═══ -->
+<script>
+    (function () {
+        const canvas = document.getElementById('agriParticles');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        function resize() {
+            const parent = canvas.parentElement;
+            canvas.width = parent.offsetWidth;
+            canvas.height = parent.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        const particles = [];
+        const PARTICLE_COUNT = 40;
+        const COLORS = ['rgba(76,175,80,', 'rgba(255,193,7,', 'rgba(255,152,0,', 'rgba(139,195,74,'];
+
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 3 + 1,
+                speedX: (Math.random() - 0.5) * 0.4,
+                speedY: (Math.random() - 0.5) * 0.3 - 0.15,
+                color: COLORS[Math.floor(Math.random() * COLORS.length)],
+                alpha: Math.random() * 0.4 + 0.1,
+                alphaDir: Math.random() > 0.5 ? 0.005 : -0.005,
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => {
+                // Update alpha (twinkle)
+                p.alpha += p.alphaDir;
+                if (p.alpha > 0.5 || p.alpha < 0.05) p.alphaDir *= -1;
+
+                // Move
+                p.x += p.speedX;
+                p.y += p.speedY;
+
+                // Wrap
+                if (p.x < 0) p.x = canvas.width;
+                if (p.x > canvas.width) p.x = 0;
+                if (p.y < 0) p.y = canvas.height;
+                if (p.y > canvas.height) p.y = 0;
+
+                // Draw glow
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+                ctx.fillStyle = p.color + (p.alpha * 0.3) + ')';
+                ctx.fill();
+
+                // Draw core
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color + p.alpha + ')';
+                ctx.fill();
+            });
+
+            // Draw connection lines between nearby particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = 'rgba(76,175,80,' + (0.06 * (1 - dist / 120)) + ')';
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    })();
+</script>
