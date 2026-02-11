@@ -1,0 +1,339 @@
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+    .wx * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif
+    }
+
+    .wx {
+        max-width: 420px;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 8px 35px rgba(27, 94, 32, .12);
+        background: #fff
+    }
+
+    .wx-head {
+        background: linear-gradient(135deg, #1b5e20, #2e7d32 40%, #388e3c);
+        padding: 24px 24px 20px;
+        position: relative;
+        overflow: hidden
+    }
+
+    .wx-head::before {
+        content: '';
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255, 255, 255, .06), transparent);
+        top: -80px;
+        right: -60px;
+        border-radius: 50%
+    }
+
+    .wx-head-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px
+    }
+
+    .wx-loc {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff
+    }
+
+    .wx-loc-pin {
+        font-size: 18px
+    }
+
+    .wx-loc-name {
+        font-size: 16px;
+        font-weight: 600
+    }
+
+    .wx-loc-sub {
+        font-size: 11px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, .6)
+    }
+
+    .wx-updated {
+        font-size: 10px;
+        color: rgba(255, 255, 255, .5);
+        font-weight: 300;
+        background: rgba(255, 255, 255, .1);
+        padding: 4px 10px;
+        border-radius: 20px
+    }
+
+    .wx-current {
+        display: flex;
+        align-items: center;
+        gap: 16px
+    }
+
+    .wx-icon-big {
+        font-size: 60px;
+        line-height: 1;
+        filter: drop-shadow(0 3px 8px rgba(0, 0, 0, .2));
+        animation: wxF 3s ease-in-out infinite
+    }
+
+    @keyframes wxF {
+
+        0%,
+        100% {
+            transform: translateY(0)
+        }
+
+        50% {
+            transform: translateY(-5px)
+        }
+    }
+
+    .wx-temp-main {
+        color: #fff
+    }
+
+    .wx-temp-val {
+        font-size: 52px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -2px
+    }
+
+    .wx-temp-unit {
+        font-size: 20px;
+        font-weight: 300;
+        opacity: .7;
+        vertical-align: top
+    }
+
+    .wx-desc {
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, .85);
+        margin-top: 4px
+    }
+
+    .wx-feels {
+        font-size: 11px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, .5);
+        margin-top: 2px
+    }
+
+    .wx-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1px;
+        background: rgba(46, 125, 50, .06)
+    }
+
+    .wx-detail {
+        background: #fff;
+        padding: 16px 12px;
+        text-align: center;
+        transition: background .3s
+    }
+
+    .wx-detail:hover {
+        background: #f1f8e9
+    }
+
+    .wx-detail-ico {
+        font-size: 22px;
+        margin-bottom: 6px
+    }
+
+    .wx-detail-val {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1b5e20
+    }
+
+    .wx-detail-lbl {
+        font-size: 11px;
+        font-weight: 400;
+        color: #999;
+        margin-top: 2px
+    }
+
+    .wx-agri {
+        padding: 0 24px 4px
+    }
+
+    .wx-agri-box {
+        padding: 14px 16px;
+        border-radius: 12px;
+        border-left: 3px solid #ffc107;
+        background: linear-gradient(135deg, #fffde7, #fff8e1);
+        margin-bottom: 14px
+    }
+
+    .wx-agri-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #f57f17;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 6px
+    }
+
+    .wx-agri-txt {
+        font-size: 13px;
+        font-weight: 300;
+        color: #666;
+        line-height: 1.6
+    }
+
+    .wx-forecast {
+        padding: 18px 24px 22px
+    }
+
+    .wx-fc-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1b5e20;
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 6px
+    }
+
+    .wx-fc-title::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(46, 125, 50, .12), transparent)
+    }
+
+    .wx-fc-list {
+        display: flex;
+        gap: 10px
+    }
+
+    .wx-fc-day {
+        flex: 1;
+        text-align: center;
+        padding: 14px 8px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+        border: 1px solid rgba(46, 125, 50, .06);
+        transition: all .3s
+    }
+
+    .wx-fc-day:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(27, 94, 32, .1)
+    }
+
+    .wx-fc-name {
+        font-size: 12px;
+        font-weight: 600;
+        color: #2e7d32;
+        margin-bottom: 8px
+    }
+
+    .wx-fc-ico {
+        font-size: 28px;
+        margin-bottom: 8px
+    }
+
+    .wx-fc-temp {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1b5e20
+    }
+
+    .wx-fc-range {
+        font-size: 11px;
+        color: #999;
+        font-weight: 300
+    }
+
+    .wx-foot {
+        padding: 12px 24px;
+        background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid rgba(46, 125, 50, .06)
+    }
+
+    .wx-foot-txt {
+        font-size: 10px;
+        color: #999;
+        font-weight: 300
+    }
+
+    .wx-foot a {
+        font-size: 12px;
+        color: #43a047;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color .3s
+    }
+
+    .wx-foot a:hover {
+        color: #1b5e20
+    }
+
+    .wx-loading {
+        padding: 60px 24px;
+        text-align: center
+    }
+
+    .wx-spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(46, 125, 50, .15);
+        border-top-color: #43a047;
+        border-radius: 50%;
+        animation: wxS .8s linear infinite;
+        margin: 0 auto 14px
+    }
+
+    @keyframes wxS {
+        to {
+            transform: rotate(360deg)
+        }
+    }
+
+    .wx-loading-txt {
+        font-size: 14px;
+        color: #999;
+        font-weight: 300
+    }
+
+    .wx-error {
+        padding: 40px 24px;
+        text-align: center
+    }
+
+    .wx-error-ico {
+        font-size: 36px;
+        margin-bottom: 10px
+    }
+
+    .wx-error-msg {
+        font-size: 14px;
+        color: #999;
+        font-weight: 300
+    }
+</style>
+<div class="wx" id="wxWidget">
+    <div class="wx-loading" id="wxLoading">
+        <div class="wx-spinner"></div>
+        <div class="wx-loading-txt">กำลังโหลดข้อมูลสภาพอากาศ...</div>
+    </div>
+</div>
+<script>
+    (function () { var L = 13.8196, O = 100.0427, P = "\u0e19\u0e04\u0e23\u0e1b\u0e10\u0e21", W = { 0: { d: "\u0e17\u0e49\u0e2d\u0e07\u0e1f\u0e49\u0e32\u0e41\u0e08\u0e48\u0e21\u0e43\u0e2a", i: "\u2600\ufe0f", a: "\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e41\u0e01\u0e48\u0e01\u0e32\u0e23\u0e15\u0e32\u0e01\u0e1c\u0e25\u0e1c\u0e25\u0e34\u0e15\u0e41\u0e25\u0e30\u0e09\u0e35\u0e14\u0e1e\u0e48\u0e19\u0e2a\u0e32\u0e23\u0e40\u0e04\u0e21\u0e35" }, 1: { d: "\u0e2a\u0e48\u0e27\u0e19\u0e43\u0e2b\u0e0d\u0e48\u0e41\u0e08\u0e48\u0e21\u0e43\u0e2a", i: "\ud83c\udf24\ufe0f", a: "\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e41\u0e01\u0e48\u0e01\u0e32\u0e23\u0e17\u0e33\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e01\u0e25\u0e32\u0e07\u0e41\u0e08\u0e49\u0e07" }, 2: { d: "\u0e21\u0e35\u0e40\u0e21\u0e06\u0e1a\u0e32\u0e07\u0e2a\u0e48\u0e27\u0e19", i: "\u26c5", a: "\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21 \u0e14\u0e35\u0e15\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15\u0e02\u0e2d\u0e07\u0e1e\u0e37\u0e0a" }, 3: { d: "\u0e21\u0e35\u0e40\u0e21\u0e06\u0e21\u0e32\u0e01", i: "\u2601\ufe0f", a: "\u0e23\u0e30\u0e27\u0e31\u0e07\u0e42\u0e23\u0e04\u0e1e\u0e37\u0e0a\u0e08\u0e32\u0e01\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19\u0e2a\u0e30\u0e2a\u0e21" }, 45: { d: "\u0e2b\u0e21\u0e2d\u0e01", i: "\ud83c\udf2b\ufe0f", a: "\u0e23\u0e30\u0e27\u0e31\u0e07\u0e42\u0e23\u0e04\u0e23\u0e32\u0e43\u0e19\u0e1e\u0e37\u0e0a\u0e1c\u0e31\u0e01" }, 48: { d: "\u0e2b\u0e21\u0e2d\u0e01\u0e41\u0e02\u0e47\u0e07", i: "\ud83c\udf2b\ufe0f", a: "\u0e23\u0e30\u0e27\u0e31\u0e07\u0e42\u0e23\u0e04\u0e23\u0e32\u0e43\u0e19\u0e1e\u0e37\u0e0a\u0e1c\u0e31\u0e01" }, 51: { d: "\u0e1d\u0e19\u0e25\u0e30\u0e2d\u0e2d\u0e07\u0e40\u0e1a\u0e32", i: "\ud83c\udf26\ufe0f", a: "\u0e44\u0e21\u0e48\u0e08\u0e33\u0e40\u0e1b\u0e47\u0e19\u0e15\u0e49\u0e2d\u0e07\u0e23\u0e14\u0e19\u0e49\u0e33\u0e40\u0e1e\u0e34\u0e48\u0e21" }, 53: { d: "\u0e1d\u0e19\u0e25\u0e30\u0e2d\u0e2d\u0e07\u0e1b\u0e32\u0e19\u0e01\u0e25\u0e32\u0e07", i: "\ud83c\udf26\ufe0f", a: "\u0e25\u0e14\u0e1b\u0e23\u0e34\u0e21\u0e32\u0e13\u0e19\u0e49\u0e33\u0e17\u0e35\u0e48\u0e43\u0e2b\u0e49\u0e1e\u0e37\u0e0a" }, 55: { d: "\u0e1d\u0e19\u0e25\u0e30\u0e2d\u0e2d\u0e07\u0e2b\u0e19\u0e31\u0e01", i: "\ud83c\udf27\ufe0f", a: "\u0e23\u0e30\u0e27\u0e31\u0e07\u0e19\u0e49\u0e33\u0e02\u0e31\u0e07\u0e43\u0e19\u0e41\u0e1b\u0e25\u0e07\u0e40\u0e1e\u0e32\u0e30\u0e1b\u0e25\u0e39\u0e01" }, 61: { d: "\u0e1d\u0e19\u0e15\u0e01\u0e40\u0e1a\u0e32", i: "\ud83c\udf27\ufe0f", a: "\u0e1e\u0e37\u0e0a\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e19\u0e49\u0e33\u0e40\u0e1e\u0e35\u0e22\u0e07\u0e1e\u0e2d \u0e25\u0e14\u0e01\u0e32\u0e23\u0e23\u0e14\u0e19\u0e49\u0e33" }, 63: { d: "\u0e1d\u0e19\u0e15\u0e01\u0e1b\u0e32\u0e19\u0e01\u0e25\u0e32\u0e07", i: "\ud83c\udf27\ufe0f", a: "\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e23\u0e30\u0e1a\u0e1a\u0e23\u0e30\u0e1a\u0e32\u0e22\u0e19\u0e49\u0e33" }, 65: { d: "\u0e1d\u0e19\u0e15\u0e01\u0e2b\u0e19\u0e31\u0e01", i: "\u26c8\ufe0f", a: "\u0e40\u0e1d\u0e49\u0e32\u0e23\u0e30\u0e27\u0e31\u0e07\u0e19\u0e49\u0e33\u0e17\u0e48\u0e27\u0e21\u0e41\u0e1b\u0e25\u0e07 \u0e23\u0e30\u0e1a\u0e32\u0e22\u0e19\u0e49\u0e33\u0e17\u0e31\u0e19\u0e17\u0e35" }, 80: { d: "\u0e1d\u0e19\u0e15\u0e01\u0e40\u0e1b\u0e47\u0e19\u0e1e\u0e31\u0e01\u0e40\u0e1a\u0e32", i: "\ud83c\udf26\ufe0f", a: "\u0e40\u0e25\u0e35\u0e48\u0e22\u0e07\u0e01\u0e32\u0e23\u0e09\u0e35\u0e14\u0e1e\u0e48\u0e19\u0e2a\u0e32\u0e23\u0e40\u0e04\u0e21\u0e35" }, 81: { d: "\u0e1d\u0e19\u0e15\u0e01\u0e40\u0e1b\u0e47\u0e19\u0e1e\u0e31\u0e01\u0e1b\u0e32\u0e19\u0e01\u0e25\u0e32\u0e07", i: "\ud83c\udf27\ufe0f", a: "\u0e40\u0e25\u0e35\u0e48\u0e22\u0e07\u0e01\u0e32\u0e23\u0e09\u0e35\u0e14\u0e1e\u0e48\u0e19\u0e2a\u0e32\u0e23\u0e40\u0e04\u0e21\u0e35" }, 82: { d: "\u0e1d\u0e19\u0e15\u0e01\u0e40\u0e1b\u0e47\u0e19\u0e1e\u0e31\u0e01\u0e2b\u0e19\u0e31\u0e01", i: "\u26c8\ufe0f", a: "\u0e40\u0e1d\u0e49\u0e32\u0e23\u0e30\u0e27\u0e31\u0e07\u0e19\u0e49\u0e33\u0e17\u0e48\u0e27\u0e21 \u0e23\u0e30\u0e1a\u0e32\u0e22\u0e19\u0e49\u0e33" }, 95: { d: "\u0e1e\u0e32\u0e22\u0e38\u0e1d\u0e19\u0e1f\u0e49\u0e32\u0e04\u0e30\u0e19\u0e2d\u0e07", i: "\u26c8\ufe0f", a: "\u26a0\ufe0f \u0e2b\u0e25\u0e35\u0e01\u0e40\u0e25\u0e35\u0e48\u0e22\u0e07\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e01\u0e25\u0e32\u0e07\u0e41\u0e08\u0e49\u0e07" }, 96: { d: "\u0e1e\u0e32\u0e22\u0e38\u0e1d\u0e19\u0e1f\u0e49\u0e32\u0e04\u0e30\u0e19\u0e2d\u0e07+\u0e25\u0e39\u0e01\u0e40\u0e2b\u0e47\u0e1a", i: "\u26c8\ufe0f", a: "\u26a0\ufe0f \u0e04\u0e27\u0e23\u0e04\u0e25\u0e38\u0e21\u0e41\u0e1b\u0e25\u0e07\u0e1c\u0e31\u0e01 \u0e23\u0e30\u0e27\u0e31\u0e07\u0e1e\u0e37\u0e0a\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22" }, 99: { d: "\u0e1e\u0e32\u0e22\u0e38\u0e1d\u0e19\u0e1f\u0e49\u0e32\u0e04\u0e30\u0e19\u0e2d\u0e07\u0e23\u0e38\u0e19\u0e41\u0e23\u0e07", i: "\ud83c\udf29\ufe0f", a: "\u26a0\ufe0f \u0e2d\u0e31\u0e19\u0e15\u0e23\u0e32\u0e22! \u0e2d\u0e22\u0e39\u0e48\u0e43\u0e19\u0e2d\u0e32\u0e04\u0e32\u0e23" } }; function g(c) { return W[c] || { d: "\u0e44\u0e21\u0e48\u0e17\u0e23\u0e32\u0e1a", i: "\ud83c\udf21\ufe0f", a: "\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e2a\u0e20\u0e32\u0e1e\u0e2d\u0e32\u0e01\u0e32\u0e28\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e43\u0e01\u0e25\u0e49\u0e0a\u0e34\u0e14" } } function dn(s) { var dy = ["\u0e2d\u0e32\u0e17\u0e34\u0e15\u0e22\u0e4c", "\u0e08\u0e31\u0e19\u0e17\u0e23\u0e4c", "\u0e2d\u0e31\u0e07\u0e04\u0e32\u0e23", "\u0e1e\u0e38\u0e18", "\u0e1e\u0e24\u0e2b\u0e31\u0e2a\u0e1a\u0e14\u0e35", "\u0e28\u0e38\u0e01\u0e23\u0e4c", "\u0e40\u0e2a\u0e32\u0e23\u0e4c"]; return dy[new Date(s).getDay()] } var u = "https://api.open-meteo.com/v1/forecast?latitude=" + L + "&longitude=" + O + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FBangkok&forecast_days=4"; var x = new XMLHttpRequest(); x.open("GET", u, true); x.onload = function () { if (x.status === 200) { var data = JSON.parse(x.responseText); r(data) } else { e() } }; x.onerror = function () { e() }; x.send(); function r(data) { var c = data.current, d = data.daily, w = g(c.weather_code), now = new Date(), t = now.toLocaleTimeString("th-TH", { hour: "2-digit", minute: "2-digit" }), h = ""; h += '<div class="wx-head"><div class="wx-head-top"><div class="wx-loc"><span class="wx-loc-pin">\ud83d\udccd</span><div><div class="wx-loc-name">\u0e08.' + P + '</div><div class="wx-loc-sub">\u0e2d.\u0e1e\u0e38\u0e17\u0e18\u0e21\u0e13\u0e11\u0e25</div></div></div><div class="wx-updated">\u0e2d\u0e31\u0e1b\u0e40\u0e14\u0e15 ' + t + '</div></div><div class="wx-current"><div class="wx-icon-big">' + w.i + '</div><div class="wx-temp-main"><div class="wx-temp-val">' + Math.round(c.temperature_2m) + '<span class="wx-temp-unit">\u00b0C</span></div><div class="wx-desc">' + w.d + '</div><div class="wx-feels">\u0e23\u0e39\u0e49\u0e2a\u0e36\u0e01\u0e40\u0e2b\u0e21\u0e37\u0e2d\u0e19 ' + Math.round(c.apparent_temperature) + '\u00b0C</div></div></div></div>'; h += '<div class="wx-details"><div class="wx-detail"><div class="wx-detail-ico">\ud83d\udca7</div><div class="wx-detail-val">' + c.relative_humidity_2m + '%</div><div class="wx-detail-lbl">\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19</div></div><div class="wx-detail"><div class="wx-detail-ico">\ud83d\udca8</div><div class="wx-detail-val">' + Math.round(c.wind_speed_10m) + '</div><div class="wx-detail-lbl">\u0e25\u0e21 km/h</div></div><div class="wx-detail"><div class="wx-detail-ico">\ud83c\udf21\ufe0f</div><div class="wx-detail-val">' + Math.round(d.temperature_2m_min[0]) + "-" + Math.round(d.temperature_2m_max[0]) + '\u00b0</div><div class="wx-detail-lbl">\u0e15\u0e48\u0e33-\u0e2a\u0e39\u0e07\u0e2a\u0e38\u0e14</div></div></div>'; h += '<div class="wx-agri"><div class="wx-agri-box"><div class="wx-agri-title">\ud83c\udf3e \u0e04\u0e33\u0e41\u0e19\u0e30\u0e19\u0e33\u0e40\u0e01\u0e29\u0e15\u0e23\u0e01\u0e23</div><div class="wx-agri-txt">' + w.a + "</div></div></div>"; h += '<div class="wx-forecast"><div class="wx-fc-title">\ud83d\udcc5 \u0e1e\u0e22\u0e32\u0e01\u0e23\u0e13\u0e4c\u0e25\u0e48\u0e27\u0e07\u0e2b\u0e19\u0e49\u0e32</div><div class="wx-fc-list">'; for (var i = 1; i <= 3; i++) { var fw = g(d.weather_code[i]); h += '<div class="wx-fc-day"><div class="wx-fc-name">' + dn(d.time[i]) + '</div><div class="wx-fc-ico">' + fw.i + '</div><div class="wx-fc-temp">' + Math.round(d.temperature_2m_max[i]) + '\u00b0</div><div class="wx-fc-range">' + Math.round(d.temperature_2m_min[i]) + "\u00b0</div></div>" } h += "</div></div>"; h += '<div class="wx-foot"><div class="wx-foot-txt">\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e08\u0e32\u0e01 Open-Meteo API</div><a href="https://www.tmd.go.th/weather/province/nakhon-pathom" target="_blank">\u0e14\u0e39\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21 \u2192</a></div>'; document.getElementById("wxWidget").innerHTML = h } function e() { var h = '<div class="wx-head"><div class="wx-head-top"><div class="wx-loc"><span class="wx-loc-pin">\ud83d\udccd</span><div><div class="wx-loc-name">\u0e08.' + P + '</div></div></div></div></div><div class="wx-error"><div class="wx-error-ico">\u26a0\ufe0f</div><div class="wx-error-msg">\u0e44\u0e21\u0e48\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e42\u0e2b\u0e25\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e44\u0e14\u0e49 \u0e01\u0e23\u0e38\u0e13\u0e32\u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48</div></div>'; document.getElementById("wxWidget").innerHTML = h } })();
+</script>

@@ -1,0 +1,523 @@
+<!-- WEATHER WIDGET - สภาพอากาศจังหวัดนครปฐม -->
+<!-- ใช้ Open-Meteo API (ฟรี ไม่ต้องสมัคร API Key) -->
+<!-- พร้อมวางใน Shortcoder Plugin บน WordPress -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+<style>
+    .wx * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Kanit', sans-serif;
+    }
+
+    .wx {
+        max-width: 420px;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 8px 35px rgba(27, 94, 32, 0.12);
+        background: #fff;
+    }
+
+    /* ── Header ── */
+    .wx-head {
+        background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 40%, #388e3c 100%);
+        padding: 24px 24px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .wx-head::before {
+        content: '';
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent);
+        top: -80px;
+        right: -60px;
+        border-radius: 50%;
+    }
+
+    .wx-head-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+    }
+
+    .wx-loc {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+    }
+
+    .wx-loc-pin {
+        font-size: 18px;
+    }
+
+    .wx-loc-name {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .wx-loc-sub {
+        font-size: 11px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .wx-updated {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 300;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 4px 10px;
+        border-radius: 20px;
+    }
+
+    /* ── Current Weather ── */
+    .wx-current {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .wx-icon-big {
+        font-size: 60px;
+        line-height: 1;
+        filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.2));
+        animation: wxFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes wxFloat {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    .wx-temp-main {
+        color: #fff;
+    }
+
+    .wx-temp-val {
+        font-size: 52px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -2px;
+    }
+
+    .wx-temp-unit {
+        font-size: 20px;
+        font-weight: 300;
+        opacity: 0.7;
+        vertical-align: top;
+    }
+
+    .wx-desc {
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.85);
+        margin-top: 4px;
+    }
+
+    .wx-feels {
+        font-size: 11px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 2px;
+    }
+
+    /* ── Detail Grid ── */
+    .wx-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1px;
+        background: rgba(46, 125, 50, 0.06);
+    }
+
+    .wx-detail {
+        background: #fff;
+        padding: 16px 12px;
+        text-align: center;
+        transition: background 0.3s;
+    }
+
+    .wx-detail:hover {
+        background: #f1f8e9;
+    }
+
+    .wx-detail-ico {
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+
+    .wx-detail-val {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1b5e20;
+    }
+
+    .wx-detail-lbl {
+        font-size: 11px;
+        font-weight: 400;
+        color: #999;
+        margin-top: 2px;
+    }
+
+    /* ── 3-day Forecast ── */
+    .wx-forecast {
+        padding: 18px 24px 22px;
+    }
+
+    .wx-fc-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1b5e20;
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .wx-fc-title::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(46, 125, 50, 0.12), transparent);
+    }
+
+    .wx-fc-list {
+        display: flex;
+        gap: 10px;
+    }
+
+    .wx-fc-day {
+        flex: 1;
+        text-align: center;
+        padding: 14px 8px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+        border: 1px solid rgba(46, 125, 50, 0.06);
+        transition: all 0.3s;
+    }
+
+    .wx-fc-day:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(27, 94, 32, 0.1);
+    }
+
+    .wx-fc-name {
+        font-size: 12px;
+        font-weight: 600;
+        color: #2e7d32;
+        margin-bottom: 8px;
+    }
+
+    .wx-fc-ico {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    .wx-fc-temp {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1b5e20;
+    }
+
+    .wx-fc-range {
+        font-size: 11px;
+        color: #999;
+        font-weight: 300;
+    }
+
+    /* ── Footer ── */
+    .wx-foot {
+        padding: 12px 24px;
+        background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid rgba(46, 125, 50, 0.06);
+    }
+
+    .wx-foot-txt {
+        font-size: 10px;
+        color: #999;
+        font-weight: 300;
+    }
+
+    .wx-foot a {
+        font-size: 12px;
+        color: #43a047;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .wx-foot a:hover {
+        color: #1b5e20;
+    }
+
+    /* ── Loading State ── */
+    .wx-loading {
+        padding: 60px 24px;
+        text-align: center;
+    }
+
+    .wx-spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(46, 125, 50, 0.15);
+        border-top-color: #43a047;
+        border-radius: 50%;
+        animation: wxSpin 0.8s linear infinite;
+        margin: 0 auto 14px;
+    }
+
+    @keyframes wxSpin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .wx-loading-txt {
+        font-size: 14px;
+        color: #999;
+        font-weight: 300;
+    }
+
+    /* ── Error State ── */
+    .wx-error {
+        padding: 40px 24px;
+        text-align: center;
+    }
+
+    .wx-error-ico {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .wx-error-msg {
+        font-size: 14px;
+        color: #999;
+        font-weight: 300;
+    }
+
+    /* ── Agri Advisory ── */
+    .wx-agri {
+        padding: 0 24px 4px;
+    }
+
+    .wx-agri-box {
+        padding: 14px 16px;
+        border-radius: 12px;
+        border-left: 3px solid #ffc107;
+        background: linear-gradient(135deg, #fffde7, #fff8e1);
+        margin-bottom: 14px;
+    }
+
+    .wx-agri-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #f57f17;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .wx-agri-txt {
+        font-size: 13px;
+        font-weight: 300;
+        color: #666;
+        line-height: 1.6;
+    }
+</style>
+
+<div class="wx" id="wxWidget">
+    <!-- Loading -->
+    <div class="wx-loading" id="wxLoading">
+        <div class="wx-spinner"></div>
+        <div class="wx-loading-txt">กำลังโหลดข้อมูลสภาพอากาศ...</div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        // ═══ CONFIG ═══
+        // พิกัดจังหวัดนครปฐม
+        const LAT = 13.8196;
+        const LON = 100.0427;
+        const PROVINCE = 'นครปฐม';
+
+        // ═══ Weather Code → Thai Description + Emoji ═══
+        const WMO_CODES = {
+            0: { desc: 'ท้องฟ้าแจ่มใส', ico: '☀️', agri: 'เหมาะแก่การตากผลผลิตและฉีดพ่นสารเคมี' },
+            1: { desc: 'ส่วนใหญ่แจ่มใส', ico: '🌤️', agri: 'เหมาะแก่การทำกิจกรรมกลางแจ้ง' },
+            2: { desc: 'มีเมฆบางส่วน', ico: '⛅', agri: 'อุณหภูมิเหมาะสม ดีต่อการเจริญเติบโตของพืช' },
+            3: { desc: 'มีเมฆมาก', ico: '☁️', agri: 'ระวังโรคพืชจากความชื้นสะสม' },
+            45: { desc: 'หมอก', ico: '🌫️', agri: 'ระวังโรคราในพืชผัก' },
+            48: { desc: 'หมอกแข็ง', ico: '🌫️', agri: 'ระวังโรคราในพืชผัก' },
+            51: { desc: 'ฝนละอองเบา', ico: '🌦️', agri: 'ไม่จำเป็นต้องรดน้ำเพิ่ม' },
+            53: { desc: 'ฝนละอองปานกลาง', ico: '🌦️', agri: 'ลดปริมาณน้ำที่ให้พืช' },
+            55: { desc: 'ฝนละอองหนัก', ico: '🌧️', agri: 'ระวังน้ำขังในแปลงเพาะปลูก' },
+            61: { desc: 'ฝนตกเบา', ico: '🌧️', agri: 'พืชได้รับน้ำเพียงพอ ลดการรดน้ำ' },
+            63: { desc: 'ฝนตกปานกลาง', ico: '🌧️', agri: 'ตรวจสอบระบบระบายน้ำ' },
+            65: { desc: 'ฝนตกหนัก', ico: '⛈️', agri: 'เฝ้าระวังน้ำท่วมแปลง ระบายน้ำทันที' },
+            71: { desc: 'หิมะเบา', ico: '🌨️', agri: 'ปกป้องพืชจากอุณหภูมิต่ำ' },
+            73: { desc: 'หิมะปานกลาง', ico: '🌨️', agri: 'ปกป้องพืชจากอุณหภูมิต่ำ' },
+            75: { desc: 'หิมะหนัก', ico: '❄️', agri: 'ปกป้องพืชจากอุณหภูมิต่ำ' },
+            80: { desc: 'ฝนตกเป็นพักเบา', ico: '🌦️', agri: 'เลี่ยงการฉีดพ่นสารเคมี' },
+            81: { desc: 'ฝนตกเป็นพักปานกลาง', ico: '🌧️', agri: 'เลี่ยงการฉีดพ่นสารเคมี ตรวจ排น้ำ' },
+            82: { desc: 'ฝนตกเป็นพักหนัก', ico: '⛈️', agri: 'เฝ้าระวังน้ำท่วม ระบายน้ำ' },
+            95: { desc: 'พายุฝนฟ้าคะนอง', ico: '⛈️', agri: '⚠️ หลีกเลี่ยงกิจกรรมกลางแจ้ง' },
+            96: { desc: 'พายุฝนฟ้าคะนอง+ลูกเห็บ', ico: '⛈️', agri: '⚠️ ควรคลุมแปลงผัก ระวังพืชเสียหาย' },
+            99: { desc: 'พายุฝนฟ้าคะนองรุนแรง', ico: '🌩️', agri: '⚠️ อันตราย! อยู่ในอาคาร' }
+        };
+
+        function getWeatherInfo(code) {
+            return WMO_CODES[code] || { desc: 'ไม่ทราบ', ico: '🌡️', agri: 'ติดตามสภาพอากาศอย่างใกล้ชิด' };
+        }
+
+        function getDayName(dateStr) {
+            var days = ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'];
+            var d = new Date(dateStr);
+            return days[d.getDay()];
+        }
+
+        function formatTime(isoStr) {
+            var d = new Date(isoStr);
+            return d.toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' });
+        }
+
+        // ═══ Fetch & Render ═══
+        var apiUrl = 'https://api.open-meteo.com/v1/forecast'
+            + '?latitude=' + LAT
+            + '&longitude=' + LON
+            + '&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m'
+            + '&daily=weather_code,temperature_2m_max,temperature_2m_min'
+            + '&timezone=Asia%2FBangkok'
+            + '&forecast_days=4';
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', apiUrl, true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                renderWeather(data);
+            } else {
+                showError();
+            }
+        };
+        xhr.onerror = function () { showError(); };
+        xhr.send();
+
+        function renderWeather(data) {
+            var c = data.current;
+            var d = data.daily;
+            var w = getWeatherInfo(c.weather_code);
+            var now = new Date();
+            var timeStr = now.toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' });
+
+            var html = '';
+            // Header + Current
+            html += '<div class="wx-head">';
+            html += '  <div class="wx-head-top">';
+            html += '    <div class="wx-loc">';
+            html += '      <span class="wx-loc-pin">📍</span>';
+            html += '      <div>';
+            html += '        <div class="wx-loc-name">จ.' + PROVINCE + '</div>';
+            html += '        <div class="wx-loc-sub">อ.พุทธมณฑล</div>';
+            html += '      </div>';
+            html += '    </div>';
+            html += '    <div class="wx-updated">อัปเดต ' + timeStr + '</div>';
+            html += '  </div>';
+            html += '  <div class="wx-current">';
+            html += '    <div class="wx-icon-big">' + w.ico + '</div>';
+            html += '    <div class="wx-temp-main">';
+            html += '      <div class="wx-temp-val">' + Math.round(c.temperature_2m) + '<span class="wx-temp-unit">°C</span></div>';
+            html += '      <div class="wx-desc">' + w.desc + '</div>';
+            html += '      <div class="wx-feels">รู้สึกเหมือน ' + Math.round(c.apparent_temperature) + '°C</div>';
+            html += '    </div>';
+            html += '  </div>';
+            html += '</div>';
+
+            // Details
+            html += '<div class="wx-details">';
+            html += '  <div class="wx-detail">';
+            html += '    <div class="wx-detail-ico">💧</div>';
+            html += '    <div class="wx-detail-val">' + c.relative_humidity_2m + '%</div>';
+            html += '    <div class="wx-detail-lbl">ความชื้น</div>';
+            html += '  </div>';
+            html += '  <div class="wx-detail">';
+            html += '    <div class="wx-detail-ico">💨</div>';
+            html += '    <div class="wx-detail-val">' + Math.round(c.wind_speed_10m) + '</div>';
+            html += '    <div class="wx-detail-lbl">ลม km/h</div>';
+            html += '  </div>';
+            html += '  <div class="wx-detail">';
+            html += '    <div class="wx-detail-ico">🌡️</div>';
+            html += '    <div class="wx-detail-val">' + Math.round(d.temperature_2m_min[0]) + '-' + Math.round(d.temperature_2m_max[0]) + '°</div>';
+            html += '    <div class="wx-detail-lbl">ต่ำ-สูงสุด</div>';
+            html += '  </div>';
+            html += '</div>';
+
+            // Agricultural Advisory
+            html += '<div class="wx-agri">';
+            html += '  <div class="wx-agri-box">';
+            html += '    <div class="wx-agri-title">🌾 คำแนะนำเกษตรกร</div>';
+            html += '    <div class="wx-agri-txt">' + w.agri + '</div>';
+            html += '  </div>';
+            html += '</div>';
+
+            // 3-day Forecast (skip today → index 1,2,3)
+            html += '<div class="wx-forecast">';
+            html += '  <div class="wx-fc-title">📅 พยากรณ์ล่วงหน้า</div>';
+            html += '  <div class="wx-fc-list">';
+            for (var i = 1; i <= 3; i++) {
+                var fw = getWeatherInfo(d.weather_code[i]);
+                html += '<div class="wx-fc-day">';
+                html += '  <div class="wx-fc-name">' + getDayName(d.time[i]) + '</div>';
+                html += '  <div class="wx-fc-ico">' + fw.ico + '</div>';
+                html += '  <div class="wx-fc-temp">' + Math.round(d.temperature_2m_max[i]) + '°</div>';
+                html += '  <div class="wx-fc-range">' + Math.round(d.temperature_2m_min[i]) + '°</div>';
+                html += '</div>';
+            }
+            html += '  </div>';
+            html += '</div>';
+
+            // Footer
+            html += '<div class="wx-foot">';
+            html += '  <div class="wx-foot-txt">ข้อมูลจาก Open-Meteo API</div>';
+            html += '  <a href="https://www.tmd.go.th/weather/province/nakhon-pathom" target="_blank">ดูเพิ่มเติม →</a>';
+            html += '</div>';
+
+            document.getElementById('wxWidget').innerHTML = html;
+        }
+
+        function showError() {
+            var html = '<div class="wx-head">';
+            html += '  <div class="wx-head-top">';
+            html += '    <div class="wx-loc">';
+            html += '      <span class="wx-loc-pin">📍</span>';
+            html += '      <div><div class="wx-loc-name">จ.' + PROVINCE + '</div></div>';
+            html += '    </div>';
+            html += '  </div>';
+            html += '</div>';
+            html += '<div class="wx-error">';
+            html += '  <div class="wx-error-ico">⚠️</div>';
+            html += '  <div class="wx-error-msg">ไม่สามารถโหลดข้อมูลได้ กรุณาลองใหม่</div>';
+            html += '</div>';
+            document.getElementById('wxWidget').innerHTML = html;
+        }
+    })();
+</script>
