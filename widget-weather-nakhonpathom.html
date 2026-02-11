@@ -1,778 +1,206 @@
-<!-- 🌤️ WEATHER WIDGET - สภาพอากาศจังหวัดนครปฐม -->
-<!-- ใช้ Open-Meteo API (ฟรี ไม่ต้องใช้ API Key) -->
-<!-- สำหรับทดสอบ WordPress Shortcode Plugin -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
 <style>
-    .nkp-weather * {
+    .nkw {
+        background: linear-gradient(135deg, #0f2027, #2c5364);
+        padding: 24px 14px;
+        font-family: 'Kanit', sans-serif;
+        color: #fff;
+        border-radius: 16px
+    }
+
+    .nkw * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-        font-family: 'Kanit', sans-serif;
+        box-sizing: border-box
     }
 
-    .nkp-weather {
-        background: linear-gradient(135deg, #0f2027 0%, #203a43 40%, #2c5364 100%);
-        padding: 40px 20px 50px;
-        position: relative;
-        overflow: hidden;
-        min-height: 400px;
-    }
-
-    /* ═══ Animated Stars Background ═══ */
-    .nkp-stars {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        overflow: hidden;
-    }
-
-    .nkp-star {
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background: white;
-        border-radius: 50%;
-        animation: nkpTwinkle 3s ease-in-out infinite;
-    }
-
-    .nkp-star:nth-child(1) {
-        top: 8%;
-        left: 12%;
-        animation-delay: 0s;
-    }
-
-    .nkp-star:nth-child(2) {
-        top: 15%;
-        left: 45%;
-        animation-delay: 0.5s;
-        width: 3px;
-        height: 3px;
-    }
-
-    .nkp-star:nth-child(3) {
-        top: 22%;
-        left: 78%;
-        animation-delay: 1s;
-    }
-
-    .nkp-star:nth-child(4) {
-        top: 5%;
-        left: 65%;
-        animation-delay: 1.5s;
-        width: 3px;
-        height: 3px;
-    }
-
-    .nkp-star:nth-child(5) {
-        top: 30%;
-        left: 30%;
-        animation-delay: 2s;
-    }
-
-    .nkp-star:nth-child(6) {
-        top: 12%;
-        left: 90%;
-        animation-delay: 0.8s;
-    }
-
-    .nkp-star:nth-child(7) {
-        top: 28%;
-        left: 55%;
-        animation-delay: 1.3s;
-        width: 3px;
-        height: 3px;
-    }
-
-    .nkp-star:nth-child(8) {
-        top: 3%;
-        left: 35%;
-        animation-delay: 2.2s;
-    }
-
-    @keyframes nkpTwinkle {
-
-        0%,
-        100% {
-            opacity: 0.2;
-            transform: scale(1);
-        }
-
-        50% {
-            opacity: 1;
-            transform: scale(1.5);
-        }
-    }
-
-    /* ═══ Floating Orbs ═══ */
-    .nkp-orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(60px);
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    .nkp-orb-1 {
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(circle, rgba(255, 193, 7, 0.12), transparent);
-        top: -80px;
-        right: -60px;
-        animation: nkpOrbFloat 12s ease-in-out infinite;
-    }
-
-    .nkp-orb-2 {
-        width: 250px;
-        height: 250px;
-        background: radial-gradient(circle, rgba(33, 150, 243, 0.1), transparent);
-        bottom: -80px;
-        left: -50px;
-        animation: nkpOrbFloat 15s ease-in-out infinite reverse;
-    }
-
-    .nkp-orb-3 {
-        width: 180px;
-        height: 180px;
-        background: radial-gradient(circle, rgba(76, 175, 80, 0.08), transparent);
-        top: 50%;
-        left: 50%;
-        animation: nkpOrbFloat 10s ease-in-out infinite 2s;
-    }
-
-    @keyframes nkpOrbFloat {
-
-        0%,
-        100% {
-            transform: translate(0, 0) scale(1);
-        }
-
-        33% {
-            transform: translate(20px, -15px) scale(1.05);
-        }
-
-        66% {
-            transform: translate(-15px, 10px) scale(0.95);
-        }
-    }
-
-    /* ═══ Container ═══ */
-    .nkp-container {
-        max-width: 800px;
-        width: 100%;
-        margin: 0 auto;
-        position: relative;
-        z-index: 10;
-    }
-
-    /* ═══ Header ═══ */
-    .nkp-header {
+    .nkw-h {
         text-align: center;
-        margin-bottom: 30px;
-        animation: nkpFadeUp 0.8s ease both;
+        margin-bottom: 18px
     }
 
-    .nkp-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        padding: 5px 16px;
-        border-radius: 50px;
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 12px;
-        font-weight: 400;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-bottom: 12px;
+    .nkw-h h3 {
+        font-size: 22px;
+        font-weight: 600
     }
 
-    .nkp-header h2 {
-        color: white;
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 6px;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    .nkw-h p {
+        color: rgba(255, 255, 255, .5);
+        font-size: 12px
     }
 
-    .nkp-header p {
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 14px;
-        font-weight: 300;
-    }
-
-    @keyframes nkpFadeUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* ═══ Loading State ═══ */
-    .nkp-loading {
-        text-align: center;
-        padding: 60px 20px;
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 16px;
-    }
-
-    .nkp-spinner {
-        width: 40px;
-        height: 40px;
-        border: 3px solid rgba(255, 255, 255, 0.15);
-        border-top-color: #ffc107;
-        border-radius: 50%;
-        margin: 0 auto 15px;
-        animation: nkpSpin 0.8s linear infinite;
-    }
-
-    @keyframes nkpSpin {
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    /* ═══ Main Weather Card ═══ */
-    .nkp-main-card {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 24px;
-        padding: 30px;
-        margin-bottom: 20px;
-        animation: nkpFadeUp 0.8s ease 0.1s both;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .nkp-main-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #ffc107, #ff9800, #ff5722, #ff9800, #ffc107);
-        background-size: 200% 100%;
-        animation: nkpAccent 4s linear infinite;
-    }
-
-    @keyframes nkpAccent {
-        0% {
-            background-position: 0% 0;
-        }
-
-        100% {
-            background-position: 200% 0;
-        }
-    }
-
-    .nkp-current {
+    .nkw-now {
         display: flex;
         align-items: center;
-        gap: 25px;
+        gap: 16px;
+        background: rgba(255, 255, 255, .08);
+        border-radius: 14px;
+        padding: 18px;
+        margin-bottom: 14px
     }
 
-    .nkp-temp-block {
-        text-align: center;
-        flex-shrink: 0;
+    .nkw-ic {
+        font-size: 48px
     }
 
-    .nkp-weather-icon {
-        font-size: 64px;
-        line-height: 1;
-        margin-bottom: 5px;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-        animation: nkpIconBounce 3s ease-in-out infinite;
+    .nkw-t {
+        font-size: 42px;
+        font-weight: 800
     }
 
-    @keyframes nkpIconBounce {
-
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-6px);
-        }
-    }
-
-    .nkp-temp {
-        font-size: 56px;
-        font-weight: 800;
-        color: white;
-        line-height: 1;
-        text-shadow: 0 2px 15px rgba(255, 193, 7, 0.3);
-    }
-
-    .nkp-temp span {
-        font-size: 28px;
+    .nkw-t span {
+        font-size: 20px;
         font-weight: 300;
-        color: rgba(255, 255, 255, 0.6);
-        vertical-align: top;
+        opacity: .6
     }
 
-    .nkp-condition {
+    .nkw-cd {
         color: #ffc107;
-        font-size: 16px;
-        font-weight: 500;
-        margin-top: 4px;
+        font-size: 14px
     }
 
-    .nkp-details {
+    .nkw-dt {
         flex: 1;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 8px
     }
 
-    .nkp-detail-item {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 14px;
-        padding: 14px;
-        text-align: center;
-        transition: all 0.3s ease;
+    .nkw-di {
+        background: rgba(255, 255, 255, .06);
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center
     }
 
-    .nkp-detail-item:hover {
-        background: rgba(255, 255, 255, 0.12);
-        transform: translateY(-2px);
+    .nkw-di b {
+        display: block;
+        font-size: 15px
     }
 
-    .nkp-detail-icon {
-        font-size: 22px;
-        margin-bottom: 4px;
+    .nkw-di small {
+        color: rgba(255, 255, 255, .45);
+        font-size: 10px
     }
 
-    .nkp-detail-value {
-        color: white;
-        font-size: 18px;
-        font-weight: 600;
-    }
-
-    .nkp-detail-label {
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 11px;
-        font-weight: 300;
-        letter-spacing: 0.5px;
-    }
-
-    /* ═══ Forecast Cards ═══ */
-    .nkp-forecast-title {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-bottom: 12px;
-        padding-left: 5px;
-        animation: nkpFadeUp 0.8s ease 0.2s both;
-    }
-
-    .nkp-forecast {
+    .nkw-fc {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        gap: 10px;
-        animation: nkpFadeUp 0.8s ease 0.3s both;
-    }
-
-    .nkp-day-card {
-        background: rgba(255, 255, 255, 0.07);
-        backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 18px;
-        padding: 16px 10px;
-        text-align: center;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .nkp-day-card:hover {
-        background: rgba(255, 255, 255, 0.14);
-        transform: translateY(-5px) scale(1.03);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .nkp-day-name {
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 12px;
-        font-weight: 400;
-        margin-bottom: 8px;
-    }
-
-    .nkp-day-icon {
-        font-size: 32px;
-        margin-bottom: 8px;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-    }
-
-    .nkp-day-temps {
-        display: flex;
-        justify-content: center;
         gap: 6px;
-        align-items: baseline;
+        margin-top: 4px
     }
 
-    .nkp-day-max {
-        color: white;
-        font-size: 16px;
-        font-weight: 600;
+    .nkw-fd {
+        background: rgba(255, 255, 255, .06);
+        border-radius: 12px;
+        padding: 10px 4px;
+        text-align: center
     }
 
-    .nkp-day-min {
-        color: rgba(255, 255, 255, 0.4);
+    .nkw-fd .di {
+        font-size: 11px;
+        color: rgba(255, 255, 255, .55)
+    }
+
+    .nkw-fd .fi {
+        font-size: 24px;
+        margin: 4px 0
+    }
+
+    .nkw-fd .ft {
         font-size: 13px;
-        font-weight: 300;
+        font-weight: 600
     }
 
-    .nkp-day-rain {
+    .nkw-fd .fl {
+        font-size: 11px;
+        opacity: .4
+    }
+
+    .nkw-fd .fr {
         color: #64b5f6;
-        font-size: 11px;
-        font-weight: 400;
-        margin-top: 5px;
+        font-size: 10px;
+        margin-top: 2px
     }
 
-    /* ═══ Update Info ═══ */
-    .nkp-update-info {
+    .nkw-up {
         text-align: center;
-        margin-top: 20px;
-        color: rgba(255, 255, 255, 0.35);
-        font-size: 11px;
-        font-weight: 300;
-        animation: nkpFadeUp 0.8s ease 0.4s both;
+        margin-top: 12px;
+        color: rgba(255, 255, 255, .25);
+        font-size: 10px
     }
 
-    .nkp-update-info a {
-        color: rgba(255, 255, 255, 0.5);
-        text-decoration: none;
-        border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
-        transition: color 0.3s;
+    .nkw-up a {
+        color: rgba(255, 255, 255, .35);
+        text-decoration: none
     }
 
-    .nkp-update-info a:hover {
-        color: #ffc107;
+    .nkw-sp {
+        width: 30px;
+        height: 30px;
+        border: 3px solid rgba(255, 255, 255, .15);
+        border-top-color: #ffc107;
+        border-radius: 50%;
+        margin: 30px auto;
+        animation: ns .7s linear infinite
     }
 
-    /* ═══ Error State ═══ */
-    .nkp-error {
-        text-align: center;
-        padding: 40px 20px;
-        color: rgba(255, 255, 255, 0.7);
-    }
-
-    .nkp-error-icon {
-        font-size: 48px;
-        margin-bottom: 12px;
-    }
-
-    .nkp-error p {
-        font-size: 14px;
-        margin-bottom: 15px;
-    }
-
-    .nkp-retry-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 10px 24px;
-        background: rgba(255, 193, 7, 0.2);
-        border: 1px solid rgba(255, 193, 7, 0.3);
-        color: #ffc107;
-        border-radius: 50px;
-        font-family: 'Kanit', sans-serif;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .nkp-retry-btn:hover {
-        background: rgba(255, 193, 7, 0.3);
-        transform: translateY(-2px);
-    }
-
-    /* ═══ Responsive ═══ */
-    @media (max-width: 600px) {
-        .nkp-weather {
-            padding: 30px 15px 40px;
+    @keyframes ns {
+        to {
+            transform: rotate(360deg)
         }
+    }
 
-        .nkp-header h2 {
-            font-size: 24px;
-        }
-
-        .nkp-current {
+    @media(max-width:500px) {
+        .nkw-now {
             flex-direction: column;
-            text-align: center;
+            text-align: center
         }
 
-        .nkp-temp {
-            font-size: 48px;
-        }
-
-        .nkp-weather-icon {
-            font-size: 52px;
-        }
-
-        .nkp-details {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .nkp-forecast {
-            grid-template-columns: repeat(5, 1fr);
-            gap: 6px;
-        }
-
-        .nkp-day-card {
-            padding: 12px 6px;
-            border-radius: 14px;
-        }
-
-        .nkp-day-icon {
-            font-size: 24px;
-        }
-
-        .nkp-day-max {
-            font-size: 14px;
-        }
-
-        .nkp-day-min {
-            font-size: 11px;
-        }
-
-        .nkp-main-card {
-            padding: 20px;
-        }
-    }
-
-    @media (max-width: 400px) {
-        .nkp-forecast {
-            grid-template-columns: repeat(3, 1fr);
+        .nkw-fc {
+            grid-template-columns: repeat(3, 1fr)
         }
     }
 </style>
-
-<section class="nkp-weather">
-    <!-- Background Effects -->
-    <div class="nkp-stars">
-        <div class="nkp-star"></div>
-        <div class="nkp-star"></div>
-        <div class="nkp-star"></div>
-        <div class="nkp-star"></div>
-        <div class="nkp-star"></div>
-        <div class="nkp-star"></div>
-        <div class="nkp-star"></div>
-        <div class="nkp-star"></div>
+<div class="nkw">
+    <div class="nkw-h">
+        <h3>🌤️ สภาพอากาศ จ.นครปฐม</h3>
+        <p>🌾 สำนักงานเกษตรอำเภอพุทธมณฑล</p>
     </div>
-    <div class="nkp-orb nkp-orb-1"></div>
-    <div class="nkp-orb nkp-orb-2"></div>
-    <div class="nkp-orb nkp-orb-3"></div>
-
-    <div class="nkp-container">
-        <!-- Header -->
-        <div class="nkp-header">
-            <div class="nkp-badge">🌾 สำนักงานเกษตรอำเภอพุทธมณฑล</div>
-            <h2>🌤️ สภาพอากาศจังหวัดนครปฐม</h2>
-            <p>ข้อมูลสภาพอากาศแบบ Real-time สำหรับเกษตรกร</p>
-        </div>
-
-        <!-- Content Area (JS will populate this) -->
-        <div id="nkp-weather-content">
-            <div class="nkp-loading">
-                <div class="nkp-spinner"></div>
-                <p>กำลังโหลดข้อมูลสภาพอากาศ...</p>
-            </div>
-        </div>
+    <div id="nkw-c">
+        <div class="nkw-sp"></div>
     </div>
-</section>
-
+</div>
 <script>
     (function () {
-        // Nakhon Pathom coordinates
-        const LAT = 13.8196;
-        const LON = 100.0614;
-
-        // Thai day names
-        const THAI_DAYS = ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสฯ', 'ศุกร์', 'เสาร์'];
-        const THAI_SHORT_DAYS = ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'];
-
-        // Weather code to emoji + description (WMO codes)
-        function getWeatherInfo(code) {
-            const map = {
-                0: { icon: '☀️', desc: 'ท้องฟ้าแจ่มใส' },
-                1: { icon: '🌤️', desc: 'ท้องฟ้าค่อนข้างแจ่มใส' },
-                2: { icon: '⛅', desc: 'มีเมฆบางส่วน' },
-                3: { icon: '☁️', desc: 'เมฆมาก' },
-                45: { icon: '🌫️', desc: 'หมอก' },
-                48: { icon: '🌫️', desc: 'หมอกน้ำค้างแข็ง' },
-                51: { icon: '🌦️', desc: 'ฝนละอองเบาบาง' },
-                53: { icon: '🌦️', desc: 'ฝนละออง' },
-                55: { icon: '🌧️', desc: 'ฝนละอองหนัก' },
-                61: { icon: '🌧️', desc: 'ฝนเล็กน้อย' },
-                63: { icon: '🌧️', desc: 'ฝนปานกลาง' },
-                65: { icon: '🌧️', desc: 'ฝนตกหนัก' },
-                71: { icon: '🌨️', desc: 'หิมะเล็กน้อย' },
-                73: { icon: '🌨️', desc: 'หิมะปานกลาง' },
-                75: { icon: '🌨️', desc: 'หิมะตกหนัก' },
-                80: { icon: '🌦️', desc: 'ฝนตกเป็นระยะ' },
-                81: { icon: '🌧️', desc: 'ฝนตกเป็นระยะ ปานกลาง' },
-                82: { icon: '⛈️', desc: 'ฝนตกหนักเป็นระยะ' },
-                95: { icon: '⛈️', desc: 'พายุฝนฟ้าคะนอง' },
-                96: { icon: '⛈️', desc: 'พายุฝนฟ้าคะนอง + ลูกเห็บ' },
-                99: { icon: '⛈️', desc: 'พายุรุนแรง + ลูกเห็บ' }
-            };
-            return map[code] || { icon: '🌡️', desc: 'ไม่ทราบสถานะ' };
-        }
-
-        // Wind direction from degrees
-        function getWindDir(deg) {
-            const dirs = ['เหนือ', 'ตะวันออกเฉียงเหนือ', 'ตะวันออก', 'ตะวันออกเฉียงใต้', 'ใต้', 'ตะวันตกเฉียงใต้', 'ตะวันตก', 'ตะวันตกเฉียงเหนือ'];
-            return dirs[Math.round(deg / 45) % 8];
-        }
-
-        // UV Level
-        function getUVLevel(uv) {
-            if (uv <= 2) return { text: 'ต่ำ', color: '#4caf50' };
-            if (uv <= 5) return { text: 'ปานกลาง', color: '#ffc107' };
-            if (uv <= 7) return { text: 'สูง', color: '#ff9800' };
-            if (uv <= 10) return { text: 'สูงมาก', color: '#f44336' };
-            return { text: 'อันตราย', color: '#9c27b0' };
-        }
-
-        // Fetch weather data
-        function fetchWeather() {
-            var apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=' + LAT + '&longitude=' + LON +
-                '&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m' +
-                '&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_probability_max' +
-                '&timezone=Asia%2FBangkok&forecast_days=6';
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', apiUrl, true);
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    try {
-                        var data = JSON.parse(xhr.responseText);
-                        renderWeather(data);
-                    } catch (e) {
-                        renderError();
-                    }
-                } else {
-                    renderError();
-                }
-            };
-            xhr.onerror = function () {
-                renderError();
-            };
-            xhr.send();
-        }
-
-        // Render weather data
-        function renderWeather(data) {
-            var c = data.current;
-            var d = data.daily;
-            var weatherInfo = getWeatherInfo(c.weather_code);
-            var uvData = d.uv_index_max ? getUVLevel(d.uv_index_max[0]) : { text: '-', color: '#fff' };
-            var windDir = getWindDir(c.wind_direction_10m);
-
-            var now = new Date();
-            var timeStr = now.toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' });
-            var dateStr = 'วัน' + THAI_DAYS[now.getDay()] + 'ที่ ' + now.getDate() + '/' + (now.getMonth() + 1) + '/' + (now.getFullYear() + 543);
-
-            var html = '';
-
-            // Main card
-            html += '<div class="nkp-main-card">';
-            html += '  <div class="nkp-current">';
-            html += '    <div class="nkp-temp-block">';
-            html += '      <div class="nkp-weather-icon">' + weatherInfo.icon + '</div>';
-            html += '      <div class="nkp-temp">' + Math.round(c.temperature_2m) + '<span>°C</span></div>';
-            html += '      <div class="nkp-condition">' + weatherInfo.desc + '</div>';
-            html += '    </div>';
-            html += '    <div class="nkp-details">';
-            html += '      <div class="nkp-detail-item">';
-            html += '        <div class="nkp-detail-icon">🌡️</div>';
-            html += '        <div class="nkp-detail-value">' + c.apparent_temperature.toFixed(1) + '°</div>';
-            html += '        <div class="nkp-detail-label">รู้สึกเหมือน</div>';
-            html += '      </div>';
-            html += '      <div class="nkp-detail-item">';
-            html += '        <div class="nkp-detail-icon">💧</div>';
-            html += '        <div class="nkp-detail-value">' + c.relative_humidity_2m + '%</div>';
-            html += '        <div class="nkp-detail-label">ความชื้น</div>';
-            html += '      </div>';
-            html += '      <div class="nkp-detail-item">';
-            html += '        <div class="nkp-detail-icon">💨</div>';
-            html += '        <div class="nkp-detail-value">' + Math.round(c.wind_speed_10m) + ' km/h</div>';
-            html += '        <div class="nkp-detail-label">ลม ' + windDir + '</div>';
-            html += '      </div>';
-            html += '      <div class="nkp-detail-item">';
-            html += '        <div class="nkp-detail-icon">☀️</div>';
-            html += '        <div class="nkp-detail-value" style="color:' + uvData.color + '">' + (d.uv_index_max ? d.uv_index_max[0].toFixed(1) : '-') + '</div>';
-            html += '        <div class="nkp-detail-label">UV ' + uvData.text + '</div>';
-            html += '      </div>';
-            html += '    </div>';
-            html += '  </div>';
-            html += '</div>';
-
-            // Forecast
-            html += '<div class="nkp-forecast-title">📅 พยากรณ์ 5 วันข้างหน้า</div>';
-            html += '<div class="nkp-forecast">';
-
+        var D = ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'], F = ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสฯ', 'ศุกร์', 'เสาร์'];
+        var W = { 0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️', 51: '🌦️', 53: '🌦️', 55: '🌧️', 61: '🌧️', 63: '🌧️', 65: '🌧️', 80: '🌦️', 81: '🌧️', 82: '⛈️', 95: '⛈️', 96: '⛈️', 99: '⛈️' };
+        var N = { 0: 'แจ่มใส', 1: 'ค่อนข้างแจ่มใส', 2: 'เมฆบางส่วน', 3: 'เมฆมาก', 45: 'หมอก', 48: 'หมอก', 51: 'ฝนละออง', 53: 'ฝนละออง', 55: 'ฝนหนัก', 61: 'ฝนเล็กน้อย', 63: 'ฝนปานกลาง', 65: 'ฝนหนัก', 80: 'ฝนเป็นระยะ', 81: 'ฝนปานกลาง', 82: 'ฝนหนัก', 95: 'พายุฟ้าคะนอง', 96: 'พายุ+ลูกเห็บ', 99: 'พายุรุนแรง' };
+        function wd(d) { return ['เหนือ', 'ตอ.เฉียงเหนือ', 'ตอ.', 'ตอ.เฉียงใต้', 'ใต้', 'ตต.เฉียงใต้', 'ตต.', 'ตต.เฉียงเหนือ'][Math.round(d / 45) % 8] }
+        var x = new XMLHttpRequest();
+        x.open('GET', 'https://api.open-meteo.com/v1/forecast?latitude=13.8196&longitude=100.0614&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_probability_max&timezone=Asia%2FBangkok&forecast_days=6', true);
+        x.onload = function () {
+            if (x.status !== 200) { return e() }
+            try { var j = JSON.parse(x.responseText) } catch (er) { return e() }
+            var c = j.current, d = j.daily, n = new Date(), uv = d.uv_index_max ? d.uv_index_max[0] : 0;
+            var h = '<div class="nkw-now"><div><div class="nkw-ic">' + (W[c.weather_code] || '🌡️') + '</div><div class="nkw-t">' + Math.round(c.temperature_2m) + '<span>°C</span></div><div class="nkw-cd">' + (N[c.weather_code] || '') + '</div></div>';
+            h += '<div class="nkw-dt">';
+            h += '<div class="nkw-di">🌡️<b>' + c.apparent_temperature.toFixed(1) + '°</b><small>รู้สึกเหมือน</small></div>';
+            h += '<div class="nkw-di">💧<b>' + c.relative_humidity_2m + '%</b><small>ความชื้น</small></div>';
+            h += '<div class="nkw-di">💨<b>' + Math.round(c.wind_speed_10m) + ' km/h</b><small>ลม ' + wd(c.wind_direction_10m) + '</small></div>';
+            h += '<div class="nkw-di">☀️<b>' + uv.toFixed(1) + '</b><small>UV</small></div>';
+            h += '</div></div><div class="nkw-fc">';
             for (var i = 1; i <= 5; i++) {
                 if (d.time[i]) {
-                    var fDate = new Date(d.time[i] + 'T00:00:00');
-                    var dayName = THAI_SHORT_DAYS[fDate.getDay()];
-                    var fWeather = getWeatherInfo(d.weather_code[i]);
-                    var rainProb = d.precipitation_probability_max ? d.precipitation_probability_max[i] : 0;
-
-                    html += '<div class="nkp-day-card">';
-                    html += '  <div class="nkp-day-name">' + dayName + '</div>';
-                    html += '  <div class="nkp-day-icon">' + fWeather.icon + '</div>';
-                    html += '  <div class="nkp-day-temps">';
-                    html += '    <span class="nkp-day-max">' + Math.round(d.temperature_2m_max[i]) + '°</span>';
-                    html += '    <span class="nkp-day-min">' + Math.round(d.temperature_2m_min[i]) + '°</span>';
-                    html += '  </div>';
-                    if (rainProb > 0) {
-                        html += '  <div class="nkp-day-rain">💧 ' + rainProb + '%</div>';
-                    }
-                    html += '</div>';
+                    var fd = new Date(d.time[i] + 'T00:00:00'), rp = d.precipitation_probability_max ? d.precipitation_probability_max[i] : 0;
+                    h += '<div class="nkw-fd"><div class="di">' + D[fd.getDay()] + '</div><div class="fi">' + (W[d.weather_code[i]] || '🌡️') + '</div><span class="ft">' + Math.round(d.temperature_2m_max[i]) + '°</span> <span class="fl">' + Math.round(d.temperature_2m_min[i]) + '°</span>';
+                    if (rp > 0) h += '<div class="fr">💧' + rp + '%</div>'; h += '</div>';
                 }
             }
-
-            html += '</div>';
-
-            // Update info
-            html += '<div class="nkp-update-info">';
-            html += '  📍 นครปฐม | อัปเดตล่าสุด: ' + dateStr + ' เวลา ' + timeStr + ' น.';
-            html += '  | แหล่งข้อมูล: <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a>';
-            html += '</div>';
-
-            document.getElementById('nkp-weather-content').innerHTML = html;
-        }
-
-        // Render error
-        function renderError() {
-            var html = '<div class="nkp-error">';
-            html += '  <div class="nkp-error-icon">⚠️</div>';
-            html += '  <p>ไม่สามารถโหลดข้อมูลสภาพอากาศได้<br>กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต</p>';
-            html += '  <button class="nkp-retry-btn" onclick="location.reload()">🔄 ลองใหม่อีกครั้ง</button>';
-            html += '</div>';
-            document.getElementById('nkp-weather-content').innerHTML = html;
-        }
-
-        // Console log for shortcode test
-        console.log('🌤️ Nakhon Pathom Weather Widget: Script Loaded');
-
-        // Start fetching
-        fetchWeather();
+            h += '</div><div class="nkw-up">📍 นครปฐม | ' + n.getDate() + '/' + (n.getMonth() + 1) + '/' + (n.getFullYear() + 543) + ' ' + n.toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' }) + ' น. | <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></div>';
+            document.getElementById('nkw-c').innerHTML = h;
+        };
+        x.onerror = function () { e() };
+        x.send();
+        function e() { document.getElementById('nkw-c').innerHTML = '<p style="text-align:center;padding:20px;opacity:.6">⚠️ โหลดข้อมูลไม่ได้ <button onclick="location.reload()" style="background:#ffc107;border:none;padding:6px 16px;border-radius:20px;cursor:pointer;font-family:Kanit;margin-left:8px">ลองใหม่</button></p>' }
     })();
 </script>
