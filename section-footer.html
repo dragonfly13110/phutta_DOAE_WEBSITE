@@ -14,20 +14,34 @@
     }
 
     /* ═════════════════════════════════════════════
-       MAIN FOOTER
+       MAIN FOOTER (Clean & Premium)
        ═════════════════════════════════════════════ */
     .ft {
-        background: linear-gradient(180deg, #e8f5e9 0%, #f1f8e9 40%, #ffffff 100%);
         position: relative;
+        background: #fafcfb;
         overflow: hidden;
+        border-top: 1px solid rgba(46, 125, 50, 0.1);
     }
 
-    /* Top accent bar */
+    /* Subtle mesh pattern */
+    .ft::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(76, 175, 80, 0.07) 1px, transparent 1px);
+        background-size: 24px 24px;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Top accent bar - Slimmer and cleaner */
     .ft-accent {
-        height: 3px;
-        background: linear-gradient(90deg, #1b5e20, #43a047, #ffc107, #ff9800, #ffc107, #43a047, #1b5e20);
+        height: 4px;
+        background: linear-gradient(90deg, #2e7d32, #66bb6a, #ffca28, #ffb300, #ffca28, #66bb6a, #2e7d32);
         background-size: 200% 100%;
-        animation: ftAccent 4s linear infinite;
+        animation: ftAccent 5s ease-in-out infinite alternate;
+        position: relative;
+        z-index: 2;
     }
 
     @keyframes ftAccent {
@@ -36,62 +50,76 @@
         }
 
         100% {
-            background-position: 200% 0;
+            background-position: 100% 0;
         }
     }
 
-    /* Floating orbs */
+    /* Refined Floating orbs for soft glow */
     .ft-orb {
         position: absolute;
         border-radius: 50%;
-        filter: blur(50px);
+        filter: blur(60px);
         pointer-events: none;
         z-index: 1;
+        opacity: 0.7;
     }
 
     .ft-orb-1 {
-        width: 250px;
-        height: 250px;
-        background: radial-gradient(circle, rgba(76, 175, 80, 0.06), transparent);
-        top: -80px;
-        right: 10%;
-        animation: ftOrbMove 10s ease-in-out infinite;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(76, 175, 80, 0.12), transparent 70%);
+        top: -100px;
+        right: -50px;
+        animation: ftOrbMove1 12s ease-in-out infinite alternate;
     }
 
     .ft-orb-2 {
-        width: 200px;
-        height: 200px;
-        background: radial-gradient(circle, rgba(255, 152, 0, 0.04), transparent);
-        bottom: 20px;
-        left: 5%;
-        animation: ftOrbMove 12s ease-in-out infinite reverse;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255, 179, 0, 0.08), transparent 70%);
+        bottom: -50px;
+        left: -50px;
+        animation: ftOrbMove2 15s ease-in-out infinite alternate;
     }
 
-    @keyframes ftOrbMove {
+    @keyframes ftOrbMove1 {
+        0% {
+            transform: translate(0, 0) scale(1);
+        }
 
-        0%,
         100% {
-            transform: translate(0, 0);
+            transform: translate(-30px, 40px) scale(1.1);
+        }
+    }
+
+    @keyframes ftOrbMove2 {
+        0% {
+            transform: translate(0, 0) scale(1);
         }
 
-        50% {
-            transform: translate(15px, -12px);
+        100% {
+            transform: translate(40px, -30px) scale(1.05);
         }
+    }
+
+    /* Glassmorphism wrapper for content to sit on */
+    .ft-glass-wrapper {
+        position: relative;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
 
     /* ═════════════════════════════════════════════
        CONTENT GRID
        ═════════════════════════════════════════════ */
     .ft-content {
-        max-width: 1200px;
-        width: 100%;
+        max-width: 1240px;
         margin: 0 auto;
-        padding: 40px 30px 30px;
+        padding: 60px 30px 50px;
         display: grid;
-        grid-template-columns: 1.3fr 1fr 1fr 1fr;
-        gap: 30px;
-        position: relative;
-        z-index: 10;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 40px;
     }
 
     /* ═════════════════════════════════════════════
@@ -100,213 +128,270 @@
     .ft-about {
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 18px;
     }
 
     .ft-brand {
         display: flex;
         align-items: center;
-        gap: 12px;
-        margin-bottom: 4px;
+        gap: 15px;
     }
 
+    /* Premium Logo Container */
     .ft-logo {
-        width: 48px;
-        height: 48px;
-        background: linear-gradient(135deg, #1b5e20, #43a047);
-        border-radius: 14px;
+        width: 52px;
+        height: 52px;
+        background: linear-gradient(135deg, #ffffff, #f1f8e9);
+        border: 1px solid rgba(76, 175, 80, 0.3);
+        border-radius: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 15px rgba(27, 94, 32, 0.15);
+        box-shadow: 0 8px 20px rgba(46, 125, 50, 0.08);
         flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ft-logo::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        animation: ftLogoShine 4s infinite 2s;
+    }
+
+    @keyframes ftLogoShine {
+        0% {
+            left: -100%;
+        }
+
+        20% {
+            left: 200%;
+        }
+
+        100% {
+            left: 200%;
+        }
     }
 
     .ft-logo-emoji {
-        font-size: 24px;
+        font-size: 26px;
+        display: block;
+        transform: translateY(2px);
     }
 
     .ft-brand-text h3 {
         color: #1b5e20;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
-        line-height: 1.3;
+        line-height: 1.2;
+        letter-spacing: -0.3px;
     }
 
     .ft-brand-text span {
         color: #689f38;
-        font-size: 11px;
-        font-weight: 400;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
     }
 
     .ft-desc {
-        color: #666;
-        font-size: 13px;
-        line-height: 1.7;
+        color: #555;
+        font-size: 14px;
+        line-height: 1.8;
         font-weight: 300;
     }
 
-    /* Social */
+    /* Social - Minimalist */
     .ft-social {
         display: flex;
-        gap: 8px;
-        margin-top: 4px;
+        gap: 12px;
+        margin-top: 5px;
     }
 
     .ft-soc {
-        width: 38px;
-        height: 38px;
-        border-radius: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: #ffffff;
+        border: 1px solid rgba(46, 125, 50, 0.15);
         display: flex;
         align-items: center;
         justify-content: center;
         text-decoration: none;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .ft-soc.fb {
-        background: linear-gradient(135deg, #1877f2, #3b5998);
-        box-shadow: 0 2px 8px rgba(24, 119, 242, 0.2);
-    }
-
-    .ft-soc.ln {
-        background: linear-gradient(135deg, #00b900, #00c300);
-        box-shadow: 0 2px 8px rgba(0, 185, 0, 0.2);
-    }
-
-    .ft-soc.yt {
-        background: linear-gradient(135deg, #ff0000, #cc0000);
-        box-shadow: 0 2px 8px rgba(255, 0, 0, 0.2);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
     }
 
     .ft-soc:hover {
-        transform: translateY(-3px) scale(1.08);
+        transform: translateY(-5px);
+        background: #f1f8e9;
+        border-color: rgba(76, 175, 80, 0.4);
+        box-shadow: 0 8px 15px rgba(46, 125, 50, 0.1);
     }
 
     .ft-soc-emoji {
         font-size: 18px;
-        filter: brightness(2);
+        opacity: 0.8;
+        transition: opacity 0.3s;
+    }
+
+    .ft-soc:hover .ft-soc-emoji {
+        opacity: 1;
     }
 
     /* ═════════════════════════════════════════════
        SECTION HEADERS
        ═════════════════════════════════════════════ */
     .ft-col h4 {
-        color: #1b5e20;
-        font-size: 15px;
+        color: #2e3a28;
+        font-size: 16px;
         font-weight: 700;
-        margin-bottom: 16px;
+        margin-bottom: 22px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
+        position: relative;
     }
 
     .ft-col h4::after {
         content: '';
-        flex: 1;
-        height: 1px;
-        background: linear-gradient(90deg, rgba(46, 125, 50, 0.15), transparent);
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: linear-gradient(90deg, #43a047, #ff9800);
+        border-radius: 2px;
+        transition: width 0.3s ease;
+    }
+
+    .ft-col:hover h4::after {
+        width: 45px;
     }
 
     .ft-h4-emoji {
-        font-size: 16px;
+        font-size: 18px;
+        padding: 6px;
+        background: rgba(76, 175, 80, 0.1);
+        border-radius: 8px;
+        display: inline-flex;
     }
 
     /* ═════════════════════════════════════════════
-       QUICK LINKS
+       QUICK LINKS - Clean underlines
        ═════════════════════════════════════════════ */
     .ft-links {
         list-style: none;
     }
 
     .ft-links li {
-        margin-bottom: 6px;
+        margin-bottom: 12px;
     }
 
     .ft-links a {
         color: #555;
         text-decoration: none;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 400;
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 6px;
-        padding: 5px 8px;
-        border-radius: 6px;
         transition: all 0.3s ease;
+        position: relative;
     }
 
     .ft-links a::before {
-        content: '›';
-        color: #43a047;
-        font-size: 16px;
-        font-weight: 700;
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #a5d6a7;
+        margin-right: 10px;
         transition: all 0.3s ease;
     }
 
     .ft-links a:hover {
         color: #1b5e20;
-        background: rgba(76, 175, 80, 0.06);
-        transform: translateX(3px);
+        transform: translateX(5px);
     }
 
     .ft-links a:hover::before {
-        color: #ff9800;
+        background: #ffb300;
+        transform: scale(1.5);
     }
 
     /* ═════════════════════════════════════════════
-       RELATED LINKS
+       RELATED LINKS - Premium Glass Cards
        ═════════════════════════════════════════════ */
     .ft-related {
         list-style: none;
-    }
-
-    .ft-related li {
-        margin-bottom: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .ft-related a {
-        color: #555;
+        color: #444;
         text-decoration: none;
-        font-size: 12.5px;
-        font-weight: 400;
+        font-size: 13.5px;
+        font-weight: 500;
         display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 6px 10px;
-        border-radius: 8px;
-        border: 1px solid rgba(46, 125, 50, 0.06);
-        background: rgba(255, 255, 255, 0.5);
-        transition: all 0.3s ease;
+        gap: 12px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(76, 175, 80, 0.15);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
     }
 
     .ft-related a:hover {
-        background: rgba(232, 245, 233, 0.5);
-        border-color: rgba(46, 125, 50, 0.12);
+        background: #ffffff;
+        border-color: rgba(76, 175, 80, 0.3);
         color: #1b5e20;
-        transform: translateY(-1px);
-        box-shadow: 0 3px 10px rgba(27, 94, 32, 0.06);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(46, 125, 50, 0.08);
     }
 
     .ft-related-emoji {
-        font-size: 15px;
+        font-size: 18px;
+        width: 28px;
+        height: 28px;
+        background: rgba(245, 245, 245, 0.8);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+    }
+
+    .ft-related a:hover .ft-related-emoji {
+        transform: scale(1.1) rotate(5deg);
+        background: rgba(241, 248, 233, 1);
     }
 
     /* ═════════════════════════════════════════════
        BOTTOM BAR
        ═════════════════════════════════════════════ */
     .ft-bottom {
-        border-top: 1px solid rgba(46, 125, 50, 0.08);
-        padding: 18px 20px;
+        border-top: 1px solid rgba(46, 125, 50, 0.1);
+        padding: 24px 20px;
         text-align: center;
         position: relative;
         z-index: 10;
+        background: rgba(255, 255, 255, 0.3);
     }
 
     .ft-bottom p {
-        font-size: 12px;
-        color: #888;
+        font-size: 13px;
+        color: #777;
         font-weight: 300;
+        letter-spacing: 0.3px;
     }
 
     .ft-bottom .ft-hl {
@@ -320,8 +405,8 @@
     @media (max-width: 1024px) {
         .ft-content {
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            padding: 35px 20px 25px;
+            gap: 40px;
+            padding: 50px 25px 40px;
         }
     }
 
@@ -329,8 +414,8 @@
         .ft-content {
             grid-template-columns: 1fr;
             text-align: center;
-            gap: 20px;
-            padding: 28px 16px 20px;
+            gap: 35px;
+            padding: 40px 20px 30px;
         }
 
         .ft-brand {
@@ -346,11 +431,16 @@
         }
 
         .ft-col h4::after {
-            display: none;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .ft-links a {
             justify-content: center;
+        }
+
+        .ft-links a::before {
+            display: none;
         }
 
         .ft-related a {
@@ -358,11 +448,12 @@
         }
 
         .ft-bottom {
-            padding: 14px 12px;
+            padding: 20px 15px;
         }
 
         .ft-bottom p {
-            font-size: 11px;
+            font-size: 12px;
+            line-height: 1.6;
         }
     }
 </style>
@@ -375,90 +466,95 @@
     <div class="ft-orb ft-orb-1"></div>
     <div class="ft-orb ft-orb-2"></div>
 
-    <div class="ft-content">
-        <!-- About -->
-        <div class="ft-about">
-            <div class="ft-brand">
-                <div class="ft-logo">
-                    <span class="ft-logo-emoji">�</span>
+    <div class="ft-glass-wrapper">
+        <div class="ft-content">
+            <!-- About -->
+            <div class="ft-about">
+                <div class="ft-brand">
+                    <div class="ft-logo">
+                        <span class="ft-logo-emoji">🌿</span>
+                    </div>
+                    <div class="ft-brand-text">
+                        <h3>สำนักงานเกษตร<br>อำเภอพุทธมณฑล</h3>
+                        <span>กรมส่งเสริมการเกษตร</span>
+                    </div>
                 </div>
-                <div class="ft-brand-text">
-                    <h3>สำนักงานเกษตร<br>อำเภอพุทธมณฑล</h3>
-                    <span>กรมส่งเสริมการเกษตร</span>
+                <p class="ft-desc">
+                    ส่งเสริมและพัฒนาเกษตรกร องค์กรเกษตรกร<br>
+                    และวิสาหกิจชุมชนให้เข้มแข็งและยั่งยืน
+                </p>
+                <div class="ft-social">
+                    <a class="ft-soc fb" title="Facebook">
+                        <span class="ft-soc-emoji">📘</span>
+                    </a>
+                    <a class="ft-soc ln" title="Line">
+                        <span class="ft-soc-emoji">💚</span>
+                    </a>
+                    <a class="ft-soc yt" title="YouTube">
+                        <span class="ft-soc-emoji">📺</span>
+                    </a>
                 </div>
             </div>
-            <p class="ft-desc">
-                ส่งเสริมและพัฒนาเกษตรกร องค์กรเกษตรกร<br>
-                และวิสาหกิจชุมชนให้เข้มแข็งและยั่งยืน
-            </p>
-            <div class="ft-social">
-                <a class="ft-soc fb" title="Facebook">
-                    <span class="ft-soc-emoji">📘</span>
-                </a>
-                <a class="ft-soc ln" title="Line">
-                    <span class="ft-soc-emoji">💚</span>
-                </a>
-                <a class="ft-soc yt" title="YouTube">
-                    <span class="ft-soc-emoji">📺</span>
-                </a>
+
+            <!-- Quick Links -->
+            <div class="ft-col">
+                <h4><span class="ft-h4-emoji">🔗</span> ลิงก์ด่วน</h4>
+                <ul class="ft-links">
+                    <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/">หน้าแรก</a></li>
+                    <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/vision/">วิสัยทัศน์ & พันธกิจ</a></li>
+                    <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/structure/">โครงสร้างองค์กร</a></li>
+                    <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/staff/">บุคลากร</a></li>
+                    <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/public-relations/">ข่าวประชาสัมพันธ์</a>
+                    </li>
+                    <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/activities/">กิจกรรม</a></li>
+                </ul>
+            </div>
+
+            <!-- Data & Knowledge -->
+            <div class="ft-col">
+                <h4><span class="ft-h4-emoji">📚</span> ข้อมูล & ความรู้</h4>
+                <ul class="ft-links">
+                    <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-information/">ข้อมูลเกษตรกร</a>
+                    </li>
+                    <li><a
+                            href="https://nakhonpathom.doae.go.th/phutthamonthon/land-use-data/">ข้อมูลพื้นที่ใช้ประโยชน์</a>
+                    </li>
+                    <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/soil-information/">ข้อมูลดิน</a></li>
+                    <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/water-sources/">ข้อมูลแหล่งน้ำ</a></li>
+                    <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/infographic/">Infographic</a></li>
+                    <li><a
+                            href="https://nakhonpathom.doae.go.th/phutthamonthon/agri-knowledge-hub/">ศูนย์รวมความรู้เกษตร</a>
+                    </li>
+                    <li><a
+                            href="https://nakhonpathom.doae.go.th/phutthamonthon/phutthamonthon-famous/">ของดีพุทธมณฑล</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Related Sites -->
+            <div class="ft-col">
+                <h4><span class="ft-h4-emoji">🌐</span> หน่วยงาน</h4>
+                <ul class="ft-related">
+                    <li><a href="https://www.doae.go.th" target="_blank">
+                            <span class="ft-related-emoji">🌾</span> กรมส่งเสริมการเกษตร
+                        </a></li>
+                    <li><a href="https://www.moac.go.th" target="_blank">
+                            <span class="ft-related-emoji">🏛️</span> กระทรวงเกษตรฯ
+                        </a></li>
+                    <li><a href="https://www.nakhonpathom.go.th" target="_blank">
+                            <span class="ft-related-emoji">📍</span> จังหวัดนครปฐม
+                        </a></li>
+                    <li><a href="https://nakhonpathom.doae.go.th" target="_blank">
+                            <span class="ft-related-emoji">🏢</span> สนง.เกษตรจังหวัดนครปฐม
+                        </a></li>
+                </ul>
             </div>
         </div>
 
-        <!-- Quick Links -->
-        <div class="ft-col">
-            <h4><span class="ft-h4-emoji">🔗</span> ลิงก์ด่วน</h4>
-            <ul class="ft-links">
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/">หน้าแรก</a></li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/vision/">วิสัยทัศน์ & พันธกิจ</a></li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/structure/">โครงสร้างองค์กร</a></li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/staff/">บุคลากร</a></li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/public-relations/">ข่าวประชาสัมพันธ์</a>
-                </li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/activities/">กิจกรรม</a></li>
-            </ul>
+        <!-- Bottom -->
+        <div class="ft-bottom">
+            <p>© 2026 <span class="ft-hl">สำนักงานเกษตรอำเภอพุทธมณฑล</span> · กรมส่งเสริมการเกษตร ·
+                กระทรวงเกษตรและสหกรณ์</p>
         </div>
-
-        <!-- Data & Knowledge -->
-        <div class="ft-col">
-            <h4><span class="ft-h4-emoji">�</span> ข้อมูล & ความรู้</h4>
-            <ul class="ft-links">
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-information/">ข้อมูลเกษตรกร</a></li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/land-use-data/">ข้อมูลพื้นที่ใช้ประโยชน์</a>
-                </li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/soil-information/">ข้อมูลดิน</a></li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/water-sources/">ข้อมูลแหล่งน้ำ</a></li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/infographic/">Infographic</a></li>
-                <li><a
-                        href="https://nakhonpathom.doae.go.th/phutthamonthon/agri-knowledge-hub/">ศูนย์รวมความรู้เกษตร</a>
-                </li>
-                <li><a href="https://nakhonpathom.doae.go.th/phutthamonthon/phutthamonthon-famous/">ของดีพุทธมณฑล</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Related Sites -->
-        <div class="ft-col">
-            <h4><span class="ft-h4-emoji">🌐</span> หน่วยงาน</h4>
-            <ul class="ft-related">
-                <li><a href="https://www.doae.go.th" target="_blank">
-                        <span class="ft-related-emoji">🌾</span> กรมส่งเสริมการเกษตร
-                    </a></li>
-                <li><a href="https://www.moac.go.th" target="_blank">
-                        <span class="ft-related-emoji">🏛️</span> กระทรวงเกษตรฯ
-                    </a></li>
-                <li><a href="https://www.nakhonpathom.go.th" target="_blank">
-                        <span class="ft-related-emoji">📍</span> จังหวัดนครปฐม
-                    </a></li>
-                <li><a href="https://nakhonpathom.doae.go.th" target="_blank">
-                        <span class="ft-related-emoji">🏢</span> สนง.เกษตรจังหวัดนครปฐม
-                    </a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Bottom -->
-    <div class="ft-bottom">
-        <p>© 2026 <span class="ft-hl">สำนักงานเกษตรอำเภอพุทธมณฑล</span> · กรมส่งเสริมการเกษตร · กระทรวงเกษตรและสหกรณ์
-        </p>
     </div>
 </footer>
