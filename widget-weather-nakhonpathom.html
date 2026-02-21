@@ -1,206 +1,168 @@
 <style>
-    .nkw {
-        background: linear-gradient(135deg, #0f2027, #2c5364);
-        padding: 24px 14px;
-        font-family: 'Kanit', sans-serif;
-        color: #fff;
-        border-radius: 16px
-    }
-
+    .nkw,
     .nkw * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box
+        box-sizing: border-box;
+        font-family: Kanit, sans-serif
     }
 
-    .nkw-h {
+    .nkw {
+        background: linear-gradient(135deg, #0f2027, #2c5364);
+        padding: 20px 12px;
+        color: #fff;
+        border-radius: 14px
+    }
+
+    .nkw h3 {
         text-align: center;
-        margin-bottom: 18px
+        font-size: 20px;
+        margin-bottom: 4px
     }
 
-    .nkw-h h3 {
-        font-size: 22px;
-        font-weight: 600
-    }
-
-    .nkw-h p {
+    .nkw>p {
+        text-align: center;
         color: rgba(255, 255, 255, .5);
-        font-size: 12px
-    }
-
-    .nkw-now {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        background: rgba(255, 255, 255, .08);
-        border-radius: 14px;
-        padding: 18px;
+        font-size: 11px;
         margin-bottom: 14px
     }
 
-    .nkw-ic {
-        font-size: 48px
+    .nkw-n {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: rgba(255, 255, 255, .08);
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 10px
+    }
+
+    .nkw-n>div:first-child {
+        text-align: center
+    }
+
+    .nkw-i {
+        font-size: 44px
     }
 
     .nkw-t {
-        font-size: 42px;
+        font-size: 38px;
         font-weight: 800
     }
 
     .nkw-t span {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 300;
         opacity: .6
     }
 
-    .nkw-cd {
+    .nkw-c {
         color: #ffc107;
-        font-size: 14px
+        font-size: 13px
     }
 
-    .nkw-dt {
+    .nkw-g {
         flex: 1;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 8px
+        gap: 6px
     }
 
-    .nkw-di {
+    .nkw-d {
         background: rgba(255, 255, 255, .06);
-        border-radius: 10px;
-        padding: 10px;
+        border-radius: 8px;
+        padding: 8px;
         text-align: center
     }
 
-    .nkw-di b {
+    .nkw-d b {
         display: block;
-        font-size: 15px
+        font-size: 14px
     }
 
-    .nkw-di small {
-        color: rgba(255, 255, 255, .45);
-        font-size: 10px
+    .nkw-d small {
+        color: rgba(255, 255, 255, .4);
+        font-size: 9px
     }
 
-    .nkw-fc {
+    .nkw-f {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        gap: 6px;
-        margin-top: 4px
+        gap: 4px
     }
 
-    .nkw-fd {
+    .nkw-x {
         background: rgba(255, 255, 255, .06);
-        border-radius: 12px;
-        padding: 10px 4px;
-        text-align: center
-    }
-
-    .nkw-fd .di {
-        font-size: 11px;
-        color: rgba(255, 255, 255, .55)
-    }
-
-    .nkw-fd .fi {
-        font-size: 24px;
-        margin: 4px 0
-    }
-
-    .nkw-fd .ft {
-        font-size: 13px;
-        font-weight: 600
-    }
-
-    .nkw-fd .fl {
-        font-size: 11px;
-        opacity: .4
-    }
-
-    .nkw-fd .fr {
-        color: #64b5f6;
-        font-size: 10px;
-        margin-top: 2px
-    }
-
-    .nkw-up {
+        border-radius: 10px;
+        padding: 8px 3px;
         text-align: center;
-        margin-top: 12px;
-        color: rgba(255, 255, 255, .25);
-        font-size: 10px
+        font-size: 11px
     }
 
-    .nkw-up a {
-        color: rgba(255, 255, 255, .35);
+    .nkw-x .xi {
+        font-size: 22px;
+        margin: 3px 0
+    }
+
+    .nkw-x b {
+        font-size: 13px
+    }
+
+    .nkw-x em {
+        font-style: normal;
+        opacity: .4;
+        font-size: 11px
+    }
+
+    .nkw-x .xr {
+        color: #64b5f6;
+        font-size: 9px
+    }
+
+    .nkw-u {
+        text-align: center;
+        margin-top: 10px;
+        color: rgba(255, 255, 255, .2);
+        font-size: 9px
+    }
+
+    .nkw-u a {
+        color: rgba(255, 255, 255, .3);
         text-decoration: none
     }
 
-    .nkw-sp {
-        width: 30px;
-        height: 30px;
+    .nkw-s {
+        width: 28px;
+        height: 28px;
         border: 3px solid rgba(255, 255, 255, .15);
         border-top-color: #ffc107;
         border-radius: 50%;
-        margin: 30px auto;
-        animation: ns .7s linear infinite
+        margin: 24px auto;
+        animation: s .7s linear infinite
     }
 
-    @keyframes ns {
+    @keyframes s {
         to {
             transform: rotate(360deg)
         }
     }
 
-    @media(max-width:500px) {
-        .nkw-now {
+    @media(max-width:480px) {
+        .nkw-n {
             flex-direction: column;
             text-align: center
         }
 
-        .nkw-fc {
+        .nkw-f {
             grid-template-columns: repeat(3, 1fr)
         }
     }
 </style>
 <div class="nkw">
-    <div class="nkw-h">
-        <h3>🌤️ สภาพอากาศ จ.นครปฐม</h3>
-        <p>🌾 สำนักงานเกษตรอำเภอพุทธมณฑล</p>
-    </div>
+    <h3>🌤️ สภาพอากาศ จ.นครปฐม</h3>
+    <p>🌾 สำนักงานเกษตรอำเภอพุทธมณฑล</p>
     <div id="nkw-c">
-        <div class="nkw-sp"></div>
+        <div class="nkw-s"></div>
     </div>
 </div>
-<script>
-    (function () {
-        var D = ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'], F = ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสฯ', 'ศุกร์', 'เสาร์'];
-        var W = { 0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️', 51: '🌦️', 53: '🌦️', 55: '🌧️', 61: '🌧️', 63: '🌧️', 65: '🌧️', 80: '🌦️', 81: '🌧️', 82: '⛈️', 95: '⛈️', 96: '⛈️', 99: '⛈️' };
-        var N = { 0: 'แจ่มใส', 1: 'ค่อนข้างแจ่มใส', 2: 'เมฆบางส่วน', 3: 'เมฆมาก', 45: 'หมอก', 48: 'หมอก', 51: 'ฝนละออง', 53: 'ฝนละออง', 55: 'ฝนหนัก', 61: 'ฝนเล็กน้อย', 63: 'ฝนปานกลาง', 65: 'ฝนหนัก', 80: 'ฝนเป็นระยะ', 81: 'ฝนปานกลาง', 82: 'ฝนหนัก', 95: 'พายุฟ้าคะนอง', 96: 'พายุ+ลูกเห็บ', 99: 'พายุรุนแรง' };
-        function wd(d) { return ['เหนือ', 'ตอ.เฉียงเหนือ', 'ตอ.', 'ตอ.เฉียงใต้', 'ใต้', 'ตต.เฉียงใต้', 'ตต.', 'ตต.เฉียงเหนือ'][Math.round(d / 45) % 8] }
-        var x = new XMLHttpRequest();
-        x.open('GET', 'https://api.open-meteo.com/v1/forecast?latitude=13.8196&longitude=100.0614&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_probability_max&timezone=Asia%2FBangkok&forecast_days=6', true);
-        x.onload = function () {
-            if (x.status !== 200) { return e() }
-            try { var j = JSON.parse(x.responseText) } catch (er) { return e() }
-            var c = j.current, d = j.daily, n = new Date(), uv = d.uv_index_max ? d.uv_index_max[0] : 0;
-            var h = '<div class="nkw-now"><div><div class="nkw-ic">' + (W[c.weather_code] || '🌡️') + '</div><div class="nkw-t">' + Math.round(c.temperature_2m) + '<span>°C</span></div><div class="nkw-cd">' + (N[c.weather_code] || '') + '</div></div>';
-            h += '<div class="nkw-dt">';
-            h += '<div class="nkw-di">🌡️<b>' + c.apparent_temperature.toFixed(1) + '°</b><small>รู้สึกเหมือน</small></div>';
-            h += '<div class="nkw-di">💧<b>' + c.relative_humidity_2m + '%</b><small>ความชื้น</small></div>';
-            h += '<div class="nkw-di">💨<b>' + Math.round(c.wind_speed_10m) + ' km/h</b><small>ลม ' + wd(c.wind_direction_10m) + '</small></div>';
-            h += '<div class="nkw-di">☀️<b>' + uv.toFixed(1) + '</b><small>UV</small></div>';
-            h += '</div></div><div class="nkw-fc">';
-            for (var i = 1; i <= 5; i++) {
-                if (d.time[i]) {
-                    var fd = new Date(d.time[i] + 'T00:00:00'), rp = d.precipitation_probability_max ? d.precipitation_probability_max[i] : 0;
-                    h += '<div class="nkw-fd"><div class="di">' + D[fd.getDay()] + '</div><div class="fi">' + (W[d.weather_code[i]] || '🌡️') + '</div><span class="ft">' + Math.round(d.temperature_2m_max[i]) + '°</span> <span class="fl">' + Math.round(d.temperature_2m_min[i]) + '°</span>';
-                    if (rp > 0) h += '<div class="fr">💧' + rp + '%</div>'; h += '</div>';
-                }
-            }
-            h += '</div><div class="nkw-up">📍 นครปฐม | ' + n.getDate() + '/' + (n.getMonth() + 1) + '/' + (n.getFullYear() + 543) + ' ' + n.toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' }) + ' น. | <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></div>';
-            document.getElementById('nkw-c').innerHTML = h;
-        };
-        x.onerror = function () { e() };
-        x.send();
-        function e() { document.getElementById('nkw-c').innerHTML = '<p style="text-align:center;padding:20px;opacity:.6">⚠️ โหลดข้อมูลไม่ได้ <button onclick="location.reload()" style="background:#ffc107;border:none;padding:6px 16px;border-radius:20px;cursor:pointer;font-family:Kanit;margin-left:8px">ลองใหม่</button></p>' }
-    })();
-</script>
+<script>!function () { var W = { 0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️', 51: '🌦️', 53: '🌦️', 55: '🌧️', 61: '🌧️', 63: '🌧️', 65: '🌧️', 80: '🌦️', 81: '🌧️', 82: '⛈️', 95: '⛈️', 96: '⛈️', 99: '⛈️' }, N = { 0: 'แจ่มใส', 1: 'เกือบแจ่มใส', 2: 'เมฆบางส่วน', 3: 'เมฆมาก', 45: 'หมอก', 48: 'หมอก', 51: 'ฝนละออง', 53: 'ฝนละออง', 55: 'ฝนหนัก', 61: 'ฝนเล็กน้อย', 63: 'ฝนปานกลาง', 65: 'ฝนหนัก', 80: 'ฝนเป็นระยะ', 81: 'ฝนปานกลาง', 82: 'ฝนหนัก', 95: 'พายุฟ้าคะนอง', 96: 'พายุ+ลูกเห็บ', 99: 'พายุรุนแรง' }, D = ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'], x = new XMLHttpRequest; x.open('GET', 'https://api.open-meteo.com/v1/forecast?latitude=13.8196&longitude=100.0614&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FBangkok&forecast_days=6'); x.onload = function () { if (x.status != 200) return e(); try { var j = JSON.parse(x.responseText) } catch (er) { return e() } var c = j.current, d = j.daily, n = new Date, h = '<div class="nkw-n"><div><div class="nkw-i">' + (W[c.weather_code] || '🌡️') + '</div><div class="nkw-t">' + Math.round(c.temperature_2m) + '<span>°C</span></div><div class="nkw-c">' + (N[c.weather_code] || '') + '</div></div><div class="nkw-g"><div class="nkw-d">🌡️<b>' + c.apparent_temperature.toFixed(1) + '°</b><small>รู้สึกเหมือน</small></div><div class="nkw-d">💧<b>' + c.relative_humidity_2m + '%</b><small>ความชื้น</small></div><div class="nkw-d">💨<b>' + Math.round(c.wind_speed_10m) + ' km/h</b><small>ลม</small></div><div class="nkw-d">📊<b>' + Math.round(d.temperature_2m_min[0]) + '°-' + Math.round(d.temperature_2m_max[0]) + '°</b><small>ต่ำ-สูงสุด</small></div></div></div><div class="nkw-f">'; for (var i = 1; i <= 5; i++)if (d.time[i]) { var fd = new Date(d.time[i] + 'T00:00:00'), rp = d.precipitation_probability_max ? d.precipitation_probability_max[i] : 0; h += '<div class="nkw-x"><div>' + D[fd.getDay()] + '</div><div class="xi">' + (W[d.weather_code[i]] || '🌡️') + '</div><b>' + Math.round(d.temperature_2m_max[i]) + '°</b> <em>' + Math.round(d.temperature_2m_min[i]) + '°</em>'; if (rp > 0) h += '<div class="xr">💧' + rp + '%</div>'; h += '</div>' } h += '</div><div class="nkw-u">📍นครปฐม ' + n.getDate() + '/' + (n.getMonth() + 1) + '/' + (n.getFullYear() + 543) + ' | <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></div>'; document.getElementById('nkw-c').innerHTML = h }; x.onerror = function () { e() }; x.send(); function e() { document.getElementById('nkw-c').innerHTML = '<p style="text-align:center;padding:16px;opacity:.5">⚠️ โหลดไม่ได้ <button onclick="location.reload()" style="background:#ffc107;border:none;padding:4px 14px;border-radius:16px;cursor:pointer;font-family:Kanit">ลองใหม่</button></p>' } }();</script>
