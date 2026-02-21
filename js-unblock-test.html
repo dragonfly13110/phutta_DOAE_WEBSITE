@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทดสอบสคริปต์ (JavaScript Checker)</title>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: #f0f4f8;
+        }
+
+        .box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #status-box {
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            background: #ffebee;
+            color: #d32f2f;
+            border: 2px solid #ef5350;
+        }
+
+        .success {
+            background: #e8f5e9 !important;
+            color: #2e7d32 !important;
+            border-color: #66bb6a !important;
+        }
+
+        button {
+            background: #1976d2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: #1565c0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>ทดสอบการปลดบล็อก JavaScript</h2>
+        <p>นำโค้ดหน้านี้ไปวางใน WordPress ตรงส่วนที่ปกติโดนบล็อก ถ้าสคริปต์ทำงานได้
+            <strong>กล่องด้านล่างจะเปลี่ยนเป็นสีเขียวทันทีที่โหลดหน้าเว็บเสร็จ</strong> และสามารถกดปุ่มแจ้งเตือนได้</p>
+
+        <div id="status-box">
+            ❌ สคริปต์ยังไม่ทำงาน (หรือโดนบล็อกอยู่)
+        </div>
+
+        <button onclick="testClick()">กดปุ่มทดสอบคลิก</button>
+    </div>
+
+    <!-- สคริปต์ที่จะเอาไปทดสอบว่าโดนบล็อกไหม -->
+    <script>
+        // 1. ทำงานทันทีเมื่อโหลดหน้าเว็บ
+        document.addEventListener("DOMContentLoaded", function () {
+            var box = document.getElementById('status-box');
+            box.innerHTML = '✅ สคริปต์ทำงานได้ปกติ! WordPress ไม่ได้บล็อกแล้ว 🎉';
+            box.classList.add('success');
+            console.log("JavaScript is working!");
+        });
+
+        // 2. ทำงานเมื่อเกิด Event (การคลิก)
+        function testClick() {
+            alert("ปุ่มทำงานได้! แสดงว่า Script ทำงานสมบูรณ์ 100%");
+        }
+    </script>
+
+</body>
+
+</html>
