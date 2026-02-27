@@ -1,26 +1,24 @@
-<!-- 🔥 ULTRA PREMIUM NEWS SECTION - สำนักงานเกษตรอำเภอพุทธมณฑล 🔥 -->
-<!-- Theme: Green, White, Orange (Agriculture) -->
-<!-- 2 Columns Layout - 5 news each - Premium Glassmorphism + Animations -->
+<!-- 🎯 BENTO GRID NEWS SECTION - สำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- CSS-Only | No JavaScript | WordPress Compatible | Light Theme -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
 <style>
+    /* ═══ RESET ═══ */
     .news-wrapper * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
+        box-sizing: border-box
     }
 
-    /* ═══════════════════════════════════════════════════════
-       MAIN WRAPPER - Animated Background
-       ═══════════════════════════════════════════════════════ */
+    /* ═══ MAIN WRAPPER - Light Theme ═══ */
     .news-wrapper {
         font-family: 'Kanit', sans-serif;
-        background: linear-gradient(135deg, #f0f7e6 0%, #e8f5e9 25%, #f1f8e9 50%, #e0f2f1 75%, #f0f7e6 100%);
+        background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 25%, #f9fbe7 50%, #e8f5e9 75%, #f1f8e9 100%);
         background-size: 400% 400%;
-        animation: bgShift 15s ease infinite;
+        animation: bgShift 18s ease infinite;
         padding: 70px 20px 80px;
         position: relative;
         overflow: hidden;
@@ -28,525 +26,635 @@
 
     @keyframes bgShift {
         0% {
-            background-position: 0% 50%;
-        }
-
-        25% {
-            background-position: 50% 100%;
+            background-position: 0% 50%
         }
 
         50% {
-            background-position: 100% 50%;
-        }
-
-        75% {
-            background-position: 50% 0%;
+            background-position: 100% 50%
         }
 
         100% {
-            background-position: 0% 50%;
+            background-position: 0% 50%
         }
     }
 
-    /* Decorative floating particles */
-    .news-bg-particle {
+    /* ═══ BACKGROUND EFFECTS ═══ */
+    .news-bg-orb {
         position: absolute;
         border-radius: 50%;
+        filter: blur(80px);
         pointer-events: none;
-        z-index: 1;
+        z-index: 1
     }
 
-    .news-bg-particle-1 {
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(67, 160, 71, 0.08) 0%, transparent 70%);
+    .news-bg-orb-1 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(46, 125, 50, .08), transparent 70%);
         top: -150px;
         left: -100px;
-        animation: particleFloat1 12s ease-in-out infinite;
+        animation: orbFloat 12s ease-in-out infinite
     }
 
-    .news-bg-particle-2 {
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(circle, rgba(255, 152, 0, 0.06) 0%, transparent 70%);
+    .news-bg-orb-2 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(255, 152, 0, .06), transparent 70%);
         bottom: -100px;
         right: -80px;
-        animation: particleFloat2 10s ease-in-out infinite;
+        animation: orbFloat 10s ease-in-out infinite reverse
     }
 
-    .news-bg-particle-3 {
-        width: 200px;
-        height: 200px;
-        background: radial-gradient(circle, rgba(255, 193, 7, 0.07) 0%, transparent 70%);
-        top: 40%;
+    .news-bg-orb-3 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(76, 175, 80, .07), transparent 70%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: orbPulse 8s ease-in-out infinite
+    }
+
+    .news-bg-orb-4 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(255, 193, 7, .05), transparent 70%);
+        top: 20%;
         right: 10%;
-        animation: particleFloat3 8s ease-in-out infinite;
+        animation: orbFloat 14s ease-in-out infinite
     }
 
-    .news-bg-particle-4 {
-        width: 250px;
-        height: 250px;
-        background: radial-gradient(circle, rgba(76, 175, 80, 0.06) 0%, transparent 70%);
-        bottom: 20%;
-        left: 5%;
-        animation: particleFloat1 14s ease-in-out infinite reverse;
-    }
-
-    @keyframes particleFloat1 {
+    @keyframes orbFloat {
 
         0%,
         100% {
-            transform: translate(0, 0) scale(1) rotate(0deg);
-        }
-
-        33% {
-            transform: translate(40px, -30px) scale(1.1) rotate(5deg);
-        }
-
-        66% {
-            transform: translate(-20px, 20px) scale(0.95) rotate(-3deg);
-        }
-    }
-
-    @keyframes particleFloat2 {
-
-        0%,
-        100% {
-            transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1)
         }
 
         50% {
-            transform: translate(-30px, -40px) scale(1.15);
+            transform: translate(30px, -25px) scale(1.15)
         }
     }
 
-    @keyframes particleFloat3 {
+    @keyframes orbPulse {
 
         0%,
         100% {
-            transform: translate(0, 0) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+            opacity: .5
         }
 
         50% {
-            transform: translate(25px, 30px) scale(1.08);
+            transform: translate(-50%, -50%) scale(1.3);
+            opacity: .8
         }
     }
 
-    /* Mesh grid pattern overlay */
-    .news-mesh-overlay {
+    /* Grid pattern */
+    .news-grid-bg {
         position: absolute;
         inset: 0;
-        background-image:
-            linear-gradient(rgba(67, 160, 71, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(67, 160, 71, 0.03) 1px, transparent 1px);
-        background-size: 60px 60px;
-        z-index: 1;
+        z-index: 2;
         pointer-events: none;
+        background-image: linear-gradient(rgba(46, 125, 50, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(46, 125, 50, .04) 1px, transparent 1px);
+        background-size: 50px 50px;
     }
 
-    /* ═══════════════════════════════════════════════════════
-       CONTAINER
-       ═══════════════════════════════════════════════════════ */
+    /* Dot pattern overlay */
+    .news-noise {
+        position: absolute;
+        inset: 0;
+        opacity: .03;
+        z-index: 2;
+        pointer-events: none;
+        background-image: radial-gradient(circle, rgba(46, 125, 50, .15) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+
+    /* ═══ CONTAINER ═══ */
     .news-container {
         max-width: 1400px;
         margin: 0 auto;
         position: relative;
-        z-index: 10;
+        z-index: 10
     }
 
-    /* ═══════════════════════════════════════════════════════
-       HEADER - Animated Badge + Gradient Title
-       ═══════════════════════════════════════════════════════ */
+    /* ═══ HEADER ═══ */
     .news-header {
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 55px
     }
 
-    .news-header-badge {
+    /* Live indicator */
+    .news-live-badge {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c);
-        background-size: 200% 200%;
-        animation: badgeGradient 4s ease infinite;
-        color: white;
-        padding: 10px 28px;
+        background: linear-gradient(135deg, rgba(46, 125, 50, .1), rgba(76, 175, 80, .06));
+        border: 1px solid rgba(46, 125, 50, .18);
+        color: #2e7d32;
+        padding: 8px 22px;
         border-radius: 50px;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 500;
         letter-spacing: 2px;
         text-transform: uppercase;
-        margin-bottom: 22px;
-        box-shadow:
-            0 5px 20px rgba(27, 94, 32, 0.3),
-            0 0 0 4px rgba(46, 125, 50, 0.1);
-        position: relative;
-        overflow: hidden;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 12px rgba(46, 125, 50, .08);
     }
 
-    .news-header-badge::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 60%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        animation: shimmerBadge 3s ease-in-out infinite;
+    .news-live-dot {
+        width: 8px;
+        height: 8px;
+        background: #43a047;
+        border-radius: 50%;
+        animation: livePulse 1.5s ease-in-out infinite;
+        box-shadow: 0 0 8px rgba(67, 160, 71, .5)
     }
 
-    @keyframes badgeGradient {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 100% 50%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
-    @keyframes shimmerBadge {
-        0% {
-            left: -100%;
-        }
-
-        100% {
-            left: 200%;
-        }
-    }
-
-    .news-header-badge .badge-emoji {
-        font-size: 16px;
-        animation: emojiPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes emojiPulse {
+    @keyframes livePulse {
 
         0%,
         100% {
-            transform: scale(1);
+            opacity: 1;
+            transform: scale(1)
         }
 
         50% {
-            transform: scale(1.2);
+            opacity: .4;
+            transform: scale(.7)
         }
     }
 
     .news-header h2 {
-        font-size: 40px;
+        font-size: 42px;
         font-weight: 800;
-        margin-bottom: 15px;
-        position: relative;
-        display: inline-block;
+        margin-bottom: 16px;
         background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c, #43a047);
-        background-size: 200% 200%;
+        background-size: 300% 300%;
+        animation: titleShift 6s ease infinite;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        animation: titleGradient 4s ease infinite;
+    }
+
+    @keyframes titleShift {
+        0% {
+            background-position: 0% 50%
+        }
+
+        50% {
+            background-position: 100% 50%
+        }
+
+        100% {
+            background-position: 0% 50%
+        }
     }
 
     .news-header h2::after {
         content: '';
         position: absolute;
-        bottom: -12px;
+        bottom: -14px;
         left: 50%;
         transform: translateX(-50%);
-        width: 100px;
-        height: 4px;
-        background: linear-gradient(90deg, transparent, #f57c00, #ffc107, #f57c00, transparent);
-        border-radius: 4px;
-        animation: lineGlow 2s ease-in-out infinite;
-    }
-
-    @keyframes titleGradient {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 100% 50%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
+        width: 80px;
+        height: 3px;
+        border-radius: 3px;
+        background: linear-gradient(90deg, transparent, #f57c00, #ff9800, #f57c00, transparent);
+        animation: lineGlow 3s ease-in-out infinite;
     }
 
     @keyframes lineGlow {
 
         0%,
         100% {
-            opacity: 0.6;
-            width: 80px;
+            width: 60px;
+            opacity: .5
         }
 
         50% {
-            opacity: 1;
             width: 120px;
+            opacity: 1
         }
     }
 
-    .news-header-subtitle {
+    .news-header-sub {
         color: #558b2f;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 400;
-        margin-top: 22px;
-        letter-spacing: 0.5px;
+        letter-spacing: .5px;
+        margin-top: 20px
     }
 
-    /* ═══════════════════════════════════════════════════════
-       CARD WRAPPER - Premium Glassmorphism
-       ═══════════════════════════════════════════════════════ */
-    .news-card-wrapper {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-        border-radius: 28px;
-        padding: 40px;
-        box-shadow:
-            0 20px 60px rgba(27, 94, 32, 0.08),
-            0 8px 25px rgba(0, 0, 0, 0.04),
-            inset 0 1px 0 rgba(255, 255, 255, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.5);
+    /* ═══ CSS-ONLY TAB SYSTEM ═══ */
+    .news-tab-input {
+        display: none
+    }
+
+    .news-tab-bar {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 40px;
+        flex-wrap: wrap
+    }
+
+    .news-tab-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 28px;
+        border-radius: 14px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: .5px;
+        background: rgba(255, 255, 255, .5);
+        border: 1px solid rgba(46, 125, 50, .1);
+        color: #689f38;
+        transition: all .4s cubic-bezier(.175, .885, .32, 1.275);
+        backdrop-filter: blur(10px);
         position: relative;
         overflow: hidden;
-        transition: all 0.5s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
     }
 
-    .news-card-wrapper:hover {
-        box-shadow:
-            0 25px 70px rgba(27, 94, 32, 0.12),
-            0 10px 30px rgba(0, 0, 0, 0.06),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    .news-tab-label:hover {
+        color: #2e7d32;
+        background: rgba(255, 255, 255, .8);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(46, 125, 50, .1)
+    }
+
+    .news-tab-label::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 14px;
+        padding: 1px;
+        background: linear-gradient(135deg, transparent, transparent);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        transition: background .4s ease;
+    }
+
+    .news-tab-emoji {
+        font-size: 18px
+    }
+
+    /* Active tab states */
+    #tab-all:checked~.news-tab-bar .tab-label-all,
+    #tab-activities:checked~.news-tab-bar .tab-label-activities,
+    #tab-meetings:checked~.news-tab-bar .tab-label-meetings {
+        color: #fff;
+        background: linear-gradient(135deg, #2e7d32, #43a047);
+        border-color: #2e7d32;
+        box-shadow: 0 6px 25px rgba(46, 125, 50, .25), 0 0 0 3px rgba(76, 175, 80, .1);
         transform: translateY(-2px);
     }
 
-    /* Animated corner accents */
-    .news-card-wrapper::before {
+    #tab-all:checked~.news-tab-bar .tab-label-all::before,
+    #tab-activities:checked~.news-tab-bar .tab-label-activities::before,
+    #tab-meetings:checked~.news-tab-bar .tab-label-meetings::before {
+        background: linear-gradient(135deg, rgba(255, 255, 255, .3), rgba(255, 255, 255, .1));
+    }
+
+    /* Tab content visibility */
+    .news-tab-content {
+        display: none
+    }
+
+    #tab-all:checked~.news-bento-zone .tab-content-all,
+    #tab-activities:checked~.news-bento-zone .tab-content-activities,
+    #tab-meetings:checked~.news-bento-zone .tab-content-meetings {
+        display: block
+    }
+
+    /* ═══ BENTO GRID ZONE ═══ */
+    .news-bento-zone {
+        position: relative;
+        z-index: 10
+    }
+
+    .news-bento-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px
+    }
+
+    /* ═══ BENTO CARD - Light Glassmorphism ═══ */
+    .bento-card {
+        background: rgba(255, 255, 255, .7);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-radius: 24px;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(46, 125, 50, .08);
+        transition: all .5s cubic-bezier(.175, .885, .32, 1.275);
+        box-shadow: 0 8px 32px rgba(27, 94, 32, .06), 0 2px 8px rgba(0, 0, 0, .03), inset 0 1px 0 rgba(255, 255, 255, .8);
+    }
+
+    /* Animated gradient border */
+    .bento-card::before {
         content: '';
         position: absolute;
-        top: -2px;
-        left: -2px;
-        width: 120px;
-        height: 120px;
-        background: linear-gradient(135deg, rgba(46, 125, 50, 0.15), transparent 70%);
-        border-radius: 28px 0 0 0;
-        pointer-events: none;
+        inset: 0;
+        border-radius: 24px;
+        padding: 1.5px;
+        z-index: 0;
+        background: linear-gradient(135deg, rgba(46, 125, 50, .25), rgba(255, 193, 7, .15), rgba(67, 160, 71, .1), rgba(245, 124, 0, .2));
+        background-size: 300% 300%;
+        animation: borderShift 6s ease infinite;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
     }
 
-    .news-card-wrapper::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        right: -2px;
-        width: 150px;
-        height: 150px;
-        background: linear-gradient(315deg, rgba(255, 152, 0, 0.1), transparent 70%);
-        border-radius: 0 0 28px 0;
-        pointer-events: none;
-    }
-
-    /* Shine sweep on wrapper */
-    .news-card-shine {
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
-        z-index: 1;
-        pointer-events: none;
-        animation: cardShineSweep 8s ease-in-out infinite 1s;
-    }
-
-    @keyframes cardShineSweep {
+    @keyframes borderShift {
         0% {
-            left: -100%;
-        }
-
-        25% {
-            left: 150%;
-        }
-
-        100% {
-            left: 150%;
-        }
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       INNER CARD - Dashed Border + Gradient BG
-       ═══════════════════════════════════════════════════════ */
-    .news-card-inner {
-        position: relative;
-        z-index: 5;
-        padding: 25px;
-        border: 2px dashed rgba(67, 160, 71, 0.18);
-        border-radius: 20px;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(248, 255, 248, 0.8) 100%);
-        min-height: 300px;
-        transition: border-color 0.3s ease;
-    }
-
-    .news-card-inner:hover {
-        border-color: rgba(67, 160, 71, 0.3);
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       SECTION LABEL - Premium Style
-       ═══════════════════════════════════════════════════════ */
-    .news-section-label {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        color: #2e7d32;
-        padding-bottom: 18px;
-        margin-bottom: 25px;
-        border-bottom: 2px solid transparent;
-        border-image: linear-gradient(90deg, transparent, rgba(67, 160, 71, 0.25), rgba(255, 152, 0, 0.15), transparent) 1;
-        position: relative;
-    }
-
-    .news-section-label::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(90deg, #2e7d32, #43a047);
-        border-radius: 3px;
-        animation: labelLine 3s ease-in-out infinite;
-    }
-
-    @keyframes labelLine {
-
-        0%,
-        100% {
-            width: 60px;
-            opacity: 1;
+            background-position: 0% 50%
         }
 
         50% {
-            width: 100px;
-            opacity: 0.7;
+            background-position: 100% 50%
+        }
+
+        100% {
+            background-position: 0% 50%
         }
     }
 
-    .news-section-label .label-title {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 22px;
-        font-weight: 700;
+    .bento-card:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 20px 60px rgba(27, 94, 32, .1), 0 8px 25px rgba(0, 0, 0, .05), inset 0 1px 0 rgba(255, 255, 255, .9);
+        border-color: rgba(46, 125, 50, .15);
     }
 
-    .news-section-label .label-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        flex-shrink: 0;
-    }
-
-    .news-section-label .label-icon.green-icon {
-        background: linear-gradient(135deg, rgba(46, 125, 50, 0.15), rgba(76, 175, 80, 0.1));
-        border: 1px solid rgba(46, 125, 50, 0.2);
-    }
-
-    .news-section-label .label-subtitle {
-        font-size: 14px;
-        font-weight: 400;
-        color: #689f38;
-        margin-left: 46px;
-        letter-spacing: 0.3px;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       COLUMN HEADERS - Individual Category Styling
-       ═══════════════════════════════════════════════════════ */
-    .news-col-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 12px 20px;
-        border-radius: 14px;
-        margin-bottom: 18px;
-        font-weight: 700;
-        font-size: 18px;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-
-    .news-col-header::after {
+    /* Shimmer sweep */
+    .bento-card::after {
         content: '';
         position: absolute;
         top: 0;
         left: -100%;
         width: 50%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-        animation: colHeaderShine 5s ease-in-out infinite;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .3), transparent);
+        z-index: 1;
+        pointer-events: none;
+        animation: shimmer 8s ease-in-out infinite 1s;
     }
 
-    @keyframes colHeaderShine {
+    @keyframes shimmer {
         0% {
-            left: -100%;
+            left: -100%
         }
 
-        30% {
-            left: 150%;
+        25% {
+            left: 150%
         }
 
         100% {
-            left: 150%;
+            left: 150%
         }
     }
 
-    .news-col-header.col-activities {
-        background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(76, 175, 80, 0.06));
-        color: #1b5e20;
-        border: 1px solid rgba(46, 125, 50, 0.15);
-    }
-
-    .news-col-header.col-meetings {
-        background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 193, 7, 0.06));
-        color: #e65100;
-        border: 1px solid rgba(255, 152, 0, 0.15);
-    }
-
-    .news-col-header:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-    }
-
-    .col-header-emoji {
-        font-size: 22px;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       NEWS CONTENT AREA
-       ═══════════════════════════════════════════════════════ */
-    .news-content-area {
+    /* Card inner content */
+    .bento-card-inner {
         position: relative;
-        z-index: 10;
+        z-index: 5;
+        padding: 30px
     }
 
-    /* ═══════════════════════════════════════════════════════
-       VIEW ALL BUTTON - Premium Gradient + Hover Effects
-       ═══════════════════════════════════════════════════════ */
+    /* Category pill */
+    .bento-cat-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    .bento-cat-pill.cat-green {
+        background: rgba(46, 125, 50, .08);
+        color: #2e7d32;
+        border: 1px solid rgba(46, 125, 50, .15)
+    }
+
+    .bento-cat-pill.cat-orange {
+        background: rgba(245, 124, 0, .08);
+        color: #e65100;
+        border: 1px solid rgba(245, 124, 0, .15)
+    }
+
+    /* Column header */
+    .bento-col-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 14px;
+    }
+
+    .bento-col-header.header-green {
+        color: #1b5e20
+    }
+
+    .bento-col-header.header-orange {
+        color: #e65100
+    }
+
+    .bento-col-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        border-radius: 2px;
+        animation: headerLine 4s ease-in-out infinite;
+    }
+
+    .bento-col-header.header-green::after {
+        width: 50px;
+        background: linear-gradient(90deg, #2e7d32, rgba(67, 160, 71, .3), transparent)
+    }
+
+    .bento-col-header.header-orange::after {
+        width: 50px;
+        background: linear-gradient(90deg, #f57c00, rgba(255, 152, 0, .3), transparent)
+    }
+
+    @keyframes headerLine {
+
+        0%,
+        100% {
+            width: 50px;
+            opacity: .7
+        }
+
+        50% {
+            width: 90px;
+            opacity: 1
+        }
+    }
+
+    .bento-col-icon {
+        font-size: 24px
+    }
+
+    /* Inner glow effect */
+    .bento-card-glow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        filter: blur(60px);
+        pointer-events: none;
+        z-index: 0;
+        opacity: .3;
+    }
+
+    .glow-green {
+        background: rgba(200, 230, 201, .6)
+    }
+
+    .glow-orange {
+        background: rgba(255, 224, 178, .5)
+    }
+
+    /* ═══ GUTENTOR OVERRIDES (Light Theme) ═══ */
+    .news-bento-zone .gutentor-post-title,
+    .news-bento-zone .gutentor-post-title a,
+    .news-bento-zone .entry-title,
+    .news-bento-zone .entry-title a {
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        line-height: 1.6 !important;
+        color: #2e3a28 !important;
+        transition: all .3s ease !important;
+    }
+
+    .news-bento-zone .gutentor-post-title a:hover,
+    .news-bento-zone .entry-title a:hover {
+        color: #2e7d32 !important
+    }
+
+    .news-bento-zone .gutentor-post-content,
+    .news-bento-zone .gutentor-post-desc,
+    .news-bento-zone .entry-content,
+    .news-bento-zone .entry-summary,
+    .news-bento-zone p {
+        font-size: 13px !important;
+        line-height: 1.7 !important;
+        color: #555 !important
+    }
+
+    .news-bento-zone .gutentor-post-featured-image,
+    .news-bento-zone .gutentor-post-image-box,
+    .news-bento-zone .gutentor-blog-post-image,
+    .news-bento-zone .post-thumbnail,
+    .news-bento-zone .gutentor-post-featured-image img,
+    .news-bento-zone .post-thumbnail img {
+        width: 250px !important;
+        height: 180px !important;
+        min-width: 250px !important;
+        object-fit: cover !important;
+        border-radius: 12px !important;
+        transition: all .4s ease !important;
+        border: 1px solid rgba(46, 125, 50, .08) !important;
+    }
+
+    .news-bento-zone .gutentor-post-featured-image img:hover,
+    .news-bento-zone .post-thumbnail img:hover {
+        transform: scale(1.04) !important;
+        box-shadow: 0 8px 25px rgba(27, 94, 32, .12) !important;
+        border-color: rgba(46, 125, 50, .15) !important;
+    }
+
+    .news-bento-zone .gutentor-post-image-box,
+    .news-bento-zone .gutentor-blog-post-image {
+        max-width: 250px !important;
+        flex-shrink: 0 !important;
+        overflow: hidden !important;
+        border-radius: 12px !important
+    }
+
+    .news-bento-zone .gutentor-post-item,
+    .news-bento-zone .gutentor-blog-post {
+        margin-bottom: 16px !important;
+        padding-bottom: 16px !important;
+        border-bottom: 1px solid rgba(46, 125, 50, .06);
+        transition: all .3s ease;
+    }
+
+    .news-bento-zone .gutentor-post-item:hover,
+    .news-bento-zone .gutentor-blog-post:hover {
+        background: rgba(232, 245, 233, .4);
+        border-radius: 12px;
+        padding-left: 10px !important;
+    }
+
+    .news-bento-zone .gutentor-post-item:last-child,
+    .news-bento-zone .gutentor-blog-post:last-child {
+        border-bottom: none;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important
+    }
+
+    .news-bento-zone .gutentor-post-meta,
+    .news-bento-zone .entry-meta {
+        font-size: 11px !important;
+        color: #689f38 !important;
+        font-weight: 400 !important
+    }
+
+    /* ═══ AVATAR/OVERLAY TEXT ON IMAGES ═══ */
+    .news-bento-zone .gutentor-avatar-info,
+    .news-bento-zone .g-avatar-img-t-l,
+    .news-bento-zone .gutentor-post-avatar,
+    .news-bento-zone .gutentor-avatar {
+        font-size: 7px !important;
+        line-height: 1.2 !important;
+    }
+
+    .news-bento-zone .gutentor-avatar-info *,
+    .news-bento-zone .gutentor-post-avatar *,
+    .news-bento-zone .gutentor-avatar * {
+        font-size: 7px !important;
+        line-height: 1.2 !important;
+    }
+
+    .news-bento-zone .gutentor-post-category,
+    .news-bento-zone .gutentor-post-categories,
+    .news-bento-zone .gutentor-cat-list {
+        font-size: 6px !important;
+        line-height: 1.1 !important;
+        padding: 1px 4px !important;
+    }
+
+    .news-bento-zone .gutentor-post-category a,
+    .news-bento-zone .gutentor-post-categories a,
+    .news-bento-zone .gutentor-cat-list a {
+        font-size: 6px !important;
+    }
+
+    /* ═══ VIEW ALL BUTTON ═══ */
     .news-view-all {
         text-align: center;
-        margin-top: 35px;
+        margin-top: 45px
     }
 
     .news-view-all a {
@@ -556,18 +664,16 @@
         background: linear-gradient(135deg, #e65100, #f57c00, #ff9800);
         background-size: 200% 200%;
         color: white;
-        padding: 14px 38px;
+        padding: 14px 36px;
         border-radius: 50px;
         font-size: 15px;
         font-weight: 600;
         text-decoration: none;
-        letter-spacing: 0.5px;
-        box-shadow:
-            0 8px 25px rgba(245, 124, 0, 0.3),
-            0 0 0 4px rgba(255, 152, 0, 0.1);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        letter-spacing: .5px;
         position: relative;
         overflow: hidden;
+        transition: all .4s cubic-bezier(.175, .885, .32, 1.275);
+        box-shadow: 0 6px 25px rgba(245, 124, 0, .25), 0 0 0 3px rgba(255, 152, 0, .08);
     }
 
     .news-view-all a::before {
@@ -577,47 +683,43 @@
         left: -100%;
         width: 60%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-        transition: left 0.6s ease;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .25), transparent);
+        transition: left .6s ease;
     }
 
     .news-view-all a:hover::before {
-        left: 150%;
+        left: 150%
     }
 
     .news-view-all a:hover {
         transform: translateY(-4px) scale(1.03);
-        box-shadow:
-            0 15px 40px rgba(245, 124, 0, 0.35),
-            0 0 0 6px rgba(255, 152, 0, 0.15);
+        box-shadow: 0 15px 40px rgba(245, 124, 0, .3), 0 0 0 5px rgba(255, 152, 0, .12);
         background-position: 100% 50%;
     }
 
     .news-view-all a .btn-icon {
         display: flex;
         align-items: center;
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform .4s ease
     }
 
     .news-view-all a:hover .btn-icon {
-        transform: translateX(6px);
+        transform: translateX(6px)
     }
 
     .news-view-all a svg {
         width: 18px;
         height: 18px;
-        fill: white;
+        fill: white
     }
 
-    /* ═══════════════════════════════════════════════════════
-       BOTTOM DECORATION - Animated
-       ═══════════════════════════════════════════════════════ */
+    /* ═══ BOTTOM DECORATION ═══ */
     .news-bottom-decor {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 18px;
-        margin-top: 50px;
+        margin-top: 50px
     }
 
     .news-decor-line {
@@ -625,428 +727,289 @@
         height: 2px;
         background: linear-gradient(90deg, transparent, #a5d6a7, #81c784, #a5d6a7, transparent);
         border-radius: 2px;
-        animation: decorLineExpand 3s ease-in-out infinite;
+        animation: dLine 3s ease-in-out infinite
     }
 
-    @keyframes decorLineExpand {
+    @keyframes dLine {
 
         0%,
         100% {
-            width: 80px;
-            opacity: 0.6;
+            width: 60px;
+            opacity: .4
         }
 
         50% {
-            width: 110px;
-            opacity: 1;
+            width: 100px;
+            opacity: .8
         }
     }
 
-    .news-decor-icon {
-        width: 44px;
-        height: 44px;
-        background: linear-gradient(135deg, #2e7d32, #43a047, #66bb6a);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow:
-            0 6px 20px rgba(46, 125, 50, 0.3),
-            0 0 0 4px rgba(46, 125, 50, 0.1);
-        animation: decorIconPulse 3s ease-in-out infinite;
-        position: relative;
+    .news-decor-diamond {
+        width: 12px;
+        height: 12px;
+        background: linear-gradient(135deg, #2e7d32, #43a047);
+        transform: rotate(45deg);
+        border-radius: 2px;
+        animation: diamondPulse 3s ease-in-out infinite;
+        box-shadow: 0 0 15px rgba(46, 125, 50, .2);
     }
 
-    .news-decor-icon::before {
-        content: '';
-        position: absolute;
-        inset: -6px;
-        border-radius: 50%;
-        border: 2px solid rgba(46, 125, 50, 0.15);
-        animation: decorRing 3s ease-in-out infinite;
-    }
-
-    @keyframes decorIconPulse {
+    @keyframes diamondPulse {
 
         0%,
         100% {
-            transform: scale(1);
+            transform: rotate(45deg) scale(1);
+            opacity: .6
         }
 
         50% {
-            transform: scale(1.05);
+            transform: rotate(45deg) scale(1.3);
+            opacity: 1
         }
     }
 
-    @keyframes decorRing {
-
-        0%,
-        100% {
-            transform: scale(1);
-            opacity: 0.5;
-        }
-
-        50% {
-            transform: scale(1.2);
-            opacity: 0;
-        }
-    }
-
-    .news-decor-icon .decor-emoji {
-        font-size: 20px;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       CSS-ONLY ENTRANCE ANIMATION (no JavaScript needed)
-       ═══════════════════════════════════════════════════════ */
+    /* ═══ ENTRANCE ANIMATION ═══ */
     .news-reveal {
-        animation: newsFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation: bentoIn .8s cubic-bezier(.16, 1, .3, 1) both
     }
 
-    .news-reveal-delay-1 {
-        animation-delay: 0.1s;
+    .news-reveal-d1 {
+        animation-delay: .1s
     }
 
-    .news-reveal-delay-2 {
-        animation-delay: 0.2s;
+    .news-reveal-d2 {
+        animation-delay: .2s
     }
 
-    .news-reveal-delay-3 {
-        animation-delay: 0.3s;
+    .news-reveal-d3 {
+        animation-delay: .3s
     }
 
-    .news-reveal-delay-4 {
-        animation-delay: 0.4s;
+    .news-reveal-d4 {
+        animation-delay: .4s
     }
 
-    .news-reveal-delay-5 {
-        animation-delay: 0.5s;
-    }
-
-    @keyframes newsFadeIn {
+    @keyframes bentoIn {
         from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(30px) scale(.97)
         }
 
         to {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1)
         }
     }
 
-    /* ═══════════════════════════════════════════════════════
-       GUTENTOR POST BLOCK STYLE OVERRIDES
-       ═══════════════════════════════════════════════════════ */
-
-    /* หัวข้อข่าว */
-    .news-content-area .gutentor-post-title,
-    .news-content-area .gutentor-post-title a,
-    .news-content-area .entry-title,
-    .news-content-area .entry-title a {
-        font-size: 16px !important;
-        font-weight: 600 !important;
-        line-height: 1.5 !important;
-        color: #2e3a28 !important;
-        transition: color 0.3s ease !important;
-    }
-
-    .news-content-area .gutentor-post-title a:hover,
-    .news-content-area .entry-title a:hover {
-        color: #2e7d32 !important;
-    }
-
-    /* เนื้อหาข่าว */
-    .news-content-area .gutentor-post-content,
-    .news-content-area .gutentor-post-desc,
-    .news-content-area .entry-content,
-    .news-content-area .entry-summary,
-    .news-content-area p {
-        font-size: 14px !important;
-        line-height: 1.7 !important;
-        color: #555 !important;
-    }
-
-    /* รูปภาพ */
-    .news-content-area .gutentor-post-featured-image,
-    .news-content-area .gutentor-post-image-box,
-    .news-content-area .gutentor-blog-post-image,
-    .news-content-area .post-thumbnail,
-    .news-content-area .gutentor-post-featured-image img,
-    .news-content-area .post-thumbnail img {
-        width: 220px !important;
-        height: 165px !important;
-        min-width: 220px !important;
-        object-fit: cover !important;
-        border-radius: 10px !important;
-        transition: all 0.4s ease !important;
-    }
-
-    .news-content-area .gutentor-post-featured-image img:hover,
-    .news-content-area .post-thumbnail img:hover {
-        transform: scale(1.03) !important;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
-    }
-
-    /* Container ของรูป */
-    .news-content-area .gutentor-post-image-box,
-    .news-content-area .gutentor-blog-post-image {
-        max-width: 220px !important;
-        flex-shrink: 0 !important;
-        overflow: hidden !important;
-        border-radius: 10px !important;
-    }
-
-    /* ระยะห่างระหว่างข่าว */
-    .news-content-area .gutentor-post-item,
-    .news-content-area .gutentor-blog-post {
-        margin-bottom: 18px !important;
-        padding-bottom: 18px !important;
-        border-bottom: 1px solid rgba(67, 160, 71, 0.08);
-        transition: all 0.3s ease;
-    }
-
-    .news-content-area .gutentor-post-item:hover,
-    .news-content-area .gutentor-blog-post:hover {
-        background: rgba(46, 125, 50, 0.03);
-        border-radius: 10px;
-        padding-left: 8px !important;
-    }
-
-    .news-content-area .gutentor-post-item:last-child,
-    .news-content-area .gutentor-blog-post:last-child {
-        border-bottom: none;
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-    }
-
-    /* Meta info style */
-    .news-content-area .gutentor-post-meta,
-    .news-content-area .entry-meta {
-        font-size: 12px !important;
-        color: #689f38 !important;
-        font-weight: 400 !important;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       RESPONSIVE DESIGN
-       ═══════════════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:1024px) {
         .news-wrapper {
-            padding: 55px 15px 65px;
-        }
-
-        .news-card-wrapper {
-            padding: 30px;
-            border-radius: 22px;
+            padding: 55px 15px 65px
         }
 
         .news-header h2 {
-            font-size: 34px;
+            font-size: 34px
+        }
+
+        .bento-card-inner {
+            padding: 24px
         }
     }
 
-    @media (max-width: 768px) {
+    @media(max-width:768px) {
         .news-wrapper {
-            padding: 40px 12px 50px;
+            padding: 40px 12px 50px
         }
 
         .news-header h2 {
-            font-size: 28px;
+            font-size: 28px
         }
 
-        .news-header-subtitle {
-            font-size: 14px;
+        .news-header-sub {
+            font-size: 13px
         }
 
-        .news-card-wrapper {
-            padding: 20px;
-            border-radius: 18px;
+        .news-bento-grid {
+            grid-template-columns: 1fr;
+            gap: 18px
         }
 
-        .news-card-inner {
-            padding: 16px;
-            border-radius: 14px;
+        .bento-card-inner {
+            padding: 18px
         }
 
-        .news-header-badge {
-            font-size: 11px;
-            padding: 8px 20px;
+        .news-tab-label {
+            padding: 10px 20px;
+            font-size: 13px
+        }
+
+        .news-bento-zone .gutentor-post-featured-image,
+        .news-bento-zone .gutentor-post-image-box,
+        .news-bento-zone .gutentor-blog-post-image,
+        .news-bento-zone .post-thumbnail,
+        .news-bento-zone .gutentor-post-featured-image img,
+        .news-bento-zone .post-thumbnail img {
+            width: 150px !important;
+            height: 112px !important;
+            min-width: 150px !important
+        }
+
+        .news-bento-zone .gutentor-post-image-box,
+        .news-bento-zone .gutentor-blog-post-image {
+            max-width: 150px !important
         }
 
         .news-view-all a {
             padding: 12px 28px;
-            font-size: 14px;
-        }
-
-        .news-bottom-decor {
-            margin-top: 35px;
-        }
-
-        .news-decor-line {
-            width: 50px;
-        }
-
-        .news-decor-icon {
-            width: 38px;
-            height: 38px;
-        }
-
-        .news-col-header {
-            font-size: 16px;
-            padding: 10px 16px;
-        }
-
-        .news-section-label .label-title {
-            font-size: 19px;
-        }
-
-        .news-section-label .label-subtitle {
-            margin-left: 0;
-            font-size: 13px;
-        }
-
-        .news-content-area .gutentor-post-featured-image,
-        .news-content-area .gutentor-post-image-box,
-        .news-content-area .gutentor-blog-post-image,
-        .news-content-area .post-thumbnail,
-        .news-content-area .gutentor-post-featured-image img,
-        .news-content-area .post-thumbnail img {
-            width: 160px !important;
-            height: 120px !important;
-            min-width: 160px !important;
-        }
-
-        .news-content-area .gutentor-post-image-box,
-        .news-content-area .gutentor-blog-post-image {
-            max-width: 160px !important;
+            font-size: 14px
         }
     }
 
-    @media (max-width: 480px) {
+    @media(max-width:480px) {
         .news-wrapper {
-            padding: 30px 10px 40px;
+            padding: 30px 10px 40px
         }
 
         .news-header h2 {
-            font-size: 24px;
+            font-size: 24px
         }
 
-        .news-card-wrapper {
-            padding: 14px;
-            border-radius: 14px;
+        .bento-card {
+            border-radius: 18px
         }
 
-        .news-card-inner {
-            padding: 12px;
-            border-radius: 10px;
+        .bento-card-inner {
+            padding: 14px
         }
 
-        .news-col-header {
-            font-size: 14px;
-            padding: 8px 12px;
-            border-radius: 10px;
+        .bento-col-header {
+            font-size: 17px
         }
 
-        .news-section-label .label-title {
-            font-size: 17px;
+        .news-tab-label {
+            padding: 8px 16px;
+            font-size: 12px;
+            border-radius: 10px
         }
 
         .news-view-all a {
             padding: 11px 22px;
-            font-size: 13px;
+            font-size: 13px
         }
     }
 </style>
 
 <section class="news-wrapper">
-    <!-- Background particles -->
-    <div class="news-bg-particle news-bg-particle-1"></div>
-    <div class="news-bg-particle news-bg-particle-2"></div>
-    <div class="news-bg-particle news-bg-particle-3"></div>
-    <div class="news-bg-particle news-bg-particle-4"></div>
-    <div class="news-mesh-overlay"></div>
+    <!-- Background effects -->
+    <div class="news-bg-orb news-bg-orb-1"></div>
+    <div class="news-bg-orb news-bg-orb-2"></div>
+    <div class="news-bg-orb news-bg-orb-3"></div>
+    <div class="news-bg-orb news-bg-orb-4"></div>
+    <div class="news-noise"></div>
+    <div class="news-grid-bg"></div>
 
     <div class="news-container">
-        <!-- ═══ Decorative Header ═══ -->
+        <!-- ═══ Header ═══ -->
         <div class="news-header news-reveal">
-            <div class="news-header-badge">
-                <span class="badge-emoji">📰</span>
-                ข่าวสาร
-                <span class="badge-emoji">✨</span>
+            <div class="news-live-badge">
+                <span class="news-live-dot"></span>
+                อัปเดตล่าสุด
             </div>
-            <h2>ข่าวประชาสัมพันธ์</h2>
-            <p class="news-header-subtitle">ติดตามความเคลื่อนไหวและกิจกรรมล่าสุดจากสำนักงานเกษตรอำเภอพุทธมณฑล</p>
+            <h2 style="position:relative;display:inline-block">ข่าวประชาสัมพันธ์</h2>
+            <p class="news-header-sub">ติดตามความเคลื่อนไหวและกิจกรรมล่าสุดจากสำนักงานเกษตรอำเภอพุทธมณฑล</p>
         </div>
 
-        <!-- ═══ Main Card Wrapper ═══ -->
-        <div class="news-card-wrapper news-reveal news-reveal-delay-1">
-            <div class="news-card-shine"></div>
+        <!-- ═══ CSS-Only Tab System ═══ -->
+        <input type="radio" name="news-tab" id="tab-all" class="news-tab-input" checked>
+        <input type="radio" name="news-tab" id="tab-activities" class="news-tab-input">
+        <input type="radio" name="news-tab" id="tab-meetings" class="news-tab-input">
 
-            <div class="news-card-inner">
-                <!-- Section Label -->
-                <div class="news-section-label">
-                    <div class="label-title">
-                        <div class="label-icon green-icon">📋</div>
-                        ข่าวล่าสุด
-                    </div>
-                    <div class="label-subtitle">ติดตามความเคลื่อนไหวและกิจกรรมล่าสุดจากสำนักงานเกษตรอำเภอพุทธมณฑล</div>
-                </div>
+        <div class="news-tab-bar news-reveal news-reveal-d1">
+            <label for="tab-all" class="news-tab-label tab-label-all">
+                <span class="news-tab-emoji">📰</span> ทั้งหมด
+            </label>
+            <label for="tab-activities" class="news-tab-label tab-label-activities">
+                <span class="news-tab-emoji">🌾</span> กิจกรรมส่งเสริม
+            </label>
+            <label for="tab-meetings" class="news-tab-label tab-label-meetings">
+                <span class="news-tab-emoji">🤝</span> ประชุม / พิธีการ
+            </label>
+        </div>
 
-                <!-- ============================================ -->
-                <!-- 📰 WORDPRESS DYNAMIC NEWS - 2 COLUMNS -->
-                <!-- ============================================ -->
-                <div class="news-content-area">
+        <!-- ═══ Bento Grid Zone ═══ -->
+        <div class="news-bento-zone">
 
-                    <!-- wp:gutentor/advanced-columns {"blockID":"news-2col-wrapper","gutentorBlockName":"gutentor/advanced-columns","columns":2,"desktopLayout":"sixSix","blockComponentBGType":"color","blockComponentBGColor":{"rgb":{"r":255,"g":255,"b":255,"a":0}},"blockComponentMargin":{"type":"px"},"blockComponentPadding":{"type":"px"}} -->
-                    <section id="section-news-2col-wrapper"
-                        class="wp-block-gutentor-advanced-columns gutentor-section gutentor-advanced-columns">
-                        <div class="grid-container">
-                            <div class="grid-row">
+            <!-- ====== TAB: ALL ====== -->
+            <div class="news-tab-content tab-content-all">
+                <div class="news-bento-grid">
 
-                                <!-- wp:gutentor/single-column {"blockID":"news-col-left","gutentorBlockName":"gutentor/single-column","columns":2,"desktopLayout":"sixSix","layoutIndex":0,"desktopLayoutColumn":6,"columnWidth":50,"blockComponentMargin":{"type":"px"},"blockSectionHtmlTag":"div"} -->
-                                <div id="section-news-col-left"
-                                    class="wp-block-gutentor-single-column gutentor-single-column grid-lg-6 grid-md-12 grid-12">
-
-                                    <!-- Column Header -->
-                                    <div class="news-col-header col-activities">
-                                        <span class="col-header-emoji">🌾</span>
-                                        กิจกรรมส่งเสริมการเกษตร
-                                    </div>
-
-                                    <!-- wp:gutentor/p1 {"gID":"g-news-col1","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"กิจกรรมส่งเสริมการเกษตร","value":5}],"pPostNum":5,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
-
-                                </div>
-                                <!-- /wp:gutentor/single-column -->
-
-                                <!-- wp:gutentor/single-column {"blockID":"news-col-right","gutentorBlockName":"gutentor/single-column","columns":2,"desktopLayout":"sixSix","layoutIndex":1,"desktopLayoutColumn":6,"columnWidth":50,"blockComponentMargin":{"type":"px"},"blockSectionHtmlTag":"div"} -->
-                                <div id="section-news-col-right"
-                                    class="wp-block-gutentor-single-column gutentor-single-column grid-lg-6 grid-md-12 grid-12">
-
-                                    <!-- Column Header -->
-                                    <div class="news-col-header col-meetings">
-                                        <span class="col-header-emoji">🤝</span>
-                                        ประชุม / พิธีการ
-                                    </div>
-
-                                    <!-- wp:gutentor/p1 {"gID":"g-news-col2","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"ประชุม","value":4},{"label":"พิธีการ","value":6}],"pPostNum":5,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
-
-                                </div>
-                                <!-- /wp:gutentor/single-column -->
-
+                    <!-- CARD LEFT: กิจกรรม -->
+                    <div class="bento-card news-reveal news-reveal-d2">
+                        <div class="bento-card-glow glow-green"></div>
+                        <div class="bento-card-inner">
+                            <span class="bento-cat-pill cat-green">🌱 กิจกรรม</span>
+                            <div class="bento-col-header header-green">
+                                <span class="bento-col-icon">🌾</span>
+                                กิจกรรมส่งเสริมการเกษตร
                             </div>
+
+                            <!-- wp:gutentor/p1 {"gID":"g-news-col1","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"กิจกรรมส่งเสริมการเกษตร","value":5}],"pPostNum":5,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
                         </div>
-                    </section>
-                    <!-- /wp:gutentor/advanced-columns -->
+                    </div>
+
+                    <!-- CARD RIGHT: ประชุม -->
+                    <div class="bento-card news-reveal news-reveal-d3">
+                        <div class="bento-card-glow glow-orange"></div>
+                        <div class="bento-card-inner">
+                            <span class="bento-cat-pill cat-orange">📋 ประชุม</span>
+                            <div class="bento-col-header header-orange">
+                                <span class="bento-col-icon">🤝</span>
+                                ประชุม / พิธีการ
+                            </div>
+
+                            <!-- wp:gutentor/p1 {"gID":"g-news-col2","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"ประชุม","value":4},{"label":"พิธีการ","value":6}],"pPostNum":5,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
+                        </div>
+                    </div>
 
                 </div>
-                <!-- ============================================ -->
-
             </div>
+
+            <!-- ====== TAB: ACTIVITIES ONLY ====== -->
+            <div class="news-tab-content tab-content-activities">
+                <div class="bento-card news-reveal">
+                    <div class="bento-card-glow glow-green"></div>
+                    <div class="bento-card-inner">
+                        <span class="bento-cat-pill cat-green">🌱 กิจกรรม</span>
+                        <div class="bento-col-header header-green">
+                            <span class="bento-col-icon">🌾</span>
+                            กิจกรรมส่งเสริมการเกษตร
+                        </div>
+
+                        <!-- wp:gutentor/p1 {"gID":"g-news-act-only","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"กิจกรรมส่งเสริมการเกษตร","value":5}],"pPostNum":10,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== TAB: MEETINGS ONLY ====== -->
+            <div class="news-tab-content tab-content-meetings">
+                <div class="bento-card news-reveal">
+                    <div class="bento-card-glow glow-orange"></div>
+                    <div class="bento-card-inner">
+                        <span class="bento-cat-pill cat-orange">📋 ประชุม</span>
+                        <div class="bento-col-header header-orange">
+                            <span class="bento-col-icon">🤝</span>
+                            ประชุม / พิธีการ
+                        </div>
+
+                        <!-- wp:gutentor/p1 {"gID":"g-news-meet-only","pName":"gutentor/p1","pTaxType":"category","pTaxTerm":[{"label":"ประชุม","value":4},{"label":"พิธีการ","value":6}],"pPostNum":10,"blockSortableItems":[{"on":true,"itemValue":"title","itemLabel":"Title"},{"on":true,"itemValue":"primary-entry-meta","itemLabel":"Primary Entry Meta"},{"on":false,"itemValue":"description","itemLabel":"Description/Excerpt"},{"on":false,"itemValue":"button","itemLabel":"Button"},{"on":false,"itemValue":"secondary-entry-meta","itemLabel":"Secondary Entry Meta"}],"p1Temp":"gutentor_p1_template2","gStyle":"gutentor-blog-list","pContentMargin":{"dTop":"8"},"pTitleTypography":{"desktopFontSize":"14px","fontType":"google","googleFont":"Kanit","fontWeight":"500"},"pFImgSize":"medium","pImgOnLink":true,"pImgOpenNewTab":true,"pOnImgBxWidth":true,"pImgBxWidth":{"desktop":200},"pOnImgBxHeight":true,"pImgBxHeight":{"desktop":150},"pImgBorder":{"rTopN":"5","rRightN":"5","rBottomN":"5","rLeftN":"5","rTypeN":"px"},"pAvatarPos":"g-avatar-img-t-l"} /-->
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- ═══ View All Button ═══ -->
-        <div class="news-view-all news-reveal news-reveal-delay-3">
+        <div class="news-view-all news-reveal news-reveal-d3">
             <a href="https://nakhonpathom.doae.go.th/phutthamonthon/public-relations/" target="_blank">
                 ดูข่าวทั้งหมด
                 <span class="btn-icon">
@@ -1058,15 +1021,12 @@
         </div>
 
         <!-- ═══ Bottom Decoration ═══ -->
-        <div class="news-bottom-decor news-reveal news-reveal-delay-4">
+        <div class="news-bottom-decor news-reveal news-reveal-d4">
             <div class="news-decor-line"></div>
-            <div class="news-decor-icon">
-                <span class="decor-emoji">🌿</span>
-            </div>
+            <div class="news-decor-diamond"></div>
             <div class="news-decor-line"></div>
         </div>
     </div>
 </section>
 
-
-<!-- ✅ Pure CSS only - WordPress compatible -->
+<!-- ✅ Pure CSS only - No JavaScript - WordPress compatible - Light Theme -->
