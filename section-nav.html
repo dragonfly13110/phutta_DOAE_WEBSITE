@@ -1,26 +1,151 @@
-<!-- 🧭 NAVIGATION BAR - สำนักงานเกษตรอำเภอพุทธมณฑล -->
-<!-- Theme: Green, White, Orange (Agriculture) -->
+<!-- 🧭 PREMIUM NAVIGATION BAR - สำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- Theme: Green, White, Orange (Agriculture) | Glassmorphism + Particles -->
 <!-- วางไว้ใต้ Header -->
 
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-    .agri-nav * {
+    /* ═══════════════════════════════════════════════════════
+       🌿 PREMIUM AGRI-NAV RESET & BASE
+       ═══════════════════════════════════════════════════════ */
+    .agri-nav *,
+    .agri-nav *::before,
+    .agri-nav *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Kanit', sans-serif;
     }
 
     .agri-nav {
-        background: linear-gradient(135deg, #1b5e20, #2e7d32);
-        padding: 0;
+        font-family: 'Kanit', sans-serif;
         position: sticky;
         top: 0;
         z-index: 1000;
-        box-shadow: 0 4px 20px rgba(27, 94, 32, 0.3);
-        /* ดึงขึ้นเพื่อปิดช่องว่างสีขาว */
         margin-top: -30px;
+        /* ปิดช่องว่างสีขาว */
     }
 
+    /* ═══════════════════════════════════════════════════════
+       🎨 ANIMATED GRADIENT BACKGROUND
+       ═══════════════════════════════════════════════════════ */
+    .nav-bg-wrap {
+        background: linear-gradient(135deg, #0d3b0d 0%, #1b5e20 25%, #2e7d32 50%, #1b5e20 75%, #0d3b0d 100%);
+        background-size: 300% 300%;
+        animation: navGradientShift 8s ease infinite;
+        position: relative !important;
+        overflow: visible !important;
+        z-index: 999999 !important;
+        box-shadow:
+            0 4px 30px rgba(27, 94, 32, 0.4),
+            0 1px 0 rgba(255, 255, 255, 0.05) inset,
+            0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+    }
+
+    @keyframes navGradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ✨ FLOATING PARTICLE LAYER (CSS-only)
+       ═══════════════════════════════════════════════════════ */
+    .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .nav-particles .p {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0;
+        animation: particleFloat linear infinite;
+    }
+
+    .nav-particles .p:nth-child(1) {
+        width: 4px; height: 4px;
+        background: rgba(255, 200, 50, 0.5);
+        left: 10%; bottom: -10px;
+        animation-duration: 6s; animation-delay: 0s;
+    }
+    .nav-particles .p:nth-child(2) {
+        width: 3px; height: 3px;
+        background: rgba(255, 255, 255, 0.4);
+        left: 25%; bottom: -10px;
+        animation-duration: 8s; animation-delay: 1s;
+    }
+    .nav-particles .p:nth-child(3) {
+        width: 5px; height: 5px;
+        background: rgba(129, 199, 132, 0.5);
+        left: 45%; bottom: -10px;
+        animation-duration: 7s; animation-delay: 2s;
+    }
+    .nav-particles .p:nth-child(4) {
+        width: 3px; height: 3px;
+        background: rgba(255, 183, 77, 0.5);
+        left: 60%; bottom: -10px;
+        animation-duration: 9s; animation-delay: 0.5s;
+    }
+    .nav-particles .p:nth-child(5) {
+        width: 4px; height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        left: 75%; bottom: -10px;
+        animation-duration: 6.5s; animation-delay: 3s;
+    }
+    .nav-particles .p:nth-child(6) {
+        width: 6px; height: 6px;
+        background: rgba(76, 175, 80, 0.4);
+        left: 88%; bottom: -10px;
+        animation-duration: 10s; animation-delay: 1.5s;
+    }
+    .nav-particles .p:nth-child(7) {
+        width: 3px; height: 3px;
+        background: rgba(255, 235, 59, 0.4);
+        left: 35%; bottom: -10px;
+        animation-duration: 7.5s; animation-delay: 4s;
+    }
+    .nav-particles .p:nth-child(8) {
+        width: 4px; height: 4px;
+        background: rgba(255, 255, 255, 0.25);
+        left: 55%; bottom: -10px;
+        animation-duration: 8.5s; animation-delay: 2.5s;
+    }
+
+    @keyframes particleFloat {
+        0% { transform: translateY(0) scale(0); opacity: 0; }
+        10% { opacity: 1; transform: translateY(-10px) scale(1); }
+        90% { opacity: 0.6; }
+        100% { transform: translateY(-80px) scale(0.3); opacity: 0; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       🔲 GLASSMORPHISM BOTTOM BORDER
+       ═══════════════════════════════════════════════════════ */
+    .nav-glass-border {
+        height: 2px;
+        background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 183, 77, 0.6) 20%,
+            rgba(255, 152, 0, 0.9) 50%,
+            rgba(255, 183, 77, 0.6) 80%,
+            transparent 100%
+        );
+        animation: borderGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes borderGlow {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       📦 CONTAINER
+       ═══════════════════════════════════════════════════════ */
     .nav-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -30,151 +155,335 @@
         position: relative;
     }
 
-    /* Desktop Navigation */
+    /* ═══════════════════════════════════════════════════════
+       📋 DESKTOP NAVIGATION MENU
+       ═══════════════════════════════════════════════════════ */
     .nav-menu {
         display: flex;
         list-style: none;
-        gap: 5px;
+        gap: 2px;
     }
 
     .nav-item {
-        position: relative;
+        position: relative !important;
+        z-index: 999999 !important;
     }
 
+    /* ═══════════════════════════════════════════════════════
+       🔗 NAV LINKS — Glassmorphism Hover
+       ═══════════════════════════════════════════════════════ */
     .nav-link {
         display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 18px 24px;
-        color: white;
+        gap: 10px;
+        padding: 18px 22px;
+        color: rgba(255, 255, 255, 0.92);
         text-decoration: none;
         font-size: 15px;
         font-weight: 500;
-        transition: all 0.3s ease;
+        letter-spacing: 0.3px;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         position: relative;
         overflow: hidden;
+        border-radius: 0;
     }
 
+    /* Hover glow background */
     .nav-link::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15), transparent 70%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .nav-link:hover::before {
+        opacity: 1;
+    }
+
+    /* Animated underline */
+    .nav-link::after {
         content: '';
         position: absolute;
         bottom: 0;
         left: 50%;
         width: 0;
         height: 3px;
-        background: linear-gradient(90deg, #f57c00, #ff9800);
-        transition: all 0.3s ease;
+        background: linear-gradient(90deg, #ff9800, #ffb74d, #ff9800);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         transform: translateX(-50%);
+        border-radius: 3px 3px 0 0;
+        box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+    }
+
+    .nav-link:hover::after {
+        width: 70%;
     }
 
     .nav-link:hover {
-        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
 
-    .nav-link:hover::before {
-        width: 80%;
-    }
-
+    /* Active state */
     .nav-link.active {
-        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
     }
 
-    .nav-link.active::before {
-        width: 80%;
+    .nav-link.active::after {
+        width: 70%;
+        background: linear-gradient(90deg, #ff6f00, #ff9800, #ffb74d);
+        box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
     }
 
-    .nav-link svg {
-        width: 20px;
-        height: 20px;
+    /* Icon styling */
+    .nav-link .nav-icon {
+        width: 22px;
+        height: 22px;
         fill: currentColor;
-        opacity: 0.9;
+        opacity: 0.85;
+        transition: all 0.4s ease;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
     }
 
-    /* Dropdown Menu */
-    .has-dropdown>.nav-link::after {
-        content: '';
+    .nav-link:hover .nav-icon {
+        opacity: 1;
+        transform: translateY(-2px) scale(1.1);
+        filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       🔽 DROPDOWN ARROW
+       ═══════════════════════════════════════════════════════ */
+    .has-dropdown > .nav-link .dropdown-arrow {
         width: 0;
         height: 0;
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
-        border-top: 5px solid white;
-        margin-left: 5px;
-        transition: transform 0.3s;
+        border-top: 5px solid rgba(255, 255, 255, 0.7);
+        margin-left: 4px;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    .has-dropdown:hover>.nav-link::after {
+    .has-dropdown:hover > .nav-link .dropdown-arrow {
         transform: rotate(180deg);
+        border-top-color: #ffb74d;
     }
 
-    .dropdown-menu {
+    /* Override the ::after for dropdown parents */
+    .has-dropdown > .nav-link::after {
+        content: '';
         position: absolute;
-        top: 100%;
-        left: 0;
-        min-width: 220px;
-        background: white;
-        border-radius: 0 0 12px 12px;
-        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.2);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-        list-style: none;
-        overflow: hidden;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #ff9800, #ffb74d, #ff9800);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: translateX(-50%);
+        border-radius: 3px 3px 0 0;
+        box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
     }
 
-    .has-dropdown:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+    .has-dropdown:hover > .nav-link::after {
+        width: 70%;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       📂 DROPDOWN MENU — Glassmorphism Card
+       ═══════════════════════════════════════════════════════ */
+    .dropdown-menu {
+        position: absolute !important;
+        top: calc(100% + 2px) !important;
+        left: 50% !important;
+        transform: translateX(-50%) translateY(10px) !important;
+        min-width: 260px !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-radius: 16px !important;
+        box-shadow:
+            0 20px 60px rgba(27, 94, 32, 0.2),
+            0 0 0 1px rgba(255, 255, 255, 0.2),
+            0 1px 3px rgba(0, 0, 0, 0.08) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        list-style: none !important;
+        overflow: hidden !important;
+        padding: 8px 0 !important;
+        z-index: 9999999 !important;
+        display: block !important;
+    }
+
+    .has-dropdown:hover .dropdown-menu,
+    .has-dropdown:focus-within .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateX(-50%) translateY(0) !important;
+    }
+
+    /* Dropdown top accent */
+    .dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #2e7d32, #66bb6a, #ff9800, #66bb6a, #2e7d32);
+        border-radius: 16px 16px 0 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       📌 DROPDOWN ITEMS
+       ═══════════════════════════════════════════════════════ */
+    .dropdown-item {
+        position: relative;
     }
 
     .dropdown-item a {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 14px 20px;
+        gap: 12px;
+        padding: 14px 22px;
         color: #2e7d32;
         text-decoration: none;
         font-size: 14px;
-        transition: all 0.3s ease;
+        font-weight: 400;
+        transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
         border-left: 3px solid transparent;
+        margin: 2px 8px;
+        border-radius: 10px;
+    }
+
+    .dropdown-item a::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(46, 125, 50, 0.08), rgba(255, 152, 0, 0.05));
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
     .dropdown-item a:hover {
-        background: #f1f8e9;
-        border-left-color: #f57c00;
         color: #1b5e20;
-        padding-left: 25px;
+        padding-left: 28px;
+        border-left-color: #ff9800;
+        background: transparent;
     }
 
-    .dropdown-item a svg {
-        width: 18px;
-        height: 18px;
+    .dropdown-item a:hover::before {
+        opacity: 1;
+    }
+
+    .dropdown-item a .dd-icon {
+        width: 20px;
+        height: 20px;
         fill: #43a047;
+        transition: all 0.35s ease;
+        flex-shrink: 0;
     }
 
-    .dropdown-item a:hover svg {
-        fill: #f57c00;
+    .dropdown-item a:hover .dd-icon {
+        fill: #ff9800;
+        transform: scale(1.15) rotate(-5deg);
+        filter: drop-shadow(0 2px 4px rgba(255, 152, 0, 0.3));
     }
 
-    /* CTA Button */
+    /* Stagger animation for dropdown items */
+    .dropdown-item:nth-child(1) { animation-delay: 0s; }
+    .dropdown-item:nth-child(2) { animation-delay: 0.05s; }
+    .dropdown-item:nth-child(3) { animation-delay: 0.1s; }
+    .dropdown-item:nth-child(4) { animation-delay: 0.15s; }
+    .dropdown-item:nth-child(5) { animation-delay: 0.2s; }
+
+    .has-dropdown:hover .dropdown-item {
+        animation: dropdownSlideIn 0.35s ease forwards;
+    }
+
+    @keyframes dropdownSlideIn {
+        from { opacity: 0; transform: translateX(-8px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       🌟 CTA BUTTON — Pulsing Glow
+       ═══════════════════════════════════════════════════════ */
     .nav-cta {
-        background: linear-gradient(135deg, #f57c00, #ff9800) !important;
-        border-radius: 25px;
-        margin-left: 10px;
-        box-shadow: 0 4px 15px rgba(245, 124, 0, 0.3);
-    }
-
-    .nav-cta:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(245, 124, 0, 0.4);
+        background: linear-gradient(135deg, #e65100, #f57c00, #ff9800) !important;
+        border-radius: 50px !important;
+        margin-left: 12px;
+        padding: 14px 26px !important;
+        box-shadow:
+            0 4px 20px rgba(245, 124, 0, 0.4),
+            0 0 0 0 rgba(245, 124, 0, 0.3);
+        animation: ctaPulse 2.5s infinite;
+        position: relative;
+        overflow: visible !important;
     }
 
     .nav-cta::before {
-        display: none;
+        display: none !important;
     }
 
-    /* Mobile Menu Toggle */
+    .nav-cta::after {
+        display: none !important;
+    }
+
+    /* Shimmer effect */
+    .nav-cta .cta-shimmer {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100%;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent
+        );
+        animation: shimmerSlide 3s ease-in-out infinite;
+        pointer-events: none;
+        border-radius: 50px;
+    }
+
+    @keyframes shimmerSlide {
+        0% { left: -100%; }
+        50% { left: 130%; }
+        100% { left: 130%; }
+    }
+
+    @keyframes ctaPulse {
+        0% { box-shadow: 0 4px 20px rgba(245, 124, 0, 0.4), 0 0 0 0 rgba(245, 124, 0, 0.3); }
+        50% { box-shadow: 0 6px 25px rgba(245, 124, 0, 0.5), 0 0 0 8px rgba(245, 124, 0, 0); }
+        100% { box-shadow: 0 4px 20px rgba(245, 124, 0, 0.4), 0 0 0 0 rgba(245, 124, 0, 0); }
+    }
+
+    .nav-cta:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 8px 30px rgba(245, 124, 0, 0.5) !important;
+        animation: none;
+    }
+
+    .nav-cta .nav-icon {
+        animation: starSpin 4s ease-in-out infinite;
+    }
+
+    @keyframes starSpin {
+        0%, 100% { transform: rotate(0deg) scale(1); }
+        25% { transform: rotate(15deg) scale(1.2); }
+        50% { transform: rotate(0deg) scale(1); }
+        75% { transform: rotate(-15deg) scale(1.2); }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       📱 MOBILE TOGGLE BUTTON
+       ═══════════════════════════════════════════════════════ */
     .mobile-toggle {
         display: none;
         flex-direction: column;
@@ -186,126 +495,17 @@
     }
 
     .mobile-toggle span {
-        width: 25px;
+        width: 26px;
         height: 3px;
         background: white;
-        border-radius: 2px;
-        transition: all 0.3s;
+        border-radius: 3px;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
 
-    /* Mobile Styles */
-    @media (max-width: 900px) {
-        .nav-container {
-            justify-content: space-between;
-        }
-
-        .mobile-toggle {
-            display: flex;
-        }
-
-        .nav-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 280px;
-            height: 100vh;
-            background: linear-gradient(180deg, #1b5e20, #2e7d32);
-            flex-direction: column;
-            gap: 0;
-            padding-top: 70px;
-            transition: right 0.3s ease;
-            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
-            padding-bottom: 20px;
-            overflow-y: auto;
-        }
-
-        /* Checkbox Hack for Mobile Menu */
-        #nav-toggle:checked~.nav-menu {
-            right: 0;
-        }
-
-        /* Hamburger Animation */
-        #nav-toggle:checked~.mobile-toggle span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 6px);
-        }
-
-        #nav-toggle:checked~.mobile-toggle span:nth-child(2) {
-            opacity: 0;
-        }
-
-        #nav-toggle:checked~.mobile-toggle span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -6px);
-        }
-
-        .nav-link {
-            padding: 15px 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            width: 100%;
-        }
-
-        .dropdown-menu {
-            position: static;
-            background: rgba(0, 0, 0, 0.1);
-            box-shadow: none;
-            border-radius: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        /* Dropdown interaction on mobile (Tap to open) */
-        .has-dropdown:focus-within .dropdown-menu,
-        .has-dropdown:hover .dropdown-menu {
-            max-height: 500px;
-            opacity: 1;
-            visibility: visible;
-            transform: none;
-        }
-
-        .dropdown-item a {
-            color: rgba(255, 255, 255, 0.9);
-            padding-left: 40px;
-        }
-
-        .dropdown-item a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-
-        .dropdown-item a svg {
-            fill: rgba(255, 255, 255, 0.7);
-        }
-
-        .nav-cta {
-            margin: 20px;
-            text-align: center;
-            justify-content: center;
-        }
-
-        /* Close button */
-        .mobile-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-close svg {
-            width: 20px;
-            height: 20px;
-            fill: white;
-        }
-    }
-
-    /* Logo for mobile */
+    /* ═══════════════════════════════════════════════════════
+       🏷️ NAV LOGO (Mobile only)
+       ═══════════════════════════════════════════════════════ */
     .nav-logo {
         display: none;
         align-items: center;
@@ -314,220 +514,493 @@
         color: white;
         font-weight: 600;
         font-size: 16px;
+        text-decoration: none;
     }
 
     .nav-logo svg {
         width: 32px;
         height: 32px;
         fill: white;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
 
-    @media (max-width: 900px) {
+    /* ═══════════════════════════════════════════════════════
+       📱 MOBILE RESPONSIVE STYLES
+       ═══════════════════════════════════════════════════════ */
+    @media (max-width: 960px) {
+        .nav-container {
+            justify-content: space-between;
+        }
+
+        .mobile-toggle {
+            display: flex;
+        }
+
         .nav-logo {
             display: flex;
         }
+
+        /* Hide particles on mobile */
+        .nav-particles {
+            display: none;
+        }
+
+        /* ── Mobile Slide-In Menu ── */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            height: 100vh;
+            height: 100dvh;
+            background: linear-gradient(180deg, #0d3b0d 0%, #1b5e20 30%, #2e7d32 100%);
+            flex-direction: column;
+            gap: 0;
+            padding-top: 80px;
+            padding-bottom: 30px;
+            transition: right 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu open state */
+        #nav-toggle:checked ~ .nav-menu {
+            right: 0;
+        }
+
+        /* Backdrop overlay */
+        #nav-toggle:checked ~ .nav-backdrop {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hamburger → X animation */
+        #nav-toggle:checked ~ .mobile-toggle span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+            background: #ffb74d;
+        }
+        #nav-toggle:checked ~ .mobile-toggle span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        #nav-toggle:checked ~ .mobile-toggle span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+            background: #ffb74d;
+        }
+
+        /* Mobile nav links */
+        .nav-link {
+            padding: 16px 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            width: 100%;
+            border-radius: 0;
+            font-size: 15px;
+        }
+
+        .nav-link::after {
+            display: none;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.08);
+            padding-left: 34px;
+        }
+
+        .nav-link .nav-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Mobile dropdown */
+        .dropdown-menu {
+            position: static;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: none;
+            box-shadow: none;
+            border-radius: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 0;
+            transform: none;
+            min-width: unset;
+        }
+
+        .dropdown-menu::before {
+            display: none;
+        }
+
+        .has-dropdown:focus-within .dropdown-menu,
+        .has-dropdown:hover .dropdown-menu {
+            max-height: 600px;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+        }
+
+        .dropdown-item a {
+            color: rgba(255, 255, 255, 0.85);
+            padding: 13px 28px 13px 48px;
+            font-size: 14px;
+            margin: 0;
+            border-radius: 0;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-item a::before {
+            display: none;
+        }
+
+        .dropdown-item a:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            padding-left: 54px;
+            border-left-color: #ff9800;
+        }
+
+        .dropdown-item a .dd-icon {
+            fill: rgba(255, 255, 255, 0.6);
+            width: 18px;
+            height: 18px;
+        }
+
+        .dropdown-item a:hover .dd-icon {
+            fill: #ffb74d;
+        }
+
+        /* Mobile CTA */
+        .nav-cta {
+            margin: 20px 24px !important;
+            text-align: center;
+            justify-content: center;
+            border-radius: 14px !important;
+            animation: none;
+        }
+
+        /* Mobile close button */
+        .mobile-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-close:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .mobile-close svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        /* Dropdown arrow on mobile */
+        .has-dropdown > .nav-link .dropdown-arrow {
+            margin-left: auto;
+        }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       🌿 BACKDROP OVERLAY (Mobile)
+       ═══════════════════════════════════════════════════════ */
+    .nav-backdrop {
+        display: none;
+    }
+
+    @media (max-width: 960px) {
+        .nav-backdrop {
+            display: block;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: -1;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ✨ TOOLTIP BADGE for CTA (fun touch)
+       ═══════════════════════════════════════════════════════ */
+    .nav-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 12px;
+        height: 12px;
+        background: #ff1744;
+        border-radius: 50%;
+        border: 2px solid #1b5e20;
+        animation: badgePing 2s infinite;
+    }
+
+    @keyframes badgePing {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.3); opacity: 0.7; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       🎭 SMOOTH SCROLL SHADOW on sticky
+       ═══════════════════════════════════════════════════════ */
+    .agri-nav.scrolled .nav-bg-wrap {
+        box-shadow:
+            0 8px 40px rgba(0, 0, 0, 0.25),
+            0 2px 10px rgba(27, 94, 32, 0.3);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ♿ ACCESSIBILITY — Focus Ring
+       ═══════════════════════════════════════════════════════ */
+    .nav-link:focus-visible,
+    .dropdown-item a:focus-visible {
+        outline: 2px solid #ffb74d;
+        outline-offset: -2px;
     }
 </style>
 
-<nav class="agri-nav">
-    <div class="nav-container">
-        <!-- Pure CSS Toggle Checkbox (Hidden) -->
-        <input type="checkbox" id="nav-toggle" style="display: none;">
+<nav class="agri-nav" id="agriNav">
+    <div class="nav-bg-wrap">
+        <div class="nav-container">
 
-        <!-- Logo (Mobile) -->
-        <div class="nav-logo">
-            <svg viewBox="0 0 24 24">
-                <path
-                    d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z" />
-            </svg>
-            เกษตรพุทธมณฑล
+            <!-- Pure CSS Toggle Checkbox (Hidden) -->
+            <input type="checkbox" id="nav-toggle" style="display:none;">
+
+            <!-- Logo (Mobile) -->
+            <div class="nav-logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z" />
+                </svg>
+                เกษตรพุทธมณฑล
+            </div>
+
+            <!-- Backdrop for mobile -->
+            <label for="nav-toggle" class="nav-backdrop"></label>
+
+            <!-- ══════════ NAVIGATION MENU ══════════ -->
+            <ul class="nav-menu" id="navMenu">
+
+                <!-- 🏠 หน้าแรก -->
+                <li class="nav-item">
+                    <a href="https://nakhonpathom.doae.go.th/phutthamonthon/" class="nav-link active">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                        </svg>
+                        หน้าแรก
+                    </a>
+                </li>
+
+                <!-- ℹ️ เกี่ยวกับเรา -->
+                <li class="nav-item has-dropdown" onclick="void(0)">
+                    <a href="#" class="nav-link">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                        </svg>
+                        เกี่ยวกับเรา
+                        <span class="dropdown-arrow"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/vision/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z" />
+                                </svg>
+                                วิสัยทัศน์ & พันธกิจ
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/staff/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3z" />
+                                </svg>
+                                บุคลากร
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/structure/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
+                                </svg>
+                                โครงสร้างองค์กร
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 📊 ข้อมูลพื้นฐาน -->
+                <li class="nav-item has-dropdown" onclick="void(0)">
+                    <a href="#" class="nav-link">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
+                        </svg>
+                        ข้อมูลพื้นฐาน
+                        <span class="dropdown-arrow"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-information/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                </svg>
+                                ข้อมูลเกษตรกร
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/land-use-data/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" />
+                                </svg>
+                                ข้อมูลพื้นที่การใช้ประโยชน์
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/soil-information/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M21 16H3V4c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v12zm0 2c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-1h18v1zm-2-8h-6v4h6v-4zm-8 4H5v-4h6v4z" />
+                                </svg>
+                                ข้อมูลดิน
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/water-sources/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M12 22c4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9C7.03 4 3 8.03 3 13c0 4.97 4.03 9 9 9zm0-16c3.87 0 7 3.13 7 7s-3.13 7-7 7-7-3.13-7-7 3.13-7 7-7z" />
+                                </svg>
+                                ข้อมูลแหล่งน้ำ
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-groups/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zM8 13c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                                </svg>
+                                ข้อมูลกลุ่มเกษตรกร
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 📰 ข่าวสาร -->
+                <li class="nav-item has-dropdown" onclick="void(0)">
+                    <a href="#" class="nav-link">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                        </svg>
+                        ข่าวสาร
+                        <span class="dropdown-arrow"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/public-relations/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                                </svg>
+                                ข่าวประชาสัมพันธ์
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/activities/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z" />
+                                </svg>
+                                กิจกรรม
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 📚 องค์ความรู้ -->
+                <li class="nav-item has-dropdown" onclick="void(0)">
+                    <a href="#" class="nav-link">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72l5 2.73 5-2.73v3.72z" />
+                        </svg>
+                        องค์ความรู้
+                        <span class="dropdown-arrow"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/infographic/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8 13.5l2.5 3.01L14.5 12l4.5 6H5l3-4.5z" />
+                                </svg>
+                                Infographic
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="https://nakhonpathom.doae.go.th/phutthamonthon/agri-knowledge-hub/">
+                                <svg class="dd-icon" viewBox="0 0 24 24">
+                                    <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" />
+                                </svg>
+                                ศูนย์รวมความรู้เกษตร
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- ⭐ ของดีพุทธมณฑล (CTA) -->
+                <li class="nav-item" style="position:relative;">
+                    <a href="https://nakhonpathom.doae.go.th/phutthamonthon/phutthamonthon-famous/"
+                        class="nav-link nav-cta">
+                        <span class="cta-shimmer"></span>
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                        </svg>
+                        ของดีพุทธมณฑล
+                        <span class="nav-badge"></span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Mobile Toggle (Label for Checkbox) -->
+            <label for="nav-toggle" class="mobile-toggle" aria-label="เปิดเมนู">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
         </div>
 
-        <!-- Navigation Menu -->
-        <ul class="nav-menu" id="navMenu">
-            <li class="nav-item">
-                <a href="https://nakhonpathom.doae.go.th/phutthamonthon/" class="nav-link active">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                    </svg>
-                    หน้าแรก
-                </a>
-            </li>
-
-            <!-- เพิ่ม onclick="void(0)" เพื่อรองรับ iOS Touch -->
-            <li class="nav-item has-dropdown" onclick="void(0)">
-                <a href="#" class="nav-link">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-                    </svg>
-                    เกี่ยวกับเรา
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/vision/">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z" />
-                            </svg>
-                            วิสัยทัศน์ & พันธกิจ
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/staff/">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3z" />
-                            </svg>
-                            บุคลากร
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/structure/">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
-                            </svg>
-                            โครงสร้างองค์กร
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <!-- ข้อมูลพื้นฐาน Dropdown -->
-            <li class="nav-item has-dropdown" onclick="void(0)">
-                <a href="#" class="nav-link">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
-                    </svg>
-                    ข้อมูลพื้นฐาน
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-information/">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                            </svg>
-                            ข้อมูลเกษตรกร
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/land-use-data/">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" />
-                            </svg>
-                            ข้อมูลพื้นที่การใช้ประโยชน์
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/soil-information/">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M21 16H3V4c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v12zm0 2c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-1h18v1zm-2-8h-6v4h6v-4zm-8 4H5v-4h6v4z" />
-                            </svg>
-                            ข้อมูลดิน
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/water-sources/">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 22c4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9C7.03 4 3 8.03 3 13c0 4.97 4.03 9 9 9zm0-16c3.87 0 7 3.13 7 7s-3.13 7-7 7-7-3.13-7-7 3.13-7 7-7zm-4.75 7.75l2.12 2.12c.39-1.56 1.66-1.56 2.05-1.56l2.13-2.12c-2.34-2.34-6.3-2.34-6.3 0z" />
-                            </svg>
-                            ข้อมูลแหล่งน้ำ
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-groups/">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zM8 13c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-                            </svg>
-                            ข้อมูลกลุ่มเกษตรกร
-                        </a>
-                    </li>
-                </ul>
-
-            <li class="nav-item has-dropdown" onclick="void(0)">
-                <a href="#" class="nav-link">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
-                    </svg>
-                    ข่าวสาร
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/public-relations/">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
-                            </svg>
-                            ข่าวประชาสัมพันธ์
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/activities/">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z" />
-                            </svg>
-                            กิจกรรม
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
-
-            <li class="nav-item has-dropdown" onclick="void(0)">
-                <a href="#" class="nav-link">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72l5 2.73 5-2.73v3.72z" />
-                    </svg>
-                    องค์ความรู้
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/infographic/">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8 13.5l2.5 3.01L14.5 12l4.5 6H5l3-4.5z" />
-                            </svg>
-                            Infographic
-                        </a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="https://nakhonpathom.doae.go.th/phutthamonthon/agri-knowledge-hub/">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" />
-                            </svg>
-                            ศูนย์รวมความรู้เกษตร
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-
-            <li class="nav-item">
-                <a href="https://nakhonpathom.doae.go.th/phutthamonthon/phutthamonthon-famous/"
-                    class="nav-link nav-cta">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                    ของดีพุทธมณฑล
-                </a>
-            </li>
-        </ul>
-
-        <!-- Mobile Toggle (Label for Checkbox) -->
-        <label for="nav-toggle" class="mobile-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
+        <!-- Floating Particles -->
+        <div class="nav-particles">
+            <div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div>
+            <div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div>
+        </div>
     </div>
+    <!-- Glowing bottom border -->
+    <div class="nav-glass-border"></div>
 </nav>
+
+<!-- Minimal JS for scroll shadow effect -->
+<script>
+(function() {
+    var nav = document.getElementById('agriNav');
+    if (!nav) return;
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                if (window.scrollY > 10) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();
+</script>
