@@ -1,0 +1,636 @@
+<!-- BASIC INFORMATION / ข้อมูลพื้นฐานสำนักงานเกษตรอำเภอพุทธมณฑล -->
+<!-- Premium compact cards | CSS only | WordPress compatible -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    /* =========================================================
+       BASIC INFORMATION CARD SYSTEM
+       ========================================================= */
+    .basic-info-wrapper {
+        --bi-ink: #17372a;
+        --bi-forest: #1f6541;
+        --bi-forest-deep: #12452d;
+        --bi-sage: #6f9070;
+        --bi-paper: #f5f7f0;
+        --bi-paper-deep: #e9f0e5;
+        --bi-line: rgba(31, 101, 65, .14);
+        --bi-amber: #c87835;
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        margin: 0;
+        padding: clamp(66px, 8vw, 112px) 22px clamp(70px, 9vw, 126px);
+        color: var(--bi-ink);
+        font-family: 'Kanit', sans-serif;
+        background:
+            radial-gradient(circle at 4% 80%, rgba(184, 210, 173, .34), transparent 25%),
+            radial-gradient(circle at 96% 12%, rgba(238, 211, 172, .25), transparent 24%),
+            linear-gradient(145deg, #f8faf5 0%, #edf4e9 50%, #f6f5ed 100%);
+    }
+
+    .basic-info-wrapper *,
+    .basic-info-wrapper *::before,
+    .basic-info-wrapper *::after {
+        box-sizing: border-box;
+    }
+
+    .basic-info-wrapper a {
+        color: inherit;
+    }
+
+    .basic-info-wrapper h2,
+    .basic-info-wrapper h3,
+    .basic-info-wrapper p {
+        margin: 0;
+    }
+
+    .basic-info-wrapper::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        opacity: .42;
+        background-image:
+            linear-gradient(rgba(31, 101, 65, .045) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(31, 101, 65, .045) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 80%, transparent 100%);
+    }
+
+    .basic-info-wrapper::after {
+        content: '';
+        position: absolute;
+        width: min(42vw, 580px);
+        height: min(42vw, 580px);
+        left: -280px;
+        top: 18%;
+        z-index: -1;
+        pointer-events: none;
+        border: 1px solid rgba(31, 101, 65, .08);
+        border-radius: 50%;
+        box-shadow: 0 0 0 34px rgba(31, 101, 65, .022), 0 0 0 68px rgba(31, 101, 65, .016);
+        animation: basic-info-orbit 16s ease-in-out infinite;
+    }
+
+    @keyframes basic-info-orbit {
+        0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: .64; }
+        50% { transform: translate3d(18px, -14px, 0) rotate(-7deg); opacity: 1; }
+    }
+
+    .basic-info-container {
+        width: min(100%, 1380px);
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .basic-info-layout {
+        display: grid;
+        grid-template-columns: minmax(250px, .68fr) minmax(0, 1.32fr);
+        align-items: stretch;
+        gap: clamp(20px, 3vw, 34px);
+    }
+
+    /* =========================================================
+       INTRO PANEL
+       ========================================================= */
+    .basic-info-intro {
+        position: relative;
+        display: flex;
+        min-height: 100%;
+        overflow: hidden;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(28px, 4vw, 46px);
+        border: 1px solid rgba(31, 101, 65, .20);
+        border-radius: 28px;
+        color: #f5f8ef;
+        background:
+            radial-gradient(circle at 100% 0%, rgba(200, 120, 53, .24), transparent 32%),
+            linear-gradient(145deg, #174d33 0%, #1f6541 58%, #2d7650 100%);
+        box-shadow: 0 24px 64px rgba(23, 55, 42, .18), inset 0 1px 0 rgba(255, 255, 255, .16);
+    }
+
+    .basic-info-intro::before {
+        content: '';
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        right: -92px;
+        bottom: -92px;
+        border: 1px solid rgba(255, 255, 255, .17);
+        border-radius: 50%;
+        box-shadow: 0 0 0 18px rgba(255, 255, 255, .035), 0 0 0 36px rgba(255, 255, 255, .025);
+    }
+
+    .basic-info-intro::after {
+        content: '';
+        position: absolute;
+        right: 26px;
+        bottom: 28px;
+        width: 10px;
+        height: 10px;
+        border: 1px solid rgba(241, 222, 199, .86);
+        transform: rotate(45deg);
+        background: rgba(200, 120, 53, .72);
+    }
+
+    .basic-info-intro-top,
+    .basic-info-intro-bottom {
+        position: relative;
+        z-index: 1;
+    }
+
+    .basic-info-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 25px;
+        color: #eecda9;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .17em;
+        text-transform: uppercase;
+    }
+
+    .basic-info-kicker-line {
+        width: 32px;
+        height: 1px;
+        background: currentColor;
+    }
+
+    .basic-info-intro h2 {
+        max-width: 8ch;
+        color: #fffdf7;
+        font-size: clamp(2.3rem, 4.4vw, 4.7rem);
+        font-weight: 800;
+        letter-spacing: -.065em;
+        line-height: .98;
+    }
+
+    .basic-info-intro h2 em {
+        display: block;
+        color: #d9edcf;
+        font-style: normal;
+    }
+
+    .basic-info-intro p {
+        max-width: 34ch;
+        margin-top: 23px;
+        color: rgba(245, 248, 239, .76);
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .basic-info-intro-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 52px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, .17);
+        color: rgba(245, 248, 239, .66);
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .basic-info-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 37px;
+        height: 37px;
+        border: 1px solid rgba(238, 205, 169, .45);
+        border-radius: 12px;
+        color: #f0cda7;
+    }
+
+    .basic-info-mark svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.6;
+    }
+
+    /* =========================================================
+       LINKED DATA CARDS
+       ========================================================= */
+    .basic-info-cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .basic-info-card {
+        position: relative;
+        display: flex;
+        min-height: 168px;
+        overflow: hidden;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 23px 24px 21px;
+        border: 1px solid rgba(31, 101, 65, .14);
+        border-radius: 22px;
+        color: var(--bi-ink);
+        background: rgba(255, 255, 255, .68);
+        box-shadow: 0 18px 46px rgba(23, 55, 42, .07), inset 0 1px 0 rgba(255, 255, 255, .92);
+        text-decoration: none;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        transition: transform .4s cubic-bezier(.16, 1, .3, 1), border-color .4s ease, box-shadow .4s ease, background-color .4s ease;
+    }
+
+    .basic-info-card:first-child {
+        grid-column: 1 / -1;
+        min-height: 194px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, .84), rgba(233, 242, 229, .72));
+    }
+
+    .basic-info-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        border-radius: inherit;
+        background: linear-gradient(135deg, rgba(255, 255, 255, .42), transparent 42%, rgba(200, 120, 53, .08));
+    }
+
+    .basic-info-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 32%;
+        pointer-events: none;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .32), transparent);
+        transform: translate3d(-190%, 0, 0);
+        animation: basic-info-sheen 12s ease-in-out infinite;
+    }
+
+    .basic-info-card:nth-child(2)::after { animation-delay: -3s; }
+    .basic-info-card:nth-child(3)::after { animation-delay: -5s; }
+    .basic-info-card:nth-child(4)::after { animation-delay: -7s; }
+    .basic-info-card:nth-child(5)::after { animation-delay: -9s; }
+    .basic-info-card:nth-child(6)::after { animation-delay: -11s; }
+
+    @keyframes basic-info-sheen {
+        0%, 67%, 100% { transform: translate3d(-190%, 0, 0); }
+        80% { transform: translate3d(370%, 0, 0); }
+    }
+
+    .basic-info-card:hover {
+        border-color: rgba(31, 101, 65, .28);
+        background: rgba(255, 255, 255, .84);
+        box-shadow: 0 26px 62px rgba(23, 55, 42, .13), inset 0 1px 0 rgba(255, 255, 255, .96);
+        transform: translateY(-5px);
+    }
+
+    .basic-info-card:active {
+        transform: translateY(-1px) scale(.985);
+    }
+
+    .basic-info-card-head,
+    .basic-info-card-body,
+    .basic-info-card-foot {
+        position: relative;
+        z-index: 1;
+    }
+
+    .basic-info-card-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+    }
+
+    .basic-info-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid rgba(31, 101, 65, .14);
+        border-radius: 13px;
+        color: var(--bi-forest);
+        background: rgba(222, 238, 218, .78);
+    }
+
+    .basic-info-card:nth-child(3n) .basic-info-icon {
+        color: #ad652e;
+        border-color: rgba(200, 120, 53, .20);
+        background: rgba(244, 225, 203, .75);
+    }
+
+    .basic-info-icon svg {
+        width: 21px;
+        height: 21px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.6;
+    }
+
+    .basic-info-index {
+        color: #8ca18e;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 10px;
+        letter-spacing: .15em;
+    }
+
+    .basic-info-card h3 {
+        margin-top: 18px;
+        color: var(--bi-ink);
+        font-size: clamp(17px, 1.6vw, 22px);
+        font-weight: 700;
+        letter-spacing: -.025em;
+        line-height: 1.25;
+    }
+
+    .basic-info-card p {
+        max-width: 38ch;
+        margin-top: 7px;
+        color: #6a806d;
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .basic-info-card-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 23px;
+        padding-top: 13px;
+        border-top: 1px solid rgba(31, 101, 65, .11);
+        color: var(--bi-forest);
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .basic-info-card-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 29px;
+        height: 29px;
+        border: 1px solid rgba(31, 101, 65, .16);
+        border-radius: 9px;
+        transition: transform .35s cubic-bezier(.16, 1, .3, 1), background-color .35s ease, color .35s ease;
+    }
+
+    .basic-info-card:hover .basic-info-card-arrow {
+        color: #fff;
+        background: var(--bi-forest);
+        transform: translate3d(3px, 0, 0);
+    }
+
+    .basic-info-card-arrow svg {
+        width: 15px;
+        height: 15px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+    }
+
+    /* =========================================================
+       ENTRY ANIMATION + RESPONSIVE
+       ========================================================= */
+    .basic-info-reveal {
+        animation: basic-info-in .72s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .basic-info-reveal-d1 { animation-delay: .08s; }
+    .basic-info-reveal-d2 { animation-delay: .16s; }
+
+    @keyframes basic-info-in {
+        from { opacity: 0; transform: translate3d(0, 20px, 0); }
+        to { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+
+    @media (max-width: 980px) {
+        .basic-info-layout {
+            grid-template-columns: minmax(230px, .78fr) minmax(0, 1.22fr);
+            gap: 18px;
+        }
+
+        .basic-info-intro {
+            padding: 30px 26px;
+        }
+
+        .basic-info-card {
+            min-height: 155px;
+            padding: 20px;
+        }
+
+        .basic-info-card:first-child {
+            min-height: 180px;
+        }
+    }
+
+    @media (max-width: 760px) {
+        .basic-info-wrapper {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .basic-info-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .basic-info-intro {
+            min-height: 390px;
+        }
+    }
+
+    @media (max-width: 520px) {
+        .basic-info-wrapper {
+            padding-top: 54px;
+            padding-right: 10px;
+            padding-bottom: 68px;
+            padding-left: 10px;
+        }
+
+        .basic-info-intro {
+            min-height: 360px;
+            padding: 27px 22px;
+            border-radius: 22px;
+        }
+
+        .basic-info-intro h2 {
+            font-size: clamp(2.45rem, 13vw, 4rem);
+        }
+
+        .basic-info-intro p {
+            font-size: 13px;
+        }
+
+        .basic-info-cards {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .basic-info-card,
+        .basic-info-card:first-child {
+            grid-column: auto;
+            min-height: 164px;
+            padding: 20px;
+            border-radius: 18px;
+        }
+
+        .basic-info-card h3 {
+            font-size: 18px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .basic-info-wrapper *,
+        .basic-info-wrapper *::before,
+        .basic-info-wrapper *::after {
+            animation-duration: .01ms !important;
+            animation-iteration-count: 1 !important;
+            scroll-behavior: auto !important;
+            transition-duration: .01ms !important;
+        }
+    }
+</style>
+
+<section class="basic-info-wrapper" aria-labelledby="basic-info-heading">
+    <div class="basic-info-container">
+        <div class="basic-info-layout">
+            <div class="basic-info-intro basic-info-reveal">
+                <div class="basic-info-intro-top">
+                    <div class="basic-info-kicker">
+                        <span class="basic-info-kicker-line" aria-hidden="true"></span>
+                        DATA LIBRARY
+                    </div>
+                    <h2 id="basic-info-heading">ข้อมูล<em>พื้นฐาน</em></h2>
+                    <p>รวมข้อมูลสำคัญของพื้นที่พุทธมณฑลไว้ในจุดเดียว เลือกหัวข้อที่สนใจเพื่อดูรายละเอียดฉบับเต็ม</p>
+                </div>
+                <div class="basic-info-intro-bottom">
+                    <span>เลือกหัวข้อเพื่อสำรวจข้อมูล</span>
+                    <span class="basic-info-mark" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M4 19.5V6.8a2.8 2.8 0 0 1 2.8-2.8H19v15.5H6.8A2.8 2.8 0 0 0 4 21.3"/><path d="M4 19.5a2.8 2.8 0 0 1 2.8-2.8H19"/><path d="M8 8h7M8 11h7"/></svg>
+                    </span>
+                </div>
+            </div>
+
+            <div class="basic-info-cards basic-info-reveal basic-info-reveal-d1" role="list">
+                <a class="basic-info-card" role="listitem" href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-information/">
+                    <div class="basic-info-card-head">
+                        <span class="basic-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="2.5"/><circle cx="16.5" cy="9" r="2"/><path d="M4.5 18a4.5 4.5 0 0 1 9 0"/><path d="M13.5 17.5a3.4 3.4 0 0 1 6 0"/></svg>
+                        </span>
+                        <span class="basic-info-index">01 / PROFILE</span>
+                    </div>
+                    <div class="basic-info-card-body">
+                        <h3>ข้อมูลเกษตรกร</h3>
+                        <p>ข้อมูลพื้นฐานและภาพรวมเกษตรกรในพื้นที่</p>
+                    </div>
+                    <div class="basic-info-card-foot">
+                        <span>ดูรายละเอียดข้อมูล</span>
+                        <span class="basic-info-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+                    </div>
+                </a>
+
+                <a class="basic-info-card" role="listitem" href="https://nakhonpathom.doae.go.th/phutthamonthon/land-use-data/">
+                    <div class="basic-info-card-head">
+                        <span class="basic-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 6.5 10 4l4 2.5L20 4v13.5L14 20l-4-2.5L4 20Z"/><path d="M10 4v13.5M14 6.5V20"/><path d="m7 9 1.5.8M16.5 11l1.5-.7"/></svg>
+                        </span>
+                        <span class="basic-info-index">02 / LAND</span>
+                    </div>
+                    <div class="basic-info-card-body">
+                        <h3>การใช้ประโยชน์ที่ดิน</h3>
+                        <p>ดูภาพรวมพื้นที่และการใช้ประโยชน์ที่ดิน</p>
+                    </div>
+                    <div class="basic-info-card-foot">
+                        <span>สำรวจข้อมูลพื้นที่</span>
+                        <span class="basic-info-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+                    </div>
+                </a>
+
+                <a class="basic-info-card" role="listitem" href="https://nakhonpathom.doae.go.th/phutthamonthon/soil-information/">
+                    <div class="basic-info-card-head">
+                        <span class="basic-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 20V9"/><path d="M12 12c-3.4 0-5.8-2-5.8-5.4C9.6 6.6 12 8.5 12 12Z"/><path d="M12 15c3.4 0 5.8-2 5.8-5.4C14.4 9.6 12 11.5 12 15Z"/></svg>
+                        </span>
+                        <span class="basic-info-index">03 / SOIL</span>
+                    </div>
+                    <div class="basic-info-card-body">
+                        <h3>ทรัพยากรดิน</h3>
+                        <p>ลักษณะดินและข้อมูลกลุ่มชุดดินในพื้นที่</p>
+                    </div>
+                    <div class="basic-info-card-foot">
+                        <span>เรียนรู้เรื่องดิน</span>
+                        <span class="basic-info-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+                    </div>
+                </a>
+
+                <a class="basic-info-card" role="listitem" href="https://nakhonpathom.doae.go.th/phutthamonthon/water-sources/">
+                    <div class="basic-info-card-head">
+                        <span class="basic-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3.5S6.5 10.2 6.5 14a5.5 5.5 0 0 0 11 0C17.5 10.2 12 3.5 12 3.5Z"/><path d="M9.5 14.5a2.7 2.7 0 0 0 2.7 2.7"/></svg>
+                        </span>
+                        <span class="basic-info-index">04 / WATER</span>
+                    </div>
+                    <div class="basic-info-card-body">
+                        <h3>แหล่งน้ำและชลประทาน</h3>
+                        <p>คลอง แม่น้ำ และแหล่งน้ำที่เกี่ยวข้องกับพื้นที่</p>
+                    </div>
+                    <div class="basic-info-card-foot">
+                        <span>ดูข้อมูลแหล่งน้ำ</span>
+                        <span class="basic-info-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+                    </div>
+                </a>
+
+                <a class="basic-info-card" role="listitem" href="https://nakhonpathom.doae.go.th/phutthamonthon/farmer-groups/">
+                    <div class="basic-info-card-head">
+                        <span class="basic-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="2.5"/><circle cx="16.5" cy="9" r="2"/><path d="M4.5 18a4.5 4.5 0 0 1 9 0"/><path d="M13.5 17.5a3.4 3.4 0 0 1 6 0"/><path d="M4 5.5h2"/></svg>
+                        </span>
+                        <span class="basic-info-index">05 / GROUPS</span>
+                    </div>
+                    <div class="basic-info-card-body">
+                        <h3>กลุ่มเกษตรกร</h3>
+                        <p>วิสาหกิจชุมชน กลุ่มแม่บ้าน และแปลงใหญ่</p>
+                    </div>
+                    <div class="basic-info-card-foot">
+                        <span>ดูกลุ่มและเครือข่าย</span>
+                        <span class="basic-info-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+                    </div>
+                </a>
+
+                <a class="basic-info-card" role="listitem" href="https://nakhonpathom.doae.go.th/phutthamonthon/agri-knowledge-hub/">
+                    <div class="basic-info-card-head">
+                        <span class="basic-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 19.5V6.8A2.8 2.8 0 0 1 6.8 4H19v15.5H6.8A2.8 2.8 0 0 0 4 21.3"/><path d="M4 19.5a2.8 2.8 0 0 1 2.8-2.8H19"/><path d="M8 8h7M8 11h7"/></svg>
+                        </span>
+                        <span class="basic-info-index">06 / KNOWLEDGE</span>
+                    </div>
+                    <div class="basic-info-card-body">
+                        <h3>ศูนย์รวมความรู้เกษตร</h3>
+                        <p>คู่มือ แหล่งความรู้ และเครื่องมือสำหรับเกษตรกร</p>
+                    </div>
+                    <div class="basic-info-card-foot">
+                        <span>เปิดคลังความรู้</span>
+                        <span class="basic-info-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Compact basic information cards | Internal detail links | No JavaScript -->
